@@ -1,0 +1,103 @@
+site_name: Terraform Mastery Path
+site_description: A structured, module-wise HashiCorp Terraform (Infrastructure as Code) training program from entry level to master level.
+site_url: https://sigilipelli.github.io/terraform-mastery-path/
+repo_url: https://github.com/SIGILIPELLI/terraform-mastery-path
+repo_name: terraform-mastery-path
+
+theme:
+  name: material
+  favicon: assets/favicon.svg
+  custom_dir: docs/overrides
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.expand
+    - navigation.top
+    - navigation.indexes
+    - content.code.copy
+    - content.code.annotate
+    - search.suggest
+    - search.highlight
+
+markdown_extensions:
+  - admonition
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.superfences
+  - pymdownx.snippets
+  - pymdownx.tabbed:
+      alternate_style: true
+  - toc:
+      permalink: true
+
+extra_css:
+  - stylesheets/extra.css
+
+nav:
+  - Home: index.md
+  - Privacy Policy: privacy.md
+  - "Level 1 · Entry":
+      - Overview: level-1/index.md
+      - "01 · What Is IaC & Why Terraform?": level-1/01-what-is-iac-why-terraform.md
+      - "02 · Installing Terraform & Providers": level-1/02-installing-terraform-providers.md
+      - "03 · HCL Syntax Basics": level-1/03-hcl-syntax-basics.md
+      - "04 · Providers & the Provider Registry": level-1/04-providers-registry.md
+      - "05 · Resources & Data Sources": level-1/05-resources-data-sources.md
+      - "06 · Variables & Outputs": level-1/06-variables-outputs.md
+      - "07 · State Basics": level-1/07-state-basics.md
+      - "08 · A First Real Resource": level-1/08-first-real-resource.md
+      - "09 · Plan / Apply / Destroy Workflow": level-1/09-plan-apply-destroy.md
+      - "10 · Formatting & Validation": level-1/10-fmt-validate.md
+      - "11 · Capstone — Multi-Resource Configuration": level-1/11-capstone-multi-resource.md
+  - "Level 2 · Intermediate":
+      - Overview: level-2/index.md
+      - "01 · Modules — Structure & Inputs/Outputs": level-2/01-modules-structure.md
+      - "02 · Module Versioning": level-2/02-module-versioning.md
+      - "03 · Remote State & Backends": level-2/03-remote-state-backends.md
+      - "04 · Workspaces": level-2/04-workspaces.md
+      - "05 · Provisioners (and Why to Avoid Them)": level-2/05-provisioners.md
+      - "06 · Locals & Functions": level-2/06-locals-functions.md
+      - "07 · Conditional Expressions": level-2/07-conditional-expressions.md
+      - "08 · count vs for_each": level-2/08-count-for-each.md
+      - "09 · Composing Modules": level-2/09-composing-modules.md
+      - "10 · Capstone — Reusable Module Set": level-2/10-capstone-reusable-modules.md
+  - "Level 3 · Advanced":
+      - Overview: level-3/index.md
+      - "01 · State Locking & Team Workflows": level-3/01-state-locking-team-workflows.md
+      - "02 · Moving & Importing Resources": level-3/02-moving-importing-resources.md
+      - "03 · Terraform Cloud/Enterprise Concepts": level-3/03-terraform-cloud-enterprise.md
+      - "04 · Testing IaC — Plan Review": level-3/04-testing-iac-plan-review.md
+      - "05 · Policy as Code Concepts": level-3/05-policy-as-code.md
+      - "06 · Multi-Environment Patterns": level-3/06-multi-environment-patterns.md
+      - "07 · Dependency Management & the Graph": level-3/07-dependency-graph.md
+      - "08 · Secrets Management Patterns": level-3/08-secrets-management.md
+      - "09 · Refactoring State Safely": level-3/09-refactoring-state-safely.md
+      - "10 · Capstone — Multi-Environment Platform": level-3/10-capstone-multi-environment.md
+  - "Level 4 · Master":
+      - Overview: level-4/index.md
+      - "01 · Large-Scale Module Design": level-4/01-large-scale-module-design.md
+      - "02 · CI/CD for Terraform": level-4/02-cicd-for-terraform.md
+      - "03 · Drift Detection & Remediation": level-4/03-drift-detection-remediation.md
+      - "04 · Cost Estimation Concepts": level-4/04-cost-estimation-concepts.md
+      - "05 · Security Scanning for IaC": level-4/05-security-scanning-iac.md
+      - "06 · Designing a Platform's Terraform Architecture": level-4/06-platform-architecture.md
+      - "07 · Governance at Scale": level-4/07-governance-at-scale.md
+      - "08 · Disaster Recovery for State & Infra": level-4/08-disaster-recovery.md
+      - "09 · Observability for Infrastructure Changes": level-4/09-observability-infra-changes.md
+      - "10 · Capstone Project": level-4/10-capstone-project.md
