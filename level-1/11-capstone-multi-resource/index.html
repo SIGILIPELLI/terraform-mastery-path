@@ -1066,6 +1066,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#how-it-actually-works-assembling-the-full-graph-across-files" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Actually Works: assembling the full graph across files
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#exercise" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2313,6 +2324,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#how-it-actually-works-assembling-the-full-graph-across-files" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Actually Works: assembling the full graph across files
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#exercise" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2510,6 +2532,43 @@ read (not counted as an "add") during the same plan. <code>bucket_name</code> an
 <code>bucket_arn</code> show <code>(known after apply)</code> for the same reason module 08's
 example did — they depend on <code>random_id.suffix.hex</code>, unknown until that
 resource is actually created.</p>
+<h2 id="how-it-actually-works-assembling-the-full-graph-across-files">How It Actually Works: assembling the full graph across files<a class="headerlink" href="#how-it-actually-works-assembling-the-full-graph-across-files" title="Permanent link">&para;</a></h2>
+<p>This capstone is the first lesson with multiple resources referencing each
+other, so it's the right place to see how everything from modules 01–10
+combines into one graph — reasoned through from Terraform's documented
+graph-construction algorithm, without a real cloud run behind these lessons.</p>
+<ul>
+<li><strong>File boundaries disappear before the graph is built.</strong> <code>variables.tf</code>,
+  <code>main.tf</code>, <code>outputs.tf</code>, and any <code>.tfvars</code> file are all merged into one
+  logical configuration during parsing (module 01/03) — Terraform doesn't
+  care that a variable is <em>declared</em> in <code>variables.tf</code> and <em>used</em> in
+  <code>main.tf</code>; both become nodes/edges in the same graph regardless of which
+  file they came from.</li>
+<li><strong>Every implicit reference becomes a graph edge, not just explicit ones.</strong>
+  If a resource in <code>main.tf</code> interpolates another resource's attribute
+  (e.g. a security group ID passed into an instance), Terraform Core's
+  static reference analysis (walking the HCL expression tree from module 03)
+  adds that edge automatically — you only need <code>depends_on</code> for
+  dependencies that exist at the infrastructure level but aren't visible as
+  a direct attribute reference (e.g. IAM eventual-consistency ordering).</li>
+<li><strong><code>outputs.tf</code> values are the graph's "sink" nodes.</strong> They have no
+  outgoing edges (nothing depends on an output within the same module) but
+  incoming edges from everything they reference, so they're always evaluated
+  dead last in the topological walk — after every resource they reference
+  has reached its final applied state.</li>
+<li><strong><code>dev.tfvars</code> participates in variable precedence (module 06), not in the
+  graph shape.</strong> Passing <code>-var-file=dev.tfvars</code> changes <em>values</em> flowing
+  into variable nodes; it never changes which nodes exist or how they're
+  connected — the same graph shape would be walked with different tfvars
+  files, which is exactly the property that makes one configuration reusable
+  across dev/staging/prod (a preview of module 06's environment patterns in
+  Level 2).</li>
+<li><strong>Parallel vs. sequential apply is decided purely by this graph</strong>, not by
+  resource type or file order: two resources with zero reference between
+  them (say, an independent S3 bucket and an independent IAM user) are
+  applied concurrently even though they're declared in the same <code>main.tf</code>
+  one after another.</li>
+</ul>
 <h2 id="exercise">Exercise<a class="headerlink" href="#exercise" title="Permanent link">&para;</a></h2>
 <p>Extend this capstone with a sixth argument in <code>variables.tf</code>:
 <code>force_destroy_bucket</code> (type <code>bool</code>, default <code>false</code>), wire it into

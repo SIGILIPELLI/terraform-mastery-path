@@ -825,6 +825,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#how-it-actually-works-what-terraform-init-actually-does" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Actually Works: what terraform init actually does
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#exercise" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2335,6 +2346,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#how-it-actually-works-what-terraform-init-actually-does" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Actually Works: what terraform init actually does
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#exercise" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2498,6 +2520,41 @@ provider versions.)</p>
 <p>The <code>random</code> provider is a good first one to experiment with because it
 needs no cloud account or credentials at all — it just generates values
 like random strings, IDs, and passwords locally.</p>
+<h2 id="how-it-actually-works-what-terraform-init-actually-does">How It Actually Works: what <code>terraform init</code> actually does<a class="headerlink" href="#how-it-actually-works-what-terraform-init-actually-does" title="Permanent link">&para;</a></h2>
+<p><code>terraform init</code> looks like one command, but it performs several distinct,
+independently-observable steps — none of these require a real cloud account,
+just the local filesystem and the public registry:</p>
+<ol>
+<li><strong>Backend initialization.</strong> It reads the <code>terraform { backend "..." {} }</code>
+   block (or defaults to <code>local</code>) and prepares wherever state will be
+   read/written — for the local backend this is just confirming
+   <code>terraform.tfstate</code> is writable in the current directory.</li>
+<li><strong>Provider requirement resolution.</strong> It walks every <code>required_providers</code>
+   block across every <code>.tf</code> file in the directory (Terraform merges them all
+   into one configuration, as covered in module 01), builds a combined
+   version constraint per provider (e.g. <code>~&gt; 5.0</code> from one file and <code>&gt;= 5.2</code>
+   from another must both be satisfiable), and resolves that to one concrete
+   version.</li>
+<li><strong>Registry protocol handshake.</strong> For <code>hashicorp/aws</code>, Terraform queries
+   the registry's <code>service discovery</code> document at <code>registry.terraform.io/.well-known/terraform.json</code>,
+   then hits <code>/v1/providers/hashicorp/aws/versions</code> to list available
+   versions and their platform-specific download URLs (a separate binary per
+   OS/architecture — this is why a provider install on Linux vs. macOS
+   downloads different <code>.zip</code> files).</li>
+<li><strong>Download, verify, and cache.</strong> The provider <code>.zip</code> is fetched, its SHA256
+   checked against the registry's published checksums (and a GPG signature
+   over those checksums, verified against HashiCorp's or the publisher's
+   public key), then unpacked into <code>.terraform/providers/registry.terraform.io/...</code>.</li>
+<li><strong>Lock file write.</strong> The exact resolved version and checksums for <em>every</em>
+   supported platform are written to <code>.terraform.lock.hcl</code>, which — unlike
+   <code>.terraform/</code> — is meant to be committed, so that everyone on a team (and
+   CI) resolves to the byte-identical provider binary rather than "whatever
+   satisfies <code>~&gt; 5.0</code> today."</li>
+</ol>
+<p>The provider binary itself is not a library Terraform links against — it is
+a standalone executable that Terraform Core spawns as a subprocess and talks
+to over a local RPC channel each time a resource in your config needs to be
+read, planned, or applied.</p>
 <h2 id="exercise">Exercise<a class="headerlink" href="#exercise" title="Permanent link">&para;</a></h2>
 <p>Install Terraform (or a version manager) locally, then create a directory
 with a <code>terraform</code> block requiring <code>hashicorp/random</code> at <code>~&gt; 3.6</code> and run

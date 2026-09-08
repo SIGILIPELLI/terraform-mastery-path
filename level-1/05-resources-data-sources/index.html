@@ -887,6 +887,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#how-it-actually-works-read-vs-the-full-crud-lifecycle" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Actually Works: Read vs. the full CRUD lifecycle
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#exercise" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2291,6 +2302,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#how-it-actually-works-read-vs-the-full-crud-lifecycle" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Actually Works: Read vs. the full CRUD lifecycle
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#exercise" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2446,6 +2468,36 @@ that are genuinely known ahead of time (like a literal <code>bucket</code> name 
 chose) are available during <code>terraform plan</code>; ones assigned by the provider
 (like an ARN containing an AWS account ID) show as <code>(known after apply)</code>
 in the plan output until the resource is actually created.</p>
+<h2 id="how-it-actually-works-read-vs-the-full-crud-lifecycle">How It Actually Works: <code>Read</code> vs. the full CRUD lifecycle<a class="headerlink" href="#how-it-actually-works-read-vs-the-full-crud-lifecycle" title="Permanent link">&para;</a></h2>
+<p>The resource/data-source split maps directly onto which provider RPC methods
+Terraform Core is willing to call — this is reasoned through against the
+documented Terraform Plugin Protocol, not exercised against a live account:</p>
+<ul>
+<li><strong>A <code>resource</code> block gets the full lifecycle.</strong> Every provider must
+  implement, at minimum, <code>PlanResourceChange</code>, <code>ApplyResourceChange</code> (which
+  handles create/update/delete based on the diff it's given), and
+  <code>ReadResource</code> (used during refresh). Terraform Core decides <em>which</em> of
+  create/update/delete to invoke by diffing prior state against the planned
+  configuration — the provider doesn't choose.</li>
+<li><strong>A <code>data</code> block only ever gets <code>ReadDataSource</code>.</strong> There is no
+  <code>ApplyResourceChange</code> path for data sources at all — architecturally, a
+  data source cannot create, modify, or destroy anything, which is the real
+  reason <code>terraform destroy</code> never touches a <code>data</code> block: the RPC call that
+  would do so doesn't exist in the provider's implementation for that type.</li>
+<li><strong>Data sources are read during the plan graph walk, not before it.</strong> A
+  <code>data "aws_ami" "..."</code> lookup isn't resolved as a separate pre-pass — it's
+  a node in the same dependency graph as your resources. If a data source's
+  arguments depend on a resource's attribute, Terraform correctly defers
+  that data source's read until <em>after</em> the resource is created/updated in
+  the same apply, which is why data sources can safely depend on
+  not-yet-existing resources within one <code>apply</code>.</li>
+<li><strong>Meta-arguments like <code>depends_on</code> and <code>count</code> are Core-level, not
+  provider-level.</strong> They influence how Terraform Core builds and expands the
+  graph (turning one resource block into N graph nodes for <code>count</code>) before
+  any RPC call is made — the provider binary never sees <code>count</code> or
+  <code>for_each</code>, only the fully-expanded, individually-addressed resource
+  instances (<code>aws_instance.web[0]</code>, <code>aws_instance.web[1]</code>, ...).</li>
+</ul>
 <h2 id="exercise">Exercise<a class="headerlink" href="#exercise" title="Permanent link">&para;</a></h2>
 <p>Sketch (in HCL, without needing to apply it) a <code>data</code> block that looks up an
 existing resource of your choosing by a filter or name, and a <code>resource</code>

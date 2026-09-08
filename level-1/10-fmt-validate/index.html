@@ -1027,6 +1027,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#how-it-actually-works-two-independent-passes-over-two-different-trees" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Actually Works: two independent passes over two different trees
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#exercise" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2291,6 +2302,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#how-it-actually-works-two-independent-passes-over-two-different-trees" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Actually Works: two independent passes over two different trees
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#exercise" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2427,6 +2449,41 @@ job of third-party tools layered on top, such as <code>tflint</code> and securit
 scanners — covered in Level 4's security scanning module rather than here,
 since they're separate tools with their own install and configuration, not
 built into the Terraform CLI itself.</p>
+<h2 id="how-it-actually-works-two-independent-passes-over-two-different-trees">How It Actually Works: two independent passes over two different trees<a class="headerlink" href="#how-it-actually-works-two-independent-passes-over-two-different-trees" title="Permanent link">&para;</a></h2>
+<p><code>fmt</code> and <code>validate</code> sound similar but operate on entirely different
+representations of your configuration — this is reasoned through from the
+documented separation in Terraform's own codebase between the <code>hclwrite</code> and
+core-configschema packages.</p>
+<ul>
+<li><strong><code>terraform fmt</code> never parses semantics at all.</strong> It uses <code>hclwrite</code>, a
+  layout-preserving AST that represents <em>tokens and formatting</em>, not
+  evaluated meaning. It reformats whitespace, alignment, and quoting by
+  rewriting that token tree back to text — it has no concept of whether
+  <code>resource "aws_s3_bucket" "reports"</code> is a valid resource type, whether
+  <code>reports</code> is a duplicate name, or whether an argument you wrote even
+  exists in that resource's schema. This is exactly why <code>fmt</code> can succeed on
+  a file that still fails <code>validate</code> immediately afterward.</li>
+<li><strong><code>terraform validate</code> runs a completely separate pipeline</strong>: parse with
+  the semantic <code>hclsyntax</code> parser into an evaluation-ready AST, decode each
+  block against Terraform Core's schema (right label count and types),
+  cross-check every <code>var.x</code> / <code>local.x</code> / resource reference actually
+  exists somewhere in the configuration, and run each provider's <em>own</em>
+  schema validation for resource-specific argument types and required
+  fields (this last step is the only part of <code>validate</code> that talks to a
+  provider binary at all, and even then only against its static schema —
+  never a live API).</li>
+<li><strong>Neither pass touches state or performs refresh.</strong> Both are safe,
+  offline, no-credential operations — which is exactly why they're the
+  standard pre-commit / CI gate: they catch structural and schema mistakes
+  before a plan ever attempts a provider RPC call that would require real
+  credentials.</li>
+<li><strong>Third-party linters (tflint, Checkov, tfsec) run yet another separate
+  pass</strong>, typically walking the same parsed HCL AST that <code>validate</code> produces
+  but applying their own external rule sets (naming conventions, known
+  security misconfigurations) that Terraform Core's schema validation has no
+  opinion on — this is why a config can pass <code>terraform validate</code> cleanly
+  and still fail a linter.</li>
+</ul>
 <h2 id="exercise">Exercise<a class="headerlink" href="#exercise" title="Permanent link">&para;</a></h2>
 <p>Take the "before" example at the top of this module, save it to a scratch
 <code>main.tf</code>, and run <code>terraform fmt -diff</code> on it (no changes are written with

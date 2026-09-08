@@ -971,6 +971,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#how-it-actually-works-computed-attributes-and-the-known-after-apply-placeholder" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Actually Works: computed attributes and the "known after apply" placeholder
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#exercise" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2291,6 +2302,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#how-it-actually-works-computed-attributes-and-the-known-after-apply-placeholder" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Actually Works: computed attributes and the "known after apply" placeholder
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#exercise" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2466,6 +2488,40 @@ part of its value (<code>acme-reports-2026-</code>) is a literal string you wrot
 <em>whole</em> expression depends on <code>random_id.suffix.hex</code>, which isn't known
 until <code>random_id.suffix</code> is actually created, so Terraform can't resolve the
 full string at plan time.</p>
+<h2 id="how-it-actually-works-computed-attributes-and-the-known-after-apply-placeholder">How It Actually Works: computed attributes and the "known after apply" placeholder<a class="headerlink" href="#how-it-actually-works-computed-attributes-and-the-known-after-apply-placeholder" title="Permanent link">&para;</a></h2>
+<p>Everything below is reasoned through from the <code>local</code> and (hypothetical)
+<code>aws</code> provider's documented schema behavior — no real cloud call was made to
+produce these lessons.</p>
+<ul>
+<li><strong>Every attribute in a provider's schema is tagged <code>Required</code>, <code>Optional</code>,
+  or <code>Computed</code></strong> (and some both <code>Optional</code> and <code>Computed</code>). <code>bucket</code> on
+  <code>aws_s3_bucket</code> is one you supply; <code>arn</code> is purely <code>Computed</code> — the
+  provider fills it in only after the real <code>CreateBucket</code> API call returns
+  an ARN that AWS assigned.</li>
+<li><strong>This is exactly what "(known after apply)" means during <code>plan</code>.</strong>
+  Terraform Core cannot show a real value for a <code>Computed</code>-only attribute
+  before the resource exists, so <code>PlanResourceChange</code> returns an explicit
+  "unknown" marker for that attribute rather than a guessed value. Any
+  downstream expression that references that unknown value (another
+  resource's argument built from <code>aws_s3_bucket.reports.arn</code>) propagates the
+  "unknown" marker forward through the graph, which is <em>why</em> referencing an
+  unknown attribute forces that downstream resource to also show as
+  "known after apply" instead of a concrete diff — the unknown-ness is
+  contagious through the dependency graph until a real apply resolves it.</li>
+<li><strong>The <code>local</code> provider has no real API, which makes it a useful reasoning
+  tool.</strong> Its <code>ApplyResourceChange</code> implementation for <code>local_file</code> just
+  performs a Go filesystem write — there's no network RPC to an external
+  service, no eventual consistency delay, and no partial-failure window,
+  which is precisely what makes it good for isolating "how does Terraform's
+  graph and diff logic behave" from "how does a specific cloud API behave."</li>
+<li><strong><code>aws_s3_bucket_public_access_block</code> existing as a companion resource
+  (not an argument on the bucket resource) is itself a design signal</strong>: AWS
+  models public-access blocking as a separate API object with its own
+  lifecycle, so the provider schema mirrors that as a separate resource type
+  rather than folding it into <code>aws_s3_bucket</code>'s own arguments — the
+  provider's resource boundaries generally track the cloud API's own object
+  boundaries, not an abstraction Terraform invents.</li>
+</ul>
 <h2 id="exercise">Exercise<a class="headerlink" href="#exercise" title="Permanent link">&para;</a></h2>
 <p>Write out the full <code>local_file</code> example from this module (resource + data
 source + output) in a scratch directory, run <code>terraform init</code> and

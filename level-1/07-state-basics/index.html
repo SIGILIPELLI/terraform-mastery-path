@@ -965,6 +965,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#how-it-actually-works-the-refresh-diff-plan-algorithm" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Actually Works: the refresh-diff-plan algorithm
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#exercise" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2335,6 +2346,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#how-it-actually-works-the-refresh-diff-plan-algorithm" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Actually Works: the refresh-diff-plan algorithm
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#exercise" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2474,6 +2496,42 @@ again — which for resources with unique names (like an S3 bucket) fails
 with a "already exists" error from the provider, and for resources without
 naming conflicts, silently creates <em>duplicates</em> alongside the orphaned
 originals.</p>
+<h2 id="how-it-actually-works-the-refresh-diff-plan-algorithm">How It Actually Works: the refresh-diff-plan algorithm<a class="headerlink" href="#how-it-actually-works-the-refresh-diff-plan-algorithm" title="Permanent link">&para;</a></h2>
+<p>This section goes one level deeper than "state tracks reality" into the
+actual comparison algorithm <code>terraform plan</code> runs — described from
+Terraform's documented internals, without a live provider in these lessons:</p>
+<ol>
+<li><strong>Refresh (read real-world values).</strong> For every resource address already
+   in state, Terraform Core calls the provider's <code>ReadResource</code> RPC,
+   passing the resource's last-known state as a hint. The provider queries
+   the real API and returns the resource's <em>current</em> actual attributes. This
+   produces what Terraform calls the "prior state" for planning — reality as
+   of right now, not what was last written to the state file.</li>
+<li><strong>Diff against desired configuration.</strong> Terraform Core then walks the
+   graph and, for each resource, calls <code>PlanResourceChange</code>, handing the
+   provider three things: the prior state (from step 1), the proposed new
+   state computed from your HCL plus any variable/interpolation values, and
+   the raw config. The provider returns a "planned new state" plus which
+   attributes, if any, force a destroy-and-recreate versus an in-place
+   update — a distinction the provider's schema defines per-attribute
+   (<code>ForceNew</code> in provider-SDK terms).</li>
+<li><strong>Three-way comparison, not two.</strong> Critically this is a <em>three-way</em>
+   comparison — prior state, actual refreshed reality, and desired config —
+   not just "old file vs. new file." This is exactly how Terraform detects
+   <strong>drift</strong>: if refreshed reality differs from what state last recorded
+   (someone manually changed a setting in the console), that shows up as
+   part of the plan even when your <code>.tf</code> files haven't changed at all.</li>
+<li><strong>Serialize into a plan file.</strong> The full set of proposed actions (create/
+   update/destroy/no-op per resource) is what <code>-out=tfplan</code> saves — a binary
+   representation of exactly the RPC calls <code>apply</code> will replay, which is why
+   an <code>apply</code> from a saved plan file skips refresh and re-planning entirely
+   and is deterministic even if reality changed again in between.</li>
+</ol>
+<p>The state file itself is therefore not the source of truth for "what's
+real" — it's Terraform's <em>cache</em> of the last-known real values, used as an
+optimization so <code>plan</code> doesn't have to guess every resource's identity from
+scratch, and as the map from your resource addresses to the opaque IDs
+providers use.</p>
 <h2 id="exercise">Exercise<a class="headerlink" href="#exercise" title="Permanent link">&para;</a></h2>
 <p>Without running anything against a real cloud, sketch what you'd expect
 <code>terraform state list</code> to print after applying module 05's exercise

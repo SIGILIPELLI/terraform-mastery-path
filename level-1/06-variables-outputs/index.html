@@ -937,6 +937,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#how-it-actually-works-variable-precedence-and-the-evaluation-graph" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Actually Works: variable precedence and the evaluation graph
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#exercise" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2335,6 +2346,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#how-it-actually-works-variable-precedence-and-the-evaluation-graph" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Actually Works: variable precedence and the evaluation graph
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#exercise" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2507,6 +2529,41 @@ module's output (Level 2's modules topic). A configuration that provisions
 a VPC typically outputs its subnet IDs specifically so a <em>different</em>
 configuration (managed by a different team, applied separately) can
 consume them without needing direct access to the VPC's own state.</p>
+<h2 id="how-it-actually-works-variable-precedence-and-the-evaluation-graph">How It Actually Works: variable precedence and the evaluation graph<a class="headerlink" href="#how-it-actually-works-variable-precedence-and-the-evaluation-graph" title="Permanent link">&para;</a></h2>
+<p>Documented mechanics of how Terraform Core resolves a variable's final value
+and where it fits in the graph — not run against a live workspace here:</p>
+<ul>
+<li><strong>Variables are graph nodes too.</strong> Every <code>variable</code> block becomes a node in
+  the same dependency graph as resources. Anything referencing <code>var.name</code>
+  creates an edge from that resource to the variable node, so the variable's
+  final value must be fully resolved before any dependent resource is
+  planned — this is why a variable can't (directly) depend on a resource
+  attribute; the graph only flows one direction, from inputs toward
+  resources.</li>
+<li><strong>Precedence is a strict, documented override order</strong>, evaluated once per
+  run, highest wins: command-line <code>-var</code>/<code>-var-file</code> flags, then <code>*.auto.tfvars</code>
+  (alphabetically), then explicit <code>-var-file</code> arguments, then a <code>terraform.tfvars</code>
+  file, then <code>TF_VAR_name</code> environment variables, then the <code>default</code> in the
+  <code>variable</code> block itself. Terraform doesn't merge complex-typed values
+  across these sources — whichever source wins for a given variable name
+  supplies the <em>entire</em> value.</li>
+<li><strong>Type constraints are enforced by conversion, not just validation.</strong>
+  When you declare <code>type = list(string)</code>, Terraform doesn't just check the
+  input — it attempts to <em>convert</em> the raw value (which may come from
+  environment strings, JSON in a <code>.tfvars.json</code> file, or CLI text) into that
+  exact type, using HCL's type conversion rules, and fails the run at
+  parse-time if conversion isn't possible.</li>
+<li><strong>Outputs are graph nodes with the <em>widest</em> dependency fan-in.</strong> An
+  <code>output</code> block implicitly depends on every resource attribute it
+  references, and — critically — a root module's outputs are recomputed
+  every single apply even when nothing they reference changed, because
+  Terraform re-evaluates output expressions from final state after the
+  apply completes, rather than caching them.</li>
+<li><strong><code>sensitive = true</code> is a display flag, not encryption.</strong> It only
+  suppresses the value from CLI output and plan summaries; the raw value is
+  still written in plaintext inside the state file (module 07 covers why
+  that matters for state file handling).</li>
+</ul>
 <h2 id="exercise">Exercise<a class="headerlink" href="#exercise" title="Permanent link">&para;</a></h2>
 <p>Write a <code>variable</code> block for a <code>region</code> string with a sensible default, a
 <code>variable</code> block for a <code>tags</code> map, and an <code>output</code> block that exposes a

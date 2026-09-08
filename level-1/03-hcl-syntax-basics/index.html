@@ -875,6 +875,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#how-it-actually-works-hcls-two-phase-parse" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Actually Works: HCL's two-phase parse
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#exercise" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2379,6 +2390,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#how-it-actually-works-hcls-two-phase-parse" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Actually Works: HCL's two-phase parse
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#exercise" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2521,6 +2543,37 @@ common leading whitespace.</p>
 <code>terraform fmt</code> (module 10) enforces a canonical two-space style everywhere,
 so most style questions are answered by just running it rather than
 deciding by hand.</p>
+<h2 id="how-it-actually-works-hcls-two-phase-parse">How It Actually Works: HCL's two-phase parse<a class="headerlink" href="#how-it-actually-works-hcls-two-phase-parse" title="Permanent link">&para;</a></h2>
+<p>HCL (HashiCorp Configuration Language) is not evaluated top-to-bottom like a
+script. It goes through two distinct phases, and understanding the split
+explains a lot of behavior that otherwise looks like magic:</p>
+<ol>
+<li><strong>Syntax parsing (structural).</strong> The HCL parser (<code>hashicorp/hcl</code>, a
+   separate Go library from Terraform Core) first turns the raw text into an
+   AST purely on <em>structure</em> — blocks, labels, arguments, expressions — with
+   no idea yet what a <code>resource</code> or <code>provider</code> block <em>means</em>. A block like
+   <code>resource "aws_s3_bucket" "reports" { bucket = "x" }</code> is generically
+   "a block type, two labels, one body" at this stage; HCL itself doesn't
+   know "resource" is special.</li>
+<li><strong>Semantic decoding (Terraform-specific).</strong> Terraform Core then walks that
+   generic AST and decodes it against its own schema: it knows a <code>resource</code>
+   block needs exactly two labels (type, then name), that <code>variable</code> blocks
+   take one label, and so on. This is also the phase where <strong>expression
+   evaluation</strong> happens — string interpolation (<code>"${var.name}"</code>), function
+   calls, and references to other resources are not resolved during parsing;
+   they're left as unevaluated expression nodes until Terraform builds the
+   dependency graph and knows what order to evaluate them in.</li>
+</ol>
+<p>This two-phase design is <em>why</em> you can reference a resource attribute that
+doesn't exist yet at parse time (<code>aws_instance.web.id</code> before the instance is
+created) — HCL only records "this expression depends on that attribute,"
+and the actual value substitution happens later, during the graph walk,
+once the dependency has been created or refreshed. It's also why a genuine
+HCL syntax error (an unclosed brace, a malformed heredoc) is caught
+instantly and unconditionally, before Terraform even attempts to make sense
+of your provider or resource types — syntax errors and semantic/type errors
+come from two different validation passes (<code>hclsyntax</code> vs. Terraform's own
+schema and type-checking code).</p>
 <h2 id="exercise">Exercise<a class="headerlink" href="#exercise" title="Permanent link">&para;</a></h2>
 <p>Write an HCL snippet (it doesn't need to reference a real provider) with:
 a <code>locals</code> block defining an <code>environment</code> string and a <code>replica_count</code>

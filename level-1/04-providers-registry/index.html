@@ -859,6 +859,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#how-it-actually-works-provider-instances-and-the-rpc-channel" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Actually Works: provider instances and the RPC channel
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#exercise" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2291,6 +2302,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#how-it-actually-works-provider-instances-and-the-rpc-channel" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Actually Works: provider instances and the RPC channel
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#exercise" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2438,6 +2460,38 @@ this is one of Terraform's core strengths over cloud-specific tools:</p>
 <p>This lets one <code>terraform apply</code> provision an AWS load balancer <em>and</em> point
 a Cloudflare DNS record at it in the same run, with an implicit dependency
 between them handled automatically if one references the other's attribute.</p>
+<h2 id="how-it-actually-works-provider-instances-and-the-rpc-channel">How It Actually Works: provider instances and the RPC channel<a class="headerlink" href="#how-it-actually-works-provider-instances-and-the-rpc-channel" title="Permanent link">&para;</a></h2>
+<p>Reasoned through from Terraform's documented plugin architecture (not
+exercised against a live registry account here):</p>
+<ul>
+<li><strong>A <code>provider</code> block configures, but does not "run," a provider.</strong> When
+  Terraform Core starts a plan or apply, it launches the resolved provider
+  binary (from <code>.terraform/providers/...</code>) as a long-lived subprocess and
+  performs a <code>Configure</code> RPC call, sending it the evaluated contents of the
+  <code>provider "aws" { region = ... }</code> block. From that point every resource of
+  type <code>aws_*</code> in your configuration is routed to <em>that specific configured
+  instance</em> of the provider subprocess.</li>
+<li><strong>Aliases are separate provider instances, not separate binaries.</strong> A
+  second <code>provider "aws" { alias = "east" }</code> block does not download or
+  start a second copy of the AWS provider binary — Terraform Core keeps one
+  provider process but issues it two independent <code>Configure</code> calls (each
+  with its own region/credentials), and each resource's <code>provider =
+  aws.east</code> argument tells the graph builder which configured instance's
+  RPC channel to route that resource's create/read/update/delete calls to.</li>
+<li><strong>Credential resolution happens inside the provider, not Terraform Core.</strong>
+  Terraform Core never inspects <code>AWS_ACCESS_KEY_ID</code> or <code>~/.aws/credentials</code>
+  itself — it hands whatever's explicitly set in the <code>provider</code> block to the
+  provider binary via <code>Configure</code>, and the provider binary (using the AWS Go
+  SDK internally) applies AWS's own credential-provider chain to fill in
+  anything left unset. This is why Terraform can support wildly different
+  auth models (API tokens, OIDC federation, instance metadata) per provider
+  without Core needing to know anything about any of them.</li>
+<li><strong>The Registry is a resolution index, not a runtime dependency.</strong> Once
+  <code>terraform init</code> has downloaded and cached a provider version locally, the
+  registry is never contacted again during <code>plan</code>/<code>apply</code> — only a future
+  <code>init</code> (e.g. after bumping a version constraint) triggers another registry
+  lookup.</li>
+</ul>
 <h2 id="exercise">Exercise<a class="headerlink" href="#exercise" title="Permanent link">&para;</a></h2>
 <p>Look up the <code>hashicorp/random</code> provider's page on the Terraform Registry (or
 recall module 02's example). Write the <code>terraform</code> and <code>provider</code> blocks

@@ -1032,6 +1032,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#how-it-actually-works-the-graph-walk-behind-each-command" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Actually Works: the graph walk behind each command
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#exercise" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2357,6 +2368,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#how-it-actually-works-the-graph-walk-behind-each-command" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Actually Works: the graph walk behind each command
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#exercise" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2509,6 +2531,47 @@ covered further when Level 4 builds a CI/CD pipeline around this workflow.</p>
 <a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a><span class="c1"># ... later ...</span>
 <a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a>terraform<span class="w"> </span>destroy<span class="w">      </span><span class="c1"># tear it down when you're done</span>
 </code></pre></div>
+<h2 id="how-it-actually-works-the-graph-walk-behind-each-command">How It Actually Works: the graph walk behind each command<a class="headerlink" href="#how-it-actually-works-the-graph-walk-behind-each-command" title="Permanent link">&para;</a></h2>
+<p>Reasoned through from Terraform Core's documented execution model — these
+commands were not run against a live cloud account for this lesson.</p>
+<ul>
+<li><strong><code>terraform validate</code> never touches the graph or any provider RPC.</strong> It
+  only runs HCL syntax parsing plus Terraform's own static schema checks
+  (right block labels, referenced variables exist, type constraints are
+  satisfiable) — no <code>Configure</code>, no <code>ReadResource</code>, no network access at
+  all, which is why it's safe to run with no credentials configured.</li>
+<li><strong><code>terraform plan</code> builds two graphs, not one.</strong> First a "refresh graph"
+  (walks existing state, calls <code>ReadResource</code> per resource to detect drift),
+  then a "plan graph" that layers your desired configuration on top and
+  calls <code>PlanResourceChange</code> per node. Independent resources (no edge
+  between them in the DAG) are refreshed and planned <em>concurrently</em>, bounded
+  by <code>-parallelism</code> (default 10) — this is why plan/apply time doesn't scale
+  linearly with resource count as long as resources are independent.</li>
+<li><strong>A saved plan (<code>-out=tfplan</code>) is a serialized, frozen execution list.</strong>
+  Because it already contains resolved provider RPC payloads, running
+  <code>terraform apply tfplan</code> skips refresh and re-diffing — it replays exactly
+  those calls in the recorded graph order. This is also why Terraform
+  refuses to apply a stale plan file if the state has changed since it was
+  generated (a mismatched serial/lineage check against current state).</li>
+<li><strong><code>terraform apply</code> walks the <em>same</em> DAG but calls <code>ApplyResourceChange</code>
+  instead of <code>PlanResourceChange</code>,</strong> and updates the in-memory state
+  incrementally as each node completes — successfully-applied resources are
+  persisted to the state file (via the backend) even if a later resource in
+  the same apply fails, which is why a partially-failed apply doesn't lose
+  track of what did succeed.</li>
+<li><strong><code>terraform destroy</code> reverses the graph.</strong> It's not a separate code path
+  from apply — it's a plan computed as "destroy everything in state," and
+  the destroy <em>order</em> is the dependency graph walked in reverse (a subnet
+  is destroyed only after every instance inside it), because destroying in
+  forward dependency order would fail against most real cloud APIs (you
+  generally can't delete a VPC while instances still reference it).</li>
+<li><strong>Exit codes are graph-walk outcomes, not arbitrary conventions:</strong> <code>0</code> =
+  graph walk completed with no changes needed, <code>1</code> = an error occurred
+  during parsing/planning/applying, <code>2</code> (plan only, with <code>-detailed-exitcode</code>)
+  = the graph walk succeeded and found a non-empty diff — useful precisely
+  because it lets CI distinguish "plan failed" from "plan succeeded and
+  there's drift to review."</li>
+</ul>
 <h2 id="exercise">Exercise<a class="headerlink" href="#exercise" title="Permanent link">&para;</a></h2>
 <p>Using the <code>local_file</code> configuration from module 08's exercise, run
 <code>terraform plan</code> and copy the exact <code>+</code>/<code>~</code>/<code>-</code> symbol and resource address
