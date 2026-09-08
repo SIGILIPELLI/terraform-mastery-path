@@ -141,6 +141,42 @@ scanners — covered in Level 4's security scanning module rather than here,
 since they're separate tools with their own install and configuration, not
 built into the Terraform CLI itself.
 
+## How It Actually Works: two independent passes over two different trees
+
+`fmt` and `validate` sound similar but operate on entirely different
+representations of your configuration — this is reasoned through from the
+documented separation in Terraform's own codebase between the `hclwrite` and
+core-configschema packages.
+
+- **`terraform fmt` never parses semantics at all.** It uses `hclwrite`, a
+  layout-preserving AST that represents *tokens and formatting*, not
+  evaluated meaning. It reformats whitespace, alignment, and quoting by
+  rewriting that token tree back to text — it has no concept of whether
+  `resource "aws_s3_bucket" "reports"` is a valid resource type, whether
+  `reports` is a duplicate name, or whether an argument you wrote even
+  exists in that resource's schema. This is exactly why `fmt` can succeed on
+  a file that still fails `validate` immediately afterward.
+- **`terraform validate` runs a completely separate pipeline**: parse with
+  the semantic `hclsyntax` parser into an evaluation-ready AST, decode each
+  block against Terraform Core's schema (right label count and types),
+  cross-check every `var.x` / `local.x` / resource reference actually
+  exists somewhere in the configuration, and run each provider's *own*
+  schema validation for resource-specific argument types and required
+  fields (this last step is the only part of `validate` that talks to a
+  provider binary at all, and even then only against its static schema —
+  never a live API).
+- **Neither pass touches state or performs refresh.** Both are safe,
+  offline, no-credential operations — which is exactly why they're the
+  standard pre-commit / CI gate: they catch structural and schema mistakes
+  before a plan ever attempts a provider RPC call that would require real
+  credentials.
+- **Third-party linters (tflint, Checkov, tfsec) run yet another separate
+  pass**, typically walking the same parsed HCL AST that `validate` produces
+  but applying their own external rule sets (naming conventions, known
+  security misconfigurations) that Terraform Core's schema validation has no
+  opinion on — this is why a config can pass `terraform validate` cleanly
+  and still fail a linter.
+
 ## Exercise
 
 Take the "before" example at the top of this module, save it to a scratch

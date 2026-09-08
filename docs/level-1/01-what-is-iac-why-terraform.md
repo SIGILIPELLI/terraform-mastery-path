@@ -106,6 +106,43 @@ Reading this top to bottom: "Use the AWS provider, version 5.x. Talk to
 do in this course, reasoned through against Terraform's documented behavior
 rather than run against a live account in these lessons.
 
+## How It Actually Works: from HCL to API calls
+
+Nothing here was run against a live AWS account — this walks through the
+documented internal pipeline Terraform Core follows once you type
+`terraform apply`.
+
+1. **Parse.** The HCL parser turns every `.tf` file in the working directory
+   into an abstract syntax tree, then merges them into a single in-memory
+   configuration — there's no meaningful difference to Terraform between one
+   big file and ten small ones in the same directory.
+2. **Build a resource graph.** Terraform Core does not execute resources in
+   file order. It statically analyzes every reference (`aws_s3_bucket.reports.id`
+   used elsewhere, implicit dependencies from interpolation, explicit
+   `depends_on`) and builds a directed acyclic graph (DAG) where each node is
+   a resource, data source, or provider configuration, and each edge is a
+   "must happen before" relationship.
+3. **Walk the graph.** Terraform performs a topological sort and walks nodes
+   with no unresolved dependencies concurrently (up to `-parallelism=10` by
+   default), which is *why* declarative order in the file doesn't matter but
+   dependency order absolutely does.
+4. **Delegate to the provider via RPC.** Terraform Core itself has no idea
+   how to talk to AWS. The `aws` block in `required_providers` causes
+   `terraform init` to download a separate provider binary; Core launches it
+   as a subprocess and speaks to it over a local gRPC connection (the
+   Terraform Plugin Protocol). Every "create this bucket" instruction is
+   actually a `ApplyResourceChange` RPC call carrying the planned HCL values
+   as protobuf, and the provider binary is the one holding AWS SDK credentials
+   and making the real `CreateBucket` HTTP call.
+5. **Record the result in state.** Whatever the provider RPC returns
+   (including server-assigned fields like an ARN) gets written into the state
+   file as the new "known good" reality, which is what the next `plan` will
+   diff against (module 07 covers this file's structure).
+
+The reason Terraform's four-command workflow generalizes across hundreds of
+providers is that steps 1–3 are entirely provider-independent — only step 4's
+RPC target binary changes.
+
 ## Exercise
 
 Without writing any HCL yet, list three infrastructure changes you've made

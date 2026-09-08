@@ -171,6 +171,43 @@ The `random` provider is a good first one to experiment with because it
 needs no cloud account or credentials at all — it just generates values
 like random strings, IDs, and passwords locally.
 
+## How It Actually Works: what `terraform init` actually does
+
+`terraform init` looks like one command, but it performs several distinct,
+independently-observable steps — none of these require a real cloud account,
+just the local filesystem and the public registry:
+
+1. **Backend initialization.** It reads the `terraform { backend "..." {} }`
+   block (or defaults to `local`) and prepares wherever state will be
+   read/written — for the local backend this is just confirming
+   `terraform.tfstate` is writable in the current directory.
+2. **Provider requirement resolution.** It walks every `required_providers`
+   block across every `.tf` file in the directory (Terraform merges them all
+   into one configuration, as covered in module 01), builds a combined
+   version constraint per provider (e.g. `~> 5.0` from one file and `>= 5.2`
+   from another must both be satisfiable), and resolves that to one concrete
+   version.
+3. **Registry protocol handshake.** For `hashicorp/aws`, Terraform queries
+   the registry's `service discovery` document at `registry.terraform.io/.well-known/terraform.json`,
+   then hits `/v1/providers/hashicorp/aws/versions` to list available
+   versions and their platform-specific download URLs (a separate binary per
+   OS/architecture — this is why a provider install on Linux vs. macOS
+   downloads different `.zip` files).
+4. **Download, verify, and cache.** The provider `.zip` is fetched, its SHA256
+   checked against the registry's published checksums (and a GPG signature
+   over those checksums, verified against HashiCorp's or the publisher's
+   public key), then unpacked into `.terraform/providers/registry.terraform.io/...`.
+5. **Lock file write.** The exact resolved version and checksums for *every*
+   supported platform are written to `.terraform.lock.hcl`, which — unlike
+   `.terraform/` — is meant to be committed, so that everyone on a team (and
+   CI) resolves to the byte-identical provider binary rather than "whatever
+   satisfies `~> 5.0` today."
+
+The provider binary itself is not a library Terraform links against — it is
+a standalone executable that Terraform Core spawns as a subprocess and talks
+to over a local RPC channel each time a resource in your config needs to be
+read, planned, or applied.
+
 ## Exercise
 
 Install Terraform (or a version manager) locally, then create a directory

@@ -141,6 +141,39 @@ This lets one `terraform apply` provision an AWS load balancer *and* point
 a Cloudflare DNS record at it in the same run, with an implicit dependency
 between them handled automatically if one references the other's attribute.
 
+## How It Actually Works: provider instances and the RPC channel
+
+Reasoned through from Terraform's documented plugin architecture (not
+exercised against a live registry account here):
+
+- **A `provider` block configures, but does not "run," a provider.** When
+  Terraform Core starts a plan or apply, it launches the resolved provider
+  binary (from `.terraform/providers/...`) as a long-lived subprocess and
+  performs a `Configure` RPC call, sending it the evaluated contents of the
+  `provider "aws" { region = ... }` block. From that point every resource of
+  type `aws_*` in your configuration is routed to *that specific configured
+  instance* of the provider subprocess.
+- **Aliases are separate provider instances, not separate binaries.** A
+  second `provider "aws" { alias = "east" }` block does not download or
+  start a second copy of the AWS provider binary — Terraform Core keeps one
+  provider process but issues it two independent `Configure` calls (each
+  with its own region/credentials), and each resource's `provider =
+  aws.east` argument tells the graph builder which configured instance's
+  RPC channel to route that resource's create/read/update/delete calls to.
+- **Credential resolution happens inside the provider, not Terraform Core.**
+  Terraform Core never inspects `AWS_ACCESS_KEY_ID` or `~/.aws/credentials`
+  itself — it hands whatever's explicitly set in the `provider` block to the
+  provider binary via `Configure`, and the provider binary (using the AWS Go
+  SDK internally) applies AWS's own credential-provider chain to fill in
+  anything left unset. This is why Terraform can support wildly different
+  auth models (API tokens, OIDC federation, instance metadata) per provider
+  without Core needing to know anything about any of them.
+- **The Registry is a resolution index, not a runtime dependency.** Once
+  `terraform init` has downloaded and cached a provider version locally, the
+  registry is never contacted again during `plan`/`apply` — only a future
+  `init` (e.g. after bumping a version constraint) triggers another registry
+  lookup.
+
 ## Exercise
 
 Look up the `hashicorp/random` provider's page on the Terraform Registry (or

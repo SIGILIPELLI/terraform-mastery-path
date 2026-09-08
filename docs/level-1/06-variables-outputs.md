@@ -177,6 +177,42 @@ a VPC typically outputs its subnet IDs specifically so a *different*
 configuration (managed by a different team, applied separately) can
 consume them without needing direct access to the VPC's own state.
 
+## How It Actually Works: variable precedence and the evaluation graph
+
+Documented mechanics of how Terraform Core resolves a variable's final value
+and where it fits in the graph — not run against a live workspace here:
+
+- **Variables are graph nodes too.** Every `variable` block becomes a node in
+  the same dependency graph as resources. Anything referencing `var.name`
+  creates an edge from that resource to the variable node, so the variable's
+  final value must be fully resolved before any dependent resource is
+  planned — this is why a variable can't (directly) depend on a resource
+  attribute; the graph only flows one direction, from inputs toward
+  resources.
+- **Precedence is a strict, documented override order**, evaluated once per
+  run, highest wins: command-line `-var`/`-var-file` flags, then `*.auto.tfvars`
+  (alphabetically), then explicit `-var-file` arguments, then a `terraform.tfvars`
+  file, then `TF_VAR_name` environment variables, then the `default` in the
+  `variable` block itself. Terraform doesn't merge complex-typed values
+  across these sources — whichever source wins for a given variable name
+  supplies the *entire* value.
+- **Type constraints are enforced by conversion, not just validation.**
+  When you declare `type = list(string)`, Terraform doesn't just check the
+  input — it attempts to *convert* the raw value (which may come from
+  environment strings, JSON in a `.tfvars.json` file, or CLI text) into that
+  exact type, using HCL's type conversion rules, and fails the run at
+  parse-time if conversion isn't possible.
+- **Outputs are graph nodes with the *widest* dependency fan-in.** An
+  `output` block implicitly depends on every resource attribute it
+  references, and — critically — a root module's outputs are recomputed
+  every single apply even when nothing they reference changed, because
+  Terraform re-evaluates output expressions from final state after the
+  apply completes, rather than caching them.
+- **`sensitive = true` is a display flag, not encryption.** It only
+  suppresses the value from CLI output and plan summaries; the raw value is
+  still written in plaintext inside the state file (module 07 covers why
+  that matters for state file handling).
+
 ## Exercise
 
 Write a `variable` block for a `region` string with a sensible default, a

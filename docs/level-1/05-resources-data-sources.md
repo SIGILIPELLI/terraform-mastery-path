@@ -128,6 +128,37 @@ chose) are available during `terraform plan`; ones assigned by the provider
 (like an ARN containing an AWS account ID) show as `(known after apply)`
 in the plan output until the resource is actually created.
 
+## How It Actually Works: `Read` vs. the full CRUD lifecycle
+
+The resource/data-source split maps directly onto which provider RPC methods
+Terraform Core is willing to call — this is reasoned through against the
+documented Terraform Plugin Protocol, not exercised against a live account:
+
+- **A `resource` block gets the full lifecycle.** Every provider must
+  implement, at minimum, `PlanResourceChange`, `ApplyResourceChange` (which
+  handles create/update/delete based on the diff it's given), and
+  `ReadResource` (used during refresh). Terraform Core decides *which* of
+  create/update/delete to invoke by diffing prior state against the planned
+  configuration — the provider doesn't choose.
+- **A `data` block only ever gets `ReadDataSource`.** There is no
+  `ApplyResourceChange` path for data sources at all — architecturally, a
+  data source cannot create, modify, or destroy anything, which is the real
+  reason `terraform destroy` never touches a `data` block: the RPC call that
+  would do so doesn't exist in the provider's implementation for that type.
+- **Data sources are read during the plan graph walk, not before it.** A
+  `data "aws_ami" "..."` lookup isn't resolved as a separate pre-pass — it's
+  a node in the same dependency graph as your resources. If a data source's
+  arguments depend on a resource's attribute, Terraform correctly defers
+  that data source's read until *after* the resource is created/updated in
+  the same apply, which is why data sources can safely depend on
+  not-yet-existing resources within one `apply`.
+- **Meta-arguments like `depends_on` and `count` are Core-level, not
+  provider-level.** They influence how Terraform Core builds and expands the
+  graph (turning one resource block into N graph nodes for `count`) before
+  any RPC call is made — the provider binary never sees `count` or
+  `for_each`, only the fully-expanded, individually-addressed resource
+  instances (`aws_instance.web[0]`, `aws_instance.web[1]`, ...).
+
 ## Exercise
 
 Sketch (in HCL, without needing to apply it) a `data` block that looks up an

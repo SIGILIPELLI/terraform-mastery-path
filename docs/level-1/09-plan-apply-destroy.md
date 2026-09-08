@@ -165,6 +165,48 @@ terraform apply        # make it real
 terraform destroy      # tear it down when you're done
 ```
 
+## How It Actually Works: the graph walk behind each command
+
+Reasoned through from Terraform Core's documented execution model — these
+commands were not run against a live cloud account for this lesson.
+
+- **`terraform validate` never touches the graph or any provider RPC.** It
+  only runs HCL syntax parsing plus Terraform's own static schema checks
+  (right block labels, referenced variables exist, type constraints are
+  satisfiable) — no `Configure`, no `ReadResource`, no network access at
+  all, which is why it's safe to run with no credentials configured.
+- **`terraform plan` builds two graphs, not one.** First a "refresh graph"
+  (walks existing state, calls `ReadResource` per resource to detect drift),
+  then a "plan graph" that layers your desired configuration on top and
+  calls `PlanResourceChange` per node. Independent resources (no edge
+  between them in the DAG) are refreshed and planned *concurrently*, bounded
+  by `-parallelism` (default 10) — this is why plan/apply time doesn't scale
+  linearly with resource count as long as resources are independent.
+- **A saved plan (`-out=tfplan`) is a serialized, frozen execution list.**
+  Because it already contains resolved provider RPC payloads, running
+  `terraform apply tfplan` skips refresh and re-diffing — it replays exactly
+  those calls in the recorded graph order. This is also why Terraform
+  refuses to apply a stale plan file if the state has changed since it was
+  generated (a mismatched serial/lineage check against current state).
+- **`terraform apply` walks the *same* DAG but calls `ApplyResourceChange`
+  instead of `PlanResourceChange`,** and updates the in-memory state
+  incrementally as each node completes — successfully-applied resources are
+  persisted to the state file (via the backend) even if a later resource in
+  the same apply fails, which is why a partially-failed apply doesn't lose
+  track of what did succeed.
+- **`terraform destroy` reverses the graph.** It's not a separate code path
+  from apply — it's a plan computed as "destroy everything in state," and
+  the destroy *order* is the dependency graph walked in reverse (a subnet
+  is destroyed only after every instance inside it), because destroying in
+  forward dependency order would fail against most real cloud APIs (you
+  generally can't delete a VPC while instances still reference it).
+- **Exit codes are graph-walk outcomes, not arbitrary conventions:** `0` =
+  graph walk completed with no changes needed, `1` = an error occurred
+  during parsing/planning/applying, `2` (plan only, with `-detailed-exitcode`)
+  = the graph walk succeeded and found a non-empty diff — useful precisely
+  because it lets CI distinguish "plan failed" from "plan succeeded and
+  there's drift to review."
+
 ## Exercise
 
 Using the `local_file` configuration from module 08's exercise, run

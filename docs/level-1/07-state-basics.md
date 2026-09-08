@@ -132,6 +132,44 @@ with a "already exists" error from the provider, and for resources without
 naming conflicts, silently creates *duplicates* alongside the orphaned
 originals.
 
+## How It Actually Works: the refresh-diff-plan algorithm
+
+This section goes one level deeper than "state tracks reality" into the
+actual comparison algorithm `terraform plan` runs — described from
+Terraform's documented internals, without a live provider in these lessons:
+
+1. **Refresh (read real-world values).** For every resource address already
+   in state, Terraform Core calls the provider's `ReadResource` RPC,
+   passing the resource's last-known state as a hint. The provider queries
+   the real API and returns the resource's *current* actual attributes. This
+   produces what Terraform calls the "prior state" for planning — reality as
+   of right now, not what was last written to the state file.
+2. **Diff against desired configuration.** Terraform Core then walks the
+   graph and, for each resource, calls `PlanResourceChange`, handing the
+   provider three things: the prior state (from step 1), the proposed new
+   state computed from your HCL plus any variable/interpolation values, and
+   the raw config. The provider returns a "planned new state" plus which
+   attributes, if any, force a destroy-and-recreate versus an in-place
+   update — a distinction the provider's schema defines per-attribute
+   (`ForceNew` in provider-SDK terms).
+3. **Three-way comparison, not two.** Critically this is a *three-way*
+   comparison — prior state, actual refreshed reality, and desired config —
+   not just "old file vs. new file." This is exactly how Terraform detects
+   **drift**: if refreshed reality differs from what state last recorded
+   (someone manually changed a setting in the console), that shows up as
+   part of the plan even when your `.tf` files haven't changed at all.
+4. **Serialize into a plan file.** The full set of proposed actions (create/
+   update/destroy/no-op per resource) is what `-out=tfplan` saves — a binary
+   representation of exactly the RPC calls `apply` will replay, which is why
+   an `apply` from a saved plan file skips refresh and re-planning entirely
+   and is deterministic even if reality changed again in between.
+
+The state file itself is therefore not the source of truth for "what's
+real" — it's Terraform's *cache* of the last-known real values, used as an
+optimization so `plan` doesn't have to guess every resource's identity from
+scratch, and as the map from your resource addresses to the opaque IDs
+providers use.
+
 ## Exercise
 
 Without running anything against a real cloud, sketch what you'd expect

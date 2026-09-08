@@ -150,6 +150,39 @@ HCL doesn't require significant indentation the way Python does, but
 so most style questions are answered by just running it rather than
 deciding by hand.
 
+## How It Actually Works: HCL's two-phase parse
+
+HCL (HashiCorp Configuration Language) is not evaluated top-to-bottom like a
+script. It goes through two distinct phases, and understanding the split
+explains a lot of behavior that otherwise looks like magic:
+
+1. **Syntax parsing (structural).** The HCL parser (`hashicorp/hcl`, a
+   separate Go library from Terraform Core) first turns the raw text into an
+   AST purely on *structure* — blocks, labels, arguments, expressions — with
+   no idea yet what a `resource` or `provider` block *means*. A block like
+   `resource "aws_s3_bucket" "reports" { bucket = "x" }` is generically
+   "a block type, two labels, one body" at this stage; HCL itself doesn't
+   know "resource" is special.
+2. **Semantic decoding (Terraform-specific).** Terraform Core then walks that
+   generic AST and decodes it against its own schema: it knows a `resource`
+   block needs exactly two labels (type, then name), that `variable` blocks
+   take one label, and so on. This is also the phase where **expression
+   evaluation** happens — string interpolation (`"${var.name}"`), function
+   calls, and references to other resources are not resolved during parsing;
+   they're left as unevaluated expression nodes until Terraform builds the
+   dependency graph and knows what order to evaluate them in.
+
+This two-phase design is *why* you can reference a resource attribute that
+doesn't exist yet at parse time (`aws_instance.web.id` before the instance is
+created) — HCL only records "this expression depends on that attribute,"
+and the actual value substitution happens later, during the graph walk,
+once the dependency has been created or refreshed. It's also why a genuine
+HCL syntax error (an unclosed brace, a malformed heredoc) is caught
+instantly and unconditionally, before Terraform even attempts to make sense
+of your provider or resource types — syntax errors and semantic/type errors
+come from two different validation passes (`hclsyntax` vs. Terraform's own
+schema and type-checking code).
+
 ## Exercise
 
 Write an HCL snippet (it doesn't need to reference a real provider) with:

@@ -187,6 +187,44 @@ read (not counted as an "add") during the same plan. `bucket_name` and
 example did — they depend on `random_id.suffix.hex`, unknown until that
 resource is actually created.
 
+## How It Actually Works: assembling the full graph across files
+
+This capstone is the first lesson with multiple resources referencing each
+other, so it's the right place to see how everything from modules 01–10
+combines into one graph — reasoned through from Terraform's documented
+graph-construction algorithm, without a real cloud run behind these lessons.
+
+- **File boundaries disappear before the graph is built.** `variables.tf`,
+  `main.tf`, `outputs.tf`, and any `.tfvars` file are all merged into one
+  logical configuration during parsing (module 01/03) — Terraform doesn't
+  care that a variable is *declared* in `variables.tf` and *used* in
+  `main.tf`; both become nodes/edges in the same graph regardless of which
+  file they came from.
+- **Every implicit reference becomes a graph edge, not just explicit ones.**
+  If a resource in `main.tf` interpolates another resource's attribute
+  (e.g. a security group ID passed into an instance), Terraform Core's
+  static reference analysis (walking the HCL expression tree from module 03)
+  adds that edge automatically — you only need `depends_on` for
+  dependencies that exist at the infrastructure level but aren't visible as
+  a direct attribute reference (e.g. IAM eventual-consistency ordering).
+- **`outputs.tf` values are the graph's "sink" nodes.** They have no
+  outgoing edges (nothing depends on an output within the same module) but
+  incoming edges from everything they reference, so they're always evaluated
+  dead last in the topological walk — after every resource they reference
+  has reached its final applied state.
+- **`dev.tfvars` participates in variable precedence (module 06), not in the
+  graph shape.** Passing `-var-file=dev.tfvars` changes *values* flowing
+  into variable nodes; it never changes which nodes exist or how they're
+  connected — the same graph shape would be walked with different tfvars
+  files, which is exactly the property that makes one configuration reusable
+  across dev/staging/prod (a preview of module 06's environment patterns in
+  Level 2).
+- **Parallel vs. sequential apply is decided purely by this graph**, not by
+  resource type or file order: two resources with zero reference between
+  them (say, an independent S3 bucket and an independent IAM user) are
+  applied concurrently even though they're declared in the same `main.tf`
+  one after another.
+
 ## Exercise
 
 Extend this capstone with a sixth argument in `variables.tf`:

@@ -168,6 +168,41 @@ part of its value (`acme-reports-2026-`) is a literal string you wrote, the
 until `random_id.suffix` is actually created, so Terraform can't resolve the
 full string at plan time.
 
+## How It Actually Works: computed attributes and the "known after apply" placeholder
+
+Everything below is reasoned through from the `local` and (hypothetical)
+`aws` provider's documented schema behavior — no real cloud call was made to
+produce these lessons.
+
+- **Every attribute in a provider's schema is tagged `Required`, `Optional`,
+  or `Computed`** (and some both `Optional` and `Computed`). `bucket` on
+  `aws_s3_bucket` is one you supply; `arn` is purely `Computed` — the
+  provider fills it in only after the real `CreateBucket` API call returns
+  an ARN that AWS assigned.
+- **This is exactly what "(known after apply)" means during `plan`.**
+  Terraform Core cannot show a real value for a `Computed`-only attribute
+  before the resource exists, so `PlanResourceChange` returns an explicit
+  "unknown" marker for that attribute rather than a guessed value. Any
+  downstream expression that references that unknown value (another
+  resource's argument built from `aws_s3_bucket.reports.arn`) propagates the
+  "unknown" marker forward through the graph, which is *why* referencing an
+  unknown attribute forces that downstream resource to also show as
+  "known after apply" instead of a concrete diff — the unknown-ness is
+  contagious through the dependency graph until a real apply resolves it.
+- **The `local` provider has no real API, which makes it a useful reasoning
+  tool.** Its `ApplyResourceChange` implementation for `local_file` just
+  performs a Go filesystem write — there's no network RPC to an external
+  service, no eventual consistency delay, and no partial-failure window,
+  which is precisely what makes it good for isolating "how does Terraform's
+  graph and diff logic behave" from "how does a specific cloud API behave."
+- **`aws_s3_bucket_public_access_block` existing as a companion resource
+  (not an argument on the bucket resource) is itself a design signal**: AWS
+  models public-access blocking as a separate API object with its own
+  lifecycle, so the provider schema mirrors that as a separate resource type
+  rather than folding it into `aws_s3_bucket`'s own arguments — the
+  provider's resource boundaries generally track the cloud API's own object
+  boundaries, not an abstraction Terraform invents.
+
 ## Exercise
 
 Write out the full `local_file` example from this module (resource + data
