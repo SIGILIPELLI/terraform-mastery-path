@@ -1,3 +1,7 @@
+---
+robots: noindex, follow
+---
+
 # 07 · Conditional Expressions
 
 !!! info "Coming soon"

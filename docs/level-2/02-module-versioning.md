@@ -1,3 +1,7 @@
+---
+robots: noindex, follow
+---
+
 # 02 · Module Versioning
 
 !!! info "Coming soon"

@@ -1,3 +1,7 @@
+---
+robots: noindex, follow
+---
+
 # 04 · Testing IaC — Plan Review
 
 !!! info "Coming soon"

@@ -1,3 +1,7 @@
+---
+robots: noindex, follow
+---
+
 # 06 · Multi-Environment Patterns
 
 !!! info "Coming soon"

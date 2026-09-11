@@ -1,3 +1,7 @@
+---
+robots: noindex, follow
+---
+
 # 09 · Refactoring State Safely
 
 !!! info "Coming soon"

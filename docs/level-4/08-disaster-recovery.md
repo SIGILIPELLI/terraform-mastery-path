@@ -1,3 +1,7 @@
+---
+robots: noindex, follow
+---
+
 # 08 · Disaster Recovery for State & Infra
 
 !!! info "Coming soon"

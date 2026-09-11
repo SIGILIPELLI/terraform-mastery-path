@@ -1,3 +1,7 @@
+---
+robots: noindex, follow
+---
+
 # 01 · Modules — Structure & Inputs/Outputs
 
 !!! info "Coming soon"

@@ -1,3 +1,7 @@
+---
+robots: noindex, follow
+---
+
 # 05 · Provisioners (and Why to Avoid Them)
 
 !!! info "Coming soon"

@@ -1,3 +1,7 @@
+---
+robots: noindex, follow
+---
+
 # 08 · count vs for_each
 
 !!! info "Coming soon"

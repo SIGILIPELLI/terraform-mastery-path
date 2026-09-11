@@ -1,3 +1,7 @@
+---
+robots: noindex, follow
+---
+
 # 04 · Workspaces
 
 !!! info "Coming soon"

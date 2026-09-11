@@ -1,3 +1,7 @@
+---
+robots: noindex, follow
+---
+
 # 09 · Observability for Infrastructure Changes
 
 !!! info "Coming soon"

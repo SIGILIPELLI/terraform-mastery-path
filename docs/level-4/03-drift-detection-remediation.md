@@ -1,3 +1,7 @@
+---
+robots: noindex, follow
+---
+
 # 03 · Drift Detection & Remediation
 
 !!! info "Coming soon"

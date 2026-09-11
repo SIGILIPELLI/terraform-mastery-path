@@ -1,3 +1,7 @@
+---
+robots: noindex, follow
+---
+
 # 03 · Remote State & Backends
 
 !!! info "Coming soon"

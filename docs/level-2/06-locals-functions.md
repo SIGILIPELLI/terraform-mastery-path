@@ -1,3 +1,7 @@
+---
+robots: noindex, follow
+---
+
 # 06 · Locals & Functions
 
 !!! info "Coming soon"

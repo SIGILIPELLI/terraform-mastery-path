@@ -1,3 +1,7 @@
+---
+robots: noindex, follow
+---
+
 # 02 · CI/CD for Terraform
 
 !!! info "Coming soon"

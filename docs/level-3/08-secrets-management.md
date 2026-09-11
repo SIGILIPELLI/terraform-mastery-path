@@ -1,3 +1,7 @@
+---
+robots: noindex, follow
+---
+
 # 08 · Secrets Management Patterns
 
 !!! info "Coming soon"

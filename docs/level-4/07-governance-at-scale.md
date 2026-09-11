@@ -1,3 +1,7 @@
+---
+robots: noindex, follow
+---
+
 # 07 · Governance at Scale
 
 !!! info "Coming soon"

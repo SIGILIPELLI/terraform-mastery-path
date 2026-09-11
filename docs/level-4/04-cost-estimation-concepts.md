@@ -1,3 +1,7 @@
+---
+robots: noindex, follow
+---
+
 # 04 · Cost Estimation Concepts
 
 !!! info "Coming soon"

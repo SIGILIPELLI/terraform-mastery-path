@@ -1,3 +1,7 @@
+---
+robots: noindex, follow
+---
+
 # 05 · Security Scanning for IaC
 
 !!! info "Coming soon"

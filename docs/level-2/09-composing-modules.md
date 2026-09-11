@@ -1,3 +1,7 @@
+---
+robots: noindex, follow
+---
+
 # 09 · Composing Modules
 
 !!! info "Coming soon"

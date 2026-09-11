@@ -1,3 +1,7 @@
+---
+robots: noindex, follow
+---
+
 # 01 · Large-Scale Module Design
 
 !!! info "Coming soon"

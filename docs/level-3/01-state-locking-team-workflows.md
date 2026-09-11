@@ -1,3 +1,7 @@
+---
+robots: noindex, follow
+---
+
 # 01 · State Locking & Team Workflows
 
 !!! info "Coming soon"

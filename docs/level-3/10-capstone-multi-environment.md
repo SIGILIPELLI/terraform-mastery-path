@@ -1,3 +1,7 @@
+---
+robots: noindex, follow
+---
+
 # 10 · Capstone — Multi-Environment Platform
 
 !!! info "Coming soon"

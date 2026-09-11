@@ -1,3 +1,7 @@
+---
+robots: noindex, follow
+---
+
 # 06 · Designing a Platform's Terraform Architecture
 
 !!! info "Coming soon"

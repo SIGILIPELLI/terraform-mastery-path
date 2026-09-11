@@ -1,3 +1,7 @@
+---
+robots: noindex, follow
+---
+
 # 07 · Dependency Management & the Graph
 
 !!! info "Coming soon"

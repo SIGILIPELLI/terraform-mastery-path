@@ -1,3 +1,7 @@
+---
+robots: noindex, follow
+---
+
 # 02 · Moving & Importing Resources
 
 !!! info "Coming soon"
