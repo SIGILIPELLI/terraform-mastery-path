@@ -94,8 +94,6 @@
   }
   </script>
   
-  <meta name="robots" content="noindex, follow">
-  
 
   </head>
   
@@ -1912,6 +1910,24 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    04 · Cost Estimation Concepts
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -1928,6 +1944,102 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#why-terraform-core-has-no-idea-what-anything-costs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why Terraform Core has no idea what anything costs
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reading-a-plan-as-structured-data-terraform-show-json" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Reading a plan as structured data: terraform show -json
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#whats-estimable-and-what-isnt" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What's estimable and what isn't
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#worked-example-pricing-a-plan-diff-with-infracost" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Worked example: pricing a plan diff with Infracost
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#wiring-it-into-review-not-apply" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Wiring it into review, not apply
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-it-actually-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Actually Works
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercise" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercise
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -2129,6 +2241,91 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#why-terraform-core-has-no-idea-what-anything-costs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why Terraform Core has no idea what anything costs
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reading-a-plan-as-structured-data-terraform-show-json" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Reading a plan as structured data: terraform show -json
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#whats-estimable-and-what-isnt" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What's estimable and what isn't
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#worked-example-pricing-a-plan-diff-with-infracost" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Worked example: pricing a plan diff with Infracost
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#wiring-it-into-review-not-apply" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Wiring it into review, not apply
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-it-actually-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Actually Works
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercise" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercise
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -2148,23 +2345,171 @@
 
 
 <h1 id="04-cost-estimation-concepts">04 · Cost Estimation Concepts<a class="headerlink" href="#04-cost-estimation-concepts" title="Permanent link">&para;</a></h1>
-<div class="admonition info">
-<p class="admonition-title">Coming soon</p>
-<p>This module's full lessons and code snippets are being written next.
-This module will cover cost estimation tooling and workflows for reviewing infrastructure spend before apply.</p>
-</div>
-<p>Check back soon — new modules are published regularly. In the meantime,
-work through <a href="../../level-1/">Level 1 · Entry</a>, which is fully
-available now.</p>
+<p>Terraform will happily let you <code>apply</code> a plan that provisions a
+<code>p4d.24xlarge</code> fleet you meant to size as <code>t3.micro</code>. Nothing in Core's
+plan/apply cycle prices anything — it computes <em>what will exist</em>, not
+<em>what it will cost</em>. This module covers how cost estimation actually
+attaches to that workflow: where the pricing data comes from, what a
+plan file gives a cost tool to work with, and the limits of estimating
+cost from configuration alone.</p>
+<h2 id="why-terraform-core-has-no-idea-what-anything-costs">Why Terraform Core has no idea what anything costs<a class="headerlink" href="#why-terraform-core-has-no-idea-what-anything-costs" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kr">resource</span><span class="w"> </span><span class="nc">"aws_instance"</span><span class="w"> </span><span class="nv">"app"</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="na">ami</span><span class="w">           </span><span class="o">=</span><span class="w"> </span><span class="s2">"ami-0abcd1234"</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span><span class="na">instance_type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"t3.micro"</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="p">}</span>
+</code></pre></div>
+<p>A <code>terraform plan</code> for this resource produces a diff: no instance → one
+instance, with these exact attribute values. Provider schemas describe
+<em>shape</em> (what arguments exist, what types they are), not <em>price</em> —
+<code>instance_type</code> is just a string as far as the AWS provider's schema is
+concerned. Pricing lives in a completely separate data source (each
+cloud's billing/pricing API or a published price list) that no part of
+Terraform Core, the AWS provider, or the plan format touches. A cost
+estimation tool has to bring that pricing data itself and cross-reference
+it against the plan.</p>
+<h2 id="reading-a-plan-as-structured-data-terraform-show-json">Reading a plan as structured data: <code>terraform show -json</code><a class="headerlink" href="#reading-a-plan-as-structured-data-terraform-show-json" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>terraform<span class="w"> </span>plan<span class="w"> </span>-out<span class="o">=</span>tfplan
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>terraform<span class="w"> </span>show<span class="w"> </span>-json<span class="w"> </span>tfplan<span class="w"> </span>&gt;<span class="w"> </span>plan.json
+</code></pre></div>
+<p>This is the mechanism every cost tool (Infracost, cloud-native
+estimators, custom scripts) actually builds on. <code>-out=tfplan</code> saves the
+plan in Terraform's binary plan format; <code>show -json</code> converts that into a
+documented JSON schema containing <code>resource_changes</code> — one entry per
+resource, with <code>change.after</code> holding every planned attribute value.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="p">{</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">  </span><span class="nt">"resource_changes"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">    </span><span class="p">{</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">      </span><span class="nt">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"aws_instance.app"</span><span class="p">,</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="w">      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"aws_instance"</span><span class="p">,</span>
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="w">      </span><span class="nt">"change"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="w">        </span><span class="nt">"actions"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"create"</span><span class="p">],</span>
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="w">        </span><span class="nt">"after"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="w">          </span><span class="nt">"instance_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"t3.micro"</span><span class="p">,</span>
+<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="w">          </span><span class="nt">"ami"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ami-0abcd1234"</span><span class="p">,</span>
+<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="w">          </span><span class="nt">"root_block_device"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w"> </span><span class="nt">"volume_size"</span><span class="p">:</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w"> </span><span class="nt">"volume_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"gp3"</span><span class="w"> </span><span class="p">}]</span>
+<a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a><span class="w">        </span><span class="p">}</span>
+<a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a><span class="w">      </span><span class="p">}</span>
+<a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a><span class="w">  </span><span class="p">]</span>
+<a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a><span class="p">}</span>
+</code></pre></div>
+<p>A cost estimator walks this array, and for every <code>resource_changes[].type</code>
+it recognizes, extracts the pricing-relevant attributes
+(<code>instance_type</code>, <code>volume_size</code>, region from the provider config) and
+looks each one up against a price catalog. This is why cost tools need a
+per-resource-type mapping table and go stale when a provider adds new
+resource types or attributes faster than the tool's mapping is updated —
+the JSON plan gives them everything, but only for types they know how to
+read.</p>
+<h2 id="whats-estimable-and-what-isnt">What's estimable and what isn't<a class="headerlink" href="#whats-estimable-and-what-isnt" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="kr">resource</span><span class="w"> </span><span class="nc">"aws_lambda_function"</span><span class="w"> </span><span class="nv">"handler"</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="w">  </span><span class="na">function_name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"process-events"</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">  </span><span class="na">runtime</span><span class="w">       </span><span class="o">=</span><span class="w"> </span><span class="s2">"python3.12"</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="w">  </span><span class="na">memory_size</span><span class="w">   </span><span class="o">=</span><span class="w"> </span><span class="m">512</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="w">  </span><span class="na">timeout</span><span class="w">       </span><span class="o">=</span><span class="w"> </span><span class="m">10</span>
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="p">}</span>
+</code></pre></div>
+<p><code>aws_instance</code> cost is estimable almost exactly from configuration alone:
+instance type and region map directly to an hourly rate. <code>aws_lambda_function</code>
+cost is fundamentally different — pricing depends on invocation <em>count</em>
+and <em>duration</em>, neither of which exists anywhere in the configuration or
+the plan. A cost tool can price the <em>rate</em> (per-GB-second, per-request)
+but has no way to project a dollar figure without an assumed or observed
+usage volume. This is a structural limit, not a tooling gap: static
+configuration analysis can price fixed-capacity resources
+(compute, storage, provisioned throughput) reasonably well, and can only
+show unit rates — never a total — for consumption-based ones, because the
+consumption number simply isn't a property of the Terraform configuration.</p>
+<h2 id="worked-example-pricing-a-plan-diff-with-infracost">Worked example: pricing a plan diff with Infracost<a class="headerlink" href="#worked-example-pricing-a-plan-diff-with-infracost" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>infracost<span class="w"> </span>breakdown<span class="w"> </span>--path<span class="w"> </span>.<span class="w"> </span>--format<span class="w"> </span>json<span class="w"> </span>--out-file<span class="w"> </span>infracost.json
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="kr">resource</span><span class="w"> </span><span class="nc">"aws_db_instance"</span><span class="w"> </span><span class="nv">"primary"</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="w">  </span><span class="na">engine</span><span class="w">            </span><span class="o">=</span><span class="w"> </span><span class="s2">"postgres"</span>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="w">  </span><span class="na">instance_class</span><span class="w">    </span><span class="o">=</span><span class="w"> </span><span class="s2">"db.t3.medium"</span>
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="w">  </span><span class="na">allocated_storage</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">100</span>
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="w">  </span><span class="na">storage_type</span><span class="w">      </span><span class="o">=</span><span class="w"> </span><span class="s2">"gp3"</span>
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="p">}</span>
+</code></pre></div>
+<p>Infracost runs <code>terraform plan</code> (or reads an existing plan JSON) itself,
+extracts <code>aws_db_instance.primary</code>'s <code>instance_class</code>,
+<code>allocated_storage</code>, and <code>storage_type</code>, looks each up against a
+maintained AWS pricing dataset scoped to the configured region, and
+reports an estimated monthly cost broken into compute
+(<code>db.t3.medium</code> hourly rate × 730 hours) and storage
+(<code>allocated_storage</code> GB × <code>gp3</code> per-GB-month rate) line items. Run against
+a plan that only <em>changes</em> <code>allocated_storage</code> from 100 to 200, it reports
+the delta, not just the new total — which is the actual point of wiring
+this into CI: reviewers see "+$14.60/month" on the pull request diff
+instead of having to reconstruct that from the HCL by hand.</p>
+<h2 id="wiring-it-into-review-not-apply">Wiring it into review, not apply<a class="headerlink" href="#wiring-it-into-review-not-apply" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="c1"># .github/workflows/cost-estimate.yml</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="nt">on</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pull_request</span>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="nt">jobs</span><span class="p">:</span>
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="w">  </span><span class="nt">cost</span><span class="p">:</span>
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="w">    </span><span class="nt">runs-on</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ubuntu-latest</span>
+<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="w">    </span><span class="nt">steps</span><span class="p">:</span>
+<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">actions/checkout@v4</span>
+<a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">infracost/actions/setup@v3</span>
+<a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">infracost breakdown --path . --format json --out-file infracost.json</span>
+<a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">infracost/actions/comment@v3</span>
+<a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a><span class="w">        </span><span class="nt">with</span><span class="p">:</span>
+<a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a><span class="w">          </span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">infracost.json</span>
+<a id="__codelineno-6-13" name="__codelineno-6-13" href="#__codelineno-6-13"></a><span class="w">          </span><span class="nt">behavior</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">update</span>
+</code></pre></div>
+<p>Cost estimation belongs at the same review stage as <code>terraform plan</code>
+(covered in Level 3's testing module) — a pull-request comment showing
+the dollar delta before merge — never as a gate that blocks <code>apply</code>
+outright, since legitimate cost increases (scaling up for real load) are
+common and the tool has no authority to judge whether a given increase is
+justified. It's an information surface for the human reviewer, not a
+policy engine; Level 4's governance module covers the distinct mechanism
+(policy-as-code) for turning a numeric threshold into an actual block.</p>
+<h2 id="how-it-actually-works">How It Actually Works<a class="headerlink" href="#how-it-actually-works" title="Permanent link">&para;</a></h2>
+<p><strong>A cost tool never talks to Terraform Core's provider protocol or state
+— it only ever consumes the JSON plan format (<code>terraform show -json</code>),
+which is a stable, versioned, documented output contract deliberately
+decoupled from Core's internals.</strong> This is why cost tools can support
+new Terraform versions without being rewritten each time: the JSON plan
+schema is treated as a public interface with its own compatibility
+promise, separate from whatever internal graph or RPC structures Core
+uses to produce it. The tool's job reduces to two independent steps that
+have nothing to do with Terraform's own execution model: parse
+<code>resource_changes[].change.after</code> for known type/attribute pairs, and
+join against an externally maintained price catalog it ships or fetches.</p>
+<p><strong>The reason cost estimation cannot use <code>terraform.tfstate</code> instead of a
+fresh plan is that state reflects the <em>last applied</em> configuration, and
+a cost review needs to price the <em>proposed</em> one</strong> — the JSON plan's
+<code>change.after</code> block specifically represents "what the object's
+attributes will be if this plan is applied," computed by evaluating the
+current configuration against current provider schemas and (for
+computed attributes with real dependencies) against real API responses
+during the plan's refresh step. Pricing the diff between <code>before</code> and
+<code>after</code> in that same JSON is mechanically what produces a delta rather
+than a total — the tool is doing the same before/after comparison
+Terraform Core does for the human-readable plan output, just against a
+price catalog instead of against the resource schema.</p>
+<p><strong>No cost tool can see quantities that only exist at runtime (invocation
+counts, data-transfer bytes, request rates) because those values are not
+resources, arguments, or outputs in the Terraform graph at all — they are
+facts about production traffic that Terraform's declarative model has no
+representation for.</strong> This is the same category boundary the testing
+module drew between what <code>terraform plan</code> can validate (shape, syntax,
+policy against static values) and what it structurally cannot
+(request-time behavior) — cost estimation inherits that exact boundary
+because it's built entirely on the same static plan artifact.</p>
+<h2 id="exercise">Exercise<a class="headerlink" href="#exercise" title="Permanent link">&para;</a></h2>
+<p>A pull request adds <code>aws_instance.worker</code> with <code>instance_type =
+"m5.xlarge"</code> and <code>count = 4</code>, and separately adds
+<code>aws_lambda_function.processor</code> with <code>memory_size = 1024</code>. Explain, in
+terms of what <code>terraform show -json</code> would contain for each resource,
+why a cost tool can produce a specific monthly dollar estimate for the
+first addition but only a per-GB-second unit rate for the second.</p>
 
 
 
 
 
 
-
-  
-  
 
 
 

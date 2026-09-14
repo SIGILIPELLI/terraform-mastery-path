@@ -94,8 +94,6 @@
   }
   </script>
   
-  <meta name="robots" content="noindex, follow">
-  
 
   </head>
   
@@ -1940,6 +1938,24 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    05 · Security Scanning for IaC
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -1956,6 +1972,102 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#the-gap-terraform-validate-leaves-open" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The gap terraform validate leaves open
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#static-analysis-pattern-matching-against-known-bad-shapes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Static analysis: pattern-matching against known-bad shapes
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#custom-rules-with-open-policy-agent-rego" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Custom rules with Open Policy Agent / Rego
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#scanning-the-plan-vs-scanning-the-source" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scanning the plan vs. scanning the source
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#wiring-scanning-into-the-same-review-gate-as-tests-and-policy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Wiring scanning into the same review gate as tests and policy
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-it-actually-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Actually Works
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercise" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercise
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -2129,6 +2241,91 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#the-gap-terraform-validate-leaves-open" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The gap terraform validate leaves open
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#static-analysis-pattern-matching-against-known-bad-shapes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Static analysis: pattern-matching against known-bad shapes
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#custom-rules-with-open-policy-agent-rego" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Custom rules with Open Policy Agent / Rego
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#scanning-the-plan-vs-scanning-the-source" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scanning the plan vs. scanning the source
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#wiring-scanning-into-the-same-review-gate-as-tests-and-policy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Wiring scanning into the same review gate as tests and policy
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-it-actually-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Actually Works
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercise" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercise
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -2148,23 +2345,175 @@
 
 
 <h1 id="05-security-scanning-for-iac">05 · Security Scanning for IaC<a class="headerlink" href="#05-security-scanning-for-iac" title="Permanent link">&para;</a></h1>
-<div class="admonition info">
-<p class="admonition-title">Coming soon</p>
-<p>This module's full lessons and code snippets are being written next.
-This module will cover static analysis and security scanning tools for Terraform configurations.</p>
-</div>
-<p>Check back soon — new modules are published regularly. In the meantime,
-work through <a href="../../level-1/">Level 1 · Entry</a>, which is fully
-available now.</p>
+<p>A misconfigured security group or a public S3 bucket is just as much a
+bug as a syntax error — the difference is <code>terraform validate</code> has no
+opinion on it, because "world-readable storage bucket" is perfectly
+valid HCL. This module covers static analysis tools purpose-built to
+catch that category of defect before <code>apply</code>, and — more importantly —
+how they actually reason about your configuration to do it.</p>
+<h2 id="the-gap-terraform-validate-leaves-open">The gap <code>terraform validate</code> leaves open<a class="headerlink" href="#the-gap-terraform-validate-leaves-open" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kr">resource</span><span class="w"> </span><span class="nc">"aws_s3_bucket"</span><span class="w"> </span><span class="nv">"data"</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="na">bucket</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"company-customer-exports"</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="p">}</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="kr">resource</span><span class="w"> </span><span class="nc">"aws_s3_bucket_public_access_block"</span><span class="w"> </span><span class="nv">"data"</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">  </span><span class="na">bucket</span><span class="w">                  </span><span class="o">=</span><span class="w"> </span><span class="nv">aws_s3_bucket.data.id</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">  </span><span class="na">block_public_acls</span><span class="w">       </span><span class="o">=</span><span class="w"> </span><span class="no">false</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">  </span><span class="na">block_public_policy</span><span class="w">     </span><span class="o">=</span><span class="w"> </span><span class="no">false</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">  </span><span class="na">ignore_public_acls</span><span class="w">      </span><span class="o">=</span><span class="w"> </span><span class="no">false</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="w">  </span><span class="na">restrict_public_buckets</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="no">false</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="p">}</span>
+</code></pre></div>
+<p><code>terraform validate</code> checks that every argument is the right type, every
+required argument is present, and every reference resolves — by every one
+of those criteria, this configuration is completely valid. It is also a
+bucket with all four public-access protections explicitly disabled.
+Schema validation and security posture are orthogonal concerns: the
+provider schema for <code>aws_s3_bucket_public_access_block</code> declares
+<code>block_public_acls</code> as a plain boolean with no notion that <code>false</code> is a
+dangerous value for a "customer exports" bucket — that judgment requires
+a rule written by someone who understands the <em>service's</em> security
+model, not the <em>schema's</em> type model.</p>
+<h2 id="static-analysis-pattern-matching-against-known-bad-shapes">Static analysis: pattern-matching against known-bad shapes<a class="headerlink" href="#static-analysis-pattern-matching-against-known-bad-shapes" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>tfsec<span class="w"> </span>.
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>Result #1 HIGH Public access block is disabled
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>────────────────────────────────────────────
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>  aws_s3_bucket_public_access_block.data
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>    [restrict_public_buckets] is set to false
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>  Impact  Public buckets are accessible to anyone
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>  Resolution  Set restrict_public_buckets to true
+</code></pre></div>
+<p>Tools like tfsec (now folded into Trivy) and Checkov work by parsing HCL
+into the same syntax tree Terraform's own parser produces, then walking
+it against a library of rules — each rule is a small predicate over
+resource type and attribute values ("if <code>aws_s3_bucket_public_access_block</code>
+exists and any of these four attributes is <code>false</code>, flag it"). No cloud
+API call happens; no provider is even initialized. This is what makes
+static IaC scanning fast enough to run on every commit — it's pure
+syntax-tree pattern matching against a rule library, closer to a linter
+than to the plan/apply pipeline.</p>
+<h2 id="custom-rules-with-open-policy-agent-rego">Custom rules with Open Policy Agent / Rego<a class="headerlink" href="#custom-rules-with-open-policy-agent-rego" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="k">package</span><span class="w"> </span><span class="n">terraform</span><span class="p">.</span><span class="n">security</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="n">deny</span><span class="p">[</span><span class="n">msg</span><span class="p">]</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="w">  </span><span class="n">resource</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nb">input</span><span class="p">.</span><span class="n">resource</span><span class="p">.</span><span class="n">aws_security_group</span><span class="p">[</span><span class="n">name</span><span class="p">]</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="w">  </span><span class="n">rule</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="n">resource</span><span class="p">.</span><span class="n">ingress</span><span class="p">[</span><span class="n">_</span><span class="p">]</span>
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="w">  </span><span class="n">rule</span><span class="p">.</span><span class="n">cidr_blocks</span><span class="p">[</span><span class="n">_</span><span class="p">]</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s2">"0.0.0.0/0"</span>
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="w">  </span><span class="n">rule</span><span class="p">.</span><span class="n">from_port</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="m">22</span>
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="w">  </span><span class="n">msg</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="n">sprintf</span><span class="p">(</span><span class="s2">"aws_security_group.%s allows SSH from anywhere"</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="n">name</span><span class="p">])</span>
+<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="p">}</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="kr">resource</span><span class="w"> </span><span class="nc">"aws_security_group"</span><span class="w"> </span><span class="nv">"web"</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="w">  </span><span class="nb">ingress</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="w">    </span><span class="na">from_port</span><span class="w">   </span><span class="o">=</span><span class="w"> </span><span class="m">22</span>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="w">    </span><span class="na">to_port</span><span class="w">     </span><span class="o">=</span><span class="w"> </span><span class="m">22</span>
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="w">    </span><span class="na">protocol</span><span class="w">    </span><span class="o">=</span><span class="w"> </span><span class="s2">"tcp"</span>
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="w">    </span><span class="na">cidr_blocks</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s2">"0.0.0.0/0"</span><span class="p">]</span>
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="w">  </span><span class="p">}</span>
+<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="p">}</span>
+</code></pre></div>
+<p>Where tfsec/Checkov ship a fixed rule library, Conftest running Rego
+policies (or Sentinel, covered for governance in module 07) lets an
+organization encode its <em>own</em> judgment calls — "no SSH from
+<code>0.0.0.0/0</code>" isn't a universal security truth (a bastion host might need
+exactly this), it's a policy this specific org has decided to enforce.
+Conftest evaluates Rego rules against either the raw HCL (via an
+HCL-to-JSON conversion) or, more powerfully, against the JSON plan output
+from module 04 — the latter lets a rule reason about the fully resolved
+<code>after</code> state, including values that only exist post-interpolation, not
+just the literal source text.</p>
+<h2 id="scanning-the-plan-vs-scanning-the-source">Scanning the plan vs. scanning the source<a class="headerlink" href="#scanning-the-plan-vs-scanning-the-source" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>terraform<span class="w"> </span>show<span class="w"> </span>-json<span class="w"> </span>tfplan<span class="w"> </span>&gt;<span class="w"> </span>plan.json
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>conftest<span class="w"> </span><span class="nb">test</span><span class="w"> </span>--policy<span class="w"> </span>security-policies/<span class="w"> </span>plan.json
+</code></pre></div>
+<p>Scanning raw <code>.tf</code> source (tfsec's default mode) catches problems visible
+in the literal configuration, but misses anything that only resolves at
+plan time — a <code>cidr_blocks</code> value built from a variable, a module output,
+or a <code>for_each</code> expansion. Scanning the JSON plan instead means the rule
+evaluates against <code>resource_changes[].change.after</code>, which holds the
+fully interpolated, fully expanded values Terraform actually computed —
+every <code>for_each</code> instance materialized as its own entry, every variable
+substituted. This is the same JSON plan artifact module 04's cost tooling
+consumes, and for the identical reason: it's the one place a
+downstream tool can see the <em>resolved</em> configuration without
+re-implementing Terraform's own expression evaluator.</p>
+<h2 id="wiring-scanning-into-the-same-review-gate-as-tests-and-policy">Wiring scanning into the same review gate as tests and policy<a class="headerlink" href="#wiring-scanning-into-the-same-review-gate-as-tests-and-policy" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="c1"># .github/workflows/security-scan.yml</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="nt">on</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pull_request</span>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="nt">jobs</span><span class="p">:</span>
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="w">  </span><span class="nt">security</span><span class="p">:</span>
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="w">    </span><span class="nt">runs-on</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ubuntu-latest</span>
+<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="w">    </span><span class="nt">steps</span><span class="p">:</span>
+<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">actions/checkout@v4</span>
+<a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">aquasecurity/tfsec-pr-commenter-action@v1</span>
+<a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a><span class="w">        </span><span class="nt">with</span><span class="p">:</span>
+<a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a><span class="w">          </span><span class="nt">github_token</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${{ secrets.GITHUB_TOKEN }}</span>
+<a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span>
+<a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a><span class="w">          </span><span class="no">terraform init</span>
+<a id="__codelineno-6-13" name="__codelineno-6-13" href="#__codelineno-6-13"></a><span class="w">          </span><span class="no">terraform plan -out=tfplan</span>
+<a id="__codelineno-6-14" name="__codelineno-6-14" href="#__codelineno-6-14"></a><span class="w">          </span><span class="no">terraform show -json tfplan &gt; plan.json</span>
+<a id="__codelineno-6-15" name="__codelineno-6-15" href="#__codelineno-6-15"></a><span class="w">          </span><span class="no">conftest test --policy security-policies/ plan.json</span>
+</code></pre></div>
+<p>This sits in exactly the same CI stage as the plan-review testing from
+Level 3's module 04 and the policy-as-code checks from module 05 —
+security scanning is one more static check against the plan artifact, run
+before any human or automated approval gate, never after <code>apply</code>. Failing
+it should block merge the same way a failed <code>terraform plan</code> or a failed
+policy check does; catching a public bucket in code review costs nothing,
+catching it after the bucket has held customer data for a week is an
+incident.</p>
+<h2 id="how-it-actually-works">How It Actually Works<a class="headerlink" href="#how-it-actually-works" title="Permanent link">&para;</a></h2>
+<p><strong>A static IaC scanner never invokes the Terraform provider protocol —
+it operates entirely on syntax trees or JSON, which is precisely why it
+can evaluate configuration for a provider it doesn't have credentials
+for, or even one it has never seen before.</strong> tfsec and Checkov ship
+their own HCL parsers (or reuse the open-source <code>hashicorp/hcl</code> library
+directly) to build an abstract syntax tree independent of <code>terraform
+init</code> ever running — no provider plugin is downloaded, no gRPC
+connection is opened, no <code>GetSchema</code> call happens. The tool's rule
+library encodes its own understanding of each provider's argument names
+and dangerous values, maintained separately from — and sometimes lagging
+— the actual provider schema, which is the direct cause of both false
+negatives (a new provider version adds an equivalently dangerous
+argument the rule library doesn't know about yet) and false positives
+(a rule assumes a default value that a provider version quietly changed).</p>
+<p><strong>Scanning the JSON plan instead of raw HCL changes what's actually being
+matched: <code>after</code> values are the <em>outputs</em> of Terraform's expression
+evaluator, not the literal expressions written in the file</strong> — a rule
+matching <code>cidr_blocks[_] == "0.0.0.0/0"</code> against source HCL fails to
+fire if the actual source reads <code>cidr_blocks = [var.allow_cidr]</code>, because
+the literal string <code>"0.0.0.0/0"</code> never appears in the file; the same rule
+against the JSON plan fires correctly because <code>change.after.cidr_blocks</code>
+holds the resolved value after Terraform Core has already done variable
+substitution during plan evaluation. This is the identical resolved-vs-literal
+distinction module 04 draws for cost estimation — a downstream static tool
+gets more accurate results the closer it consumes to Terraform's own
+evaluated output, and less accurate results the more it re-parses
+un-evaluated source.</p>
+<p><strong>Rego's evaluation model (a declarative query language over structured
+JSON) is why Conftest can express relationships an attribute-matching
+rule library can't — a Rego rule can join across multiple resources in
+the same plan</strong> (e.g., "flag any <code>aws_security_group</code> referenced by an
+<code>aws_instance</code> whose <code>ami</code> doesn't match an approved AMI list"), because
+<code>input</code> in a Rego policy is the entire parsed JSON plan document, not one
+resource in isolation — the policy author writes an arbitrary query over
+that whole document, which is strictly more expressive than a scanner
+whose rule format is fundamentally "match this attribute path against
+this value."</p>
+<h2 id="exercise">Exercise<a class="headerlink" href="#exercise" title="Permanent link">&para;</a></h2>
+<p>A security group resource's <code>cidr_blocks</code> argument is set to
+<code>var.office_cidr</code>, and <code>office_cidr</code>'s default value in <code>variables.tf</code> is
+<code>"0.0.0.0/0"</code> (left that way by accident). Explain why a tfsec scan of
+the raw <code>.tf</code> source would likely miss this, and why a Conftest policy
+run against <code>terraform show -json</code> output would catch it.</p>
 
 
 
 
 
 
-
-  
-  
 
 
 

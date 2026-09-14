@@ -94,8 +94,6 @@
   }
   </script>
   
-  <meta name="robots" content="noindex, follow">
-  
 
   </head>
   
@@ -2024,6 +2022,24 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    08 · Disaster Recovery for State & Infra
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -2040,6 +2056,102 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#the-state-file-is-the-single-point-of-failure-state-operations-create" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The state file is the single point of failure state operations create
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#line-of-defense-one-versioned-replicated-state-storage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Line of defense one: versioned, replicated state storage
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#recovering-a-lost-or-corrupted-state-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Recovering a lost or corrupted state file
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#when-theres-no-backup-at-all-reconstructing-state-from-real-infrastructure" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        When there's no backup at all: reconstructing state from real infrastructure
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#worked-example-recovering-from-a-region-outage-with-a-warm-standby-workspace" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Worked example: recovering from a region outage with a warm-standby workspace
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-it-actually-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Actually Works
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercise" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercise
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -2129,6 +2241,91 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#the-state-file-is-the-single-point-of-failure-state-operations-create" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The state file is the single point of failure state operations create
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#line-of-defense-one-versioned-replicated-state-storage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Line of defense one: versioned, replicated state storage
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#recovering-a-lost-or-corrupted-state-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Recovering a lost or corrupted state file
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#when-theres-no-backup-at-all-reconstructing-state-from-real-infrastructure" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        When there's no backup at all: reconstructing state from real infrastructure
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#worked-example-recovering-from-a-region-outage-with-a-warm-standby-workspace" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Worked example: recovering from a region outage with a warm-standby workspace
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-it-actually-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Actually Works
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercise" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercise
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -2148,23 +2345,179 @@
 
 
 <h1 id="08-disaster-recovery-for-state-infra">08 · Disaster Recovery for State &amp; Infra<a class="headerlink" href="#08-disaster-recovery-for-state-infra" title="Permanent link">&para;</a></h1>
-<div class="admonition info">
-<p class="admonition-title">Coming soon</p>
-<p>This module's full lessons and code snippets are being written next.
-This module will cover backing up and recovering state, and disaster recovery planning for infrastructure.</p>
-</div>
-<p>Check back soon — new modules are published regularly. In the meantime,
-work through <a href="../../level-1/">Level 1 · Entry</a>, which is fully
-available now.</p>
+<p>Level 3's module on refactoring state safely covered surgical,
+intentional state edits. Disaster recovery is the opposite scenario:
+something has already gone wrong — a state file was deleted, corrupted,
+or an entire region went dark — and the question is how to get back to a
+known-good, working configuration with the least additional damage.</p>
+<h2 id="the-state-file-is-the-single-point-of-failure-state-operations-create">The state file is the single point of failure state operations create<a class="headerlink" href="#the-state-file-is-the-single-point-of-failure-state-operations-create" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nb">terraform</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="kr">backend</span><span class="w"> </span><span class="nv">"s3"</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">    </span><span class="na">bucket</span><span class="w">         </span><span class="o">=</span><span class="w"> </span><span class="s2">"acme-tfstate"</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">    </span><span class="na">key</span><span class="w">            </span><span class="o">=</span><span class="w"> </span><span class="s2">"production/terraform.tfstate"</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">    </span><span class="na">region</span><span class="w">         </span><span class="o">=</span><span class="w"> </span><span class="s2">"us-east-1"</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">    </span><span class="na">dynamodb_table</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"acme-tf-locks"</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">  </span><span class="p">}</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="p">}</span>
+</code></pre></div>
+<p>Lose <code>terraform.tfstate</code> — accidentally delete the S3 object, corrupt it
+with a bad manual edit, or have the bucket itself destroyed — and
+Terraform loses all memory of which real-world resources it's supposed
+to be managing. The infrastructure keeps running (state loss doesn't
+touch actual cloud resources), but the <em>next</em> <code>terraform plan</code> sees an
+empty state against a populated configuration and proposes creating
+everything from scratch, which would either fail loudly (most cloud
+resources reject creating something that already exists, like an S3
+bucket name collision) or, worse, some resources <em>would</em> succeed and
+silently duplicate infrastructure. This is why state is the actual
+disaster-recovery-critical asset in a Terraform-managed environment —
+not the <code>.tf</code> files, which are just text in version control and trivially
+recoverable.</p>
+<h2 id="line-of-defense-one-versioned-replicated-state-storage">Line of defense one: versioned, replicated state storage<a class="headerlink" href="#line-of-defense-one-versioned-replicated-state-storage" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="kr">resource</span><span class="w"> </span><span class="nc">"aws_s3_bucket"</span><span class="w"> </span><span class="nv">"tfstate"</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">  </span><span class="na">bucket</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"acme-tfstate"</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="p">}</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="kr">resource</span><span class="w"> </span><span class="nc">"aws_s3_bucket_versioning"</span><span class="w"> </span><span class="nv">"tfstate"</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="w">  </span><span class="na">bucket</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">aws_s3_bucket.tfstate.id</span>
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="w">  </span><span class="nb">versioning_configuration</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="w">    </span><span class="na">status</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"Enabled"</span>
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="w">  </span><span class="p">}</span>
+<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="p">}</span>
+<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>
+<a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a><span class="kr">resource</span><span class="w"> </span><span class="nc">"aws_s3_bucket_replication_configuration"</span><span class="w"> </span><span class="nv">"tfstate"</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a><span class="w">  </span><span class="na">role</span><span class="w">   </span><span class="o">=</span><span class="w"> </span><span class="nv">aws_iam_role.replication.arn</span>
+<a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a><span class="w">  </span><span class="na">bucket</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">aws_s3_bucket.tfstate.id</span>
+<a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a>
+<a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a><span class="w">  </span><span class="nb">rule</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a><span class="w">    </span><span class="na">id</span><span class="w">     </span><span class="o">=</span><span class="w"> </span><span class="s2">"replicate-to-dr-region"</span>
+<a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a><span class="w">    </span><span class="na">status</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"Enabled"</span>
+<a id="__codelineno-1-19" name="__codelineno-1-19" href="#__codelineno-1-19"></a><span class="w">    </span><span class="nb">destination</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-1-20" name="__codelineno-1-20" href="#__codelineno-1-20"></a><span class="w">      </span><span class="na">bucket</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"arn:aws:s3:::acme-tfstate-dr-west"</span>
+<a id="__codelineno-1-21" name="__codelineno-1-21" href="#__codelineno-1-21"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-1-22" name="__codelineno-1-22" href="#__codelineno-1-22"></a><span class="w">  </span><span class="p">}</span>
+<a id="__codelineno-1-23" name="__codelineno-1-23" href="#__codelineno-1-23"></a><span class="p">}</span>
+</code></pre></div>
+<p>Versioning on the state bucket means an accidental delete or a bad
+overwrite is recoverable — S3 keeps every prior version of the object,
+so restoring is "promote the previous version," not "reconstruct from
+scratch." Cross-region replication protects against losing the entire
+bucket or region, not just one object version. Neither of these is
+optional hardening for a production Terraform setup; they're the
+baseline that makes every other recovery step in this module possible at
+all, because every one of them assumes <em>some</em> prior good state exists
+somewhere to recover to.</p>
+<h2 id="recovering-a-lost-or-corrupted-state-file">Recovering a lost or corrupted state file<a class="headerlink" href="#recovering-a-lost-or-corrupted-state-file" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>aws<span class="w"> </span>s3api<span class="w"> </span>list-object-versions<span class="w"> </span>--bucket<span class="w"> </span>acme-tfstate<span class="w"> </span>--prefix<span class="w"> </span>production/terraform.tfstate
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>aws<span class="w"> </span>s3api<span class="w"> </span>get-object<span class="w"> </span>--bucket<span class="w"> </span>acme-tfstate<span class="w"> </span>--key<span class="w"> </span>production/terraform.tfstate<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">  </span>--version-id<span class="w"> </span>abc123def456<span class="w"> </span>recovered.tfstate
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>terraform<span class="w"> </span>state<span class="w"> </span>push<span class="w"> </span>recovered.tfstate
+</code></pre></div>
+<p><code>terraform state push</code> uploads a local state file as the new remote
+state, after Terraform checks it against the backend's serial/lineage
+metadata to avoid silently clobbering a newer concurrent write. Recovery
+is: identify the last known-good version (via S3 versioning, or a backup
+taken by CI before each apply), pull it down, verify it against reality
+with <code>terraform plan</code> (expect <em>zero</em> changes if the recovered state
+genuinely matches deployed infrastructure), and only then push it back
+as the authoritative state.</p>
+<h2 id="when-theres-no-backup-at-all-reconstructing-state-from-real-infrastructure">When there's no backup at all: reconstructing state from real infrastructure<a class="headerlink" href="#when-theres-no-backup-at-all-reconstructing-state-from-real-infrastructure" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>terraform<span class="w"> </span>import<span class="w"> </span>aws_vpc.this<span class="w"> </span>vpc-0abc123
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>terraform<span class="w"> </span>import<span class="w"> </span>aws_subnet.main<span class="w"> </span>subnet-0def456
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>terraform<span class="w"> </span>import<span class="w"> </span>aws_db_instance.primary<span class="w"> </span>acme-prod-db
+</code></pre></div>
+<p>If no state backup exists, the only path back is importing every
+existing resource one at a time — <code>terraform import</code> binds a real
+resource ID to a resource address already declared in configuration,
+populating that one resource's state without touching anything else.
+This is slow and error-prone at scale (dozens or hundreds of resources,
+each needing the exact right address and ID), which is precisely the
+argument for why versioned/replicated state storage isn't optional: the
+alternative is a manual, resource-by-resource reconstruction under
+incident pressure, with real risk of missing a resource entirely and
+having Terraform propose destroying something still in production use.</p>
+<h2 id="worked-example-recovering-from-a-region-outage-with-a-warm-standby-workspace">Worked example: recovering from a region outage with a warm-standby workspace<a class="headerlink" href="#worked-example-recovering-from-a-region-outage-with-a-warm-standby-workspace" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="c1"># dr/main.tf — separate state, separate workspace, deployed to us-west-2</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="nb">terraform</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="w">  </span><span class="kr">backend</span><span class="w"> </span><span class="nv">"s3"</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="w">    </span><span class="na">bucket</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"acme-tfstate"</span>
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="w">    </span><span class="na">key</span><span class="w">    </span><span class="o">=</span><span class="w"> </span><span class="s2">"production-dr/terraform.tfstate"</span>
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="w">    </span><span class="na">region</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"us-west-2"</span>
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="w">  </span><span class="p">}</span>
+<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="p">}</span>
+<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a>
+<a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a><span class="kr">module</span><span class="w"> </span><span class="nv">"app_stack"</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a><span class="w">  </span><span class="na">source</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"../modules/app-stack"</span>
+<a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a><span class="w">  </span><span class="na">region</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"us-west-2"</span>
+<a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a><span class="c1">  # sized down: standby capacity, scaled up only during failover</span>
+<a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a><span class="w">  </span><span class="na">instance_count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span>
+<a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a><span class="p">}</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="c1"># Failover: scale up the DR workspace, then redirect traffic</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>terraform<span class="w"> </span>apply<span class="w"> </span>-var<span class="o">=</span><span class="s2">"instance_count=6"</span><span class="w"> </span>-target<span class="o">=</span>module.app_stack
+</code></pre></div>
+<p>A genuinely resilient DR plan doesn't rely solely on state recovery — it
+maintains a second, independently-stated deployment of the same
+application stack in another region, kept minimally provisioned during
+normal operation and scaled up on failover. This is architecturally
+distinct from state recovery: it's accepting the primary region's <em>state
+and infrastructure both</em> might become unavailable simultaneously, and
+having a pre-tested, separately-applied configuration ready to take over
+rather than depending on recovering anything from the failed region at
+all.</p>
+<h2 id="how-it-actually-works">How It Actually Works<a class="headerlink" href="#how-it-actually-works" title="Permanent link">&para;</a></h2>
+<p><strong>S3 object versioning works at the storage layer, entirely below
+Terraform's own state-locking and serial mechanisms — every <code>PUT</code> to the
+state object creates a new immutable version with its own version ID,
+regardless of what wrote it or whether that write went through
+Terraform at all.</strong> This is why it protects against failure modes
+Terraform's own mechanisms don't cover: a locking bug or a bypassed lock
+(someone running an old Terraform binary that doesn't support the
+configured backend's lock protocol) can still produce a bad state write,
+but it can never destroy the <em>previous</em> version, because versioning is
+enforced by the storage backend, underneath and independent of anything
+Terraform Core does.</p>
+<p><strong><code>terraform state push</code> isn't a raw overwrite — Terraform Core reads the
+target backend's current state, compares its <code>serial</code> (a monotonically
+incrementing counter embedded in every state file, bumped on every
+write) and <code>lineage</code> (a UUID identifying which "family" of state history
+a file belongs to, set once at state creation and never changed) against
+the state being pushed, and refuses the push if the serial suggests it
+would overwrite work newer than what you're pushing from.</strong> This is the
+exact mechanism (introduced in Level 3's refactoring-state module for
+<code>state mv</code>) doing double duty here: the same lineage/serial check that
+prevents two people's concurrent <code>apply</code>s from silently clobbering each
+other also prevents a stale recovered backup from silently clobbering a
+newer, valid state during a botched recovery attempt.</p>
+<p><strong><code>terraform import</code> populates exactly one resource's entry in state by
+calling the provider's <code>ReadResource</code> RPC against the given real-world
+ID and storing whatever attributes come back — it does not, and cannot,
+infer <em>which</em> configuration block a given cloud resource should bind to,
+which is why the resource address has to already exist in configuration
+before you import into it.</strong> This is a direct consequence of the
+provider-protocol boundary covered across this course: state is
+Terraform Core's local record of "what does resource address X
+currently look like in the real world," and <code>import</code> is simply Core
+asking the provider to answer that question for one specific ID and
+recording the answer — it never runs the graph, never plans, never
+touches any other resource, which is exactly why full reconstruction
+requires one import call per resource with no bulk shortcut.</p>
+<h2 id="exercise">Exercise<a class="headerlink" href="#exercise" title="Permanent link">&para;</a></h2>
+<p>Your team's S3 state bucket has versioning enabled but no
+cross-region replication, and an engineer just accidentally ran <code>aws s3
+rb --force</code> against the bucket, deleting it and every version in it.
+Walk through what recovery options remain, and explain — referencing the
+lineage/serial mechanism above — what Terraform would do differently if
+you instead tried to recover by writing a <em>freshly generated</em> state file
+(from <code>terraform import</code>-ing everything) versus recovering an actual
+prior version of the deleted file.</p>
 
 
 
 
 
 
-
-  
-  
 
 
 

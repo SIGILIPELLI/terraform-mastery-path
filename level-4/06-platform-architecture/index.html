@@ -94,8 +94,6 @@
   }
   </script>
   
-  <meta name="robots" content="noindex, follow">
-  
 
   </head>
   
@@ -1968,6 +1966,24 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    06 · Designing a Platform's Terraform Architecture
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -1984,6 +2000,102 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#the-core-tension-blast-radius-vs-duplication" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The core tension: blast radius vs. duplication
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#composing-across-state-boundaries-terraform_remote_state" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Composing across state boundaries: terraform_remote_state
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-alternative-to-remote-state-coupling-a-platform-module-registry" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The alternative to remote-state coupling: a platform module registry
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#layering-foundational-vs-workload-state" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Layering: foundational vs. workload state
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#worked-example-onboarding-a-new-service-without-touching-foundation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Worked example: onboarding a new service without touching foundation
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-it-actually-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Actually Works
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercise" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercise
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -2129,6 +2241,91 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#the-core-tension-blast-radius-vs-duplication" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The core tension: blast radius vs. duplication
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#composing-across-state-boundaries-terraform_remote_state" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Composing across state boundaries: terraform_remote_state
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-alternative-to-remote-state-coupling-a-platform-module-registry" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The alternative to remote-state coupling: a platform module registry
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#layering-foundational-vs-workload-state" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Layering: foundational vs. workload state
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#worked-example-onboarding-a-new-service-without-touching-foundation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Worked example: onboarding a new service without touching foundation
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-it-actually-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Actually Works
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercise" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercise
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -2148,23 +2345,175 @@
 
 
 <h1 id="06-designing-a-platforms-terraform-architecture">06 · Designing a Platform's Terraform Architecture<a class="headerlink" href="#06-designing-a-platforms-terraform-architecture" title="Permanent link">&para;</a></h1>
-<div class="admonition info">
-<p class="admonition-title">Coming soon</p>
-<p>This module's full lessons and code snippets are being written next.
-This module will cover designing a full platform's Terraform architecture end to end.</p>
-</div>
-<p>Check back soon — new modules are published regularly. In the meantime,
-work through <a href="../../level-1/">Level 1 · Entry</a>, which is fully
-available now.</p>
+<p>Every module in this course so far has looked at one mechanism at a
+time — state locking, testing, policy, the graph. Designing a platform's
+Terraform architecture is the opposite exercise: given all of those
+mechanisms, how do you actually split dozens of teams' infrastructure
+across state files, modules, and repositories so that nobody's <code>apply</code>
+can take down someone else's service, and no one has to understand the
+whole system to change their corner of it.</p>
+<h2 id="the-core-tension-blast-radius-vs-duplication">The core tension: blast radius vs. duplication<a class="headerlink" href="#the-core-tension-blast-radius-vs-duplication" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1"># One giant root module — everything in one state</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="kr">module</span><span class="w"> </span><span class="nv">"network"</span><span class="w">  </span><span class="p">{</span><span class="w"> </span><span class="na">source</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"./modules/network"</span><span class="w"> </span><span class="p">}</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="kr">module</span><span class="w"> </span><span class="nv">"database"</span><span class="w">  </span><span class="p">{</span><span class="w"> </span><span class="na">source</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"./modules/database"</span><span class="w"> </span><span class="p">}</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="kr">module</span><span class="w"> </span><span class="nv">"app"</span><span class="w">       </span><span class="p">{</span><span class="w"> </span><span class="na">source</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"./modules/app"</span><span class="w"> </span><span class="p">}</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="kr">module</span><span class="w"> </span><span class="nv">"cdn"</span><span class="w">       </span><span class="p">{</span><span class="w"> </span><span class="na">source</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"./modules/cdn"</span><span class="w"> </span><span class="p">}</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1"># vs. four separate root modules, four separate state files</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="c1"># network/main.tf, database/main.tf, app/main.tf, cdn/main.tf</span>
+</code></pre></div>
+<p>A single state file holding network, database, app, and CDN resources
+means one <code>terraform apply</code> can, in principle, plan changes across all
+four — which is convenient for keeping cross-references simple
+(<code>module.network.vpc_id</code> is just a local reference) but means a lock held
+by anyone touching <em>any</em> of it blocks everyone touching <em>any</em> of it (the
+state-locking mechanism from Level 3 module 01), and a bad plan anywhere
+in that state risks <code>-target</code>-less applies touching resources the
+change had no business touching. Splitting into four state files
+shrinks each blast radius to one domain, at the cost that
+<code>module.network.vpc_id</code> is no longer a local reference — it has to cross
+a state boundary via a remote state data source or an explicit output/
+input contract, which is real coordination overhead. Platform
+architecture is choosing where to draw these boundaries deliberately,
+not accidentally.</p>
+<h2 id="composing-across-state-boundaries-terraform_remote_state">Composing across state boundaries: <code>terraform_remote_state</code><a class="headerlink" href="#composing-across-state-boundaries-terraform_remote_state" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1"># database/main.tf</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="kr">data</span><span class="w"> </span><span class="nc">"terraform_remote_state"</span><span class="w"> </span><span class="nv">"network"</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">  </span><span class="na">backend</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"s3"</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">  </span><span class="nb">config</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="w">    </span><span class="na">bucket</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"acme-tfstate"</span>
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="w">    </span><span class="na">key</span><span class="w">    </span><span class="o">=</span><span class="w"> </span><span class="s2">"network/terraform.tfstate"</span>
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="w">    </span><span class="na">region</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"us-east-1"</span>
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="w">  </span><span class="p">}</span>
+<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="p">}</span>
+<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a>
+<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="kr">resource</span><span class="w"> </span><span class="nc">"aws_db_subnet_group"</span><span class="w"> </span><span class="nv">"main"</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a><span class="w">  </span><span class="na">subnet_ids</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">data.terraform_remote_state.network.outputs.private_subnet_ids</span>
+<a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a><span class="p">}</span>
+</code></pre></div>
+<p>The <code>network</code> state file's <code>outputs</code> block is the <em>only</em> thing the
+<code>database</code> state file is allowed to depend on — not <code>network</code>'s internal
+resource addresses, not its module structure, just whatever it chose to
+publish as outputs. This is the actual API boundary between teams: the
+network team can refactor everything inside their state (rename modules,
+restructure subnets) as long as <code>private_subnet_ids</code> keeps meaning the
+same thing, and the database team never needs to know or care how it's
+produced. Get the output contract right and teams stop needing to
+coordinate <code>apply</code> order by hand.</p>
+<h2 id="the-alternative-to-remote-state-coupling-a-platform-module-registry">The alternative to remote-state coupling: a platform module registry<a class="headerlink" href="#the-alternative-to-remote-state-coupling-a-platform-module-registry" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="kr">module</span><span class="w"> </span><span class="nv">"vpc"</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="w">  </span><span class="na">source</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="s2">"app.terraform.io/acme/vpc/aws"</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">  </span><span class="na">version</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"~&gt; 4.0"</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="w">  </span><span class="na">cidr_block</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"10.20.0.0/16"</span>
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="w">  </span><span class="na">az_count</span><span class="w">   </span><span class="o">=</span><span class="w"> </span><span class="m">3</span>
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="p">}</span>
+</code></pre></div>
+<p>Instead of every team's root module reaching into another team's state
+via <code>terraform_remote_state</code>, a platform team can publish reviewed,
+versioned modules (via a private registry — Terraform Cloud's or an
+internal Git-tag-based one) that encode the org's approved patterns —
+"this is what a compliant VPC looks like here." Consuming teams pin a
+version and get updates on their own schedule by bumping it, rather than
+being silently affected by another team's state changing underneath
+them. This trades the remote-state model's tight, live coupling for a
+looser, versioned one — the same tradeoff as pinning a library dependency
+instead of building against another team's <code>HEAD</code>.</p>
+<h2 id="layering-foundational-vs-workload-state">Layering: foundational vs. workload state<a class="headerlink" href="#layering-foundational-vs-workload-state" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>platform/
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>  foundation/        (state: foundation) — org, VPCs, IAM boundaries, DNS zones
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>  shared-services/   (state: shared-services) — logging, monitoring, artifact registry
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>  teams/
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>    checkout/        (state: checkout) — owned entirely by the checkout team
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>    catalog/         (state: catalog) — owned entirely by the catalog team
+</code></pre></div>
+<p>A workable large-org layout separates state by <em>rate and ownership of
+change</em>, not just by service. <code>foundation</code> changes rarely and requires
+the widest review (it underlies everything); <code>shared-services</code> changes
+occasionally and is owned by a platform team; each team's own state
+changes constantly and is owned entirely by that team. Each layer
+consumes the layer below it via published outputs or registry modules,
+never the reverse — <code>checkout</code>'s state can read <code>foundation</code>'s VPC ID,
+but <code>foundation</code>'s configuration never references anything about
+<code>checkout</code>. That one-directional dependency is what keeps a graph of
+otherwise-independent teams from becoming a single, effectively
+monolithic apply the moment enough cross-references accumulate.</p>
+<h2 id="worked-example-onboarding-a-new-service-without-touching-foundation">Worked example: onboarding a new service without touching foundation<a class="headerlink" href="#worked-example-onboarding-a-new-service-without-touching-foundation" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="c1"># teams/payments/main.tf</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="kr">data</span><span class="w"> </span><span class="nc">"terraform_remote_state"</span><span class="w"> </span><span class="nv">"foundation"</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="w">  </span><span class="na">backend</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"s3"</span>
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="w">  </span><span class="nb">config</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="na">bucket</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"acme-tfstate", key = "foundation/terraform.tfstate", region = "us-east-1"</span><span class="w"> </span><span class="p">}</span>
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="p">}</span>
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>
+<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="kr">module</span><span class="w"> </span><span class="nv">"service"</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a><span class="w">  </span><span class="na">source</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="s2">"app.terraform.io/acme/ecs-service/aws"</span>
+<a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a><span class="w">  </span><span class="na">version</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"~&gt; 2.1"</span>
+<a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a>
+<a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a><span class="w">  </span><span class="na">vpc_id</span><span class="w">           </span><span class="o">=</span><span class="w"> </span><span class="nv">data.terraform_remote_state.foundation.outputs.vpc_id</span>
+<a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a><span class="w">  </span><span class="na">private_subnets</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="nv">data.terraform_remote_state.foundation.outputs.private_subnet_ids</span>
+<a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a><span class="w">  </span><span class="na">cluster_arn</span><span class="w">      </span><span class="o">=</span><span class="w"> </span><span class="nv">data.terraform_remote_state.foundation.outputs.ecs_cluster_arn</span>
+<a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a><span class="w">  </span><span class="na">service_name</span><span class="w">     </span><span class="o">=</span><span class="w"> </span><span class="s2">"payments"</span>
+<a id="__codelineno-5-15" name="__codelineno-5-15" href="#__codelineno-5-15"></a><span class="w">  </span><span class="na">container_image</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="s2">"acme/payments:1.4.0"</span>
+<a id="__codelineno-5-16" name="__codelineno-5-16" href="#__codelineno-5-16"></a><span class="p">}</span>
+</code></pre></div>
+<p>The payments team writes exactly this file, in their own state, applied
+through their own CI pipeline, with their own approvers — no pull
+request against <code>foundation</code>, no coordination with the platform team
+beyond consuming the published <code>ecs-service</code> module and the foundation
+outputs contract. This is the actual deliverable of good platform
+architecture: a new team can stand up a compliant service by writing a
+handful of lines against stable, versioned interfaces, without anyone
+needing write access to, or deep knowledge of, any other team's state.</p>
+<h2 id="how-it-actually-works">How It Actually Works<a class="headerlink" href="#how-it-actually-works" title="Permanent link">&para;</a></h2>
+<p><strong>Each <code>terraform_remote_state</code> data source is a read of another
+statefile's <code>outputs</code> map at plan time — Terraform Core fetches that
+state file (via the same backend read path used for the owning
+configuration's own state), extracts only the <code>outputs</code> block, and
+exposes it as this data source's attributes.</strong> Nothing about the
+referenced state's resources, providers, or internal structure is
+visible or loaded — the coupling is deliberately narrow, limited to
+whatever the other configuration chose to declare as an <code>output</code> block.
+This is mechanically why an output contract functions as a real API
+boundary: Core enforces that only published outputs cross the boundary,
+the same way a function's return value — not its local variables — is
+the only thing its caller can observe.</p>
+<p><strong>Splitting one state into several means the dependency graph that used
+to be a single DAG inside one <code>terraform apply</code> becomes several
+independent DAGs with no Core-level ordering between them at all</strong> —
+Terraform has no built-in concept of "apply <code>network</code>'s state before
+<code>database</code>'s"; that ordering has to be enforced externally, by CI
+pipeline sequencing or by the fact that <code>database</code>'s plan will simply
+show stale or missing values if <code>network</code>'s outputs haven't been applied
+yet. This is the direct cost of the reduced blast radius: you gain
+independent locks and independent failure domains, and you give up
+Core's automatic cross-resource ordering guarantee, which only ever
+existed within a single state's single graph in the first place.</p>
+<p><strong>A versioned registry module pins a specific module <em>source</em> at a
+specific tag, so a consuming configuration's plan is computed against
+exactly that version's resource definitions regardless of what the
+module's source repository looks like today</strong> — <code>terraform init</code>
+resolves <code>version = "~&gt; 4.0"</code> to a concrete tagged release and downloads
+that snapshot, and nothing in the consuming state changes again until
+someone bumps the version constraint and re-runs <code>init</code>. This is what
+converts "another team's Terraform code" from a live, uncontrolled
+dependency (remote state, which reflects whatever was last applied,
+whenever that happened) into a controlled one (a module version,
+which only changes when the consumer deliberately upgrades it) — the two
+mechanisms in this module exist specifically to offer that choice.</p>
+<h2 id="exercise">Exercise<a class="headerlink" href="#exercise" title="Permanent link">&para;</a></h2>
+<p>A platform has one state file containing the org's VPC, its shared RDS
+instance, and twelve independent microservices' ECS services, all
+authored by different teams. Propose a state-splitting boundary (which
+resources move to which state files, and how they'd reference each
+other), and explain specifically how your split reduces the blast radius
+of a mistake in one microservice's configuration compared to the
+current single-state layout.</p>
 
 
 
 
 
 
-
-  
-  
 
 
 
