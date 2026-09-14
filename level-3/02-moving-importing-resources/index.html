@@ -94,8 +94,6 @@
   }
   </script>
   
-  <meta name="robots" content="noindex, follow">
-  
 
   </head>
   
@@ -1480,6 +1478,24 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    02 · Moving & Importing Resources
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -1496,6 +1512,102 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#terraform-state-mv-renaming-without-recreating" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        terraform state mv: renaming without recreating
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-moved-block-the-declarative-version-controlled-alternative" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The moved block: the declarative, version-controlled alternative
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#terraform-import-bringing-existing-infrastructure-under-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        terraform import: bringing existing infrastructure under management
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#import-blocks-declarative-import-paired-with-generated-config" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        import blocks (declarative import, paired with generated config)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#worked-example-bringing-an-unmanaged-bucket-under-terraform" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Worked example: bringing an unmanaged bucket under Terraform
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-it-actually-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Actually Works
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercise" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercise
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -2129,6 +2241,91 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#terraform-state-mv-renaming-without-recreating" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        terraform state mv: renaming without recreating
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-moved-block-the-declarative-version-controlled-alternative" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The moved block: the declarative, version-controlled alternative
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#terraform-import-bringing-existing-infrastructure-under-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        terraform import: bringing existing infrastructure under management
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#import-blocks-declarative-import-paired-with-generated-config" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        import blocks (declarative import, paired with generated config)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#worked-example-bringing-an-unmanaged-bucket-under-terraform" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Worked example: bringing an unmanaged bucket under Terraform
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-it-actually-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Actually Works
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercise" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercise
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -2148,23 +2345,134 @@
 
 
 <h1 id="02-moving-importing-resources">02 · Moving &amp; Importing Resources<a class="headerlink" href="#02-moving-importing-resources" title="Permanent link">&para;</a></h1>
-<div class="admonition info">
-<p class="admonition-title">Coming soon</p>
-<p>This module's full lessons and code snippets are being written next.
-This module will cover terraform state mv, terraform import, and the moved block for refactoring configurations safely.</p>
-</div>
-<p>Check back soon — new modules are published regularly. In the meantime,
-work through <a href="../../level-1/">Level 1 · Entry</a>, which is fully
-available now.</p>
+<p>Two operations edit <em>state</em> without touching real infrastructure at all:
+<strong>moving</strong> an address (renaming, restructuring into a module) and
+<strong>importing</strong> a resource that already exists in the cloud but was never
+created by Terraform. Both are precision tools for keeping state and
+configuration honest without destroy/recreate cycles.</p>
+<h2 id="terraform-state-mv-renaming-without-recreating"><code>terraform state mv</code>: renaming without recreating<a class="headerlink" href="#terraform-state-mv-renaming-without-recreating" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>terraform<span class="w"> </span>state<span class="w"> </span>mv<span class="w"> </span>aws_instance.web<span class="w"> </span>aws_instance.app_server
+</code></pre></div>
+<p>If you rename a resource in your <code>.tf</code> file from <code>aws_instance.web</code> to
+<code>aws_instance.app_server</code> without touching state, Terraform's diff sees
+"a new resource <code>app_server</code> to create" and "the old resource <code>web</code> to
+destroy" — because state only knows resources by their address, and a
+renamed address looks like a completely different resource. <code>state mv</code>
+updates the address stored in state directly, so the <em>next</em> plan sees the
+already-existing resource simply matched to its new name, with <strong>no</strong>
+create or destroy at all.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1"># moving a resource into a module during a refactor</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>terraform<span class="w"> </span>state<span class="w"> </span>mv<span class="w"> </span>aws_instance.web<span class="w"> </span>module.app.aws_instance.this
+</code></pre></div>
+<h2 id="the-moved-block-the-declarative-version-controlled-alternative">The <code>moved</code> block: the declarative, version-controlled alternative<a class="headerlink" href="#the-moved-block-the-declarative-version-controlled-alternative" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="nb">moved</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">  </span><span class="na">from</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">aws_instance.web</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">  </span><span class="na">to</span><span class="w">   </span><span class="o">=</span><span class="w"> </span><span class="nv">aws_instance.app_server</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="p">}</span>
+</code></pre></div>
+<p>Where <code>state mv</code> is an imperative command run once by whoever does the
+refactor, a <code>moved</code> block is committed alongside the renamed resource
+itself — anyone who pulls the updated configuration and runs <code>terraform
+plan</code> gets the same "no create/destroy, just an address update"
+outcome automatically, without needing to know a manual <code>state mv</code> command
+was ever necessary. This is strongly preferred for any refactor landing in
+shared configuration, precisely because it makes the migration part of the
+code review instead of a step someone has to remember to run out-of-band.</p>
+<h2 id="terraform-import-bringing-existing-infrastructure-under-management"><code>terraform import</code>: bringing existing infrastructure under management<a class="headerlink" href="#terraform-import-bringing-existing-infrastructure-under-management" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>terraform<span class="w"> </span>import<span class="w"> </span>aws_s3_bucket.reports<span class="w"> </span>acme-reports-2026
+</code></pre></div>
+<p>This tells Terraform "the resource address <code>aws_s3_bucket.reports</code> in your
+configuration corresponds to the real bucket named <code>acme-reports-2026</code>" —
+it reads that bucket's current attributes from the provider and writes
+them into state, <strong>but it does not generate the <code>.tf</code> configuration for
+you.</strong> You must have already written (or write immediately after) a
+matching <code>resource "aws_s3_bucket" "reports" { ... }</code> block yourself, or
+the very next <code>plan</code> will propose changing every attribute the real bucket
+has that your (empty or mismatched) configuration doesn't specify.</p>
+<h2 id="import-blocks-declarative-import-paired-with-generated-config"><code>import</code> blocks (declarative import, paired with generated config)<a class="headerlink" href="#import-blocks-declarative-import-paired-with-generated-config" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="nb">import</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="w">  </span><span class="na">to</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">aws_s3_bucket.reports</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="w">  </span><span class="na">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"acme-reports-2026"</span>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="p">}</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>terraform<span class="w"> </span>plan<span class="w"> </span>-generate-config-out<span class="o">=</span>generated.tf
+</code></pre></div>
+<p>The <code>import</code> block is the modern, declarative counterpart to
+<code>terraform import</code>: committed to configuration, reviewable, and re-runnable.
+Paired with <code>-generate-config-out</code>, <code>terraform plan</code> can even write a
+best-effort <code>.tf</code> resource block for you from the real resource's current
+attributes — a substantial time-saver for importing something with many
+attributes, though the generated HCL is a starting point to review and
+clean up, not guaranteed to be idiomatic or minimal.</p>
+<h2 id="worked-example-bringing-an-unmanaged-bucket-under-terraform">Worked example: bringing an unmanaged bucket under Terraform<a class="headerlink" href="#worked-example-bringing-an-unmanaged-bucket-under-terraform" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="c1"># 1. Write the import block</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="nb">import</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="w">  </span><span class="na">to</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">aws_s3_bucket.reports</span>
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="w">  </span><span class="na">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"acme-reports-2026"</span>
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="p">}</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="c1"># 2. Generate a starting configuration</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>terraform<span class="w"> </span>plan<span class="w"> </span>-generate-config-out<span class="o">=</span>generated_reports.tf
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="c1"># 3. generated_reports.tf now contains something like:</span>
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="kr">resource</span><span class="w"> </span><span class="nc">"aws_s3_bucket"</span><span class="w"> </span><span class="nv">"reports"</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="w">  </span><span class="na">bucket</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"acme-reports-2026"</span>
+<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="c1">  # ... every other attribute the provider reported</span>
+<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="p">}</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="c1"># 4. Review, tidy, then apply — this "creates" nothing, since the</span>
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="c1">#    resource already exists; it only reconciles state with config.</span>
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>terraform<span class="w"> </span>apply
+</code></pre></div>
+<h2 id="how-it-actually-works">How It Actually Works<a class="headerlink" href="#how-it-actually-works" title="Permanent link">&para;</a></h2>
+<p><strong>State addresses are the only identity Terraform's diffing engine
+knows — <code>state mv</code> and <code>moved</code> blocks work by rewriting that identity
+directly, bypassing the create/destroy inference entirely.</strong> When
+Terraform computes a plan, it doesn't compare <em>resources</em> semantically
+(noticing "this looks like the same S3 bucket, just renamed") — it
+compares <em>addresses</em>. An address present in state but absent from
+configuration is a destroy candidate; an address present in configuration
+but absent from state is a create candidate. <code>state mv</code> (and <code>moved</code>,
+which Terraform Core resolves during graph construction <em>before</em> diffing
+even begins) short-circuits this entirely by making the "before" address
+in state match the "after" address in configuration ahead of the
+comparison — from the diff engine's point of view, nothing about that
+resource's identity ever changed.</p>
+<p><strong><code>import</code> populates state via the exact same <code>ReadResource</code> provider RPC
+used for the refresh step in every normal <code>plan</code></strong> — the only difference
+is that Terraform doesn't yet have a prior state entry to hand the
+provider as a hint; it's told the resource's real-world ID directly (by
+you, or by an <code>import</code> block) and asks the provider to read that
+specific ID's full current attribute set cold. This is precisely why
+import can't generate your <code>.tf</code> configuration on its own without
+<code>-generate-config-out</code>: the RPC only returns <em>state</em> (the provider's view
+of current attributes), and someone (a human, or the config-generation
+feature parsing the returned attributes into HCL syntax) still has to
+produce the <em>configuration</em> half of the create/read pairing that every
+other resource in your <code>.tf</code> files already has.</p>
+<p><strong><code>-generate-config-out</code> runs the normal plan/diff machinery in reverse
+for exactly the imported resources</strong> — instead of taking your
+configuration and computing what changes are needed to reach it, it takes
+the <em>state</em> just populated by import and serializes it back out as HCL,
+using the same schema each provider already exposes for validating and
+documenting its own resource types. This is why the generated
+configuration can look unidiomatic (explicit values for attributes you'd
+normally omit to accept a provider default) — it's a mechanical
+schema-to-HCL dump of exactly what's currently true, not a human's
+judgment about what's worth specifying explicitly.</p>
+<h2 id="exercise">Exercise<a class="headerlink" href="#exercise" title="Permanent link">&para;</a></h2>
+<p>You have an existing (unmanaged) <code>aws_dynamodb_table</code> named
+<code>acme-sessions</code> that you want under Terraform without recreating it.
+Write the <code>import</code> block you'd add to bring it in as
+<code>aws_dynamodb_table.sessions</code>, and the exact <code>terraform plan</code> command that
+would both perform the import and write a starting <code>.tf</code> configuration
+file named <code>generated_sessions.tf</code>.</p>
 
 
 
 
 
 
-
-  
-  
 
 
 

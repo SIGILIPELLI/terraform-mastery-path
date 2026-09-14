@@ -94,8 +94,6 @@
   }
   </script>
   
-  <meta name="robots" content="noindex, follow">
-  
 
   </head>
   
@@ -1452,6 +1450,24 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    01 · State Locking & Team Workflows
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -1468,6 +1484,102 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#the-problem-locking-solves" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The problem locking solves
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-locking-looks-in-practice" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How locking looks in practice
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#backend-specific-locking-mechanisms" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Backend-specific locking mechanisms
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#force-unlocking-last-resort" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Force-unlocking (last resort)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#team-workflow-conventions-built-on-locking" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Team workflow conventions built on locking
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-it-actually-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Actually Works
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercise" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercise
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -2129,6 +2241,91 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#the-problem-locking-solves" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The problem locking solves
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-locking-looks-in-practice" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How locking looks in practice
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#backend-specific-locking-mechanisms" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Backend-specific locking mechanisms
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#force-unlocking-last-resort" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Force-unlocking (last resort)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#team-workflow-conventions-built-on-locking" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Team workflow conventions built on locking
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-it-actually-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Actually Works
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercise" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercise
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -2148,23 +2345,119 @@
 
 
 <h1 id="01-state-locking-team-workflows">01 · State Locking &amp; Team Workflows<a class="headerlink" href="#01-state-locking-team-workflows" title="Permanent link">&para;</a></h1>
-<div class="admonition info">
-<p class="admonition-title">Coming soon</p>
-<p>This module's full lessons and code snippets are being written next.
-This module will cover state locking mechanisms, team collaboration workflows, and avoiding state corruption.</p>
-</div>
-<p>Check back soon — new modules are published regularly. In the meantime,
-work through <a href="../../level-1/">Level 1 · Entry</a>, which is fully
-available now.</p>
+<p>Level 2 module 03 introduced remote backends; this module covers the
+mechanism that makes them safe for a <em>team</em>, not just a single developer:
+<strong>state locking</strong>, and the workflow conventions built around it.</p>
+<h2 id="the-problem-locking-solves">The problem locking solves<a class="headerlink" href="#the-problem-locking-solves" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>Alice: terraform apply   (reads state, computes plan, starts applying)
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>Bob:   terraform apply   (reads the SAME state, computes a plan, starts applying)
+</code></pre></div>
+<p>Without a lock, two concurrent <code>apply</code> runs both read the same starting
+state, both compute their own plan against it, and both write their own
+final state back when done — whichever finishes last <strong>overwrites</strong> the
+other's changes in the state file, even though both sets of real
+infrastructure changes actually happened. The state file, not reality, is
+what silently loses information.</p>
+<h2 id="how-locking-looks-in-practice">How locking looks in practice<a class="headerlink" href="#how-locking-looks-in-practice" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>terraform<span class="w"> </span>apply
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="c1"># Acquiring state lock. This may take a few moments...</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1"># a second, concurrent run:</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>terraform<span class="w"> </span>apply
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="c1"># Error: Error acquiring the state lock</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="c1">#</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="c1"># Lock Info:</span>
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="c1">#   ID:        d1e6d8d1-...</span>
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="c1">#   Path:      acme-terraform-state/reports/terraform.tfstate</span>
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="c1">#   Operation: OperationTypeApply</span>
+<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="c1">#   Who:       alice@alice-laptop</span>
+<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="c1">#   Created:   2026-09-11 14:02:11 UTC</span>
+</code></pre></div>
+<p>The second run refuses to proceed at all — rather than silently plan
+against stale state, Terraform fails loudly and tells you exactly who
+holds the lock and since when, so the conflict is visible immediately
+instead of surfacing later as a corrupted state file.</p>
+<h2 id="backend-specific-locking-mechanisms">Backend-specific locking mechanisms<a class="headerlink" href="#backend-specific-locking-mechanisms" title="Permanent link">&para;</a></h2>
+<p>Locking is implemented per-backend, not by Terraform Core itself:</p>
+<ul>
+<li><strong>S3 backend</strong>: uses a paired <strong>DynamoDB table</strong> for locking (the
+  <code>dynamodb_table</code> argument from Level 2 module 03) — S3 objects have no
+  native compare-and-swap lock primitive, so the backend uses DynamoDB's
+  conditional writes to implement one.</li>
+<li><strong>Terraform Cloud/Enterprise</strong>: locking is a first-class API feature of
+  the platform itself (module 03 of this level covers this in depth).</li>
+<li><strong>Local backend</strong>: uses an OS-level file lock on <code>terraform.tfstate</code>,
+  which only protects against concurrent processes on the <em>same machine</em>
+  — effectively no protection at all for a team, which is the practical
+  reason teams move off local state.</li>
+</ul>
+<h2 id="force-unlocking-last-resort">Force-unlocking (last resort)<a class="headerlink" href="#force-unlocking-last-resort" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>terraform<span class="w"> </span>force-unlock<span class="w"> </span>d1e6d8d1-0000-0000-0000-000000000000
+</code></pre></div>
+<p>Only ever appropriate when you're certain the process that acquired the
+lock crashed and will never release it (a killed CI job, a laptop that
+lost power mid-apply) — force-unlocking while a run is genuinely still in
+progress reintroduces exactly the race condition locking exists to
+prevent, potentially corrupting state worse than the stuck lock itself
+would have.</p>
+<h2 id="team-workflow-conventions-built-on-locking">Team workflow conventions built on locking<a class="headerlink" href="#team-workflow-conventions-built-on-locking" title="Permanent link">&para;</a></h2>
+<ol>
+<li><strong>Never run <code>apply</code> from a laptop against shared state for anything
+   that matters</strong> — route applies through a single CI pipeline (Level 4)
+   so there's one place locking is exercised consistently and one place to
+   look for history.</li>
+<li><strong><code>plan</code> before every <code>apply</code>, and read it</strong> — locking prevents
+   concurrent <em>writes</em>, not a stale mental model of what a plan will do;
+   review discipline is a separate practice against a separate risk.</li>
+<li><strong>Keep applies short</strong> — a lock is held for the duration of the
+   operation; a <code>plan</code>/<code>apply</code> that takes twenty minutes because it
+   touches hundreds of resources blocks every teammate's run for that
+   whole window.</li>
+</ol>
+<h2 id="how-it-actually-works">How It Actually Works<a class="headerlink" href="#how-it-actually-works" title="Permanent link">&para;</a></h2>
+<p><strong>A lock is acquired before Terraform reads state for planning, and held
+until state is written back — the entire plan-and-apply cycle happens
+under one lock, not just the final write.</strong> This is deliberate: locking
+only during the write would still let two runs both read the same "before"
+state and independently compute conflicting plans, with only the last
+write winning silently. By holding the lock across the full read-plan-apply
+sequence, Terraform guarantees whoever holds it is working from state that
+cannot change underneath them for the operation's whole duration — the
+second run's <code>terraform apply</code> fails at the <em>acquire</em> step, before it ever
+reads state at all, rather than failing later after wasted work.</p>
+<p><strong>The DynamoDB-backed S3 lock is a conditional-write compare-and-swap, not
+a heartbeat or lease.</strong> Acquiring the lock is a single DynamoDB
+<code>PutItem</code> call with a condition that the lock-ID attribute must not already
+exist; releasing it is a <code>DeleteItem</code> on that same key. There's no
+background renewal process — if the process holding the lock is killed
+(a crashed CI runner, a laptop that loses power), the DynamoDB item simply
+stays there indefinitely, un-deleted, which is exactly the scenario
+<code>force-unlock</code> exists for: a human has to make the judgment call that the
+lock is now stale rather than the system inferring it automatically,
+because Terraform has no reliable way to distinguish "the holder is doing
+a very long apply" from "the holder crashed" without risking a live lock
+being torn down.</p>
+<p><strong>Locking says nothing about concurrent <em>reads</em> of state, only concurrent
+plan/apply operations that intend to write.</strong> <code>data "terraform_remote_state"</code>
+(Level 2 module 03) and <code>terraform show</code>/<code>state list</code> don't acquire the
+write lock at all — only <code>plan</code>, <code>apply</code>, and <code>destroy</code> (and a few <code>state</code>
+subcommands that mutate state directly, like <code>mv</code>/<code>rm</code>) do, which is why
+a <code>terraform_remote_state</code> read from a downstream configuration can safely
+run at any time without contending with an in-progress <code>apply</code> upstream,
+though it may then be reading state that's about to change moments later.</p>
+<h2 id="exercise">Exercise<a class="headerlink" href="#exercise" title="Permanent link">&para;</a></h2>
+<p>Two teammates both run <code>terraform apply</code> against the same S3+DynamoDB
+backed state within seconds of each other. Write out, in order, exactly
+what each of them sees in their terminal — including what the second
+teammate's error message would contain — and explain why <code>force-unlock</code>
+would be the wrong response if the first <code>apply</code> were still genuinely
+running.</p>
 
 
 
 
 
 
-
-  
-  
 
 
 

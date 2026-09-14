@@ -94,8 +94,6 @@
   }
   </script>
   
-  <meta name="robots" content="noindex, follow">
-  
 
   </head>
   
@@ -1132,6 +1130,24 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    03 · Remote State & Backends
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -1148,6 +1164,102 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#what-a-backend-actually-configures" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What a backend actually configures
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#migrating-from-local-to-remote-state" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Migrating from local to remote state
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#partial-configuration-with-backend-config" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Partial configuration with -backend-config
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#terraform_remote_state-reading-another-configurations-outputs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        terraform_remote_state: reading another configuration's outputs
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#worked-example-two-configurations-sharing-state-via-outputs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Worked example: two configurations sharing state via outputs
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-it-actually-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Actually Works
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercise" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercise
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -2129,6 +2241,91 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#what-a-backend-actually-configures" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What a backend actually configures
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#migrating-from-local-to-remote-state" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Migrating from local to remote state
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#partial-configuration-with-backend-config" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Partial configuration with -backend-config
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#terraform_remote_state-reading-another-configurations-outputs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        terraform_remote_state: reading another configuration's outputs
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#worked-example-two-configurations-sharing-state-via-outputs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Worked example: two configurations sharing state via outputs
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-it-actually-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Actually Works
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercise" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercise
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -2148,23 +2345,153 @@
 
 
 <h1 id="03-remote-state-backends">03 · Remote State &amp; Backends<a class="headerlink" href="#03-remote-state-backends" title="Permanent link">&para;</a></h1>
-<div class="admonition info">
-<p class="admonition-title">Coming soon</p>
-<p>This module's full lessons and code snippets are being written next.
-This module will cover remote backends (S3, Terraform Cloud, etc.), state locking, and the terraform_remote_state data source.</p>
-</div>
-<p>Check back soon — new modules are published regularly. In the meantime,
-work through <a href="../../level-1/">Level 1 · Entry</a>, which is fully
-available now.</p>
+<p>Level 1 module 07 flagged the two problems with local state: it isn't
+shared (a teammate running <code>apply</code> has no idea what your local
+<code>terraform.tfstate</code> contains), and it isn't safe to commit (it can contain
+plaintext secrets). A <strong>backend</strong> is what solves both — it tells Terraform
+<em>where</em> to store state and, for backends that support it, how to lock it
+during writes.</p>
+<h2 id="what-a-backend-actually-configures">What a backend actually configures<a class="headerlink" href="#what-a-backend-actually-configures" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nb">terraform</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="kr">backend</span><span class="w"> </span><span class="nv">"s3"</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">    </span><span class="na">bucket</span><span class="w">         </span><span class="o">=</span><span class="w"> </span><span class="s2">"acme-terraform-state"</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">    </span><span class="na">key</span><span class="w">            </span><span class="o">=</span><span class="w"> </span><span class="s2">"reports/terraform.tfstate"</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">    </span><span class="na">region</span><span class="w">         </span><span class="o">=</span><span class="w"> </span><span class="s2">"us-east-1"</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">    </span><span class="na">dynamodb_table</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"acme-terraform-locks"</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">    </span><span class="na">encrypt</span><span class="w">        </span><span class="o">=</span><span class="w"> </span><span class="no">true</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">  </span><span class="p">}</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="p">}</span>
+</code></pre></div>
+<ul>
+<li><code>bucket</code> / <code>key</code> — where in S3 the state file for <em>this</em> configuration
+  lives. <code>key</code> is the path within the bucket, so many configurations can
+  share one bucket by using different keys (<code>reports/terraform.tfstate</code>,
+  <code>networking/terraform.tfstate</code>).</li>
+<li><code>dynamodb_table</code> — a DynamoDB table used purely for <strong>state locking</strong>
+  (covered mechanically in Level 3 module 01); S3 itself has no native
+  locking primitive, so the AWS backend pairs it with DynamoDB to get one.</li>
+<li><code>encrypt</code> — encrypts the state object at rest in S3.</li>
+</ul>
+<p>The backend block cannot use variables or <code>locals</code> — its arguments must be
+literal values (or supplied via <code>-backend-config</code> at <code>init</code> time), because
+Terraform has to resolve <em>where the state lives</em> before it has evaluated
+anything else in your configuration.</p>
+<h2 id="migrating-from-local-to-remote-state">Migrating from local to remote state<a class="headerlink" href="#migrating-from-local-to-remote-state" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>terraform<span class="w"> </span>init
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="c1"># Initializing the backend...</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="c1"># Do you want to copy existing state to the new backend?</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="c1">#   Enter a value: yes</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="c1">#</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="c1"># Successfully configured the backend "s3"!</span>
+</code></pre></div>
+<p>Adding a <code>backend</code> block to configuration that previously had none (or
+changing one backend to another) and re-running <code>terraform init</code> triggers
+a <strong>state migration prompt</strong> — Terraform detects the backend changed,
+reads your current state from the old location, and offers to copy it to
+the new one so no resource tracking is lost.</p>
+<h2 id="partial-configuration-with-backend-config">Partial configuration with <code>-backend-config</code><a class="headerlink" href="#partial-configuration-with-backend-config" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="nb">terraform</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">  </span><span class="kr">backend</span><span class="w"> </span><span class="nv">"s3"</span><span class="w"> </span><span class="p">{}</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="p">}</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>terraform<span class="w"> </span>init<span class="w"> </span>-backend-config<span class="o">=</span><span class="s2">"bucket=acme-terraform-state"</span><span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="w">                </span>-backend-config<span class="o">=</span><span class="s2">"key=reports/terraform.tfstate"</span><span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">                </span>-backend-config<span class="o">=</span><span class="s2">"region=us-east-1"</span>
+</code></pre></div>
+<p>Leaving the backend block empty and supplying values at <code>init</code> time is how
+CI pipelines and multi-environment setups (Level 3 module 06) avoid baking
+environment-specific bucket names into version-controlled <code>.tf</code> files —
+the same configuration is <code>init</code>'d against a different backend per
+environment by passing different <code>-backend-config</code> flags or files.</p>
+<h2 id="terraform_remote_state-reading-another-configurations-outputs"><code>terraform_remote_state</code>: reading another configuration's outputs<a class="headerlink" href="#terraform_remote_state-reading-another-configurations-outputs" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="kr">data</span><span class="w"> </span><span class="nc">"terraform_remote_state"</span><span class="w"> </span><span class="nv">"network"</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="w">  </span><span class="na">backend</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"s3"</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="w">  </span><span class="nb">config</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="w">    </span><span class="na">bucket</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"acme-terraform-state"</span>
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="w">    </span><span class="na">key</span><span class="w">    </span><span class="o">=</span><span class="w"> </span><span class="s2">"networking/terraform.tfstate"</span>
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="w">    </span><span class="na">region</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"us-east-1"</span>
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="w">  </span><span class="p">}</span>
+<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="p">}</span>
+<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a>
+<a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a><span class="kr">resource</span><span class="w"> </span><span class="nc">"aws_instance"</span><span class="w"> </span><span class="nv">"web"</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a><span class="w">  </span><span class="na">subnet_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">data.terraform_remote_state.network.outputs.subnet_id</span>
+<a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a><span class="c1">  # ...</span>
+<a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a><span class="p">}</span>
+</code></pre></div>
+<p>This is how separately-managed configurations (a networking team's state,
+a per-environment state — see Level 3 module 06) share values without
+being merged into one giant configuration: the <em>consumer</em> declares a
+<code>terraform_remote_state</code> data source pointing at the <em>producer's</em> backend
+and reads its <code>output</code> values, read-only.</p>
+<h2 id="worked-example-two-configurations-sharing-state-via-outputs">Worked example: two configurations sharing state via outputs<a class="headerlink" href="#worked-example-two-configurations-sharing-state-via-outputs" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="c1"># networking/outputs.tf (producer)</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="kr">output</span><span class="w"> </span><span class="nv">"subnet_id"</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="w">  </span><span class="na">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">aws_subnet.main.id</span>
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="p">}</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="c1"># app/main.tf (consumer)</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="kr">data</span><span class="w"> </span><span class="nc">"terraform_remote_state"</span><span class="w"> </span><span class="nv">"network"</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="w">  </span><span class="na">backend</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"s3"</span>
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="w">  </span><span class="nb">config</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="w">    </span><span class="na">bucket</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"acme-terraform-state"</span>
+<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="w">    </span><span class="na">key</span><span class="w">    </span><span class="o">=</span><span class="w"> </span><span class="s2">"networking/terraform.tfstate"</span>
+<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="w">    </span><span class="na">region</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"us-east-1"</span>
+<a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a><span class="w">  </span><span class="p">}</span>
+<a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a><span class="p">}</span>
+<a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a>
+<a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a><span class="kr">resource</span><span class="w"> </span><span class="nc">"aws_instance"</span><span class="w"> </span><span class="nv">"web"</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a><span class="w">  </span><span class="na">ami</span><span class="w">           </span><span class="o">=</span><span class="w"> </span><span class="s2">"ami-0abcd1234"</span>
+<a id="__codelineno-6-13" name="__codelineno-6-13" href="#__codelineno-6-13"></a><span class="w">  </span><span class="na">instance_type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"t3.micro"</span>
+<a id="__codelineno-6-14" name="__codelineno-6-14" href="#__codelineno-6-14"></a><span class="w">  </span><span class="na">subnet_id</span><span class="w">     </span><span class="o">=</span><span class="w"> </span><span class="nv">data.terraform_remote_state.network.outputs.subnet_id</span>
+<a id="__codelineno-6-15" name="__codelineno-6-15" href="#__codelineno-6-15"></a><span class="p">}</span>
+</code></pre></div>
+<p>The <code>app</code> configuration never touches the <code>networking</code> configuration's
+resources or state file directly — it can only see whatever <code>networking</code>
+deliberately exposed via <code>output</code>, which is the same input/output boundary
+module 01 introduced, just enforced across configurations instead of
+across a module call.</p>
+<h2 id="how-it-actually-works">How It Actually Works<a class="headerlink" href="#how-it-actually-works" title="Permanent link">&para;</a></h2>
+<p><strong>The backend is resolved and locked in before the configuration graph
+exists.</strong> <code>terraform init</code> reads the <code>terraform { backend "..." {} }</code>
+block (plus any <code>-backend-config</code> overrides) and writes the resolved
+settings into <code>.terraform/terraform.tfstate</code> (a small local file that
+records <em>which</em> backend and config to use — not your infrastructure's
+state itself). Every subsequent command in that directory reads this
+pointer first, then asks the backend implementation to fetch the real
+state. This two-step indirection is exactly why changing environments via
+<code>-backend-config</code> requires re-running <code>init</code>: the pointer file, not just
+the in-memory backend object, has to be rewritten.</p>
+<p><strong>State migration is a byte-for-byte copy through the state-manager
+interface, not a merge.</strong> When <code>init</code> detects a backend change, it reads
+the full state JSON from the <em>old</em> backend, writes it verbatim to the
+<em>new</em> backend, and — only after that succeeds — updates the local pointer.
+Terraform refuses to proceed if it can't confirm the write succeeded,
+specifically to avoid the failure mode where a configuration ends up
+pointing at a backend location that doesn't actually contain its history,
+which would look identical to "nothing has ever been applied here" on the
+next <code>plan</code>.</p>
+<p><strong><code>terraform_remote_state</code> is a plain data source, evaluated read-only,
+with no locking implications for the reader.</strong> Internally it calls the
+exact same backend-read code path a normal <code>plan</code> uses to load <em>its own</em>
+state, just pointed at someone else's backend config and exposing the
+result's <code>outputs</code> map as the data source's attributes. Because it's a
+read, the consumer never takes a lock on the producer's state — only the
+producer's own <code>plan</code>/<code>apply</code> runs do that — which means a <code>terraform plan</code>
+in <code>app/</code> can run concurrently with an <code>apply</code> in <code>networking/</code>, though it
+may then be planning against outputs that are about to change underneath
+it if the producer's apply completes mid-plan.</p>
+<h2 id="exercise">Exercise<a class="headerlink" href="#exercise" title="Permanent link">&para;</a></h2>
+<p>You have two configurations, <code>networking</code> (produces a <code>vpc_id</code> output) and
+<code>database</code> (needs that <code>vpc_id</code> as an input). Write the <code>terraform_remote_state</code>
+data source block <code>database</code> would need to read <code>networking</code>'s S3-backed
+state, and the one-line reference expression <code>database</code> would use in an
+<code>aws_db_subnet_group</code> resource to consume that <code>vpc_id</code>.</p>
 
 
 
 
 
 
-
-  
-  
 
 
 

@@ -94,8 +94,6 @@
   }
   </script>
   
-  <meta name="robots" content="noindex, follow">
-  
 
   </head>
   
@@ -1300,6 +1298,24 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    09 · Composing Modules
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -1316,6 +1332,91 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#module-outputs-feeding-module-inputs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Module outputs feeding module inputs
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#passing-a-whole-object-between-modules" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Passing a whole object between modules
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#explicit-ordering-with-depends_on-on-a-module" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Explicit ordering with depends_on on a module
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#worked-example-three-modules-one-root" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Worked example: three modules, one root
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-it-actually-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Actually Works
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercise" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercise
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -2129,6 +2230,80 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#module-outputs-feeding-module-inputs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Module outputs feeding module inputs
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#passing-a-whole-object-between-modules" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Passing a whole object between modules
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#explicit-ordering-with-depends_on-on-a-module" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Explicit ordering with depends_on on a module
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#worked-example-three-modules-one-root" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Worked example: three modules, one root
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-it-actually-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Actually Works
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercise" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercise
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -2148,23 +2323,151 @@
 
 
 <h1 id="09-composing-modules">09 · Composing Modules<a class="headerlink" href="#09-composing-modules" title="Permanent link">&para;</a></h1>
-<div class="admonition info">
-<p class="admonition-title">Coming soon</p>
-<p>This module's full lessons and code snippets are being written next.
-This module will cover composing multiple modules together, passing outputs as inputs, and module design conventions.</p>
-</div>
-<p>Check back soon — new modules are published regularly. In the meantime,
-work through <a href="../../level-1/">Level 1 · Entry</a>, which is fully
-available now.</p>
+<p>Real infrastructure is rarely one module — it's several, wired together:
+a networking module producing a VPC ID, an app module consuming it, a
+database module consuming both. This module covers passing values between
+sibling modules and the ordering guarantees Terraform provides for free.</p>
+<h2 id="module-outputs-feeding-module-inputs">Module outputs feeding module inputs<a class="headerlink" href="#module-outputs-feeding-module-inputs" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kr">module</span><span class="w"> </span><span class="nv">"network"</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="na">source</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"./modules/network"</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span><span class="na">cidr</span><span class="w">   </span><span class="o">=</span><span class="w"> </span><span class="s2">"10.0.0.0/16"</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="p">}</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="kr">module</span><span class="w"> </span><span class="nv">"app"</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">  </span><span class="na">source</span><span class="w">    </span><span class="o">=</span><span class="w"> </span><span class="s2">"./modules/app"</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">  </span><span class="na">vpc_id</span><span class="w">    </span><span class="o">=</span><span class="w"> </span><span class="nv">module.network.vpc_id</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">  </span><span class="na">subnet_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">module.network.public_subnet_id</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="p">}</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="kr">module</span><span class="w"> </span><span class="nv">"database"</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="w">  </span><span class="na">source</span><span class="w">    </span><span class="o">=</span><span class="w"> </span><span class="s2">"./modules/database"</span>
+<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="w">  </span><span class="na">vpc_id</span><span class="w">    </span><span class="o">=</span><span class="w"> </span><span class="nv">module.network.vpc_id</span>
+<a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a><span class="w">  </span><span class="na">subnet_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">module.network.private_subnet_id</span>
+<a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a><span class="p">}</span>
+</code></pre></div>
+<p><code>module.network.vpc_id</code> is exactly the same reference syntax as reading a
+resource's attribute — a module call is addressed as <code>module.&lt;name&gt;</code>, and
+its declared <code>output</code> blocks are its attributes from the outside. Both
+<code>app</code> and <code>database</code> depend on <code>network</code> through this reference; neither
+depends on the other, so Terraform is free to create (or destroy) them in
+any order, or concurrently, once <code>network</code> is satisfied.</p>
+<h2 id="passing-a-whole-object-between-modules">Passing a whole object between modules<a class="headerlink" href="#passing-a-whole-object-between-modules" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1"># modules/network/outputs.tf</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="kr">output</span><span class="w"> </span><span class="nv">"vpc"</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">  </span><span class="nb">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">    </span><span class="na">id</span><span class="w">                </span><span class="o">=</span><span class="w"> </span><span class="nv">aws_vpc.this.id</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">    </span><span class="na">public_subnet_id</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="nv">aws_subnet.public.id</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="w">    </span><span class="na">private_subnet_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">aws_subnet.private.id</span>
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="w">  </span><span class="p">}</span>
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="p">}</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="kr">module</span><span class="w"> </span><span class="nv">"app"</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">  </span><span class="na">source</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"./modules/app"</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">  </span><span class="na">vpc</span><span class="w">    </span><span class="o">=</span><span class="w"> </span><span class="nv">module.network.vpc</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="p">}</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c1"># modules/app/variables.tf</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="kr">variable</span><span class="w"> </span><span class="nv">"vpc"</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">  </span><span class="na">type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kt">object</span><span class="p">({</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="w">    </span><span class="na">id</span><span class="w">                </span><span class="o">=</span><span class="w"> </span><span class="kt">string</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="w">    </span><span class="na">public_subnet_id</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="kt">string</span>
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="w">    </span><span class="na">private_subnet_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kt">string</span>
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="w">  </span><span class="p">})</span>
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="p">}</span>
+</code></pre></div>
+<p>Bundling related values into one <code>object</code>-typed output/variable pair (as
+opposed to three separate outputs) keeps the calling code shorter and the
+module's "network shape" contract explicit in one <code>object(...)</code> type
+constraint that documents exactly what a caller can rely on.</p>
+<h2 id="explicit-ordering-with-depends_on-on-a-module">Explicit ordering with <code>depends_on</code> on a module<a class="headerlink" href="#explicit-ordering-with-depends_on-on-a-module" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="kr">module</span><span class="w"> </span><span class="nv">"iam_role"</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="w">  </span><span class="na">source</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"./modules/iam-role"</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="p">}</span>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="kr">module</span><span class="w"> </span><span class="nv">"app"</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="w">  </span><span class="na">source</span><span class="w">     </span><span class="o">=</span><span class="w"> </span><span class="s2">"./modules/app"</span>
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="w">  </span><span class="na">depends_on</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="nv">module.iam_role</span><span class="p">]</span>
+<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="p">}</span>
+</code></pre></div>
+<p>Used when <code>app</code> needs <code>iam_role</code> to exist first for reasons Terraform
+can't infer from a data reference — e.g., <code>app</code>'s resources rely on an IAM
+policy attachment that isn't itself piped through an output/input pair
+(a common case: eventual-consistency behavior in the underlying cloud API
+that has nothing to do with Terraform's own dependency tracking). Like
+resource-level <code>depends_on</code>, this is a deliberate escape hatch, not the
+default way to establish ordering — an implicit reference (module input
+using module output) is preferred whenever the dependency is expressible
+that way, because it self-documents <em>why</em> the ordering exists.</p>
+<h2 id="worked-example-three-modules-one-root">Worked example: three modules, one root<a class="headerlink" href="#worked-example-three-modules-one-root" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="kr">module</span><span class="w"> </span><span class="nv">"network"</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="w">  </span><span class="na">source</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"./modules/network"</span>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="w">  </span><span class="na">cidr</span><span class="w">   </span><span class="o">=</span><span class="w"> </span><span class="s2">"10.0.0.0/16"</span>
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="p">}</span>
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="kr">module</span><span class="w"> </span><span class="nv">"database"</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="w">  </span><span class="na">source</span><span class="w">    </span><span class="o">=</span><span class="w"> </span><span class="s2">"./modules/database"</span>
+<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a><span class="w">  </span><span class="na">vpc_id</span><span class="w">    </span><span class="o">=</span><span class="w"> </span><span class="nv">module.network.vpc_id</span>
+<a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a><span class="w">  </span><span class="na">subnet_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">module.network.private_subnet_id</span>
+<a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a><span class="p">}</span>
+<a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a>
+<a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a><span class="kr">module</span><span class="w"> </span><span class="nv">"app"</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a><span class="w">  </span><span class="na">source</span><span class="w">      </span><span class="o">=</span><span class="w"> </span><span class="s2">"./modules/app"</span>
+<a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a><span class="w">  </span><span class="na">vpc_id</span><span class="w">      </span><span class="o">=</span><span class="w"> </span><span class="nv">module.network.vpc_id</span>
+<a id="__codelineno-5-15" name="__codelineno-5-15" href="#__codelineno-5-15"></a><span class="w">  </span><span class="na">subnet_id</span><span class="w">   </span><span class="o">=</span><span class="w"> </span><span class="nv">module.network.public_subnet_id</span>
+<a id="__codelineno-5-16" name="__codelineno-5-16" href="#__codelineno-5-16"></a><span class="w">  </span><span class="na">db_endpoint</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">module.database.endpoint</span>
+<a id="__codelineno-5-17" name="__codelineno-5-17" href="#__codelineno-5-17"></a><span class="p">}</span>
+</code></pre></div>
+<p>The reference chain alone establishes the full build order: <code>network</code>
+first (nothing depends on anything), then <code>database</code> (needs <code>network</code>'s
+outputs) can run concurrently with anything else only depending on
+<code>network</code>, and <code>app</code> last (needs both <code>network</code>'s and <code>database</code>'s
+outputs) — with zero explicit <code>depends_on</code> anywhere, because every real
+dependency is expressed as a value reference.</p>
+<h2 id="how-it-actually-works">How It Actually Works<a class="headerlink" href="#how-it-actually-works" title="Permanent link">&para;</a></h2>
+<p><strong>Module composition doesn't create a new kind of graph edge — it's the
+identical "reference creates dependency" rule from Level 1, just crossing
+a module-call boundary.</strong> When Terraform Core builds the configuration
+graph, <code>module.app</code>'s <code>vpc_id = module.network.vpc_id</code> argument is parsed
+into a reference to the specific output node
+<code>module.network.output.vpc_id</code>, which in turn depends on whatever resource
+inside <code>network</code> computed that value (<code>aws_vpc.this.id</code>). The graph edge
+that results connects <code>app</code>'s resources all the way back to <code>network</code>'s
+<code>aws_vpc</code> resource, transiting through the two output/input "pass-through"
+nodes — those nodes have no side effects of their own; they exist purely
+to relay a value and to mark the crossing of a module boundary in the
+graph.</p>
+<p><strong>Because outputs are graph nodes, an output's own value is only "ready"
+once every resource it depends on has actually applied — this is what
+gives module composition its ordering guarantee without any manual
+sequencing.</strong> <code>module.database</code>'s <code>vpc_id = module.network.vpc_id</code>
+argument cannot be evaluated to a concrete value until
+<code>module.network.output.vpc_id</code>'s node has resolved, which cannot happen
+until <code>aws_vpc.this</code>'s <code>ApplyResourceChange</code> has actually returned an ID.
+Terraform's graph walker will not begin applying <code>database</code>'s resources
+until that entire chain is satisfied — the ordering is a structural
+consequence of data-flow, not a scheduling policy layered on top of it.</p>
+<p><strong><code>depends_on</code> on a <code>module</code> block adds a graph edge from <em>every</em> resource
+inside the calling module to <em>every</em> resource inside the depended-on
+module</strong> — a much blunter instrument than a value reference, which only
+creates an edge to the specific resource that produced the referenced
+value. This is exactly why <code>depends_on</code> between modules should be reached
+for only when no output/input reference can express the dependency: it
+serializes far more of the graph than is usually necessary, which can
+turn what would otherwise be safely-parallel resource creation into a
+strictly sequential one.</p>
+<h2 id="exercise">Exercise<a class="headerlink" href="#exercise" title="Permanent link">&para;</a></h2>
+<p>Given a <code>modules/network</code> module producing outputs <code>vpc_id</code> and
+<code>nat_gateway_ip</code>, and a <code>modules/app</code> module that needs both as inputs,
+write the two <code>module</code> blocks (<code>network</code> and <code>app</code>) that wire them
+together — using only value references, no <code>depends_on</code> — and state which
+resource inside <code>network</code> <code>app</code>'s apply is ultimately, transitively
+waiting on.</p>
 
 
 
 
 
 
-
-  
-  
 
 
 

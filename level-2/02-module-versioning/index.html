@@ -94,8 +94,6 @@
   }
   </script>
   
-  <meta name="robots" content="noindex, follow">
-  
 
   </head>
   
@@ -1104,6 +1102,24 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    02 · Module Versioning
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -1120,6 +1136,102 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#source-types" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Source types
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-version-constraint-registry-modules-only" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The version constraint (registry modules only)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#worked-example-pinning-a-shared-module-across-two-callers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Worked example: pinning a shared module across two callers
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#terraformlockhcl-locks-providers-not-modules" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        .terraform.lock.hcl locks providers, not modules
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#upgrading-deliberately" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Upgrading deliberately
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-it-actually-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Actually Works
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercise" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercise
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -2129,6 +2241,91 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#source-types" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Source types
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-version-constraint-registry-modules-only" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The version constraint (registry modules only)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#worked-example-pinning-a-shared-module-across-two-callers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Worked example: pinning a shared module across two callers
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#terraformlockhcl-locks-providers-not-modules" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        .terraform.lock.hcl locks providers, not modules
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#upgrading-deliberately" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Upgrading deliberately
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-it-actually-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Actually Works
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercise" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercise
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -2148,23 +2345,157 @@
 
 
 <h1 id="02-module-versioning">02 · Module Versioning<a class="headerlink" href="#02-module-versioning" title="Permanent link">&para;</a></h1>
-<div class="admonition info">
-<p class="admonition-title">Coming soon</p>
-<p>This module's full lessons and code snippets are being written next.
-This module will cover version constraints for modules, sourcing from the Terraform Registry, Git, and local paths.</p>
-</div>
-<p>Check back soon — new modules are published regularly. In the meantime,
-work through <a href="../../level-1/">Level 1 · Entry</a>, which is fully
-available now.</p>
+<p>Module 01's <code>source = "./modules/s3-bucket"</code> works because the module lives
+in the same repository. Once a module is shared across teams or repos, you
+need a <strong>source</strong> that points elsewhere and, critically, a <strong>version</strong>
+pin — so that a change to the module doesn't silently change every caller
+the next time someone runs <code>terraform init</code>.</p>
+<h2 id="source-types">Source types<a class="headerlink" href="#source-types" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1"># Local path — relative to the calling module</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="kr">module</span><span class="w"> </span><span class="nv">"bucket"</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span><span class="na">source</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"./modules/s3-bucket"</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="p">}</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="c1"># Terraform Registry — namespace/name/provider</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="kr">module</span><span class="w"> </span><span class="nv">"vpc"</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">  </span><span class="na">source</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="s2">"terraform-aws-modules/vpc/aws"</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">  </span><span class="na">version</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"5.8.1"</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="p">}</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="c1"># Git, pinned to a tag</span>
+<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="kr">module</span><span class="w"> </span><span class="nv">"bucket"</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="w">  </span><span class="na">source</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"git::https://github.com/acme/tf-modules.git//s3-bucket?ref=v2.3.0"</span>
+<a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a><span class="p">}</span>
+<a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a>
+<a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a><span class="c1"># Git, pinned to a specific commit (maximally reproducible)</span>
+<a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a><span class="kr">module</span><span class="w"> </span><span class="nv">"bucket"</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a><span class="w">  </span><span class="na">source</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"git::https://github.com/acme/tf-modules.git//s3-bucket?ref=a1b2c3d"</span>
+<a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a><span class="p">}</span>
+</code></pre></div>
+<p>The <code>//</code> in the Git URL separates the repository root from a <strong>subdirectory</strong>
+within it — <code>tf-modules.git//s3-bucket</code> means "the <code>s3-bucket/</code> folder of
+that repo," letting one Git repository host many independently-versioned
+modules.</p>
+<h2 id="the-version-constraint-registry-modules-only">The <code>version</code> constraint (registry modules only)<a class="headerlink" href="#the-version-constraint-registry-modules-only" title="Permanent link">&para;</a></h2>
+<p><code>version</code> is only meaningful for registry-sourced modules — Git and local
+sources pin via <code>ref</code> or the path itself instead:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="kr">module</span><span class="w"> </span><span class="nv">"vpc"</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">  </span><span class="na">source</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="s2">"terraform-aws-modules/vpc/aws"</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">  </span><span class="na">version</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"~&gt; 5.8"</span><span class="c1">   # &gt;= 5.8.0, &lt; 6.0.0</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="p">}</span>
+</code></pre></div>
+<table>
+<thead>
+<tr>
+<th>Constraint</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>"5.8.1"</code></td>
+<td>exactly this version</td>
+</tr>
+<tr>
+<td><code>"&gt;= 5.8.0"</code></td>
+<td>this version or newer</td>
+</tr>
+<tr>
+<td><code>"~&gt; 5.8"</code></td>
+<td><code>&gt;= 5.8.0</code>, <code>&lt; 6.0.0</code> (allow patch/minor within the major)</td>
+</tr>
+<tr>
+<td><code>"~&gt; 5.8.1"</code></td>
+<td><code>&gt;= 5.8.1</code>, <code>&lt; 5.9.0</code> (allow only patch releases)</td>
+</tr>
+</tbody>
+</table>
+<p><code>~&gt;</code> ("pessimistic constraint") is the pattern used in almost every real
+module call: it accepts bug-fix and non-breaking releases automatically
+while refusing a major-version bump (which, by semantic-versioning
+convention, may contain breaking input/output changes) until someone
+deliberately widens the constraint.</p>
+<h2 id="worked-example-pinning-a-shared-module-across-two-callers">Worked example: pinning a shared module across two callers<a class="headerlink" href="#worked-example-pinning-a-shared-module-across-two-callers" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="kr">module</span><span class="w"> </span><span class="nv">"dev_bucket"</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">  </span><span class="na">source</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="s2">"git::https://github.com/acme/tf-modules.git//s3-bucket?ref=v2.3.0"</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">  </span><span class="na">bucket_name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"acme-dev-artifacts"</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="p">}</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="kr">module</span><span class="w"> </span><span class="nv">"prod_bucket"</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="w">  </span><span class="na">source</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="s2">"git::https://github.com/acme/tf-modules.git//s3-bucket?ref=v2.1.0"</span>
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="w">  </span><span class="na">bucket_name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"acme-prod-artifacts"</span>
+<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="p">}</span>
+</code></pre></div>
+<p>Nothing stops dev and prod from intentionally running <em>different</em> pinned
+versions of the same module while its maintainers roll out a change —
+prod stays on <code>v2.1.0</code> until the team has validated <code>v2.3.0</code> in dev.
+Unpinned sources (a branch name, or no <code>ref</code> at all defaulting to the
+default branch) make this impossible to guarantee: the module's behavior
+could change under you on the next <code>terraform init</code> with zero diff in your
+own repo's history.</p>
+<h2 id="terraformlockhcl-locks-providers-not-modules"><code>.terraform.lock.hcl</code> locks providers, not modules<a class="headerlink" href="#terraformlockhcl-locks-providers-not-modules" title="Permanent link">&para;</a></h2>
+<p>It's a common misconception that the provider lock file (Level 1 module 02)
+also pins module versions — it doesn't. Module version/ref selections are
+recorded only in your <code>.tf</code> source itself; there is no separate module lock
+file. This is exactly why an explicit <code>version</code>/<code>ref</code> in the <code>module</code> block
+is the <em>only</em> thing standing between you and a moving target.</p>
+<h2 id="upgrading-deliberately">Upgrading deliberately<a class="headerlink" href="#upgrading-deliberately" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>terraform<span class="w"> </span>init<span class="w"> </span>-upgrade
+</code></pre></div>
+<p>Re-resolves module sources (and provider versions, within their own
+constraints) to the newest versions your constraints allow, and re-writes
+the downloaded copies in <code>.terraform/modules/</code>. Running plain
+<code>terraform init</code> again after a module is already downloaded does <strong>not</strong>
+re-check for a newer version within a <code>~&gt;</code> range — <code>-upgrade</code> is required
+to actually move forward, which keeps <code>init</code> fast and deterministic day to
+day.</p>
+<h2 id="how-it-actually-works">How It Actually Works<a class="headerlink" href="#how-it-actually-works" title="Permanent link">&para;</a></h2>
+<p><strong>Module source resolution happens entirely during <code>terraform init</code>, before
+any graph is built.</strong> Terraform Core parses every <code>module</code> block's <code>source</code>
+and <code>version</code> arguments, resolves each to a concrete set of files (cloning
+the Git ref, or querying the Terraform Registry's module API for the
+version matching the constraint), and copies the result into
+<code>.terraform/modules/&lt;module-address&gt;/</code>. The <code>plan</code>/<code>apply</code> graph-building
+step described in module 01 then reads <code>.tf</code> files from that local cache —
+it has no awareness of Git, HTTP, or the registry at all. This split is why
+changing a <code>version</code> constraint requires re-running <code>init</code>: the graph
+builder is working from whatever was materialized on disk during the last
+<code>init</code>, not from the source string in your <code>.tf</code> file directly.</p>
+<p><strong>Registry version resolution is a constraint-satisfaction query, not a
+fetch of "latest."</strong> For a registry source, <code>terraform init</code> calls the
+registry's module-versions endpoint, gets back the full list of published
+versions, and picks the <em>highest</em> version satisfying your constraint
+string using semantic-versioning comparison rules — not the newest publish
+timestamp. This is why <code>~&gt; 5.8</code> deterministically resolves to the same
+version across machines as long as no new matching version has been
+published in between: it's a pure function of (constraint, currently
+published version list), which is also why two people running <code>init</code> on
+different days can get different results if the module author ships a new
+patch release in between — the constraint didn't change, but the set of
+versions satisfying it did.</p>
+<p><strong>Git refs are resolved by clone-and-checkout, and commit-pinning is
+strictly stronger than tag-pinning.</strong> For <code>git::...?ref=X</code>, Terraform
+shells out to a real <code>git clone</code>/<code>fetch</code> against that ref. A tag ref
+(<code>v2.3.0</code>) is only as immutable as the remote repository's own tag-deletion
+policy allows — Git tags can technically be force-moved by someone with
+push access, which would silently change what <code>v2.3.0</code> resolves to on a
+later fresh <code>init</code>. A commit SHA cannot be reassigned, which is why
+maximally-reproducible pipelines (Level 4's CI/CD module) sometimes pin
+modules by full commit hash rather than by tag, trading a little
+readability for a guarantee no tag rename could ever provide.</p>
+<h2 id="exercise">Exercise<a class="headerlink" href="#exercise" title="Permanent link">&para;</a></h2>
+<p>Given the module call
+<code>module "vpc" { source = "terraform-aws-modules/vpc/aws"; version = "~&gt; 5.8" }</code>,
+write out which of these hypothetical published versions Terraform would
+resolve to, and why, if all of <code>5.7.9</code>, <code>5.8.0</code>, <code>5.8.4</code>, <code>5.9.0</code>, and
+<code>6.0.0</code> are currently published: pick the one version <code>terraform init</code>
+would select.</p>
 
 
 
 
 
 
-
-  
-  
 
 
 

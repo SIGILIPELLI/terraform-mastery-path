@@ -94,8 +94,6 @@
   }
   </script>
   
-  <meta name="robots" content="noindex, follow">
-  
 
   </head>
   
@@ -1272,6 +1270,24 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    08 · count vs for_each
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -1288,6 +1304,102 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#count-index-based-repetition" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        count: index-based repetition
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#for_each-key-based-repetition" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        for_each: key-based repetition
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-critical-difference-what-happens-when-the-middle-element-is-removed" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The critical difference: what happens when the middle element is removed
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#worked-example-converting-a-count-list-to-a-for_each-map" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Worked example: converting a count list to a for_each map
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#countindex-vs-eachkeyeachvalue-quick-reference" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        count.index vs each.key/each.value — quick reference
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-it-actually-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Actually Works
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercise" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercise
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -2129,6 +2241,91 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#count-index-based-repetition" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        count: index-based repetition
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#for_each-key-based-repetition" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        for_each: key-based repetition
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-critical-difference-what-happens-when-the-middle-element-is-removed" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The critical difference: what happens when the middle element is removed
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#worked-example-converting-a-count-list-to-a-for_each-map" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Worked example: converting a count list to a for_each map
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#countindex-vs-eachkeyeachvalue-quick-reference" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        count.index vs each.key/each.value — quick reference
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-it-actually-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Actually Works
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercise" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercise
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -2148,23 +2345,181 @@
 
 
 <h1 id="08-count-vs-for_each">08 · count vs for_each<a class="headerlink" href="#08-count-vs-for_each" title="Permanent link">&para;</a></h1>
-<div class="admonition info">
-<p class="admonition-title">Coming soon</p>
-<p>This module's full lessons and code snippets are being written next.
-This module will cover count and for_each meta-arguments, when to use each, and the state implications of switching between them.</p>
-</div>
-<p>Check back soon — new modules are published regularly. In the meantime,
-work through <a href="../../level-1/">Level 1 · Entry</a>, which is fully
-available now.</p>
+<p>Both <code>count</code> and <code>for_each</code> turn a single resource block into multiple
+instances. They solve overlapping problems but produce different state
+addressing schemes, and picking the wrong one is one of the most common
+sources of unnecessary resource recreation in real Terraform codebases.</p>
+<h2 id="count-index-based-repetition"><code>count</code>: index-based repetition<a class="headerlink" href="#count-index-based-repetition" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kr">variable</span><span class="w"> </span><span class="nv">"instance_names"</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="na">type</span><span class="w">    </span><span class="o">=</span><span class="w"> </span><span class="nf">list</span><span class="p">(</span><span class="kt">string</span><span class="p">)</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span><span class="na">default</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s2">"web-1", "web-2", "web-3"</span><span class="p">]</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="p">}</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="kr">resource</span><span class="w"> </span><span class="nc">"aws_instance"</span><span class="w"> </span><span class="nv">"web"</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">  </span><span class="na">count</span><span class="w">         </span><span class="o">=</span><span class="w"> </span><span class="nf">length</span><span class="p">(</span><span class="nv">var.instance_names</span><span class="p">)</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">  </span><span class="na">ami</span><span class="w">           </span><span class="o">=</span><span class="w"> </span><span class="s2">"ami-0abcd1234"</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">  </span><span class="na">instance_type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"t3.micro"</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="w">  </span><span class="nb">tags</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="w">    </span><span class="na">Name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">var.instance_names[count.index</span><span class="p">]</span>
+<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="w">  </span><span class="p">}</span>
+<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="p">}</span>
+</code></pre></div>
+<p>Each instance is addressed by a numeric index: <code>aws_instance.web[0]</code>,
+<code>aws_instance.web[1]</code>, <code>aws_instance.web[2]</code>. Inside the block,
+<code>count.index</code> (0-based) is how each instance picks its own values out of a
+list.</p>
+<h2 id="for_each-key-based-repetition"><code>for_each</code>: key-based repetition<a class="headerlink" href="#for_each-key-based-repetition" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="kr">variable</span><span class="w"> </span><span class="nv">"instance_names"</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">  </span><span class="na">type</span><span class="w">    </span><span class="o">=</span><span class="w"> </span><span class="kt">set</span><span class="p">(</span><span class="kt">string</span><span class="p">)</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">  </span><span class="na">default</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s2">"web-1", "web-2", "web-3"</span><span class="p">]</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="p">}</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="kr">resource</span><span class="w"> </span><span class="nc">"aws_instance"</span><span class="w"> </span><span class="nv">"web"</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="w">  </span><span class="na">for_each</span><span class="w">      </span><span class="o">=</span><span class="w"> </span><span class="nv">var.instance_names</span>
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="w">  </span><span class="na">ami</span><span class="w">           </span><span class="o">=</span><span class="w"> </span><span class="s2">"ami-0abcd1234"</span>
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="w">  </span><span class="na">instance_type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"t3.micro"</span>
+<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>
+<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="w">  </span><span class="nb">tags</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a><span class="w">    </span><span class="na">Name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">each.value</span>
+<a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a><span class="w">  </span><span class="p">}</span>
+<a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a><span class="p">}</span>
+</code></pre></div>
+<p>Each instance is addressed by its <strong>key</strong>, not a position:
+<code>aws_instance.web["web-1"]</code>, <code>aws_instance.web["web-2"]</code>. <code>for_each</code>
+accepts a <code>set(string)</code> or a <code>map(...)</code>; inside the block, <code>each.key</code> and
+<code>each.value</code> are available (identical for a set, distinct for a map).</p>
+<h2 id="the-critical-difference-what-happens-when-the-middle-element-is-removed">The critical difference: what happens when the middle element is removed<a class="headerlink" href="#the-critical-difference-what-happens-when-the-middle-element-is-removed" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1"># Before: ["web-1", "web-2", "web-3"]</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="c1"># After:  ["web-1", "web-3"]   (removed web-2)</span>
+</code></pre></div>
+<p>With <strong><code>count</code></strong>: <code>web-3</code> was <code>aws_instance.web[2]</code>; after removal, the
+list has only two elements, so what <em>was</em> index <code>2</code> (<code>web-3</code>) no longer
+has a corresponding list entry, and everything shifts — Terraform sees
+index <code>1</code> now means <code>web-3</code> instead of <code>web-2</code>, and proposes <strong>destroying
+and recreating</strong> <code>aws_instance.web[1]</code> even though <code>web-3</code> itself didn't
+conceptually change at all.</p>
+<p>With <strong><code>for_each</code></strong> (using a set/map of names as keys): removing <code>web-2</code>
+from the set only removes the graph node keyed <code>"web-2"</code>. <code>aws_instance.web["web-1"]</code>
+and <code>aws_instance.web["web-3"]</code> are untouched — because their identity in
+state is their <em>key</em>, not their position, and neither key's associated
+value changed.</p>
+<p>This is the single reason most real-world module authors default to
+<code>for_each</code> over <code>count</code> whenever the elements have a natural, stable
+identity (a name, an ID) — <code>count</code> is appropriate mainly when you're
+repeating something truly identical N times with no meaningful per-instance
+identity beyond "the Nth one" (e.g., <code>count = 3</code> identical availability-zone
+subnets addressed only by index).</p>
+<h2 id="worked-example-converting-a-count-list-to-a-for_each-map">Worked example: converting a <code>count</code> list to a <code>for_each</code> map<a class="headerlink" href="#worked-example-converting-a-count-list-to-a-for_each-map" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="kr">variable</span><span class="w"> </span><span class="nv">"buckets"</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="w">  </span><span class="na">type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">map</span><span class="p">(</span><span class="kt">object</span><span class="p">({</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">    </span><span class="na">versioning</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kt">bool</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="w">  </span><span class="p">}))</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="w">  </span><span class="nb">default</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="w">    </span><span class="nb">reports</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="na">versioning</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="no">true</span><span class="w"> </span><span class="p">}</span>
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="w">    </span><span class="nb">logs</span><span class="w">    </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="na">versioning</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="no">false</span><span class="w"> </span><span class="p">}</span>
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="w">  </span><span class="p">}</span>
+<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="p">}</span>
+<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>
+<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a><span class="kr">resource</span><span class="w"> </span><span class="nc">"aws_s3_bucket"</span><span class="w"> </span><span class="nv">"this"</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a><span class="w">  </span><span class="na">for_each</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">var.buckets</span>
+<a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a><span class="w">  </span><span class="na">bucket</span><span class="w">   </span><span class="o">=</span><span class="w"> </span><span class="s2">"acme-${each.key}"</span>
+<a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a><span class="p">}</span>
+<a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a>
+<a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a><span class="kr">resource</span><span class="w"> </span><span class="nc">"aws_s3_bucket_versioning"</span><span class="w"> </span><span class="nv">"this"</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-3-17" name="__codelineno-3-17" href="#__codelineno-3-17"></a><span class="w">  </span><span class="nb">for_each</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="err">for</span><span class="w"> </span><span class="err">k</span><span class="p">,</span><span class="w"> </span><span class="err">v</span><span class="w"> </span><span class="err">in</span><span class="w"> </span><span class="nv">var.buckets</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="na">k</span><span class="w"> </span><span class="o">=</span><span class="err">&gt;</span><span class="w"> </span><span class="err">v</span><span class="w"> </span><span class="err">if</span><span class="w"> </span><span class="nv">v.versioning</span><span class="w"> </span><span class="p">}</span>
+<a id="__codelineno-3-18" name="__codelineno-3-18" href="#__codelineno-3-18"></a><span class="w">  </span><span class="na">bucket</span><span class="w">   </span><span class="o">=</span><span class="w"> </span><span class="nv">aws_s3_bucket.this[each.key].id</span>
+<a id="__codelineno-3-19" name="__codelineno-3-19" href="#__codelineno-3-19"></a>
+<a id="__codelineno-3-20" name="__codelineno-3-20" href="#__codelineno-3-20"></a><span class="w">  </span><span class="nb">versioning_configuration</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-3-21" name="__codelineno-3-21" href="#__codelineno-3-21"></a><span class="w">    </span><span class="na">status</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"Enabled"</span>
+<a id="__codelineno-3-22" name="__codelineno-3-22" href="#__codelineno-3-22"></a><span class="w">  </span><span class="p">}</span>
+<a id="__codelineno-3-23" name="__codelineno-3-23" href="#__codelineno-3-23"></a><span class="p">}</span>
+</code></pre></div>
+<p>The second <code>for_each</code> filters the map down to only the buckets that want
+versioning, using the <code>for ... if</code> pattern from module 06 — a resource's
+<code>for_each</code> can be any expression that produces a set or map, including one
+computed inline from another variable.</p>
+<h2 id="countindex-vs-eachkeyeachvalue-quick-reference"><code>count.index</code> vs <code>each.key</code>/<code>each.value</code> — quick reference<a class="headerlink" href="#countindex-vs-eachkeyeachvalue-quick-reference" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th></th>
+<th><code>count</code></th>
+<th><code>for_each</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Per-instance reference</td>
+<td><code>count.index</code> (number)</td>
+<td><code>each.key</code>, <code>each.value</code></td>
+</tr>
+<tr>
+<td>Address in state</td>
+<td><code>resource[0]</code>, <code>resource[1]</code></td>
+<td><code>resource["key1"]</code>, <code>resource["key2"]</code></td>
+</tr>
+<tr>
+<td>Accepts</td>
+<td>a number</td>
+<td>a <code>set</code> or <code>map</code></td>
+</tr>
+<tr>
+<td>Stable identity on reorder/removal</td>
+<td>no — shifts by position</td>
+<td>yes — keyed</td>
+</tr>
+<tr>
+<td>Typical use</td>
+<td>N identical things by position</td>
+<td>things with a natural name/key</td>
+</tr>
+</tbody>
+</table>
+<h2 id="how-it-actually-works">How It Actually Works<a class="headerlink" href="#how-it-actually-works" title="Permanent link">&para;</a></h2>
+<p><strong>Both <code>count</code> and <code>for_each</code> are resolved during graph construction into
+a fixed set of resource instance addresses, before any instance is
+individually planned — the difference is entirely in how that address is
+computed.</strong> For <code>count</code>, Terraform evaluates the numeric expression to <code>N</code>
+and generates addresses <code>[0]</code> through <code>[N-1]</code> — pure arithmetic, with no
+memory of what value previously occupied a given index. For <code>for_each</code>,
+Terraform evaluates the set/map expression and uses each <strong>key</strong> verbatim
+as the instance address — the address is a direct, stable function of the
+input data itself, not of iteration order, which is exactly why removing
+one map key doesn't perturb any other key's address.</p>
+<p><strong>This is why <code>for_each</code>'s diffing is a set/map comparison, while
+<code>count</code>'s diffing is a list-length comparison.</strong> When Terraform computes a
+plan for a <code>for_each</code> resource, it compares the <em>previous</em> set of keys
+(from state) against the <em>new</em> set of keys (from the current
+configuration) — any key present in both is left alone (even if its
+position in the underlying map's iteration order changed, since maps have
+no inherent order Terraform relies on); any key only in the new set is a
+create; any key only in the old set is a destroy. <code>count</code>'s diff, by
+contrast, is purely "old length vs. new length," with every index above
+the smaller of the two lengths becoming a destroy or create regardless of
+whether the <em>values</em> at those shifted indices are actually new.</p>
+<p><strong><code>count.index</code> and <code>each.key</code>/<code>each.value</code> are graph-local variables,
+scoped to exactly one resource instance's evaluation.</strong> They aren't global
+loop variables the way <code>for</code> in an imperative language would produce —
+each resource instance is its own independent graph node, and
+<code>count.index</code>/<code>each.key</code> is simply the piece of that node's identity fed
+back into its own body expressions during that one instance's
+<code>PlanResourceChange</code> call. This is also why you cannot reference
+<code>count.index</code> or <code>each.key</code> from a <em>different</em> resource's block — they
+only exist within the block whose <code>count</code>/<code>for_each</code> produced them.</p>
+<h2 id="exercise">Exercise<a class="headerlink" href="#exercise" title="Permanent link">&para;</a></h2>
+<p>Take the <code>count</code>-based <code>aws_instance.web</code> example at the top of this page
+and rewrite it using <code>for_each</code> over a <code>set(string)</code> of the same three
+names, addressing each instance's <code>Name</code> tag via <code>each.value</code> instead of
+<code>var.instance_names[count.index]</code>. Then write one sentence on what would
+happen to <code>aws_instance.web["web-2"]</code> in each version if <code>"web-1"</code> were
+removed from the input list/set.</p>
 
 
 
 
 
 
-
-  
-  
 
 
 

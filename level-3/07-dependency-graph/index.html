@@ -94,8 +94,6 @@
   }
   </script>
   
-  <meta name="robots" content="noindex, follow">
-  
 
   </head>
   
@@ -1620,6 +1618,24 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    07 · Dependency Management & the Graph
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -1636,6 +1652,102 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#visualizing-the-graph" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Visualizing the graph
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#implicit-dependencies-reference-based-the-default-and-the-goal" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Implicit dependencies: reference-based (the default, and the goal)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#explicit-dependencies-depends_on" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Explicit dependencies: depends_on
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reading-a-plans-parallelism" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Reading a plan's parallelism
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#terraformtfs-often-overlooked-ordering-trap-implicit-looking-code-that-isnt" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        terraform.tf's often-overlooked ordering trap: implicit-looking code that isn't
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-it-actually-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Actually Works
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercise" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercise
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -2129,6 +2241,91 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#visualizing-the-graph" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Visualizing the graph
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#implicit-dependencies-reference-based-the-default-and-the-goal" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Implicit dependencies: reference-based (the default, and the goal)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#explicit-dependencies-depends_on" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Explicit dependencies: depends_on
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reading-a-plans-parallelism" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Reading a plan's parallelism
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#terraformtfs-often-overlooked-ordering-trap-implicit-looking-code-that-isnt" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        terraform.tf's often-overlooked ordering trap: implicit-looking code that isn't
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-it-actually-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Actually Works
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercise" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercise
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -2148,23 +2345,133 @@
 
 
 <h1 id="07-dependency-management-the-graph">07 · Dependency Management &amp; the Graph<a class="headerlink" href="#07-dependency-management-the-graph" title="Permanent link">&para;</a></h1>
-<div class="admonition info">
-<p class="admonition-title">Coming soon</p>
-<p>This module's full lessons and code snippets are being written next.
-This module will cover implicit and explicit dependencies, terraform graph, and how Terraform orders operations.</p>
-</div>
-<p>Check back soon — new modules are published regularly. In the meantime,
-work through <a href="../../level-1/">Level 1 · Entry</a>, which is fully
-available now.</p>
+<p>Every prior module in this course has invoked "the graph" to explain why
+something behaves the way it does. This module makes the dependency graph
+itself the subject — how to see it, how implicit and explicit dependencies
+differ mechanically, and how to reason about what can run concurrently.</p>
+<h2 id="visualizing-the-graph">Visualizing the graph<a class="headerlink" href="#visualizing-the-graph" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>terraform<span class="w"> </span>graph<span class="w"> </span><span class="p">|</span><span class="w"> </span>dot<span class="w"> </span>-Tsvg<span class="w"> </span>&gt;<span class="w"> </span>graph.svg
+</code></pre></div>
+<p><code>terraform graph</code> prints the configuration's dependency graph in DOT
+format (Graphviz's graph-description language); piping it through <code>dot</code>
+renders an actual diagram. For anything beyond a handful of resources the
+rendered graph is usually too dense to read directly, but it's genuinely
+useful for confirming a suspected dependency exists (or, more often,
+confirming one <em>doesn't</em> — that two resources you assumed were
+independent really are, and can safely be reasoned about separately).</p>
+<h2 id="implicit-dependencies-reference-based-the-default-and-the-goal">Implicit dependencies: reference-based (the default, and the goal)<a class="headerlink" href="#implicit-dependencies-reference-based-the-default-and-the-goal" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="kr">resource</span><span class="w"> </span><span class="nc">"aws_vpc"</span><span class="w"> </span><span class="nv">"this"</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">  </span><span class="na">cidr_block</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"10.0.0.0/16"</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="p">}</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="kr">resource</span><span class="w"> </span><span class="nc">"aws_subnet"</span><span class="w"> </span><span class="nv">"main"</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="w">  </span><span class="na">vpc_id</span><span class="w">     </span><span class="o">=</span><span class="w"> </span><span class="nv">aws_vpc.this.id</span><span class="c1">   # &lt;- creates the graph edge</span>
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="w">  </span><span class="na">cidr_block</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"10.0.1.0/24"</span>
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="p">}</span>
+</code></pre></div>
+<p><code>aws_subnet.main</code> referencing <code>aws_vpc.this.id</code> is what creates the
+dependency edge — Terraform Core parses every expression in every
+resource block, and any <code>aws_vpc.this</code> reference anywhere becomes an edge
+from that referencing resource back to <code>aws_vpc.this</code>. This is how nearly
+every dependency in a well-written configuration is established: as a
+side effect of actually needing a value, never as a separate declaration.</p>
+<h2 id="explicit-dependencies-depends_on">Explicit dependencies: <code>depends_on</code><a class="headerlink" href="#explicit-dependencies-depends_on" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="kr">resource</span><span class="w"> </span><span class="nc">"aws_iam_role_policy"</span><span class="w"> </span><span class="nv">"app"</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">  </span><span class="na">role</span><span class="w">   </span><span class="o">=</span><span class="w"> </span><span class="nv">aws_iam_role.app.id</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">  </span><span class="na">policy</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">data.aws_iam_policy_document.app.json</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="p">}</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="kr">resource</span><span class="w"> </span><span class="nc">"aws_instance"</span><span class="w"> </span><span class="nv">"app"</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="w">  </span><span class="na">ami</span><span class="w">           </span><span class="o">=</span><span class="w"> </span><span class="s2">"ami-0abcd1234"</span>
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="w">  </span><span class="na">instance_type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"t3.micro"</span>
+<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="w">  </span><span class="na">depends_on</span><span class="w">    </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="nv">aws_iam_role_policy.app</span><span class="p">]</span>
+<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="p">}</span>
+</code></pre></div>
+<p>Used only when <code>aws_instance.app</code> needs the IAM policy attachment to have
+already happened, but nothing in <code>aws_instance.app</code>'s own arguments
+actually <em>references</em> <code>aws_iam_role_policy.app</code> — a real-world case where
+an underlying API has a behavioral ordering requirement Terraform's
+attribute-level dependency inference has no way to see, since there's no
+value being passed between them at all.</p>
+<h2 id="reading-a-plans-parallelism">Reading a plan's parallelism<a class="headerlink" href="#reading-a-plans-parallelism" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>aws_vpc.this: Creating...
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>aws_vpc.this: Creation complete after 2s [id=vpc-0abc]
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>aws_subnet.a: Creating...
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>aws_subnet.b: Creating...
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>aws_subnet.a: Creation complete after 1s [id=subnet-0aaa]
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>aws_subnet.b: Creation complete after 1s [id=subnet-0bbb]
+</code></pre></div>
+<p><code>aws_subnet.a</code> and <code>aws_subnet.b</code> both depend on <code>aws_vpc.this</code> but not on
+each other — the graph has no edge between them — so once <code>aws_vpc.this</code>
+completes, Terraform's graph walker starts both concurrently (bounded by
+<code>-parallelism</code>, default 10), which is exactly why their "Creating..."
+lines interleave in the output above rather than appearing strictly one
+after the other.</p>
+<h2 id="terraformtfs-often-overlooked-ordering-trap-implicit-looking-code-that-isnt"><code>terraform.tf</code>'s often-overlooked ordering trap: implicit-looking code that isn't<a class="headerlink" href="#terraformtfs-often-overlooked-ordering-trap-implicit-looking-code-that-isnt" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="kr">resource</span><span class="w"> </span><span class="nc">"aws_instance"</span><span class="w"> </span><span class="nv">"web"</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="w">  </span><span class="na">ami</span><span class="w">           </span><span class="o">=</span><span class="w"> </span><span class="s2">"ami-0abcd1234"</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="w">  </span><span class="na">instance_type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"t3.micro"</span>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="w">  </span><span class="nb">tags</span><span class="w">          </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="na">Name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"web-${random_pet.suffix.id}"</span><span class="w"> </span><span class="p">}</span>
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="p">}</span>
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="kr">resource</span><span class="w"> </span><span class="nc">"random_pet"</span><span class="w"> </span><span class="nv">"suffix"</span><span class="w"> </span><span class="p">{}</span>
+</code></pre></div>
+<p>Despite <code>random_pet.suffix</code> being declared <em>after</em> <code>aws_instance.web</code> in
+the file, the graph edge (<code>web</code>'s <code>tags</code> references <code>random_pet.suffix.id</code>)
+means <code>random_pet.suffix</code> is created first — <strong>file order has no bearing
+on execution order.</strong> This surprises newcomers reading <code>.tf</code> files
+top-to-bottom expecting sequential-script semantics; the graph, built from
+references, is the only thing that determines order, regardless of how
+the blocks happen to be arranged on disk.</p>
+<h2 id="how-it-actually-works">How It Actually Works<a class="headerlink" href="#how-it-actually-works" title="Permanent link">&para;</a></h2>
+<p><strong>Terraform Core's graph is a directed acyclic graph (DAG) built in two
+passes: first every resource/module/output/local/data node is created,
+then every expression in every node is walked to add an edge for each
+reference found.</strong> This second pass is purely syntactic reference
+resolution — it doesn't execute or evaluate anything yet, it just notices
+"this argument's expression mentions <code>aws_vpc.this</code>" and adds an edge.
+Only after the full graph exists does Terraform validate it's acyclic
+(a resource cannot, even transitively through several hops, depend on
+itself) and then compute a valid topological ordering — any ordering
+consistent with every edge — for the actual walk.</p>
+<p><strong>The walker processes the DAG using a work-queue model, not a strict
+sequential topological sort: any node whose dependencies have <em>all</em>
+already completed becomes immediately eligible to run, and multiple
+eligible nodes run concurrently up to the <code>-parallelism</code> limit.</strong> This is
+mechanically why <code>aws_subnet.a</code> and <code>aws_subnet.b</code> above interleave in the
+CLI output — both become eligible at the exact same moment (the instant
+<code>aws_vpc.this</code> finishes), and the walker's worker pool picks up both
+without waiting for either to finish first. It's also why increasing
+<code>-parallelism</code> on a configuration with many independent resources can
+meaningfully speed up <code>apply</code> — the ceiling is the DAG's actual
+"width" (how many nodes are simultaneously eligible) intersected with
+whatever concurrency limit you allow, not some fixed per-resource cost.</p>
+<p><strong><code>depends_on</code> inserts a graph edge with no accompanying data flow — it
+constrains ordering without the receiving node getting a value out of
+it.</strong> Every <em>implicit</em> edge (a real reference) carries a value alongside
+the ordering guarantee: the referencing node literally cannot evaluate
+its own expression until the referenced node's value exists, so ordering
+and data availability are the same constraint enforced once. A
+<code>depends_on</code> edge is Terraform Core adding ordering with no corresponding
+expression dependency — which is exactly why it's a blunter, more manual
+tool: nothing about the referencing resource's <em>evaluation</em> actually
+requires the dependency to run first except the explicit edge you wrote,
+so it's on you to make sure that edge reflects a real requirement, since
+Terraform can't infer or verify <em>why</em> it's there the way it can for a
+value reference.</p>
+<h2 id="exercise">Exercise<a class="headerlink" href="#exercise" title="Permanent link">&para;</a></h2>
+<p>Given <code>aws_route_table.public</code> (referencing <code>aws_vpc.this.id</code>),
+<code>aws_route.internet</code> (referencing both <code>aws_route_table.public.id</code> and
+<code>aws_internet_gateway.this.id</code>), and <code>aws_internet_gateway.this</code>
+(referencing <code>aws_vpc.this.id</code>), draw (in words, listing which nodes have
+edges to which) the dependency graph among these four resources, and
+state which two of them could be created concurrently with each other.</p>
 
 
 
 
 
 
-
-  
-  
 
 
 

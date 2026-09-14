@@ -94,8 +94,6 @@
   }
   </script>
   
-  <meta name="robots" content="noindex, follow">
-  
 
   </head>
   
@@ -1536,6 +1534,24 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    04 · Testing IaC — Plan Review
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -1552,6 +1568,102 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#terraform-validate-the-floor-not-the-ceiling" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        terraform validate: the floor, not the ceiling
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#terraform-plan-as-a-review-artifact" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        terraform plan as a review artifact
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#terraform-test-assertion-based-configuration-tests" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        terraform test: assertion-based configuration tests
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mocking-providers-for-pure-logic-tests" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mocking providers for pure-logic tests
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#worked-example-testing-the-level-2-capstones-conditional-monitoring" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Worked example: testing the Level 2 capstone's conditional monitoring
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-it-actually-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Actually Works
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercise" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercise
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -2129,6 +2241,91 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#terraform-validate-the-floor-not-the-ceiling" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        terraform validate: the floor, not the ceiling
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#terraform-plan-as-a-review-artifact" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        terraform plan as a review artifact
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#terraform-test-assertion-based-configuration-tests" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        terraform test: assertion-based configuration tests
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mocking-providers-for-pure-logic-tests" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mocking providers for pure-logic tests
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#worked-example-testing-the-level-2-capstones-conditional-monitoring" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Worked example: testing the Level 2 capstone's conditional monitoring
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-it-actually-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Actually Works
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercise" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercise
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -2148,23 +2345,162 @@
 
 
 <h1 id="04-testing-iac-plan-review">04 · Testing IaC — Plan Review<a class="headerlink" href="#04-testing-iac-plan-review" title="Permanent link">&para;</a></h1>
-<div class="admonition info">
-<p class="admonition-title">Coming soon</p>
-<p>This module's full lessons and code snippets are being written next.
-This module will cover reviewing terraform plan output, plan-based testing strategies, and terraform test.</p>
-</div>
-<p>Check back soon — new modules are published regularly. In the meantime,
-work through <a href="../../level-1/">Level 1 · Entry</a>, which is fully
-available now.</p>
+<p>Terraform's built-in testing tools focus on catching problems <strong>before</strong>
+<code>apply</code>, without needing real infrastructure — <code>validate</code> and <code>fmt -check</code>
+at the syntax level, and, since Terraform 1.6, a real assertion-based
+test framework (<code>terraform test</code>) that can run entirely against a mocked
+or <code>plan</code>-only provider.</p>
+<h2 id="terraform-validate-the-floor-not-the-ceiling"><code>terraform validate</code>: the floor, not the ceiling<a class="headerlink" href="#terraform-validate-the-floor-not-the-ceiling" title="Permanent link">&para;</a></h2>
+<p>Already covered mechanically in Level 1 module 09 — it catches syntax and
+type errors, nothing about whether the plan does what you actually intend.</p>
+<h2 id="terraform-plan-as-a-review-artifact"><code>terraform plan</code> as a review artifact<a class="headerlink" href="#terraform-plan-as-a-review-artifact" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>terraform<span class="w"> </span>plan<span class="w"> </span>-out<span class="o">=</span>tfplan
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>terraform<span class="w"> </span>show<span class="w"> </span>-json<span class="w"> </span>tfplan<span class="w"> </span>&gt;<span class="w"> </span>plan.json
+</code></pre></div>
+<p><code>-json</code> turns the plan into a structured, machine-readable document — this
+is the artifact CI pipelines and policy engines (module 05) actually
+inspect, rather than parsing the human-formatted terminal output. A code
+review process built around Terraform commonly attaches the <em>human</em>
+<code>terraform show tfplan</code> output to a pull request so reviewers see exactly
+what will change before approving, closing the gap between "the diff
+looks reasonable" and "I've actually seen what will happen to real
+infrastructure."</p>
+<h2 id="terraform-test-assertion-based-configuration-tests"><code>terraform test</code>: assertion-based configuration tests<a class="headerlink" href="#terraform-test-assertion-based-configuration-tests" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1"># tests/bucket.tftest.hcl</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="nb">variables</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">  </span><span class="na">bucket_name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"test-bucket"</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="p">}</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="err">run</span><span class="w"> </span><span class="s2">"creates_bucket_with_correct_name"</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="w">  </span><span class="na">command</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="err">plan</span>
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="w">  </span><span class="nb">assert</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="w">    </span><span class="na">condition</span><span class="w">     </span><span class="o">=</span><span class="w"> </span><span class="nv">aws_s3_bucket.this.bucket</span><span class="w"> </span><span class="p">==</span><span class="w"> </span><span class="s2">"test-bucket"</span>
+<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="w">    </span><span class="na">error_message</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"Bucket name did not match the input variable"</span>
+<a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a><span class="w">  </span><span class="p">}</span>
+<a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a><span class="p">}</span>
+<a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a>
+<a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a><span class="err">run</span><span class="w"> </span><span class="s2">"versioning_disabled_by_default"</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a><span class="w">  </span><span class="na">command</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="err">plan</span>
+<a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a>
+<a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a><span class="w">  </span><span class="nb">assert</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-1-19" name="__codelineno-1-19" href="#__codelineno-1-19"></a><span class="w">    </span><span class="na">condition</span><span class="w">     </span><span class="o">=</span><span class="w"> </span><span class="nf">length</span><span class="p">(</span><span class="nv">aws_s3_bucket_versioning.this</span><span class="p">)</span><span class="w"> </span><span class="p">==</span><span class="w"> </span><span class="m">0</span>
+<a id="__codelineno-1-20" name="__codelineno-1-20" href="#__codelineno-1-20"></a><span class="w">    </span><span class="na">error_message</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"Versioning resource should not exist when enable_versioning is false"</span>
+<a id="__codelineno-1-21" name="__codelineno-1-21" href="#__codelineno-1-21"></a><span class="w">  </span><span class="p">}</span>
+<a id="__codelineno-1-22" name="__codelineno-1-22" href="#__codelineno-1-22"></a><span class="p">}</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>terraform<span class="w"> </span><span class="nb">test</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="c1"># tests/bucket.tftest.hcl... in progress</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="c1">#   run "creates_bucket_with_correct_name"... pass</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="c1">#   run "versioning_disabled_by_default"... pass</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="c1"># tests/bucket.tftest.hcl... tearing down</span>
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="c1"># tests/bucket.tftest.hcl... pass</span>
+</code></pre></div>
+<p>Each <code>run</code> block is one test case: <code>command = plan</code> runs only a plan
+(fast, no real resources touched, ideal for asserting on configuration
+logic like the conditional in module 07 of Level 2); <code>command = apply</code>
+actually creates resources against a real provider and tears them down
+afterward, useful for asserting on values a provider only computes at
+apply-time, at the cost of real infrastructure being created during the
+test run.</p>
+<h2 id="mocking-providers-for-pure-logic-tests">Mocking providers for pure-logic tests<a class="headerlink" href="#mocking-providers-for-pure-logic-tests" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="err">mock_</span><span class="kr">provider</span><span class="w"> </span><span class="nv">"aws"</span><span class="w"> </span><span class="p">{}</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="err">run</span><span class="w"> </span><span class="s2">"instance_count_matches_input"</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="w">  </span><span class="na">command</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="err">plan</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="w">  </span><span class="nb">variables</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="w">    </span><span class="na">instance_count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">3</span>
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="w">  </span><span class="p">}</span>
+<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>
+<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a><span class="w">  </span><span class="nb">assert</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a><span class="w">    </span><span class="na">condition</span><span class="w">     </span><span class="o">=</span><span class="w"> </span><span class="nf">length</span><span class="p">(</span><span class="nv">aws_instance.web</span><span class="p">)</span><span class="w"> </span><span class="p">==</span><span class="w"> </span><span class="m">3</span>
+<a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a><span class="w">    </span><span class="na">error_message</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"Expected 3 instances"</span>
+<a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a><span class="w">  </span><span class="p">}</span>
+<a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a><span class="p">}</span>
+</code></pre></div>
+<p><code>mock_provider</code> substitutes a fake provider that returns plausible
+placeholder values for every attribute without ever calling a real API —
+ideal for testing <code>count</code>/<code>for_each</code>/conditional logic (this course's
+Level 2 topics) in complete isolation from cloud credentials, cost, or
+network access, at the price of the mock's attribute values being
+synthetic rather than what a real provider would actually return.</p>
+<h2 id="worked-example-testing-the-level-2-capstones-conditional-monitoring">Worked example: testing the Level 2 capstone's conditional monitoring<a class="headerlink" href="#worked-example-testing-the-level-2-capstones-conditional-monitoring" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="c1"># tests/app_monitoring.tftest.hcl</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="err">mock_</span><span class="kr">provider</span><span class="w"> </span><span class="nv">"aws"</span><span class="w"> </span><span class="p">{}</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="err">run</span><span class="w"> </span><span class="s2">"monitoring_disabled_in_dev"</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="w">  </span><span class="na">command</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="err">plan</span>
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="w">  </span><span class="nb">variables</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="w">    </span><span class="na">environment</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"dev"</span>
+<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="w">  </span><span class="p">}</span>
+<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a><span class="w">  </span><span class="nb">assert</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a><span class="w">    </span><span class="na">condition</span><span class="w">     </span><span class="o">=</span><span class="w"> </span><span class="nf">length</span><span class="p">(</span><span class="nv">aws_cloudwatch_metric_alarm.high_cpu</span><span class="p">)</span><span class="w"> </span><span class="p">==</span><span class="w"> </span><span class="m">0</span>
+<a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a><span class="w">    </span><span class="na">error_message</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"Dev should not create a monitoring alarm"</span>
+<a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a><span class="w">  </span><span class="p">}</span>
+<a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a><span class="p">}</span>
+<a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a>
+<a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a><span class="err">run</span><span class="w"> </span><span class="s2">"monitoring_enabled_in_prod"</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-4-16" name="__codelineno-4-16" href="#__codelineno-4-16"></a><span class="w">  </span><span class="na">command</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="err">plan</span>
+<a id="__codelineno-4-17" name="__codelineno-4-17" href="#__codelineno-4-17"></a><span class="w">  </span><span class="nb">variables</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-4-18" name="__codelineno-4-18" href="#__codelineno-4-18"></a><span class="w">    </span><span class="na">environment</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"prod"</span>
+<a id="__codelineno-4-19" name="__codelineno-4-19" href="#__codelineno-4-19"></a><span class="w">  </span><span class="p">}</span>
+<a id="__codelineno-4-20" name="__codelineno-4-20" href="#__codelineno-4-20"></a><span class="w">  </span><span class="nb">assert</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-4-21" name="__codelineno-4-21" href="#__codelineno-4-21"></a><span class="w">    </span><span class="na">condition</span><span class="w">     </span><span class="o">=</span><span class="w"> </span><span class="nf">length</span><span class="p">(</span><span class="nv">aws_cloudwatch_metric_alarm.high_cpu</span><span class="p">)</span><span class="w"> </span><span class="p">==</span><span class="w"> </span><span class="m">1</span>
+<a id="__codelineno-4-22" name="__codelineno-4-22" href="#__codelineno-4-22"></a><span class="w">    </span><span class="na">error_message</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"Prod should create exactly one monitoring alarm"</span>
+<a id="__codelineno-4-23" name="__codelineno-4-23" href="#__codelineno-4-23"></a><span class="w">  </span><span class="p">}</span>
+<a id="__codelineno-4-24" name="__codelineno-4-24" href="#__codelineno-4-24"></a><span class="p">}</span>
+</code></pre></div>
+<p>Two <code>run</code> blocks, each setting a different <code>environment</code> value, directly
+verify the exact <code>count = var.enable_monitoring ? 1 : 0</code>-style logic from
+Level 2 module 07 — a regression where someone accidentally flips that
+conditional is caught by <code>terraform test</code> without ever touching AWS.</p>
+<h2 id="how-it-actually-works">How It Actually Works<a class="headerlink" href="#how-it-actually-works" title="Permanent link">&para;</a></h2>
+<p><strong><code>terraform test</code> reuses the identical plan/apply graph-walking engine
+this whole course has described — a <code>run</code> block is not a separate
+interpreter, it's a full <code>plan</code> or <code>apply</code> invocation against a temporary,
+isolated state, with assertions evaluated against the resulting plan or
+state values afterward.</strong> Each <code>run</code> block gets its own ephemeral state
+(carried forward to the next <code>run</code> in the same file only if you
+explicitly reuse it), so <code>assert</code> conditions are plain HCL boolean
+expressions evaluated against real resource attribute values from that
+run's plan — <code>aws_s3_bucket.this.bucket</code> in an assertion resolves exactly
+the way it would in any other expression context, through the same
+expression evaluator, just with the <em>source</em> of that value being a
+completed plan rather than a <code>output</code> block.</p>
+<p><strong>A mock provider intercepts at the exact RPC boundary described back in
+Level 1 module 07 and 09</strong> — <code>ReadResource</code>/<code>PlanResourceChange</code>/
+<code>ApplyResourceChange</code> calls that would normally go to the real <code>aws</code>
+plugin binary are instead answered by Terraform's own mock-provider logic,
+which reads each resource type's schema (the same schema the real
+provider publishes) and synthesizes a value of the correct type for every
+computed attribute it doesn't have a concrete answer for. This is why mock
+tests can assert on <em>counts</em> and <em>structural</em> facts (does this resource
+exist, is this argument what I set it to) reliably, but can't meaningfully
+assert on values a real provider computes (an actual AWS-assigned ARN) —
+the mock has no real API to ask, so those attributes are synthetic
+placeholders, not predictions of real behavior.</p>
+<p><strong><code>command = apply</code> tests run the real graph against real providers and
+real credentials, and Terraform automatically destroys everything the test
+created at the end of the file</strong> — a <code>run "..." { command = apply }</code> block
+is tracked in the test's own ephemeral state exactly like a normal
+<code>apply</code>, and <code>terraform test</code>'s teardown phase (visible in the CLI output
+as "tearing down") walks that state in reverse-dependency order, the same
+destroy-ordering rule from Level 1 module 09, specifically so a test suite
+that creates real resources doesn't leave orphaned infrastructure behind
+even if a later assertion in the same file fails.</p>
+<h2 id="exercise">Exercise<a class="headerlink" href="#exercise" title="Permanent link">&para;</a></h2>
+<p>Write a <code>.tftest.hcl</code> file with a <code>mock_provider "aws" {}</code> block and one
+<code>run</code> block that sets <code>var.environment = "staging"</code> and asserts that
+Level 2 capstone's <code>module.app</code> would be given <code>instance_count = 1</code> (i.e.
+that staging is treated as non-prod) — you'll need one <code>run</code> block, one
+<code>variables</code> block inside it, and one <code>assert</code> block.</p>
 
 
 
 
 
 
-
-  
-  
 
 
 

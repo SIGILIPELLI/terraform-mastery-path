@@ -94,8 +94,6 @@
   }
   </script>
   
-  <meta name="robots" content="noindex, follow">
-  
 
   </head>
   
@@ -1676,6 +1674,24 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    09 · Refactoring State Safely
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -1692,6 +1708,91 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#refactor-1-extracting-inline-resources-into-a-module" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Refactor 1: extracting inline resources into a module
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#refactor-2-splitting-one-state-into-two" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Refactor 2: splitting one state into two
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#refactor-3-renaming-across-a-provider-version-upgrade" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Refactor 3: renaming across a provider version upgrade
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-safety-checklist-before-any-state-refactor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The safety checklist before any state refactor
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-it-actually-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Actually Works
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercise" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercise
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -2129,6 +2230,80 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#refactor-1-extracting-inline-resources-into-a-module" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Refactor 1: extracting inline resources into a module
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#refactor-2-splitting-one-state-into-two" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Refactor 2: splitting one state into two
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#refactor-3-renaming-across-a-provider-version-upgrade" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Refactor 3: renaming across a provider version upgrade
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-safety-checklist-before-any-state-refactor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The safety checklist before any state refactor
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-it-actually-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Actually Works
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercise" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercise
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -2148,23 +2323,144 @@
 
 
 <h1 id="09-refactoring-state-safely">09 · Refactoring State Safely<a class="headerlink" href="#09-refactoring-state-safely" title="Permanent link">&para;</a></h1>
-<div class="admonition info">
-<p class="admonition-title">Coming soon</p>
-<p>This module's full lessons and code snippets are being written next.
-This module will cover safely refactoring resource addresses, splitting state, and using moved blocks across releases.</p>
-</div>
-<p>Check back soon — new modules are published regularly. In the meantime,
-work through <a href="../../level-1/">Level 1 · Entry</a>, which is fully
-available now.</p>
+<p>This module combines module 02's <code>state mv</code>/<code>moved</code> blocks and module 07's
+graph model into a practical playbook for the refactors real teams do
+regularly: splitting a monolithic configuration, extracting a resource
+into a module, and safely renaming things — all without destroying and
+recreating a single piece of real infrastructure.</p>
+<h2 id="refactor-1-extracting-inline-resources-into-a-module">Refactor 1: extracting inline resources into a module<a class="headerlink" href="#refactor-1-extracting-inline-resources-into-a-module" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1"># before: everything in root main.tf</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="kr">resource</span><span class="w"> </span><span class="nc">"aws_s3_bucket"</span><span class="w"> </span><span class="nv">"reports"</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span><span class="na">bucket</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"acme-reports-2026"</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="p">}</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="kr">resource</span><span class="w"> </span><span class="nc">"aws_s3_bucket_versioning"</span><span class="w"> </span><span class="nv">"reports"</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">  </span><span class="na">bucket</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">aws_s3_bucket.reports.id</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">  </span><span class="nb">versioning_configuration</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="na">status</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"Enabled"</span><span class="w"> </span><span class="p">}</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="p">}</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1"># after: extracted into modules/s3-bucket, called from root</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="kr">module</span><span class="w"> </span><span class="nv">"reports_bucket"</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">  </span><span class="na">source</span><span class="w">            </span><span class="o">=</span><span class="w"> </span><span class="s2">"./modules/s3-bucket"</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">  </span><span class="na">bucket_name</span><span class="w">       </span><span class="o">=</span><span class="w"> </span><span class="s2">"acme-reports-2026"</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">  </span><span class="na">enable_versioning</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="no">true</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="p">}</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1"># the moved blocks that make this a no-op refactor</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="nb">moved</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">  </span><span class="na">from</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">aws_s3_bucket.reports</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">  </span><span class="na">to</span><span class="w">   </span><span class="o">=</span><span class="w"> </span><span class="nv">module.reports_bucket.aws_s3_bucket.this</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="p">}</span>
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="nb">moved</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="w">  </span><span class="na">from</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">aws_s3_bucket_versioning.reports</span>
+<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="w">  </span><span class="na">to</span><span class="w">   </span><span class="o">=</span><span class="w"> </span><span class="nv">module.reports_bucket.aws_s3_bucket_versioning.this</span>
+<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="p">}</span>
+</code></pre></div>
+<p>Without the <code>moved</code> blocks, this refactor would show as "destroy 2, create
+2" — same resources, same real infrastructure, but now unnecessarily at
+risk (an S3 bucket happens to survive a rename-that-looks-like-recreate
+badly, but many resource types genuinely cannot be destroyed and
+recreated without real downtime or data loss). The <code>moved</code> blocks make the
+plan show <strong>zero</strong> changes for these two resources.</p>
+<h2 id="refactor-2-splitting-one-state-into-two">Refactor 2: splitting one state into two<a class="headerlink" href="#refactor-2-splitting-one-state-into-two" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c1"># 1. remove the resources that will move, from the SOURCE state,</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="c1">#    into a temporary state file</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>terraform<span class="w"> </span>state<span class="w"> </span>mv<span class="w"> </span>-state-out<span class="o">=</span>extracted.tfstate<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="w">  </span>aws_vpc.this<span class="w"> </span>aws_vpc.this
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>terraform<span class="w"> </span>state<span class="w"> </span>mv<span class="w"> </span>-state-out<span class="o">=</span>extracted.tfstate<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="w">  </span>aws_subnet.public<span class="w"> </span>aws_subnet.public
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>
+<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="c1"># 2. push that temporary state into the DESTINATION configuration's backend</span>
+<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a><span class="nb">cd</span><span class="w"> </span>../networking
+<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a>terraform<span class="w"> </span>state<span class="w"> </span>push<span class="w"> </span>extracted.tfstate
+</code></pre></div>
+<p>Splitting a monolith into <code>networking</code> and <code>app</code> configurations (Level 3
+module 06's directory-per-environment pattern applies just as well to
+splitting by <em>domain</em>, not just by environment) means physically moving
+state entries between two separate backends — <code>state mv</code> extracts them
+locally, <code>state push</code> writes them into the new home. This is a rarer,
+higher-stakes operation than the in-place <code>moved</code> refactor above, and
+should always be preceded by a full backup of both states
+(<code>terraform state pull &gt; backup.tfstate</code>).</p>
+<h2 id="refactor-3-renaming-across-a-provider-version-upgrade">Refactor 3: renaming across a provider version upgrade<a class="headerlink" href="#refactor-3-renaming-across-a-provider-version-upgrade" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="nb">moved</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="w">  </span><span class="na">from</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">aws_alb.web</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="w">  </span><span class="na">to</span><span class="w">   </span><span class="o">=</span><span class="w"> </span><span class="nv">aws_lb.web</span>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="p">}</span>
+</code></pre></div>
+<p><code>moved</code> isn't limited to your own renames — it's also how provider authors
+document a resource-type rename across a major version (here, a
+hypothetical case where a provider deprecates <code>aws_alb</code> in favor of
+<code>aws_lb</code> as an alias). Checking a provider's upgrade guide for <code>moved</code>
+blocks it recommends adding is standard practice before a major provider
+version bump, precisely to avoid an upgrade silently proposing to
+recreate every affected resource.</p>
+<h2 id="the-safety-checklist-before-any-state-refactor">The safety checklist before any state refactor<a class="headerlink" href="#the-safety-checklist-before-any-state-refactor" title="Permanent link">&para;</a></h2>
+<ol>
+<li><strong>Back up state first</strong>: <code>terraform state pull &gt; backup-$(date +%s).tfstate</code>.</li>
+<li><strong>Run <code>terraform plan</code> after the refactor and read it in full</strong> — the
+   goal is always "0 to add, 0 to change, 0 to destroy" for a pure
+   refactor; anything else means the <code>moved</code>/<code>state mv</code> mapping is
+   incomplete or wrong.</li>
+<li><strong>Never run a refactor and an unrelated feature change in the same
+   commit</strong> — if the plan shows an unexpected change, you want to know
+   immediately whether it's the refactor or the feature causing it.</li>
+<li><strong>Prefer <code>moved</code> blocks over ad hoc <code>state mv</code></strong> whenever the refactor
+   is landing in shared/version-controlled configuration, so every
+   teammate's next <code>plan</code> applies the same address mapping automatically.</li>
+</ol>
+<h2 id="how-it-actually-works">How It Actually Works<a class="headerlink" href="#how-it-actually-works" title="Permanent link">&para;</a></h2>
+<p><strong>A <code>moved</code> block is resolved by Terraform Core during graph construction,
+strictly before the plan diff described in module 02 runs — it rewrites
+the graph's own addressing scheme for that node before any comparison
+against prior state happens.</strong> Concretely: Terraform reads every <code>moved</code>
+block in the configuration, builds a translation table (old address → new
+address), and applies it to the state it loaded <em>before</em> computing the
+diff against current configuration — so by the time the diff algorithm
+runs, the state entry already appears under its new address, and the
+diff naturally finds a perfect match with zero create/destroy. This is
+exactly why moved blocks are safe to leave in configuration indefinitely
+even after everyone has run the refactor once — a <code>moved</code> block whose
+<code>from</code> address no longer exists in state simply has nothing to translate
+and is a no-op, not an error.</p>
+<p><strong><code>state mv</code> across backends (<code>-state-out</code>, <code>state push</code>) works because
+Terraform's state file is a self-contained, backend-agnostic JSON document
+— nothing in it references "which backend it came from."</strong> Moving a
+resource's state entry to a different backend is therefore purely a data
+operation: extract the JSON fragment, insert it into a different state
+file, done. The receiving configuration's <em>next</em> <code>plan</code> treats those
+entries exactly like any other pre-existing state it loaded normally — it
+has no memory of, or dependency on, where they were state-managed before,
+which is what makes splitting a monolith's state into two backends a
+one-time, purely mechanical operation rather than something requiring
+ongoing coordination between the two configurations afterward.</p>
+<p><strong>The "0 to add, 0 to change, 0 to destroy" property that validates a
+refactor is a direct consequence of the diff engine's address-based
+identity from module 02</strong> — since Terraform decides create/update/destroy
+purely by comparing addresses (not by any deeper notion of "did the real
+resource change"), a refactor is correct by definition exactly when it
+produces zero diff, because that's the mechanical signal that every
+resource address in the <em>before</em> state has a corresponding, unchanged
+entry in the <em>after</em> configuration. This is also why the safety checklist
+insists on reading the <em>full</em> plan, not just its summary line — a
+refactor with one address mistranslated can still show a small,
+easy-to-miss "1 to add, 1 to destroy" alongside dozens of correctly
+zero-diffed resources.</p>
+<h2 id="exercise">Exercise<a class="headerlink" href="#exercise" title="Permanent link">&para;</a></h2>
+<p>You have <code>aws_instance.web</code> in your root configuration and want to extract
+it (along with a newly-added <code>aws_eip.web</code>) into a new
+<code>modules/web-server</code> module, calling it <code>module.web</code>. Write the two
+<code>moved</code> blocks needed so that <code>terraform plan</code> after this refactor shows
+zero changes for both resources, given the module's internal resource
+names are <code>aws_instance.this</code> and <code>aws_eip.this</code>.</p>
 
 
 
 
 
 
-
-  
-  
 
 
 

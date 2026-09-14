@@ -94,8 +94,6 @@
   }
   </script>
   
-  <meta name="robots" content="noindex, follow">
-  
 
   </head>
   
@@ -1508,6 +1506,24 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    03 · Terraform Cloud/Enterprise Concepts
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -1524,6 +1540,113 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#core-concepts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Core concepts
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configuring-the-cloud-block" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Configuring the cloud block
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#remote-runs-what-changes-vs-local-execution" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Remote runs: what changes vs. local execution
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vcs-driven-workflow" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VCS-driven workflow
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sentinel-opa-policy-enforcement-previewed-full-depth-in-module-05" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sentinel / OPA policy enforcement (previewed; full depth in module 05)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#worked-example-migrating-an-existing-s3-backed-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Worked example: migrating an existing S3-backed configuration
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-it-actually-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Actually Works
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercise" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercise
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -2129,6 +2252,102 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#core-concepts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Core concepts
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configuring-the-cloud-block" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Configuring the cloud block
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#remote-runs-what-changes-vs-local-execution" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Remote runs: what changes vs. local execution
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vcs-driven-workflow" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VCS-driven workflow
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sentinel-opa-policy-enforcement-previewed-full-depth-in-module-05" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sentinel / OPA policy enforcement (previewed; full depth in module 05)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#worked-example-migrating-an-existing-s3-backed-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Worked example: migrating an existing S3-backed configuration
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-it-actually-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Actually Works
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercise" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercise
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -2148,23 +2367,153 @@
 
 
 <h1 id="03-terraform-cloudenterprise-concepts">03 · Terraform Cloud/Enterprise Concepts<a class="headerlink" href="#03-terraform-cloudenterprise-concepts" title="Permanent link">&para;</a></h1>
-<div class="admonition info">
-<p class="admonition-title">Coming soon</p>
-<p>This module's full lessons and code snippets are being written next.
-This module will cover Terraform Cloud/Enterprise workspaces, remote runs, and Sentinel policy concepts.</p>
-</div>
-<p>Check back soon — new modules are published regularly. In the meantime,
-work through <a href="../../level-1/">Level 1 · Entry</a>, which is fully
-available now.</p>
+<p>Everything through Level 2 assumed you run <code>terraform</code> commands yourself,
+against a backend that's purely storage (S3, local disk). <strong>Terraform
+Cloud</strong> (HCP Terraform) and <strong>Terraform Enterprise</strong> (the self-hosted
+version) are a different kind of backend: one that also <em>runs</em>
+<code>plan</code>/<code>apply</code> for you, on its own infrastructure, with locking, policy
+enforcement, and a run history built in.</p>
+<h2 id="core-concepts">Core concepts<a class="headerlink" href="#core-concepts" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Organization</strong> — the top-level account boundary; contains workspaces.</li>
+<li><strong>Workspace (Terraform Cloud's, not the CLI's)</strong> — despite the name
+  overlap with module 04's <code>terraform workspace</code>, a Terraform Cloud
+  <em>workspace</em> is a full unit of configuration + state + variables + run
+  history, roughly equivalent to one whole configuration directory in the
+  CLI world, not one slice of state within a single configuration.</li>
+<li><strong>Run</strong> — one <code>plan</code>/<code>apply</code> cycle, executed remotely, with full logs
+  retained and viewable by anyone with workspace access.</li>
+<li><strong>Variable sets</strong> — variables shared across multiple workspaces (e.g. a
+  shared cloud credential) without repeating them in every workspace.</li>
+</ul>
+<h2 id="configuring-the-cloud-block">Configuring the <code>cloud</code> block<a class="headerlink" href="#configuring-the-cloud-block" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nb">terraform</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="nb">cloud</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">    </span><span class="na">organization</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"acme-corp"</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">    </span><span class="nb">workspaces</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">      </span><span class="na">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"reports-prod"</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">  </span><span class="p">}</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="p">}</span>
+</code></pre></div>
+<p>Replacing a <code>backend "s3" { ... }</code> block with <code>cloud { ... }</code> and running
+<code>terraform login</code> (which stores an API token locally) switches state
+storage, locking, <em>and</em> run execution to Terraform Cloud in one step —
+running <code>terraform apply</code> locally after this no longer applies on your
+own machine; it streams the plan to Terraform Cloud, which executes the
+actual run remotely and streams logs back to your terminal.</p>
+<h2 id="remote-runs-what-changes-vs-local-execution">Remote runs: what changes vs. local execution<a class="headerlink" href="#remote-runs-what-changes-vs-local-execution" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>terraform<span class="w"> </span>plan
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="c1"># Running plan in HCP Terraform. Output will stream here...</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="c1">#</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="c1"># Preparing the remote plan...</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="c1"># Terraform v1.9.5</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="c1"># ...</span>
+</code></pre></div>
+<p>The plan is computed on Terraform Cloud's own runners, using variables and
+credentials stored <em>there</em> rather than your local environment — meaning a
+laptop with no cloud credentials configured at all can still trigger a
+plan/apply, and every run is auditable centrally regardless of who
+triggered it or from where.</p>
+<h2 id="vcs-driven-workflow">VCS-driven workflow<a class="headerlink" href="#vcs-driven-workflow" title="Permanent link">&para;</a></h2>
+<p>Terraform Cloud workspaces can be connected directly to a Git repository:
+a push to the configured branch (or a pull request) automatically
+triggers a <code>plan</code>, and merging can be configured to automatically trigger
+the corresponding <code>apply</code> — the same trigger-on-push model Level 4's
+CI/CD module builds by hand with GitHub Actions, but provided as a native
+platform feature here.</p>
+<h2 id="sentinel-opa-policy-enforcement-previewed-full-depth-in-module-05">Sentinel / OPA policy enforcement (previewed; full depth in module 05)<a class="headerlink" href="#sentinel-opa-policy-enforcement-previewed-full-depth-in-module-05" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1"># a Sentinel policy attached to a workspace, evaluated between plan and apply</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="err">import</span><span class="w"> </span><span class="s2">"tfplan/v2"</span><span class="w"> </span><span class="err">as</span><span class="w"> </span><span class="err">tfplan</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="na">main</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">rule</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="w">  </span><span class="err">all</span><span class="w"> </span><span class="nv">tfplan.resource_changes</span><span class="w"> </span><span class="err">as</span><span class="w"> </span><span class="err">_</span><span class="p">,</span><span class="w"> </span><span class="nb">rc</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="w">    </span><span class="nv">rc.type</span><span class="w"> </span><span class="p">!=</span><span class="w"> </span><span class="s2">"aws_instance"</span><span class="w"> </span><span class="err">or</span>
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="w">    </span><span class="nv">rc.change.after.instance_type</span><span class="w"> </span><span class="err">in</span><span class="w"> </span><span class="p">[</span><span class="s2">"t3.micro", "t3.small"</span><span class="p">]</span>
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="w">  </span><span class="p">}</span>
+<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="p">}</span>
+</code></pre></div>
+<p>Terraform Cloud/Enterprise can run a <strong>policy check</strong> against every plan
+before an apply is allowed to proceed — this specific policy would reject
+any plan trying to create an EC2 instance larger than <code>t3.small</code>,
+regardless of who requested the apply or whether they'd normally have
+permission to run it. Module 05 covers policy-as-code mechanics in depth;
+this is only how it plugs into the platform's run pipeline.</p>
+<h2 id="worked-example-migrating-an-existing-s3-backed-configuration">Worked example: migrating an existing S3-backed configuration<a class="headerlink" href="#worked-example-migrating-an-existing-s3-backed-configuration" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c1"># before</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="nb">terraform</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">  </span><span class="kr">backend</span><span class="w"> </span><span class="nv">"s3"</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="w">    </span><span class="na">bucket</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"acme-terraform-state"</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="w">    </span><span class="na">key</span><span class="w">    </span><span class="o">=</span><span class="w"> </span><span class="s2">"reports/terraform.tfstate"</span>
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="w">    </span><span class="na">region</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"us-east-1"</span>
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="w">  </span><span class="p">}</span>
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="p">}</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="c1"># after</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="nb">terraform</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="w">  </span><span class="nb">cloud</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="w">    </span><span class="na">organization</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"acme-corp"</span>
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="w">    </span><span class="nb">workspaces</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="w">      </span><span class="na">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"reports-prod"</span>
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="w">  </span><span class="p">}</span>
+<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a><span class="p">}</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>terraform<span class="w"> </span>login
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>terraform<span class="w"> </span>init
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="c1"># Do you wish to proceed with importing the state you found?</span>
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="c1">#   Enter a value: yes</span>
+</code></pre></div>
+<p>Identical state-migration prompt to Level 2 module 03's S3 example — from
+<code>init</code>'s perspective, <code>cloud</code> is simply another backend implementation,
+and switching to it goes through the exact same "detected backend change,
+offer to migrate existing state" flow.</p>
+<h2 id="how-it-actually-works">How It Actually Works<a class="headerlink" href="#how-it-actually-works" title="Permanent link">&para;</a></h2>
+<p><strong>The <code>cloud</code> block isn't a variant of the ordinary state backend
+interface — it fully replaces local execution with an API-driven remote
+run, and the CLI becomes a thin client streaming input and output.</strong> When
+you run <code>terraform plan</code> with a <code>cloud</code> block configured, the local CLI
+packages your configuration (and, depending on execution mode, either
+uploads it or references the already-connected VCS revision), sends a
+"create run" API call to Terraform Cloud, and then polls/streams that
+run's log output back to your terminal in real time. The actual
+<code>PlanResourceChange</code>/<code>ApplyResourceChange</code> provider RPC calls described in
+Level 1 module 09 happen entirely on Terraform Cloud's own runner
+infrastructure — your local machine's CPU, network, and credentials are
+not involved in the plan/apply computation at all, only in initiating and
+observing it.</p>
+<p><strong>Terraform Cloud's workspace-level locking is enforced server-side as
+part of the run queue, not via the DynamoDB-style mechanism module 01
+described.</strong> Because Terraform Cloud already owns run scheduling for a
+workspace, it simply refuses to start a second run for the same workspace
+while one is in progress — there's no separate lock object to acquire or
+release because the run queue itself is the serialization point,
+eliminating the local-lock-vs-crashed-process ambiguity module 01's
+<code>force-unlock</code> exists to resolve (a stuck run can instead be manually
+discarded through the platform's own UI/API, which is aware of exactly
+which run is stuck and why).</p>
+<p><strong>Policy checks are inserted as a distinct pipeline stage between plan and
+apply, evaluated against the plan's <em>output</em>, not the <code>.tf</code> source.</strong> The
+Sentinel/OPA policy engine receives the same structured plan data
+(<code>tfplan/v2</code> import above) that would otherwise just be rendered as
+human-readable plan text — meaning a policy can inspect exactly what's
+about to change (<code>rc.change.after.instance_type</code>) with full type
+information, not by pattern-matching HCL source text, which is what lets
+a single policy correctly govern every module and every way of writing an
+<code>aws_instance</code> block that could produce a given planned change.</p>
+<h2 id="exercise">Exercise<a class="headerlink" href="#exercise" title="Permanent link">&para;</a></h2>
+<p>Rewrite the S3 <code>backend</code> block from Level 2 module 03's worked example as
+a <code>cloud</code> block for an organization named <code>acme-corp</code> and a workspace
+named <code>networking-prod</code>, and write the one CLI command (beyond <code>init</code>)
+you'd need to run once, before <code>init</code>, to authenticate against Terraform
+Cloud for the first time on a new machine.</p>
 
 
 
 
 
 
-
-  
-  
 
 
 

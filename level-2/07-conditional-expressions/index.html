@@ -94,8 +94,6 @@
   }
   </script>
   
-  <meta name="robots" content="noindex, follow">
-  
 
   </head>
   
@@ -1244,6 +1242,24 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    07 · Conditional Expressions
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -1260,6 +1276,91 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#the-ternary-operator" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The ternary operator
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conditionally-creating-a-resource-count-condition-1-0" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Conditionally creating a resource: count = condition ? 1 : 0
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conditional-with-try-and-coalesce" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Conditional with try() and coalesce()
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#worked-example-environment-driven-sizing-and-optional-resources" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Worked example: environment-driven sizing and optional resources
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-it-actually-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Actually Works
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercise" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercise
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -2129,6 +2230,80 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#the-ternary-operator" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The ternary operator
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conditionally-creating-a-resource-count-condition-1-0" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Conditionally creating a resource: count = condition ? 1 : 0
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conditional-with-try-and-coalesce" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Conditional with try() and coalesce()
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#worked-example-environment-driven-sizing-and-optional-resources" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Worked example: environment-driven sizing and optional resources
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-it-actually-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Actually Works
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercise" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercise
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -2148,23 +2323,141 @@
 
 
 <h1 id="07-conditional-expressions">07 · Conditional Expressions<a class="headerlink" href="#07-conditional-expressions" title="Permanent link">&para;</a></h1>
-<div class="admonition info">
-<p class="admonition-title">Coming soon</p>
-<p>This module's full lessons and code snippets are being written next.
-This module will cover the ternary conditional operator and conditional resource creation patterns.</p>
-</div>
-<p>Check back soon — new modules are published regularly. In the meantime,
-work through <a href="../../level-1/">Level 1 · Entry</a>, which is fully
-available now.</p>
+<p>HCL has no <code>if</code>/<code>else</code> statement — it has a single <strong>conditional
+expression</strong>, <code>condition ? true_val : false_val</code>, borrowed from C-like
+languages. Combined with <code>count</code> (previewed here, covered fully in module
+08), it's how Terraform expresses "create this resource only if..." despite
+having no imperative control flow at all.</p>
+<h2 id="the-ternary-operator">The ternary operator<a class="headerlink" href="#the-ternary-operator" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kr">variable</span><span class="w"> </span><span class="nv">"environment"</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="na">type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kt">string</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="p">}</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="nb">locals</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">  </span><span class="na">instance_type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">var.environment</span><span class="w"> </span><span class="p">==</span><span class="w"> </span><span class="s2">"prod" ? "t3.large" : "t3.micro"</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">  </span><span class="na">is_prod</span><span class="w">       </span><span class="o">=</span><span class="w"> </span><span class="nv">var.environment</span><span class="w"> </span><span class="p">==</span><span class="w"> </span><span class="s2">"prod"</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="p">}</span>
+</code></pre></div>
+<p>Both branches must produce <strong>compatible types</strong> — <code>condition ? "a" : 5</code>
+is a type error, because Terraform must know the result type of the
+expression during validation, before it knows which branch will actually
+be taken (that depends on <code>var.environment</code>'s runtime value, or in some
+cases only becomes known during <code>apply</code>).</p>
+<h2 id="conditionally-creating-a-resource-count-condition-1-0">Conditionally creating a resource: <code>count = condition ? 1 : 0</code><a class="headerlink" href="#conditionally-creating-a-resource-count-condition-1-0" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="kr">variable</span><span class="w"> </span><span class="nv">"enable_monitoring"</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">  </span><span class="na">type</span><span class="w">    </span><span class="o">=</span><span class="w"> </span><span class="kt">bool</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">  </span><span class="na">default</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="no">false</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="p">}</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="kr">resource</span><span class="w"> </span><span class="nc">"aws_cloudwatch_metric_alarm"</span><span class="w"> </span><span class="nv">"high_cpu"</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="w">  </span><span class="na">count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">var.enable_monitoring</span><span class="w"> </span><span class="p">?</span><span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="m">0</span>
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="w">  </span><span class="na">alarm_name</span><span class="w">          </span><span class="o">=</span><span class="w"> </span><span class="s2">"high-cpu"</span>
+<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="w">  </span><span class="na">comparison_operator</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"GreaterThanThreshold"</span>
+<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="w">  </span><span class="na">evaluation_periods</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="m">2</span>
+<a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a><span class="w">  </span><span class="na">metric_name</span><span class="w">         </span><span class="o">=</span><span class="w"> </span><span class="s2">"CPUUtilization"</span>
+<a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a><span class="w">  </span><span class="na">namespace</span><span class="w">           </span><span class="o">=</span><span class="w"> </span><span class="s2">"AWS/EC2"</span>
+<a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a><span class="w">  </span><span class="na">period</span><span class="w">              </span><span class="o">=</span><span class="w"> </span><span class="m">300</span>
+<a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a><span class="w">  </span><span class="na">statistic</span><span class="w">           </span><span class="o">=</span><span class="w"> </span><span class="s2">"Average"</span>
+<a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a><span class="w">  </span><span class="na">threshold</span><span class="w">           </span><span class="o">=</span><span class="w"> </span><span class="m">80</span>
+<a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a><span class="p">}</span>
+</code></pre></div>
+<p>There is no <code>resource ... if ...</code> syntax — <code>count</code>'s numeric value is the
+only lever, and <code>0</code>/<code>1</code> is how a boolean condition becomes "resource
+doesn't exist" vs "resource exists exactly once." Referencing this
+resource elsewhere requires indexing (<code>aws_cloudwatch_metric_alarm.high_cpu[0].arn</code>),
+because as soon as a resource has a <code>count</code> argument — even one that
+always evaluates to <code>0</code> or <code>1</code> — Terraform treats it as a list of
+instances, not a single resource.</p>
+<h2 id="conditional-with-try-and-coalesce">Conditional with <code>try()</code> and <code>coalesce()</code><a class="headerlink" href="#conditional-with-try-and-coalesce" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="nb">locals</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="c1">  # try(): fall back to the second expression if the first errors</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="c1">  # (e.g. referencing a possibly-absent map key)</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">  </span><span class="na">vpc_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">try</span><span class="p">(</span><span class="nv">var.network_config.vpc_id</span><span class="p">,</span><span class="w"> </span><span class="s2">"vpc-default"</span><span class="p">)</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="c1">  # coalesce(): first non-null argument</span>
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="w">  </span><span class="na">bucket_name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">coalesce</span><span class="p">(</span><span class="nv">var.custom_bucket_name</span><span class="p">,</span><span class="w"> </span><span class="s2">"${local.name_prefix}-default"</span><span class="p">)</span>
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="p">}</span>
+</code></pre></div>
+<p><code>try()</code> and <code>coalesce()</code> aren't conditionals in the <code>? :</code> sense, but they
+solve the same practical problem — "use this value, unless it isn't
+available, in which case use this other one" — for cases where writing the
+full ternary out (checking for null, or catching an evaluation error)
+would be more verbose than the intent warrants.</p>
+<h2 id="worked-example-environment-driven-sizing-and-optional-resources">Worked example: environment-driven sizing and optional resources<a class="headerlink" href="#worked-example-environment-driven-sizing-and-optional-resources" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="kr">variable</span><span class="w"> </span><span class="nv">"environment"</span><span class="w">       </span><span class="p">{</span><span class="w"> </span><span class="na">type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="p">}</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="kr">variable</span><span class="w"> </span><span class="nv">"enable_backup"</span><span class="w">     </span><span class="p">{</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">  </span><span class="na">type</span><span class="w">    </span><span class="o">=</span><span class="w"> </span><span class="kt">bool</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="w">  </span><span class="na">default</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="no">true</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="p">}</span>
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="nb">locals</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="w">  </span><span class="na">is_prod</span><span class="w">        </span><span class="o">=</span><span class="w"> </span><span class="nv">var.environment</span><span class="w"> </span><span class="p">==</span><span class="w"> </span><span class="s2">"prod"</span>
+<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="w">  </span><span class="na">instance_type</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="nv">local.is_prod</span><span class="w"> </span><span class="p">?</span><span class="w"> </span><span class="s2">"t3.large"</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">"t3.micro"</span>
+<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a><span class="w">  </span><span class="na">backup_enabled</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">local.is_prod</span><span class="w"> </span><span class="p">?</span><span class="w"> </span><span class="no">true</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="nv">var.enable_backup</span>
+<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a><span class="p">}</span>
+<a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a>
+<a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a><span class="kr">resource</span><span class="w"> </span><span class="nc">"aws_instance"</span><span class="w"> </span><span class="nv">"app"</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a><span class="w">  </span><span class="na">ami</span><span class="w">           </span><span class="o">=</span><span class="w"> </span><span class="s2">"ami-0abcd1234"</span>
+<a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a><span class="w">  </span><span class="na">instance_type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">local.instance_type</span>
+<a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a><span class="p">}</span>
+<a id="__codelineno-3-17" name="__codelineno-3-17" href="#__codelineno-3-17"></a>
+<a id="__codelineno-3-18" name="__codelineno-3-18" href="#__codelineno-3-18"></a><span class="kr">resource</span><span class="w"> </span><span class="nc">"aws_backup_plan"</span><span class="w"> </span><span class="nv">"app"</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-3-19" name="__codelineno-3-19" href="#__codelineno-3-19"></a><span class="w">  </span><span class="na">count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">local.backup_enabled</span><span class="w"> </span><span class="p">?</span><span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="m">0</span>
+<a id="__codelineno-3-20" name="__codelineno-3-20" href="#__codelineno-3-20"></a><span class="w">  </span><span class="na">name</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="s2">"app-backup"</span>
+<a id="__codelineno-3-21" name="__codelineno-3-21" href="#__codelineno-3-21"></a><span class="c1">  # ... rule block omitted for brevity</span>
+<a id="__codelineno-3-22" name="__codelineno-3-22" href="#__codelineno-3-22"></a><span class="p">}</span>
+</code></pre></div>
+<p>Prod always gets backups regardless of the input variable (the ternary
+inside <code>backup_enabled</code> overrides <code>var.enable_backup</code> when
+<code>local.is_prod</code> is true); non-prod environments respect whatever the
+caller passed for <code>enable_backup</code>. One <code>count</code> expression is the entire
+mechanism for making a whole resource optional.</p>
+<h2 id="how-it-actually-works">How It Actually Works<a class="headerlink" href="#how-it-actually-works" title="Permanent link">&para;</a></h2>
+<p><strong>The ternary is evaluated during graph evaluation like any other
+expression — both branches are parsed and type-checked, but only one is
+ever actually computed per plan.</strong> Terraform's expression evaluator
+short-circuits at the value level: for <code>cond ? a : b</code>, it first resolves
+<code>cond</code>, then evaluates <em>only</em> the selected branch. This matters when a
+branch would otherwise error — <code>cond ? var.x : var.list[0]</code> is safe even
+if <code>var.list</code> is empty, as long as <code>cond</code> is true, because the <code>false</code>
+branch (<code>var.list[0]</code>, which would error on an empty list) is never
+evaluated. <code>try()</code> builds on this same short-circuiting evaluator, just
+generalized to catch evaluation errors from <em>any</em> number of candidate
+expressions rather than a single boolean split.</p>
+<p><strong><code>count</code>'s conditional pattern works because <code>count</code> controls how many
+graph nodes exist for a resource, decided during plan, before any
+individual instance is planned.</strong> When Terraform evaluates
+<code>count = var.enable_monitoring ? 1 : 0</code>, it must fully resolve that
+expression to a concrete number <em>before</em> it can expand
+<code>aws_cloudwatch_metric_alarm.high_cpu</code> into the right number of resource
+instance nodes in the graph — which is why <code>count</code> cannot depend on a
+value that's only known after <code>apply</code> (an attribute from another resource
+not yet created): the graph's shape itself would be undetermined until
+partway through applying it, which Terraform's static-graph model doesn't
+allow. This is the single most common <code>count</code>-related error message new
+users hit, and it's a direct consequence of graph construction happening
+before any resource is actually applied.</p>
+<p><strong>Type unification across ternary branches happens at validation, using
+HCL's type-conversion rules, not the runtime value.</strong> <code>var.environment ==
+"prod" ? "t3.large" : "t3.micro"</code> type-checks fine because both branches
+are string literals; if one branch were a number and the other a string,
+Terraform's type checker would attempt an implicit conversion (numbers
+convert to strings automatically) rather than erroring immediately — the
+type system is deliberately a bit permissive here, but a genuinely
+incompatible pair (e.g., a string vs. a list) fails <code>terraform validate</code>
+outright, before either branch's actual runtime value is ever computed.</p>
+<h2 id="exercise">Exercise<a class="headerlink" href="#exercise" title="Permanent link">&para;</a></h2>
+<p>Write a <code>count</code>-based conditional for an <code>aws_eip</code> (Elastic IP) resource
+that's created only when <code>var.environment</code> is <code>"prod"</code> <strong>or</strong>
+<code>var.force_eip</code> (a bool) is <code>true</code> — using a single boolean expression
+combining <code>||</code>, referenced from one <code>count</code> argument.</p>
 
 
 
 
 
 
-
-  
-  
 
 
 

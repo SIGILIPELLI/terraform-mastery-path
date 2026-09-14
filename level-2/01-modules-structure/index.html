@@ -94,8 +94,6 @@
   }
   </script>
   
-  <meta name="robots" content="noindex, follow">
-  
 
   </head>
   
@@ -1076,6 +1074,24 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    01 · Modules — Structure & Inputs/Outputs
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -1092,6 +1108,91 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#why-modules-exist" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why modules exist
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#anatomy-of-a-module" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Anatomy of a module
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#calling-a-module-from-the-root" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Calling a module from the root
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#worked-example-two-environments-one-module" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Worked example: two environments, one module
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-it-actually-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Actually Works
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercise" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercise
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -2129,6 +2230,80 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#why-modules-exist" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why modules exist
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#anatomy-of-a-module" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Anatomy of a module
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#calling-a-module-from-the-root" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Calling a module from the root
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#worked-example-two-environments-one-module" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Worked example: two environments, one module
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-it-actually-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Actually Works
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercise" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercise
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -2148,23 +2323,167 @@
 
 
 <h1 id="01-modules-structure-inputsoutputs">01 · Modules — Structure &amp; Inputs/Outputs<a class="headerlink" href="#01-modules-structure-inputsoutputs" title="Permanent link">&para;</a></h1>
-<div class="admonition info">
-<p class="admonition-title">Coming soon</p>
-<p>This module's full lessons and code snippets are being written next.
-This module will cover module structure, input variables, output values, and calling modules from a root configuration.</p>
-</div>
-<p>Check back soon — new modules are published regularly. In the meantime,
-work through <a href="../../level-1/">Level 1 · Entry</a>, which is fully
-available now.</p>
+<p>Every <code>.tf</code> file you've written so far lives in the <strong>root module</strong> — the
+directory you run <code>terraform</code> commands from. A <strong>module</strong> is just any
+directory containing <code>.tf</code> files; the root module is a module too, and it
+can <em>call</em> other modules to reuse configuration instead of copy-pasting it.</p>
+<h2 id="why-modules-exist">Why modules exist<a class="headerlink" href="#why-modules-exist" title="Permanent link">&para;</a></h2>
+<p>By Level 1's capstone you likely had one flat directory with every resource
+in it. That's fine for a single environment, but the moment you need the
+same set of resources twice (a dev VPC and a prod VPC, or ten near-identical
+S3 buckets for ten teams), copy-pasting <code>.tf</code> files means every future fix
+has to be repeated in every copy. A module packages a piece of
+infrastructure as a reusable, parameterized unit — call it twice with
+different inputs and get two independent copies of that infrastructure.</p>
+<h2 id="anatomy-of-a-module">Anatomy of a module<a class="headerlink" href="#anatomy-of-a-module" title="Permanent link">&para;</a></h2>
+<p>A conventional module directory:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>modules/
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>  s3-bucket/
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>    main.tf       # resources
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>    variables.tf  # input variables (the module's parameters)
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>    outputs.tf    # output values (what the module exposes to its caller)
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>    README.md     # optional, but expected in any team codebase
+</code></pre></div>
+<p>None of these filenames are special to Terraform — it loads and merges
+<em>every</em> <code>.tf</code> file in a directory regardless of name. The split into
+<code>main.tf</code> / <code>variables.tf</code> / <code>outputs.tf</code> is a strong community convention,
+not a language requirement, and following it makes any module immediately
+navigable to someone who has never seen it before.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1"># modules/s3-bucket/variables.tf</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="kr">variable</span><span class="w"> </span><span class="nv">"bucket_name"</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">  </span><span class="na">description</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"Globally-unique S3 bucket name."</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">  </span><span class="na">type</span><span class="w">        </span><span class="o">=</span><span class="w"> </span><span class="kt">string</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="p">}</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="kr">variable</span><span class="w"> </span><span class="nv">"enable_versioning"</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="w">  </span><span class="na">description</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"Whether to enable object versioning on the bucket."</span>
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="w">  </span><span class="na">type</span><span class="w">        </span><span class="o">=</span><span class="w"> </span><span class="kt">bool</span>
+<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="w">  </span><span class="na">default</span><span class="w">     </span><span class="o">=</span><span class="w"> </span><span class="no">false</span>
+<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="p">}</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1"># modules/s3-bucket/main.tf</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="kr">resource</span><span class="w"> </span><span class="nc">"aws_s3_bucket"</span><span class="w"> </span><span class="nv">"this"</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">  </span><span class="na">bucket</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">var.bucket_name</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="p">}</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="kr">resource</span><span class="w"> </span><span class="nc">"aws_s3_bucket_versioning"</span><span class="w"> </span><span class="nv">"this"</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="w">  </span><span class="na">count</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="nv">var.enable_versioning</span><span class="w"> </span><span class="p">?</span><span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="m">0</span>
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="w">  </span><span class="na">bucket</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">aws_s3_bucket.this.id</span>
+<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>
+<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="w">  </span><span class="nb">versioning_configuration</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="w">    </span><span class="na">status</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"Enabled"</span>
+<a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a><span class="w">  </span><span class="p">}</span>
+<a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a><span class="p">}</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c1"># modules/s3-bucket/outputs.tf</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="kr">output</span><span class="w"> </span><span class="nv">"bucket_arn"</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">  </span><span class="na">description</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"ARN of the created bucket."</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="w">  </span><span class="na">value</span><span class="w">       </span><span class="o">=</span><span class="w"> </span><span class="nv">aws_s3_bucket.this.arn</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="p">}</span>
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="kr">output</span><span class="w"> </span><span class="nv">"bucket_id"</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="w">  </span><span class="na">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">aws_s3_bucket.this.id</span>
+<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="p">}</span>
+</code></pre></div>
+<p>Inside a module, <code>var.bucket_name</code> and <code>var.enable_versioning</code> are its
+<strong>inputs</strong> — exactly like Level 1's root-level variables, but here they're
+the parameters a <em>caller</em> sets rather than values a human types at a
+<code>plan</code>/<code>apply</code> prompt. <code>output</code> blocks are the module's <strong>return values</strong> —
+the only things visible outside it.</p>
+<h2 id="calling-a-module-from-the-root">Calling a module from the root<a class="headerlink" href="#calling-a-module-from-the-root" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="c1"># root main.tf</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="kr">module</span><span class="w"> </span><span class="nv">"reports_bucket"</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="w">  </span><span class="na">source</span><span class="w">             </span><span class="o">=</span><span class="w"> </span><span class="s2">"./modules/s3-bucket"</span>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="w">  </span><span class="na">bucket_name</span><span class="w">        </span><span class="o">=</span><span class="w"> </span><span class="s2">"acme-reports-2026"</span>
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="w">  </span><span class="na">enable_versioning</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="no">true</span>
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="p">}</span>
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>
+<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="kr">module</span><span class="w"> </span><span class="nv">"logs_bucket"</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a><span class="w">  </span><span class="na">source</span><span class="w">      </span><span class="o">=</span><span class="w"> </span><span class="s2">"./modules/s3-bucket"</span>
+<a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a><span class="w">  </span><span class="na">bucket_name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"acme-logs-2026"</span>
+<a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a><span class="c1">  # enable_versioning omitted -&gt; uses the module's default (false)</span>
+<a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a><span class="p">}</span>
+<a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a>
+<a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a><span class="kr">output</span><span class="w"> </span><span class="nv">"reports_arn"</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a><span class="w">  </span><span class="na">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">module.reports_bucket.bucket_arn</span>
+<a id="__codelineno-4-16" name="__codelineno-4-16" href="#__codelineno-4-16"></a><span class="p">}</span>
+</code></pre></div>
+<p>Two <code>module</code> blocks calling the same <code>source</code> directory produce two
+<strong>completely independent</strong> resources — <code>module.reports_bucket</code> and
+<code>module.logs_bucket</code> are separate addresses in state, each with its own
+<code>aws_s3_bucket.this</code> underneath. The module's internal resource name
+(<code>this</code>) never collides between callers because the full state address is
+prefixed by the module call's own label
+(<code>module.reports_bucket.aws_s3_bucket.this</code> vs.
+<code>module.logs_bucket.aws_s3_bucket.this</code>).</p>
+<p><code>source = "./modules/s3-bucket"</code> is a <strong>local path</strong> — the simplest kind of
+source. Module 02 covers versioned sources (registry modules, Git tags) for
+modules you don't own or want to pin to a specific release.</p>
+<h2 id="worked-example-two-environments-one-module">Worked example: two environments, one module<a class="headerlink" href="#worked-example-two-environments-one-module" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="kr">module</span><span class="w"> </span><span class="nv">"dev_bucket"</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="w">  </span><span class="na">source</span><span class="w">      </span><span class="o">=</span><span class="w"> </span><span class="s2">"./modules/s3-bucket"</span>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="w">  </span><span class="na">bucket_name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"acme-dev-artifacts"</span>
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="p">}</span>
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="kr">module</span><span class="w"> </span><span class="nv">"prod_bucket"</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="w">  </span><span class="na">source</span><span class="w">            </span><span class="o">=</span><span class="w"> </span><span class="s2">"./modules/s3-bucket"</span>
+<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a><span class="w">  </span><span class="na">bucket_name</span><span class="w">       </span><span class="o">=</span><span class="w"> </span><span class="s2">"acme-prod-artifacts"</span>
+<a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a><span class="w">  </span><span class="na">enable_versioning</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="no">true</span>
+<a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a><span class="p">}</span>
+</code></pre></div>
+<p>Eighteen lines define two environments' storage, each independently
+configurable, with the actual bucket logic (and any future fix to it)
+living in exactly one place: <code>modules/s3-bucket/main.tf</code>.</p>
+<h2 id="how-it-actually-works">How It Actually Works<a class="headerlink" href="#how-it-actually-works" title="Permanent link">&para;</a></h2>
+<p><strong>A module call is a graph subgraph, not a function call.</strong> When Terraform
+Core parses configuration, each <code>module</code> block causes it to load the
+target directory's <code>.tf</code> files and instantiate every resource inside them
+as nodes in the <em>same</em> overall dependency graph the root module builds —
+just namespaced under <code>module.&lt;name&gt;.</code>. There is no separate execution
+pass per module and no runtime call stack; "calling" a module is a
+compile-time expansion that produces more graph nodes, all planned and
+applied by the same single graph walk described in module 09 of Level 1.
+This is why a module's resources can depend on — and be depended on by —
+resources anywhere else in the configuration: <code>aws_s3_bucket_versioning</code>
+inside the module depends on <code>aws_s3_bucket.this</code> in the <em>same</em> module
+instance via the implicit reference, and the root's
+<code>module.reports_bucket.bucket_arn</code> output reference creates a graph edge
+from whatever root-level resource uses it straight into that specific
+module instance's <code>aws_s3_bucket.this</code>, without either side needing to
+know the other is "in a module."</p>
+<p><strong>Inputs and outputs are the only permitted edges across a module
+boundary.</strong> A resource inside <code>modules/s3-bucket</code> cannot reference
+<code>var.some_root_variable</code> unless that value is explicitly passed in as one
+of <em>this</em> module's own <code>variable</code> blocks — modules do not inherit the
+caller's variable namespace. This isn't a convenience restriction; it's
+what makes a module portable at all. Terraform enforces it by giving each
+module instance its own separate variable/local evaluation scope during
+graph construction, so <code>var.bucket_name</code> inside the module and any
+same-named <code>var.bucket_name</code> in the root are simply unrelated symbols that
+happen to share a name.</p>
+<p><strong>State addresses encode the call, not the source.</strong> <code>terraform state list</code>
+after applying the example above prints
+<code>module.dev_bucket.aws_s3_bucket.this</code> and
+<code>module.prod_bucket.aws_s3_bucket.this</code> — the address is built from the
+<em>module block's label</em> (<code>dev_bucket</code>), never from the <code>source</code> path or the
+module's own internal resource name alone. That's precisely how two calls
+to the identical <code>./modules/s3-bucket</code> source end up as two distinct,
+independently-tracked resources instead of colliding: uniqueness comes
+from the call site, not the module definition.</p>
+<h2 id="exercise">Exercise<a class="headerlink" href="#exercise" title="Permanent link">&para;</a></h2>
+<p>Take the <code>local_file</code> resource from Level 1 module 08's exercise and
+extract it into a module at <code>./modules/local-file</code> with two variables
+(<code>filename</code> and <code>content</code>) and one output (the file's full path via
+<code>local_file.this.filename</code>). Then call that module twice from a root
+<code>main.tf</code> with two different filenames, and write out what you'd expect
+<code>terraform state list</code> to print for both instances — including the full
+address prefix.</p>
 
 
 
 
 
 
-
-  
-  
 
 
 

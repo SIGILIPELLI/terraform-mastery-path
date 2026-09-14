@@ -94,8 +94,6 @@
   }
   </script>
   
-  <meta name="robots" content="noindex, follow">
-  
 
   </head>
   
@@ -1564,6 +1562,24 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    05 · Policy as Code Concepts
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -1580,6 +1596,102 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#the-two-dominant-policy-engines" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The two dominant policy engines
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#a-sentinel-policy-enforcing-an-instance-type-allowlist" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        A Sentinel policy: enforcing an instance-type allowlist
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-equivalent-policy-in-rego-opa-conftest" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The equivalent policy in Rego (OPA / conftest)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#advisory-vs-hard-mandatory-vs-soft-mandatory-sentinel-enforcement-levels" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Advisory vs. hard-mandatory vs. soft-mandatory (Sentinel enforcement levels)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#worked-example-enforcing-mandatory-tags" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Worked example: enforcing mandatory tags
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-it-actually-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Actually Works
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercise" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercise
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -2129,6 +2241,91 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#the-two-dominant-policy-engines" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The two dominant policy engines
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#a-sentinel-policy-enforcing-an-instance-type-allowlist" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        A Sentinel policy: enforcing an instance-type allowlist
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-equivalent-policy-in-rego-opa-conftest" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The equivalent policy in Rego (OPA / conftest)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#advisory-vs-hard-mandatory-vs-soft-mandatory-sentinel-enforcement-levels" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Advisory vs. hard-mandatory vs. soft-mandatory (Sentinel enforcement levels)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#worked-example-enforcing-mandatory-tags" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Worked example: enforcing mandatory tags
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-it-actually-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Actually Works
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercise" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercise
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -2148,23 +2345,141 @@
 
 
 <h1 id="05-policy-as-code-concepts">05 · Policy as Code Concepts<a class="headerlink" href="#05-policy-as-code-concepts" title="Permanent link">&para;</a></h1>
-<div class="admonition info">
-<p class="admonition-title">Coming soon</p>
-<p>This module's full lessons and code snippets are being written next.
-This module will cover policy-as-code tools like Sentinel and OPA/Conftest for enforcing infrastructure guardrails.</p>
-</div>
-<p>Check back soon — new modules are published regularly. In the meantime,
-work through <a href="../../level-1/">Level 1 · Entry</a>, which is fully
-available now.</p>
+<p>Module 03 previewed Sentinel running between plan and apply on Terraform
+Cloud; this module goes deeper into <strong>policy as code</strong> generally — writing
+organizational rules ("no public S3 buckets," "instances must be tagged
+with a cost center") as version-controlled, automatically-enforced code
+rather than a wiki page someone has to remember to check.</p>
+<h2 id="the-two-dominant-policy-engines">The two dominant policy engines<a class="headerlink" href="#the-two-dominant-policy-engines" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Sentinel</strong> — HashiCorp's own policy language, native to Terraform
+  Cloud/Enterprise, evaluated directly against a run's plan data.</li>
+<li><strong>Open Policy Agent (OPA) / Rego</strong> — a general-purpose, CNCF policy
+  engine usable with Terraform via <code>conftest</code> against a JSON plan export,
+  independent of any particular CI platform.</li>
+</ul>
+<p>Both operate on the <em>same</em> underlying input: the structured JSON plan
+(<code>terraform show -json</code>), meaning any policy either engine could enforce
+is fundamentally a query over planned resource changes, not over your
+<code>.tf</code> source text.</p>
+<h2 id="a-sentinel-policy-enforcing-an-instance-type-allowlist">A Sentinel policy: enforcing an instance-type allowlist<a class="headerlink" href="#a-sentinel-policy-enforcing-an-instance-type-allowlist" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="err">import</span><span class="w"> </span><span class="s2">"tfplan/v2"</span><span class="w"> </span><span class="err">as</span><span class="w"> </span><span class="err">tfplan</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="na">allowed_types</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s2">"t3.micro", "t3.small", "t3.medium"</span><span class="p">]</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="na">main</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">rule</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">  </span><span class="err">all</span><span class="w"> </span><span class="nv">tfplan.resource_changes</span><span class="w"> </span><span class="err">as</span><span class="w"> </span><span class="err">_</span><span class="p">,</span><span class="w"> </span><span class="nb">rc</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">    </span><span class="nv">rc.type</span><span class="w"> </span><span class="p">!=</span><span class="w"> </span><span class="s2">"aws_instance"</span><span class="w"> </span><span class="err">or</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">    </span><span class="nv">rc.change.after.instance_type</span><span class="w"> </span><span class="err">in</span><span class="w"> </span><span class="err">allowed_types</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">  </span><span class="p">}</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="p">}</span>
+</code></pre></div>
+<p>Reads as: for every resource change in the plan, either it isn't an
+<code>aws_instance</code> at all, or its planned <code>instance_type</code> is in the allowlist.
+A plan proposing <code>t3.xlarge</code> fails this policy before <code>apply</code> is ever
+permitted to run — regardless of who submitted it or whether they have
+apply permissions on the workspace otherwise.</p>
+<h2 id="the-equivalent-policy-in-rego-opa-conftest">The equivalent policy in Rego (OPA / conftest)<a class="headerlink" href="#the-equivalent-policy-in-rego-opa-conftest" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="k">package</span><span class="w"> </span><span class="n">terraform</span><span class="p">.</span><span class="n">instance_type</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="n">deny</span><span class="p">[</span><span class="n">msg</span><span class="p">]</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">  </span><span class="n">rc</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nb">input</span><span class="p">.</span><span class="n">resource_changes</span><span class="p">[</span><span class="n">_</span><span class="p">]</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">  </span><span class="n">rc</span><span class="p">.</span><span class="n">type</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s2">"aws_instance"</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="w">  </span><span class="n">allowed</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="p">{</span><span class="s2">"t3.micro"</span><span class="p">,</span><span class="w"> </span><span class="s2">"t3.small"</span><span class="p">,</span><span class="w"> </span><span class="s2">"t3.medium"</span><span class="p">}</span>
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="w">  </span><span class="k">not</span><span class="w"> </span><span class="n">allowed</span><span class="p">[</span><span class="n">rc</span><span class="p">.</span><span class="n">change</span><span class="p">.</span><span class="n">after</span><span class="p">.</span><span class="n">instance_type</span><span class="p">]</span>
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="w">  </span><span class="n">msg</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="n">sprintf</span><span class="p">(</span><span class="s2">"instance_type '%s' is not allowed for %s"</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="n">rc</span><span class="p">.</span><span class="n">change</span><span class="p">.</span><span class="n">after</span><span class="p">.</span><span class="n">instance_type</span><span class="p">,</span><span class="w"> </span><span class="n">rc</span><span class="p">.</span><span class="n">address</span><span class="p">])</span>
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="p">}</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>terraform<span class="w"> </span>show<span class="w"> </span>-json<span class="w"> </span>tfplan<span class="w"> </span>&gt;<span class="w"> </span>plan.json
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>conftest<span class="w"> </span><span class="nb">test</span><span class="w"> </span>plan.json
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="c1"># FAIL - plan.json - terraform.instance_type - instance_type 't3.xlarge' is not allowed for aws_instance.web</span>
+</code></pre></div>
+<p>Same input document, same underlying logic, a different language and
+execution model — <code>deny[msg]</code> accumulates violation messages rather than
+returning a single boolean, which is idiomatic Rego but functionally
+equivalent to Sentinel's <code>main = rule { ... }</code>.</p>
+<h2 id="advisory-vs-hard-mandatory-vs-soft-mandatory-sentinel-enforcement-levels">Advisory vs. hard-mandatory vs. soft-mandatory (Sentinel enforcement levels)<a class="headerlink" href="#advisory-vs-hard-mandatory-vs-soft-mandatory-sentinel-enforcement-levels" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="err">policy</span><span class="w"> </span><span class="s2">"instance-type-allowlist"</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="w">  </span><span class="na">source</span><span class="w">            </span><span class="o">=</span><span class="w"> </span><span class="s2">"./instance-type-allowlist.sentinel"</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">  </span><span class="na">enforcement_level</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"soft-mandatory"</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="p">}</span>
+</code></pre></div>
+<ul>
+<li><code>advisory</code> — failures are shown but never block the run.</li>
+<li><code>soft-mandatory</code> — failures block the run, but an authorized user can
+  explicitly override and proceed anyway (with the override recorded).</li>
+<li><code>hard-mandatory</code> — failures block the run with <strong>no</strong> override path at
+  all, for rules that must never be bypassed regardless of urgency
+  (a compliance boundary, not a style preference).</li>
+</ul>
+<p>Choosing the right enforcement level is itself a policy design decision:
+too many <code>hard-mandatory</code> rules and legitimate emergency changes get
+stuck; too many merely <code>advisory</code> and the rule set becomes decoration
+nobody actually reads.</p>
+<h2 id="worked-example-enforcing-mandatory-tags">Worked example: enforcing mandatory tags<a class="headerlink" href="#worked-example-enforcing-mandatory-tags" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="err">import</span><span class="w"> </span><span class="s2">"tfplan/v2"</span><span class="w"> </span><span class="err">as</span><span class="w"> </span><span class="err">tfplan</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="na">required_tags</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s2">"Project", "Environment", "ManagedBy"</span><span class="p">]</span>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="na">main</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">rule</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="w">  </span><span class="err">all</span><span class="w"> </span><span class="nv">tfplan.resource_changes</span><span class="w"> </span><span class="err">as</span><span class="w"> </span><span class="err">_</span><span class="p">,</span><span class="w"> </span><span class="nb">rc</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="w">    </span><span class="nv">rc.change.after.tags</span><span class="w"> </span><span class="err">is</span><span class="w"> </span><span class="err">undefined</span><span class="w"> </span><span class="err">or</span>
+<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="w">    </span><span class="err">all</span><span class="w"> </span><span class="err">required_tags</span><span class="w"> </span><span class="err">as</span><span class="w"> </span><span class="nb">tag</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a><span class="w">      </span><span class="err">tag</span><span class="w"> </span><span class="err">in</span><span class="w"> </span><span class="nf">keys</span><span class="p">(</span><span class="nv">rc.change.after.tags</span><span class="p">)</span>
+<a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a><span class="w">  </span><span class="p">}</span>
+<a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a><span class="p">}</span>
+</code></pre></div>
+<p>Directly enforces the <code>local.common_tags</code> convention Level 2 module 06
+introduced by convention only — this policy makes it <em>mechanically
+impossible</em> to merge a plan that skips one of the three required tag
+keys, rather than relying on every contributor remembering the pattern.</p>
+<h2 id="how-it-actually-works">How It Actually Works<a class="headerlink" href="#how-it-actually-works" title="Permanent link">&para;</a></h2>
+<p><strong>Policy engines never see your <code>.tf</code> source — they consume the exact
+same structured plan JSON that <code>terraform show -json</code> produces, meaning a
+policy can only reason about what a plan actually <em>changes</em>, not about
+style choices that never affect the plan's output.</strong> <code>rc.change.after</code> in
+both examples above is the provider's own planned-new-state representation
+for that resource — the identical data Terraform Core received back from
+<code>PlanResourceChange</code> in Level 1 module 09's graph walk, serialized to
+JSON. This is precisely why a policy checking <code>instance_type</code> catches an
+oversized instance no matter whether it was hardcoded, computed via a
+<code>local</code>, or passed through three layers of module inputs (Level 2 modules
+06 and 09) — by the time the plan exists, all of that indirection has
+already been resolved down to one concrete planned value per resource.</p>
+<p><strong>The plan-vs-apply pipeline position matters mechanically, not just
+organizationally: policy evaluation happens after Terraform Core has
+already computed the full plan but strictly before any <code>ApplyResourceChange</code>
+RPC is issued.</strong> This ordering is what makes policy-as-code a true
+preventive control rather than a detective one — a <code>hard-mandatory</code>
+Sentinel failure halts the run at the same point a human reviewer's
+"request changes" would, with zero difference in blast radius, because no
+provider RPC that would actually touch real infrastructure has fired yet.
+Contrast this with Level 4's drift detection (module 03), which can only
+ever be detective — it necessarily runs <em>after</em> infrastructure state has
+already diverged, because there's no plan to intercept a change that
+happened outside Terraform entirely.</p>
+<p><strong>Sentinel's <code>import "tfplan/v2"</code> and Rego's <code>input.resource_changes</code> are
+both, structurally, walking the identical JSON schema Terraform publishes
+as its plan-representation format contract</strong> — this is why the two
+allowlist policies above are line-for-line translatable despite belonging
+to different languages and platforms: <code>tfplan.resource_changes</code> and
+<code>input.resource_changes</code> are the same array of the same objects, just
+addressed through each language's own syntax for iterating and asserting
+over structured data.</p>
+<h2 id="exercise">Exercise<a class="headerlink" href="#exercise" title="Permanent link">&para;</a></h2>
+<p>Extend the mandatory-tags Sentinel policy above so it also requires every
+<code>aws_s3_bucket</code> resource change to have <code>versioning_configuration</code> present
+(hint: check <code>rc.type == "aws_s3_bucket"</code> and inspect
+<code>rc.change.after.versioning_configuration</code>), and state in one sentence
+why this policy, unlike a code-review comment asking for the same thing,
+cannot be silently forgotten in a rushed pull request.</p>
 
 
 
 
 
 
-
-  
-  
 
 
 
