@@ -178,6 +178,11 @@ treat a single non-zero detection as a signal to *investigate* rather than
 an automatic trigger to remediate, specifically because of this
 possible race with legitimate concurrent applies.
 
+## 🔀 Related lessons on other tracks
+
+- [AI/ML — 05 · Monitoring, Drift Detection & Retraining](https://sigilipelli.github.io/ai-ml-mastery-path/level-4/05-monitoring-drift/)
+- [Edge AI — Fleet Monitoring & Drift Detection](https://sigilipelli.github.io/edge-ai-mastery-path/level-4/03-fleet-monitoring-drift/)
+
 ## Exercise
 
 A nightly drift-detection job reports `exit code 2` for the `prod`

@@ -186,6 +186,12 @@ whenever that happened) into a controlled one (a module version,
 which only changes when the consumer deliberately upgrades it) — the two
 mechanisms in this module exist specifically to offer that choice.
 
+## 🔀 Related lessons on other tracks
+
+- [Data Engineering — 01 · Enterprise Data Platform Architecture](https://sigilipelli.github.io/data-engineering-mastery-path/level-4/01-enterprise-platform-architecture/)
+- [Docker — 05 · Designing a Containerized Architecture](https://sigilipelli.github.io/docker-mastery-path/level-4/05-containerized-architecture-design/)
+- [Kubernetes — 06 · Designing Production-Grade Cluster Architecture](https://sigilipelli.github.io/kubernetes-mastery-path/level-4/06-production-cluster-architecture/)
+
 ## Exercise
 
 A platform has one state file containing the org's VPC, its shared RDS

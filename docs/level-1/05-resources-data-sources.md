@@ -163,6 +163,11 @@ documented Terraform Plugin Protocol, not exercised against a live account:
   `for_each`, only the fully-expanded, individually-addressed resource
   instances (`aws_instance.web[0]`, `aws_instance.web[1]`, ...).
 
+## 🔀 Related lessons on other tracks
+
+- [ETL & Data Lake — 02 · Data Sources & Ingestion Patterns](https://sigilipelli.github.io/etl-datalake-mastery-path/level-1/02-data-sources-ingestion-patterns/)
+- [Tableau — 02 · Connecting to Data Sources](https://sigilipelli.github.io/tableau-mastery-path/level-1/02-connecting-data-sources/)
+
 ## Exercise
 
 Sketch (in HCL, without needing to apply it) a `data` block that looks up an

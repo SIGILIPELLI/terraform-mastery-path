@@ -189,6 +189,12 @@ recording the answer — it never runs the graph, never plans, never
 touches any other resource, which is exactly why full reconstruction
 requires one import call per resource with no bulk shortcut.
 
+## 🔀 Related lessons on other tracks
+
+- [AWS — Multi-Region & Disaster Recovery](https://sigilipelli.github.io/aws-mastery-path/level-3/07-multi-region-disaster-recovery/)
+- [Azure — 07 · High Availability & Disaster Recovery](https://sigilipelli.github.io/azure-mastery-path/level-3/07-ha-disaster-recovery/)
+- [Docker — 09 · Disaster Recovery & Backups](https://sigilipelli.github.io/docker-mastery-path/level-4/09-disaster-recovery-backups/)
+
 ## Exercise
 
 Your team's S3 state bucket has versioning enabled but no

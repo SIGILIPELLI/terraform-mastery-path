@@ -147,6 +147,10 @@ The reason Terraform's four-command workflow generalizes across hundreds of
 providers is that steps 1–3 are entirely provider-independent — only step 4's
 RPC target binary changes.
 
+## 🔀 Related lessons on other tracks
+
+- [IBM Cloud — 09 · Schematics (Terraform-based IaC)](https://sigilipelli.github.io/ibm-cloud-mastery-path/level-1/09-schematics-iac/)
+
 ## Exercise
 
 Without writing any HCL yet, list three infrastructure changes you've made

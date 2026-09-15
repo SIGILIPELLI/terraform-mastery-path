@@ -190,6 +190,10 @@ that whole document, which is strictly more expressive than a scanner
 whose rule format is fundamentally "match this attribute path against
 this value."
 
+## 🔀 Related lessons on other tracks
+
+- [Kubernetes — 05 · Image Scanning & Supply Chain Security](https://sigilipelli.github.io/kubernetes-mastery-path/level-4/05-image-scanning-supply-chain/)
+
 ## Exercise
 
 A security group resource's `cidr_blocks` argument is set to

@@ -182,6 +182,12 @@ with full ordering guaranteed by the same reference-based dependency
 graph from module 07, with no manual coordination needed between the
 password's generation and its two consumers.
 
+## 🔀 Related lessons on other tracks
+
+- [Docker — 09 · Secrets & Config Management](https://sigilipelli.github.io/docker-mastery-path/level-3/09-secrets-config-management/)
+- [Embedded Python — Device Provisioning & Secrets Management](https://sigilipelli.github.io/embedded-python-mastery-path/level-4/03-provisioning-secrets/)
+- [Server Ops — 06 · Secrets & Configuration Management](https://sigilipelli.github.io/server-ops-mastery-path/level-2/06-secrets-config-management/)
+
 ## Exercise
 
 Rewrite the hardcoded-password `aws_db_instance` example at the top of

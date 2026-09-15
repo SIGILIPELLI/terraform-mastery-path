@@ -143,6 +143,10 @@ so it's on you to make sure that edge reflects a real requirement, since
 Terraform can't infer or verify *why* it's there the way it can for a
 value reference.
 
+## 🔀 Related lessons on other tracks
+
+- [Agile — 07 · Multi-Team Dependency Management](https://sigilipelli.github.io/agile-mastery-path/level-3/07-multi-team-dependency-management/)
+
 ## Exercise
 
 Given `aws_route_table.public` (referencing `aws_vpc.this.id`),
