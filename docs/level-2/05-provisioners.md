@@ -1,3 +1,7 @@
+---
+description: "Provisioners (and Why to Avoid Them) — A provisioner runs a script or command against a resource at create-time (or destroy-time) — the escape hatch for…"
+---
+
 # 05 · Provisioners (and Why to Avoid Them)
 
 A **provisioner** runs a script or command against a resource at

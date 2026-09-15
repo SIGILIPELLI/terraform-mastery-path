@@ -1,3 +1,7 @@
+---
+description: "Conditional Expressions — HCL has no if/else statement — it has a single conditional expression, condition ? true_val : false_val, borrowed from C-like…"
+---
+
 # 07 · Conditional Expressions
 
 HCL has no `if`/`else` statement — it has a single **conditional

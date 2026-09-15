@@ -1,3 +1,7 @@
+---
+description: "Designing a Platform's Terraform Architecture — Every module in this course so far has looked at one mechanism at a time — state locking, testing, policy…"
+---
+
 # 06 · Designing a Platform's Terraform Architecture
 
 Every module in this course so far has looked at one mechanism at a

@@ -1,3 +1,7 @@
+---
+description: "Capstone — Reusable Module Set — This capstone combines every Level 2 module into one small but complete system: a reusable networking module and a…"
+---
+
 # 10 · Capstone — Reusable Module Set
 
 This capstone combines every Level 2 module into one small but complete

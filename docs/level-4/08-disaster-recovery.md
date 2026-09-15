@@ -1,3 +1,7 @@
+---
+description: "Disaster Recovery for State & Infra — Level 3's module on refactoring state safely covered surgical, intentional state edits. Disaster recovery is the…"
+---
+
 # 08 · Disaster Recovery for State & Infra
 
 Level 3's module on refactoring state safely covered surgical,

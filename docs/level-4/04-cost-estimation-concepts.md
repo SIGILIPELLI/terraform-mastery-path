@@ -1,3 +1,7 @@
+---
+description: "Cost Estimation Concepts — Terraform will happily let you apply a plan that provisions a p4d.24xlarge fleet you meant to size as t3.micro. Nothing in…"
+---
+
 # 04 · Cost Estimation Concepts
 
 Terraform will happily let you `apply` a plan that provisions a

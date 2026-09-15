@@ -1,3 +1,7 @@
+---
+description: "terraform plan / apply / destroy Workflow — Almost every Terraform session follows the same four commands. This module walks through each one's exact…"
+---
+
 # 09 · terraform plan / apply / destroy Workflow
 
 Almost every Terraform session follows the same four commands. This module

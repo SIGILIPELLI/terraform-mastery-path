@@ -1,3 +1,7 @@
+---
+description: "What Is IaC & Why Terraform? — Infrastructure as Code (IaC) means describing servers, networks, storage, and other infrastructure in text files that a…"
+---
+
 # 01 · What Is IaC & Why Terraform?
 
 Infrastructure as Code (IaC) means describing servers, networks, storage, and

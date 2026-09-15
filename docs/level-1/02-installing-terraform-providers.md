@@ -1,3 +1,7 @@
+---
+description: "Installing Terraform & Providers — Terraform ships as a single self-contained binary — no runtime to install separately. This module covers getting it…"
+---
+
 # 02 · Installing Terraform & Providers
 
 Terraform ships as a single self-contained binary — no runtime to install

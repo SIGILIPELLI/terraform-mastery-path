@@ -1,3 +1,7 @@
+---
+description: "Secrets Management Patterns — Level 1 module 07 warned that state can contain plaintext secrets. This module covers the practical patterns for keeping…"
+---
+
 # 08 · Secrets Management Patterns
 
 Level 1 module 07 warned that state can contain plaintext secrets. This

@@ -1,3 +1,7 @@
+---
+description: "Module Versioning — Module 01's source = './modules/s3-bucket' works because the module lives in the same repository. Once a module is shared across teams…"
+---
+
 # 02 · Module Versioning
 
 Module 01's `source = "./modules/s3-bucket"` works because the module lives

@@ -1,3 +1,7 @@
+---
+description: "Locals & Functions — Unlike variable, a local has no default, no type constraint, and cannot be set by a caller — it's computed once from other values…"
+---
+
 # 06 · Locals & Functions
 
 **Local values** (`locals`) give a name to an expression you'd otherwise

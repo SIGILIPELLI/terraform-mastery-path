@@ -1,3 +1,7 @@
+---
+description: "Capstone Project — This capstone assembles Level 4's modules into one coherent deliverable: a platform-shaped Terraform layout for a small application…"
+---
+
 # 10 · Capstone Project
 
 This capstone assembles Level 4's modules into one coherent deliverable:

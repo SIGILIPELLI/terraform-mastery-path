@@ -1,3 +1,7 @@
+---
+description: "A First Real Resource — This module walks through a complete, small configuration end to end — a local file resource (needs no cloud account at all) and…"
+---
+
 # 08 · A First Real Resource
 
 This module walks through a complete, small configuration end to end — a

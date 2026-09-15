@@ -1,3 +1,7 @@
+---
+description: "Modules — Structure & Inputs/Outputs — Every .tf file you've written so far lives in the root module — the directory you run terraform commands from. A…"
+---
+
 # 01 · Modules — Structure & Inputs/Outputs
 
 Every `.tf` file you've written so far lives in the **root module** — the

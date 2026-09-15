@@ -1,3 +1,7 @@
+---
+description: "Refactoring State Safely — This module combines module 02's state mv/moved blocks and module 07's graph model into a practical playbook for the refactors…"
+---
+
 # 09 · Refactoring State Safely
 
 This module combines module 02's `state mv`/`moved` blocks and module 07's

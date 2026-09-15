@@ -1,3 +1,7 @@
+---
+description: "Dependency Management & the Graph — Every prior module in this course has invoked 'the graph' to explain why something behaves the way it does. This…"
+---
+
 # 07 · Dependency Management & the Graph
 
 Every prior module in this course has invoked "the graph" to explain why

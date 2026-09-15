@@ -1,3 +1,7 @@
+---
+description: "Security Scanning for IaC — A misconfigured security group or a public S3 bucket is just as much a bug as a syntax error — the difference is terraform…"
+---
+
 # 05 · Security Scanning for IaC
 
 A misconfigured security group or a public S3 bucket is just as much a

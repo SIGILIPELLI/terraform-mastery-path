@@ -1,3 +1,7 @@
+---
+description: "Observability for Infrastructure Changes — Every module so far has assumed you're watching a plan/apply run in a terminal, in real time. At platform…"
+---
+
 # 09 · Observability for Infrastructure Changes
 
 Every module so far has assumed you're watching a `plan`/`apply` run in

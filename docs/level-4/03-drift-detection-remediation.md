@@ -1,3 +1,7 @@
+---
+description: "Drift Detection & Remediation — -detailed-exitcode (introduced in Level 1 module 09) is exactly what makes automated drift detection practical: exit code…"
+---
+
 # 03 · Drift Detection & Remediation
 
 **Drift** is when real infrastructure no longer matches what Terraform's

@@ -1,3 +1,7 @@
+---
+description: "Workspaces — A workspace lets one configuration directory manage multiple, separate state files without duplicating any .tf code — useful for quick…"
+---
+
 # 04 · Workspaces
 
 A **workspace** lets one configuration directory manage multiple, separate

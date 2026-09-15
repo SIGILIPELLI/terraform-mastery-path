@@ -1,3 +1,7 @@
+---
+description: "Providers & the Provider Registry — A provider is a plugin that translates HCL resource blocks into calls against a specific API — AWS, Azure, GCP…"
+---
+
 # 04 · Providers & the Provider Registry
 
 A **provider** is a plugin that translates HCL resource blocks into calls

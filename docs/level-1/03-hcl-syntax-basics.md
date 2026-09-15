@@ -1,3 +1,7 @@
+---
+description: "HCL Syntax Basics — HCL (HashiCorp Configuration Language) is the language Terraform configurations are written in. It's built from a small number of…"
+---
+
 # 03 · HCL Syntax Basics
 
 HCL (HashiCorp Configuration Language) is the language Terraform

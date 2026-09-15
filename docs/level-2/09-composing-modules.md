@@ -1,3 +1,7 @@
+---
+description: "Composing Modules — Real infrastructure is rarely one module — it's several, wired together: a networking module producing a VPC ID, an app module…"
+---
+
 # 09 · Composing Modules
 
 Real infrastructure is rarely one module — it's several, wired together:

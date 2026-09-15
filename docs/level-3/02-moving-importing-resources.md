@@ -1,3 +1,7 @@
+---
+description: "Moving & Importing Resources — Two operations edit state without touching real infrastructure at all: moving an address (renaming, restructuring into a…"
+---
+
 # 02 · Moving & Importing Resources
 
 Two operations edit *state* without touching real infrastructure at all:

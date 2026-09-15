@@ -1,3 +1,7 @@
+---
+description: "Testing IaC — Plan Review — Terraform's built-in testing tools focus on catching problems before apply, without needing real infrastructure — validate and…"
+---
+
 # 04 · Testing IaC — Plan Review
 
 Terraform's built-in testing tools focus on catching problems **before**

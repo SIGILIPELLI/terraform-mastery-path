@@ -1,3 +1,7 @@
+---
+description: "Formatting & Validation — Terraform ships two built-in commands for keeping configurations clean and correct before anything reaches a provider: terraform…"
+---
+
 # 10 · Formatting & Validation
 
 Terraform ships two built-in commands for keeping configurations clean and

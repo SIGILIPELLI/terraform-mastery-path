@@ -1,3 +1,7 @@
+---
+description: "count vs for_each — Both count and for_each turn a single resource block into multiple instances. They solve overlapping problems but produce different…"
+---
+
 # 08 · count vs for_each
 
 Both `count` and `for_each` turn a single resource block into multiple

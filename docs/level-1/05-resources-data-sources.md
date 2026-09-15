@@ -1,3 +1,7 @@
+---
+description: "Resources & Data Sources — Terraform configurations are built almost entirely out of two block types: resource (things Terraform creates and manages) and…"
+---
+
 # 05 · Resources & Data Sources
 
 Terraform configurations are built almost entirely out of two block types:

@@ -1,3 +1,7 @@
+---
+description: "Large-Scale Module Design — Level 2 covered how modules work mechanically. At organizational scale — dozens of teams, hundreds of module calls — module…"
+---
+
 # 01 · Large-Scale Module Design
 
 Level 2 covered how modules work mechanically. At organizational scale —

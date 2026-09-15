@@ -1,3 +1,7 @@
+---
+description: "Governance at Scale — Level 3's policy-as-code module introduced Sentinel/OPA as a way to enforce a single rule against a single plan. Governance at scale…"
+---
+
 # 07 · Governance at Scale
 
 Level 3's policy-as-code module introduced Sentinel/OPA as a way to

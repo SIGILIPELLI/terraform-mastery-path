@@ -1,3 +1,7 @@
+---
+description: "Multi-Environment Patterns — Level 2 module 04 flagged that CLI workspaces share backend config and credentials — genuinely separate environments…"
+---
+
 # 06 · Multi-Environment Patterns
 
 Level 2 module 04 flagged that CLI workspaces share backend config and

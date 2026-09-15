@@ -1,3 +1,7 @@
+---
+description: "CI/CD for Terraform — Level 3 module 01 recommended routing applies through CI rather than laptops. This module builds that pipeline concretely with…"
+---
+
 # 02 · CI/CD for Terraform
 
 Level 3 module 01 recommended routing applies through CI rather than

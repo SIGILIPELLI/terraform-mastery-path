@@ -1,3 +1,7 @@
+---
+description: "Capstone — Multi-Environment Platform — This capstone combines every Level 3 module: directory-per-environment structure (module 06), remote state read…"
+---
+
 # 10 · Capstone — Multi-Environment Platform
 
 This capstone combines every Level 3 module: directory-per-environment

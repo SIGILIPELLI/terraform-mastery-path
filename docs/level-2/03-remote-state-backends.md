@@ -1,3 +1,7 @@
+---
+description: "Remote State & Backends — Level 1 module 07 flagged the two problems with local state: it isn't shared (a teammate running apply has no idea what your…"
+---
+
 # 03 · Remote State & Backends
 
 Level 1 module 07 flagged the two problems with local state: it isn't

@@ -1,3 +1,7 @@
+---
+description: "State Basics — Terraform's state is a JSON file recording what it believes exists and how it maps to your configuration. It's arguably the single most…"
+---
+
 # 07 · State Basics
 
 Terraform's **state** is a JSON file recording what it believes exists and

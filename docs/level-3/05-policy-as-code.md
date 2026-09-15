@@ -1,3 +1,7 @@
+---
+description: "Policy as Code Concepts — Module 03 previewed Sentinel running between plan and apply on Terraform Cloud; this module goes deeper into policy as code…"
+---
+
 # 05 · Policy as Code Concepts
 
 Module 03 previewed Sentinel running between plan and apply on Terraform

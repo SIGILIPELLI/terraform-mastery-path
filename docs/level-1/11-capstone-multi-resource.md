@@ -1,3 +1,7 @@
+---
+description: "Capstone — Multi-Resource Configuration — This capstone pulls together everything from Level 1 into one small but complete configuration: variables…"
+---
+
 # 11 · Capstone — Multi-Resource Configuration
 
 This capstone pulls together everything from Level 1 into one small but

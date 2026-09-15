@@ -1,3 +1,7 @@
+---
+description: "State Locking & Team Workflows — Level 2 module 03 introduced remote backends; this module covers the mechanism that makes them safe for a team, not just…"
+---
+
 # 01 · State Locking & Team Workflows
 
 Level 2 module 03 introduced remote backends; this module covers the

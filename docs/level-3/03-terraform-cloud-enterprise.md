@@ -1,3 +1,7 @@
+---
+description: "Terraform Cloud/Enterprise Concepts — Everything through Level 2 assumed you run terraform commands yourself, against a backend that's purely storage (S3…"
+---
+
 # 03 · Terraform Cloud/Enterprise Concepts
 
 Everything through Level 2 assumed you run `terraform` commands yourself,

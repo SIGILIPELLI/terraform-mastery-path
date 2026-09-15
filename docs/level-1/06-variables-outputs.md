@@ -1,3 +1,7 @@
+---
+description: "Variables & Outputs — Input variables let a configuration accept values from outside itself; outputs let it expose values to whoever ran it (or to other…"
+---
+
 # 06 · Variables & Outputs
 
 Input variables let a configuration accept values from outside itself;
