@@ -149,7 +149,7 @@ RPC target binary changes.
 
 ## 🔀 Related lessons on other tracks
 
-- [IBM Cloud — 09 · Schematics (Terraform-based IaC)](https://sigilipelli.github.io/ibm-cloud-mastery-path/level-1/09-schematics-iac/)
+- [IBM Cloud — 09 · Schematics (Terraform-based IaC)](https://learnmasterypath.com/ibm-cloud-mastery-path/level-1/09-schematics-iac/)
 
 ## Exercise
 

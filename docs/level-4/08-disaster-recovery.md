@@ -191,9 +191,9 @@ requires one import call per resource with no bulk shortcut.
 
 ## 🔀 Related lessons on other tracks
 
-- [AWS — Multi-Region & Disaster Recovery](https://sigilipelli.github.io/aws-mastery-path/level-3/07-multi-region-disaster-recovery/)
-- [Azure — 07 · High Availability & Disaster Recovery](https://sigilipelli.github.io/azure-mastery-path/level-3/07-ha-disaster-recovery/)
-- [Docker — 09 · Disaster Recovery & Backups](https://sigilipelli.github.io/docker-mastery-path/level-4/09-disaster-recovery-backups/)
+- [AWS — Multi-Region & Disaster Recovery](https://learnmasterypath.com/aws-mastery-path/level-3/07-multi-region-disaster-recovery/)
+- [Azure — 07 · High Availability & Disaster Recovery](https://learnmasterypath.com/azure-mastery-path/level-3/07-ha-disaster-recovery/)
+- [Docker — 09 · Disaster Recovery & Backups](https://learnmasterypath.com/docker-mastery-path/level-4/09-disaster-recovery-backups/)
 
 ## Exercise
 

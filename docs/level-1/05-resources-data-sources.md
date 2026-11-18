@@ -165,8 +165,8 @@ documented Terraform Plugin Protocol, not exercised against a live account:
 
 ## 🔀 Related lessons on other tracks
 
-- [ETL & Data Lake — 02 · Data Sources & Ingestion Patterns](https://sigilipelli.github.io/etl-datalake-mastery-path/level-1/02-data-sources-ingestion-patterns/)
-- [Tableau — 02 · Connecting to Data Sources](https://sigilipelli.github.io/tableau-mastery-path/level-1/02-connecting-data-sources/)
+- [ETL & Data Lake — 02 · Data Sources & Ingestion Patterns](https://learnmasterypath.com/etl-datalake-mastery-path/level-1/02-data-sources-ingestion-patterns/)
+- [Tableau — 02 · Connecting to Data Sources](https://learnmasterypath.com/tableau-mastery-path/level-1/02-connecting-data-sources/)
 
 ## Exercise
 

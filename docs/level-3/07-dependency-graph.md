@@ -145,7 +145,7 @@ value reference.
 
 ## 🔀 Related lessons on other tracks
 
-- [Agile — 07 · Multi-Team Dependency Management](https://sigilipelli.github.io/agile-mastery-path/level-3/07-multi-team-dependency-management/)
+- [Agile — 07 · Multi-Team Dependency Management](https://learnmasterypath.com/agile-mastery-path/level-3/07-multi-team-dependency-management/)
 
 ## Exercise
 

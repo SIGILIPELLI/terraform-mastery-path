@@ -192,7 +192,7 @@ this value."
 
 ## 🔀 Related lessons on other tracks
 
-- [Kubernetes — 05 · Image Scanning & Supply Chain Security](https://sigilipelli.github.io/kubernetes-mastery-path/level-4/05-image-scanning-supply-chain/)
+- [Kubernetes — 05 · Image Scanning & Supply Chain Security](https://learnmasterypath.com/kubernetes-mastery-path/level-4/05-image-scanning-supply-chain/)
 
 ## Exercise
 

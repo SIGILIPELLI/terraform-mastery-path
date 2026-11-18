@@ -184,9 +184,9 @@ password's generation and its two consumers.
 
 ## 🔀 Related lessons on other tracks
 
-- [Docker — 09 · Secrets & Config Management](https://sigilipelli.github.io/docker-mastery-path/level-3/09-secrets-config-management/)
-- [Embedded Python — Device Provisioning & Secrets Management](https://sigilipelli.github.io/embedded-python-mastery-path/level-4/03-provisioning-secrets/)
-- [Server Ops — 06 · Secrets & Configuration Management](https://sigilipelli.github.io/server-ops-mastery-path/level-2/06-secrets-config-management/)
+- [Docker — 09 · Secrets & Config Management](https://learnmasterypath.com/docker-mastery-path/level-3/09-secrets-config-management/)
+- [Embedded Python — Device Provisioning & Secrets Management](https://learnmasterypath.com/embedded-python-mastery-path/level-4/03-provisioning-secrets/)
+- [Server Ops — 06 · Secrets & Configuration Management](https://learnmasterypath.com/server-ops-mastery-path/level-2/06-secrets-config-management/)
 
 ## Exercise
 

@@ -188,9 +188,9 @@ mechanisms in this module exist specifically to offer that choice.
 
 ## 🔀 Related lessons on other tracks
 
-- [Data Engineering — 01 · Enterprise Data Platform Architecture](https://sigilipelli.github.io/data-engineering-mastery-path/level-4/01-enterprise-platform-architecture/)
-- [Docker — 05 · Designing a Containerized Architecture](https://sigilipelli.github.io/docker-mastery-path/level-4/05-containerized-architecture-design/)
-- [Kubernetes — 06 · Designing Production-Grade Cluster Architecture](https://sigilipelli.github.io/kubernetes-mastery-path/level-4/06-production-cluster-architecture/)
+- [Data Engineering — 01 · Enterprise Data Platform Architecture](https://learnmasterypath.com/data-engineering-mastery-path/level-4/01-enterprise-platform-architecture/)
+- [Docker — 05 · Designing a Containerized Architecture](https://learnmasterypath.com/docker-mastery-path/level-4/05-containerized-architecture-design/)
+- [Kubernetes — 06 · Designing Production-Grade Cluster Architecture](https://learnmasterypath.com/kubernetes-mastery-path/level-4/06-production-cluster-architecture/)
 
 ## Exercise
 

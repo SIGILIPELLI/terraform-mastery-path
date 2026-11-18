@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://sigilipelli.github.io/terraform-mastery-path/sitemap.xml
+Sitemap: https://learnmasterypath.com/terraform-mastery-path/sitemap.xml
