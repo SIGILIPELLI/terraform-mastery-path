@@ -1,3 +1,7 @@
+---
+description: "Level 1 (Entry) of the free Terraform Mastery Path. Understand what Infrastructure as Code is and why Terraform, read and write HCL confidently, and…"
+---
+
 # Level 1 · Entry <span class="level-badge">Foundations</span>
 
 Goal: understand what Infrastructure as Code is and why Terraform, read and

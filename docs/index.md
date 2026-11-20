@@ -1,6 +1,6 @@
 ---
 title: "Learn Terraform Free: Beginner to Master Course"
-description: "Free HashiCorp Terraform / Infrastructure-as-Code course from beginner to advanced -- hands-on lessons with worked HCL examples and real capstone projects. Part of a 40-course free learning library."
+description: "Free HashiCorp Terraform / Infrastructure-as-Code course from beginner to advanced -- hands-on lessons with worked HCL examples and real capstone projects. Part of a 100+ course free learning library."
 ---
 
 # Terraform Mastery Path

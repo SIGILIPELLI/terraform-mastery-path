@@ -1,3 +1,7 @@
+---
+description: "Level 3 (Advanced) of the free Terraform Mastery Path. Manage state safely at team scale, understand Terraform Cloud/Enterprise concepts, review plans and…"
+---
+
 # Level 3 · Advanced <span class="level-badge">Scale & Safety</span>
 
 Goal: manage state safely at team scale, understand Terraform Cloud/Enterprise

@@ -1,3 +1,7 @@
+---
+description: "Level 4 (Master) of the free Terraform Mastery Path. Design large-scale module systems, automate Terraform in CI/CD, detect and remediate drift, and…"
+---
+
 # Level 4 · Master <span class="level-badge">Platform Architecture</span>
 
 Goal: design large-scale module systems, automate Terraform in CI/CD, detect

@@ -1,3 +1,7 @@
+---
+description: "Level 2 (Intermediate) of the free Terraform Mastery Path. Package configurations into reusable modules, manage remote state and workspaces, and write…"
+---
+
 # Level 2 · Intermediate <span class="level-badge">Modules & State</span>
 
 Goal: package configurations into reusable modules, manage remote state and
