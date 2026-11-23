@@ -150,7 +150,7 @@ common leading whitespace.
 ## Whitespace and formatting
 
 HCL doesn't require significant indentation the way Python does, but
-`terraform fmt` (module 10) enforces a canonical two-space style everywhere,
+`terraform fmt` (module 09) enforces a canonical two-space style everywhere,
 so most style questions are answered by just running it rather than
 deciding by hand.
 

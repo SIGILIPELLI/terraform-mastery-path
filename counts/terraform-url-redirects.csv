@@ -1,0 +1,4 @@
+old_url,new_url
+/terraform-mastery-path/level-1/09-plan-apply-destroy/,/terraform-mastery-path/level-1/09-plan-apply-destroy-fmt-validate/
+/terraform-mastery-path/level-1/10-fmt-validate/,/terraform-mastery-path/level-1/09-plan-apply-destroy-fmt-validate/#part-2-formatting-validation
+/terraform-mastery-path/level-1/11-capstone-multi-resource/,/terraform-mastery-path/level-1/10-capstone-multi-resource/

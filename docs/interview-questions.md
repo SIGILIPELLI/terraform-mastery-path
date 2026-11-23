@@ -220,7 +220,7 @@ It reuses module 5's distinction.
 
 Provider argument names change between versions.
 
-### [09 · terraform plan / apply / destroy Workflow](level-1/09-plan-apply-destroy.md)
+### [09 · The Core Workflow: plan, apply, destroy, fmt &amp; validate](level-1/09-plan-apply-destroy-fmt-validate.md)
 
 **Q33.** What do +, ~, - and -/+ mean in plan output?
 
@@ -246,8 +246,6 @@ It checks syntax, required arguments and types locally, without touching provide
 
 plan changes nothing.
 
-### [10 · Formatting &amp; Validation](level-1/10-fmt-validate.md)
-
 **Q37.** What does terraform fmt do?
 
 **Answer:** Rewrites .tf files in place to canonical style: two-space indentation and aligned = signs
@@ -272,7 +270,7 @@ It enforces one style without anyone arguing in review.
 
 They're built into Terraform.
 
-### [11 · Capstone — Multi-Resource Configuration](level-1/11-capstone-multi-resource.md)
+### [10 · Capstone — Multi-Resource Configuration](level-1/10-capstone-multi-resource.md)
 
 **Q41.** What does a `validation` block on a variable do?
 
