@@ -83,7 +83,7 @@ not_in_nav: |
 
 nav:
   - Home: index.md
-  - "💼 Interview Questions": interview-questions.md
+  - Interview Questions: interview-questions.md
   - "Level 1 · Entry":
       - Overview: level-1/index.md
       - "01 · What Is IaC & Why Terraform?": level-1/01-what-is-iac-why-terraform.md
@@ -133,5 +133,5 @@ nav:
       - "08 · Disaster Recovery for State & Infra": level-4/08-disaster-recovery.md
       - "09 · Observability for Infrastructure Changes": level-4/09-observability-infra-changes.md
       - "10 · Capstone Project": level-4/10-capstone-project.md
-  - "🎯 Final Quiz": quiz.md
+  - Final Quiz: quiz.md
 
