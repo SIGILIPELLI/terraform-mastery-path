@@ -94,9 +94,8 @@ nav:
       - "06 · Variables & Outputs": level-1/06-variables-outputs.md
       - "07 · State Basics": level-1/07-state-basics.md
       - "08 · A First Real Resource": level-1/08-first-real-resource.md
-      - "09 · Plan / Apply / Destroy Workflow": level-1/09-plan-apply-destroy.md
-      - "10 · Formatting & Validation": level-1/10-fmt-validate.md
-      - "11 · Capstone — Multi-Resource Configuration": level-1/11-capstone-multi-resource.md
+      - "09 · The Core Workflow: plan, apply, destroy, fmt & validate": level-1/09-plan-apply-destroy-fmt-validate.md
+      - "10 · Capstone — Multi-Resource Configuration": level-1/10-capstone-multi-resource.md
   - "Level 2 · Intermediate":
       - Overview: level-2/index.md
       - "01 · Modules — Structure & Inputs/Outputs": level-2/01-modules-structure.md

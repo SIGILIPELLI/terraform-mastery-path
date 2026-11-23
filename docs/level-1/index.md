@@ -17,9 +17,8 @@ write HCL confidently, and plan/apply a small, well-formed configuration.
 6. [Variables & Outputs](06-variables-outputs.md)
 7. [State Basics](07-state-basics.md)
 8. [A First Real Resource](08-first-real-resource.md)
-9. [Plan / Apply / Destroy Workflow](09-plan-apply-destroy.md)
-10. [Formatting & Validation](10-fmt-validate.md)
-11. [Capstone — Multi-Resource Configuration](11-capstone-multi-resource.md)
+9. [The Core Workflow: plan, apply, destroy, fmt & validate](09-plan-apply-destroy-fmt-validate.md)
+10. [Capstone — Multi-Resource Configuration](10-capstone-multi-resource.md)
 
 By the end of this level you'll be able to write a syntactically correct
 Terraform configuration with variables, resources, data sources, and outputs,
