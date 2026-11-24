@@ -19,5 +19,3 @@ and remediate drift, and architect a full platform's infrastructure as code.
 8. [Disaster Recovery for State & Infra](08-disaster-recovery.md)
 9. [Observability for Infrastructure Changes](09-observability-infra-changes.md)
 10. [Capstone Project](10-capstone-project.md)
-
-*Level 4 modules are being written now — Level 1 is fully available today.*

@@ -19,5 +19,3 @@ concepts, review plans and policy, and structure multi-environment platforms.
 8. [Secrets Management Patterns](08-secrets-management.md)
 9. [Refactoring State Safely](09-refactoring-state-safely.md)
 10. [Capstone — Multi-Environment Platform](10-capstone-multi-environment.md)
-
-*Level 3 modules are being written now — Level 1 is fully available today.*

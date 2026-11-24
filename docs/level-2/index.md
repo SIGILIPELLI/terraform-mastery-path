@@ -19,5 +19,3 @@ workspaces, and write cleaner HCL with locals, functions, and `for_each`.
 8. [count vs for_each](08-count-for-each.md)
 9. [Composing Modules](09-composing-modules.md)
 10. [Capstone — Reusable Module Set](10-capstone-reusable-modules.md)
-
-*Level 2 modules are being written now — Level 1 is fully available today.*
