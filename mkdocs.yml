@@ -95,7 +95,7 @@ nav:
       - "07 · State Basics": level-1/07-state-basics.md
       - "08 · A First Real Resource": level-1/08-first-real-resource.md
       - "09 · The Core Workflow: plan, apply, destroy, fmt & validate": level-1/09-plan-apply-destroy-fmt-validate.md
-      - "10 · Capstone — Multi-Resource Configuration": level-1/10-capstone-multi-resource.md
+      - "10 · Project — Multi-Resource Configuration": level-1/10-capstone-multi-resource.md
   - "Level 2 · Intermediate":
       - Overview: level-2/index.md
       - "01 · Modules — Structure & Inputs/Outputs": level-2/01-modules-structure.md
@@ -107,7 +107,7 @@ nav:
       - "07 · Conditional Expressions": level-2/07-conditional-expressions.md
       - "08 · count vs for_each": level-2/08-count-for-each.md
       - "09 · Composing Modules": level-2/09-composing-modules.md
-      - "10 · Capstone — Reusable Module Set": level-2/10-capstone-reusable-modules.md
+      - "10 · Project — Reusable Module Set": level-2/10-capstone-reusable-modules.md
   - "Level 3 · Advanced":
       - Overview: level-3/index.md
       - "01 · State Locking & Team Workflows": level-3/01-state-locking-team-workflows.md
@@ -119,7 +119,7 @@ nav:
       - "07 · Dependency Management & the Graph": level-3/07-dependency-graph.md
       - "08 · Secrets Management Patterns": level-3/08-secrets-management.md
       - "09 · Refactoring State Safely": level-3/09-refactoring-state-safely.md
-      - "10 · Capstone — Multi-Environment Platform": level-3/10-capstone-multi-environment.md
+      - "10 · Project — Multi-Environment Platform": level-3/10-capstone-multi-environment.md
   - "Level 4 · Master":
       - Overview: level-4/index.md
       - "01 · Large-Scale Module Design": level-4/01-large-scale-module-design.md
