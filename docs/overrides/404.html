@@ -1,4 +1,9 @@
 {% extends "main.html" %}
+{#- mp-redirects: lessons renamed by the count standardisation (counts/terraform-url-redirects.csv). GitHub Pages cannot send 301s, so this course 404 page forwards old URLs. -#}
+{% block extrahead %}
+  {{ super() }}
+  <script>(function(){var m={"/terraform-mastery-path/level-1/09-plan-apply-destroy/":"/terraform-mastery-path/level-1/09-plan-apply-destroy-fmt-validate/","/terraform-mastery-path/level-1/10-fmt-validate/":"/terraform-mastery-path/level-1/09-plan-apply-destroy-fmt-validate/#part-2-formatting-validation","/terraform-mastery-path/level-1/11-capstone-multi-resource/":"/terraform-mastery-path/level-1/10-capstone-multi-resource/"};var p=location.pathname.replace(/\/?$/,"/");var t=m[p];if(t){var h=location.hash;location.replace(t.indexOf("#")>=0||!h?t:t+h);}})();</script>
+{% endblock %}
 {% block content %}
 <div class="mp-404">
   <div class="mp-404-code">404</div>
