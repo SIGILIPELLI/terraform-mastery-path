@@ -1,0 +1,4172 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="183 Terraform interview questions with answers and explanations, from beginner to advanced, organised by level. Free, from the Terraform Mastery Path.">
+      
+      
+      
+        <link rel="canonical" href="https://learnmasterypath.com/terraform-mastery-path/interview-questions/">
+      
+      
+        <link rel="prev" href="..">
+      
+      
+        <link rel="next" href="../level-1/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/favicon.svg">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.8.2">
+    
+    
+  
+  <title>Terraform Interview Questions and Answers (183 Questions)</title>
+
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.57a0d79d.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.fb2fffe2.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+    
+    
+      <link rel="stylesheet" href="../stylesheets/extra.css">
+    
+      <link rel="stylesheet" href="../stylesheets/progress-tracker.css">
+    
+      <link rel="stylesheet" href="../stylesheets/final-quiz.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-05VBGCXN12"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-05VBGCXN12');
+  </script>
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Mastery Path">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:title" content="Terraform Interview Questions and Answers (183 Questions)">
+  <meta property="og:description" content="183 Terraform interview questions with answers and explanations, from beginner to advanced, organised by level. Free, from the Terraform Mastery Path.">
+  <meta property="og:url" content="https://learnmasterypath.com/terraform-mastery-path/interview-questions/">
+  <meta property="og:image" content="https://learnmasterypath.com/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Mastery Path: free structured courses, beginner to master">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Terraform Interview Questions and Answers (183 Questions)">
+  <meta name="twitter:description" content="183 Terraform interview questions with answers and explanations, from beginner to advanced, organised by level. Free, from the Terraform Mastery Path.">
+  <meta name="twitter:image" content="https://learnmasterypath.com/og-image.png">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9440969811959397"
+     crossorigin="anonymous"></script><script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {"@type": "ListItem", "position": 1, "name": "Mastery Path", "item": "https://learnmasterypath.com/"},
+      {"@type": "ListItem", "position": 2, "name": "Terraform Mastery Path", "item": "https://learnmasterypath.com/terraform-mastery-path/"},
+      {"@type": "ListItem", "position": 3, "name": "Interview Questions", "item": "https://learnmasterypath.com/terraform-mastery-path/interview-questions/"}
+    ]
+  }
+  </script>
+  <style>
+    .md-banner a:hover { text-decoration: underline !important; }
+    .mp-related { margin-top: 2.4rem; padding-top: 1rem; border-top: 1px solid var(--md-default-fg-color--lightest); font-size: .78rem; }
+    .mp-related h2 { font-size: .9rem; margin: 0 0 .5rem; }
+    .mp-related ul { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: .4rem .9rem; }
+    .mp-related li { margin: 0 !important; }
+  </style>
+  <script type="application/json" id="mp-course-meta">{"home": false, "id": "terraform-mastery-path", "name": "Terraform Mastery Path", "repo": "https://github.com/SIGILIPELLI/terraform-mastery-path", "src": "interview-questions.md", "url": "https://learnmasterypath.com/terraform-mastery-path/"}</script>
+  <link rel="stylesheet" href="https://learnmasterypath.com/assets/learn.css">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap">
+  <link rel="stylesheet" href="https://learnmasterypath.com/assets/course.css?v=1">
+  <script src="https://learnmasterypath.com/assets/learn.js" defer></script>
+  <script src="https://learnmasterypath.com/assets/signup.js" defer></script>
+
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#terraform-interview-questions-and-answers" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+        <aside class="md-banner">
+          <div class="md-banner__inner md-grid md-typeset">
+            
+            
+  <a href="https://learnmasterypath.com/" style="color: inherit; text-decoration: none;">
+    &larr; Mastery Path &middot; all 100+ free courses
+  </a>
+  <span style="opacity: .6; margin: 0 .6em;">|</span>
+  <a href="https://learnmasterypath.com/search/" style="color: inherit; text-decoration: none;">Search all courses</a>
+  <span style="opacity: .6; margin: 0 .6em;">|</span>
+  <a href="https://learnmasterypath.com/resume/" style="color: inherit; font-weight: 700; text-decoration: none;">
+    Got the skills? Free resume ATS check &rarr;
+  </a>
+
+          </div>
+          
+        </aside>
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Terraform Mastery Path" class="md-header__button md-logo" aria-label="Terraform Mastery Path" data-md-component="logo">
+      <svg class="mp-mark" viewBox="0 0 160 160" role="img" aria-label="Mastery Path logo">
+  <circle cx="80" cy="80" r="74" fill="#FAF7EF" stroke="#2FA98D" stroke-width="5"/>
+  <rect class="mp-bar mp-bar-1" x="36" y="90" width="17" height="24" rx="5" fill="#2FA98D"/>
+  <rect class="mp-bar mp-bar-2" x="59" y="74" width="17" height="40" rx="5" fill="#7FC9B7"/>
+  <rect class="mp-bar mp-bar-3" x="82" y="56" width="17" height="58" rx="5" fill="#E0B457"/>
+  <rect class="mp-bar mp-bar-4" x="105" y="38" width="17" height="76" rx="5" fill="#C97B4A"/>
+  <circle class="mp-dot" cx="44.5" cy="82" r="7" fill="#22261f"/>
+</svg>
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Terraform Mastery Path
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Terraform Interview Questions and Answers (183 Questions)
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/SIGILIPELLI/terraform-mastery-path" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    terraform-mastery-path
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href=".." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    <li class="md-tabs__item md-tabs__item--active">
+      <a href="./" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Interview Questions
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../level-1/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Level 1 · Entry
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../level-2/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Level 2 · Intermediate
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../level-3/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Level 3 · Advanced
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../level-4/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Level 4 · Master
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../quiz/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Final Quiz
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Terraform Mastery Path" class="md-nav__button md-logo" aria-label="Terraform Mastery Path" data-md-component="logo">
+      <svg class="mp-mark" viewBox="0 0 160 160" role="img" aria-label="Mastery Path logo">
+  <circle cx="80" cy="80" r="74" fill="#FAF7EF" stroke="#2FA98D" stroke-width="5"/>
+  <rect class="mp-bar mp-bar-1" x="36" y="90" width="17" height="24" rx="5" fill="#2FA98D"/>
+  <rect class="mp-bar mp-bar-2" x="59" y="74" width="17" height="40" rx="5" fill="#7FC9B7"/>
+  <rect class="mp-bar mp-bar-3" x="82" y="56" width="17" height="58" rx="5" fill="#E0B457"/>
+  <rect class="mp-bar mp-bar-4" x="105" y="38" width="17" height="76" rx="5" fill="#C97B4A"/>
+  <circle class="mp-dot" cx="44.5" cy="82" r="7" fill="#22261f"/>
+</svg>
+    </a>
+    Terraform Mastery Path
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/SIGILIPELLI/terraform-mastery-path" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    terraform-mastery-path
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Interview Questions
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Interview Questions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#level-1-entry" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Level 1 · Entry
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Level 1 · Entry">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#01-what-is-iac-why-terraform" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        01 · What Is IaC &amp; Why Terraform?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#02-installing-terraform-providers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        02 · Installing Terraform &amp; Providers
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#03-hcl-syntax-basics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        03 · HCL Syntax Basics
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#04-providers-the-provider-registry" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        04 · Providers &amp; the Provider Registry
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#05-resources-data-sources" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        05 · Resources &amp; Data Sources
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#06-variables-outputs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        06 · Variables &amp; Outputs
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#07-state-basics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        07 · State Basics
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#08-a-first-real-resource" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        08 · A First Real Resource
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#09-the-core-workflow-plan-apply-destroy-fmt-validate" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        09 · The Core Workflow: plan, apply, destroy, fmt &amp; validate
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#10-capstone-multi-resource-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10 · Capstone — Multi-Resource Configuration
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#level-2-intermediate" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Level 2 · Intermediate
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Level 2 · Intermediate">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#01-modules-structure-inputsoutputs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        01 · Modules — Structure &amp; Inputs/Outputs
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#02-module-versioning" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        02 · Module Versioning
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#03-remote-state-backends" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        03 · Remote State &amp; Backends
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#04-workspaces" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        04 · Workspaces
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#05-provisioners-and-why-to-avoid-them" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        05 · Provisioners (and Why to Avoid Them)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#06-locals-functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        06 · Locals &amp; Functions
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#07-conditional-expressions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        07 · Conditional Expressions
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#08-count-vs-for_each" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        08 · count vs for_each
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#09-composing-modules" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        09 · Composing Modules
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#10-capstone-reusable-module-set" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10 · Capstone — Reusable Module Set
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#level-3-advanced" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Level 3 · Advanced
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Level 3 · Advanced">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#01-state-locking-team-workflows" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        01 · State Locking &amp; Team Workflows
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#02-moving-importing-resources" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        02 · Moving &amp; Importing Resources
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#03-terraform-cloudenterprise-concepts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        03 · Terraform Cloud/Enterprise Concepts
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#04-testing-iac-plan-review" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        04 · Testing IaC — Plan Review
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#05-policy-as-code-concepts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        05 · Policy as Code Concepts
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#06-multi-environment-patterns" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        06 · Multi-Environment Patterns
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#07-dependency-management-the-graph" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        07 · Dependency Management &amp; the Graph
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#08-secrets-management-patterns" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        08 · Secrets Management Patterns
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#09-refactoring-state-safely" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        09 · Refactoring State Safely
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#10-capstone-multi-environment-platform" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10 · Capstone — Multi-Environment Platform
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#level-4-master" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Level 4 · Master
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Level 4 · Master">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#01-large-scale-module-design" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        01 · Large-Scale Module Design
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#02-cicd-for-terraform" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        02 · CI/CD for Terraform
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#03-drift-detection-remediation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        03 · Drift Detection &amp; Remediation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#04-cost-estimation-concepts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        04 · Cost Estimation Concepts
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#05-security-scanning-for-iac" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        05 · Security Scanning for IaC
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#06-designing-a-platforms-terraform-architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        06 · Designing a Platform's Terraform Architecture
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#07-governance-at-scale" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        07 · Governance at Scale
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#08-disaster-recovery-for-state-infra" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        08 · Disaster Recovery for State &amp; Infra
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#09-observability-for-infrastructure-changes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        09 · Observability for Infrastructure Changes
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#10-capstone-project" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10 · Capstone Project
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mixed-questions-across-all-levels" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mixed questions across all levels
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#practical-coding-questions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Practical coding questions
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Practical coding questions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#why-count-shifts-and-for_each-doesnt" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why count shifts and for_each doesn't
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#a-plan-policy-check" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        A plan policy check
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../level-1/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Level 1 · Entry
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Level 1 · Entry
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../level-1/01-what-is-iac-why-terraform/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    01 · What Is IaC & Why Terraform?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../level-1/02-installing-terraform-providers/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    02 · Installing Terraform & Providers
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../level-1/03-hcl-syntax-basics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    03 · HCL Syntax Basics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../level-1/04-providers-registry/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    04 · Providers & the Provider Registry
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../level-1/05-resources-data-sources/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    05 · Resources & Data Sources
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../level-1/06-variables-outputs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    06 · Variables & Outputs
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../level-1/07-state-basics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    07 · State Basics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../level-1/08-first-real-resource/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    08 · A First Real Resource
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../level-1/09-plan-apply-destroy-fmt-validate/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    09 · The Core Workflow: plan, apply, destroy, fmt & validate
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../level-1/10-capstone-multi-resource/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    10 · Project — Multi-Resource Configuration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../level-2/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Level 2 · Intermediate
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4" id="__nav_4_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Level 2 · Intermediate
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../level-2/01-modules-structure/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    01 · Modules — Structure & Inputs/Outputs
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../level-2/02-module-versioning/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    02 · Module Versioning
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../level-2/03-remote-state-backends/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    03 · Remote State & Backends
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../level-2/04-workspaces/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    04 · Workspaces
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../level-2/05-provisioners/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    05 · Provisioners (and Why to Avoid Them)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../level-2/06-locals-functions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    06 · Locals & Functions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../level-2/07-conditional-expressions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    07 · Conditional Expressions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../level-2/08-count-for-each/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    08 · count vs for_each
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../level-2/09-composing-modules/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    09 · Composing Modules
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../level-2/10-capstone-reusable-modules/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    10 · Project — Reusable Module Set
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../level-3/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Level 3 · Advanced
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_5" id="__nav_5_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Level 3 · Advanced
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../level-3/01-state-locking-team-workflows/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    01 · State Locking & Team Workflows
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../level-3/02-moving-importing-resources/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    02 · Moving & Importing Resources
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../level-3/03-terraform-cloud-enterprise/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    03 · Terraform Cloud/Enterprise Concepts
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../level-3/04-testing-iac-plan-review/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    04 · Testing IaC — Plan Review
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../level-3/05-policy-as-code/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    05 · Policy as Code Concepts
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../level-3/06-multi-environment-patterns/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    06 · Multi-Environment Patterns
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../level-3/07-dependency-graph/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    07 · Dependency Management & the Graph
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../level-3/08-secrets-management/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    08 · Secrets Management Patterns
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../level-3/09-refactoring-state-safely/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    09 · Refactoring State Safely
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../level-3/10-capstone-multi-environment/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    10 · Project — Multi-Environment Platform
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../level-4/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Level 4 · Master
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_6" id="__nav_6_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Level 4 · Master
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../level-4/01-large-scale-module-design/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    01 · Large-Scale Module Design
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../level-4/02-cicd-for-terraform/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    02 · CI/CD for Terraform
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../level-4/03-drift-detection-remediation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    03 · Drift Detection & Remediation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../level-4/04-cost-estimation-concepts/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    04 · Cost Estimation Concepts
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../level-4/05-security-scanning-iac/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    05 · Security Scanning for IaC
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../level-4/06-platform-architecture/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    06 · Designing a Platform's Terraform Architecture
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../level-4/07-governance-at-scale/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    07 · Governance at Scale
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../level-4/08-disaster-recovery/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    08 · Disaster Recovery for State & Infra
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../level-4/09-observability-infra-changes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    09 · Observability for Infrastructure Changes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../level-4/10-capstone-project/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    10 · Capstone Project
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../quiz/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Final Quiz
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#level-1-entry" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Level 1 · Entry
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Level 1 · Entry">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#01-what-is-iac-why-terraform" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        01 · What Is IaC &amp; Why Terraform?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#02-installing-terraform-providers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        02 · Installing Terraform &amp; Providers
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#03-hcl-syntax-basics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        03 · HCL Syntax Basics
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#04-providers-the-provider-registry" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        04 · Providers &amp; the Provider Registry
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#05-resources-data-sources" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        05 · Resources &amp; Data Sources
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#06-variables-outputs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        06 · Variables &amp; Outputs
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#07-state-basics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        07 · State Basics
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#08-a-first-real-resource" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        08 · A First Real Resource
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#09-the-core-workflow-plan-apply-destroy-fmt-validate" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        09 · The Core Workflow: plan, apply, destroy, fmt &amp; validate
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#10-capstone-multi-resource-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10 · Capstone — Multi-Resource Configuration
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#level-2-intermediate" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Level 2 · Intermediate
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Level 2 · Intermediate">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#01-modules-structure-inputsoutputs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        01 · Modules — Structure &amp; Inputs/Outputs
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#02-module-versioning" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        02 · Module Versioning
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#03-remote-state-backends" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        03 · Remote State &amp; Backends
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#04-workspaces" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        04 · Workspaces
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#05-provisioners-and-why-to-avoid-them" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        05 · Provisioners (and Why to Avoid Them)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#06-locals-functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        06 · Locals &amp; Functions
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#07-conditional-expressions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        07 · Conditional Expressions
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#08-count-vs-for_each" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        08 · count vs for_each
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#09-composing-modules" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        09 · Composing Modules
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#10-capstone-reusable-module-set" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10 · Capstone — Reusable Module Set
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#level-3-advanced" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Level 3 · Advanced
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Level 3 · Advanced">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#01-state-locking-team-workflows" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        01 · State Locking &amp; Team Workflows
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#02-moving-importing-resources" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        02 · Moving &amp; Importing Resources
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#03-terraform-cloudenterprise-concepts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        03 · Terraform Cloud/Enterprise Concepts
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#04-testing-iac-plan-review" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        04 · Testing IaC — Plan Review
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#05-policy-as-code-concepts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        05 · Policy as Code Concepts
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#06-multi-environment-patterns" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        06 · Multi-Environment Patterns
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#07-dependency-management-the-graph" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        07 · Dependency Management &amp; the Graph
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#08-secrets-management-patterns" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        08 · Secrets Management Patterns
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#09-refactoring-state-safely" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        09 · Refactoring State Safely
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#10-capstone-multi-environment-platform" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10 · Capstone — Multi-Environment Platform
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#level-4-master" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Level 4 · Master
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Level 4 · Master">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#01-large-scale-module-design" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        01 · Large-Scale Module Design
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#02-cicd-for-terraform" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        02 · CI/CD for Terraform
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#03-drift-detection-remediation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        03 · Drift Detection &amp; Remediation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#04-cost-estimation-concepts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        04 · Cost Estimation Concepts
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#05-security-scanning-for-iac" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        05 · Security Scanning for IaC
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#06-designing-a-platforms-terraform-architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        06 · Designing a Platform's Terraform Architecture
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#07-governance-at-scale" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        07 · Governance at Scale
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#08-disaster-recovery-for-state-infra" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        08 · Disaster Recovery for State &amp; Infra
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#09-observability-for-infrastructure-changes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        09 · Observability for Infrastructure Changes
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#10-capstone-project" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10 · Capstone Project
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mixed-questions-across-all-levels" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mixed questions across all levels
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#practical-coding-questions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Practical coding questions
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Practical coding questions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#why-count-shifts-and-for_each-doesnt" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why count shifts and for_each doesn't
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#a-plan-policy-check" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        A plan policy check
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+  
+
+
+              
+              <article class="md-content__inner md-typeset">
+                
+  
+                  
+
+
+  
+  
+
+
+<h1 id="terraform-interview-questions-and-answers">Terraform Interview Questions and Answers<a class="headerlink" href="#terraform-interview-questions-and-answers" title="Permanent link">&para;</a></h1>
+<p><strong>183 questions</strong> with the correct answer and a short explanation, organised from beginner (Level 1) to advanced (Level 4). Every question comes from a lesson in the free Terraform Mastery Path, so you can open the lesson to go deeper.</p>
+<div class="admonition tip">
+<p class="admonition-title">Practise, don't just read</p>
+<p>Each lesson also ends with an interactive quiz, and the <a href="../quiz/">final quiz</a> tests all four levels. Try to answer each question below before reading the answer.</p>
+</div>
+<h2 id="level-1-entry">Level 1 · Entry<a class="headerlink" href="#level-1-entry" title="Permanent link">&para;</a></h2>
+<h3 id="01-what-is-iac-why-terraform"><a href="../level-1/01-what-is-iac-why-terraform/">01 · What Is IaC &amp; Why Terraform?</a><a class="headerlink" href="#01-what-is-iac-why-terraform" title="Permanent link">&para;</a></h3>
+<p><strong>Q1.</strong> What problems does clicking through a console have that IaC fixes?</p>
+<p><strong>Answer:</strong> No history, not repeatable, and not reviewable</p>
+<p>IaC makes infrastructure changes look like software changes: a diff, a review, a merge, then an apply.</p>
+<p><strong>Q2.</strong> What does 'declarative' mean for Terraform?</p>
+<p><strong>Answer:</strong> You describe the end state and Terraform works out the steps</p>
+<p>It compares desired state to actual state and applies only the difference.</p>
+<p><strong>Q3.</strong> What kind of tool is Terraform?</p>
+<p><strong>Answer:</strong> A provisioning tool that creates, updates and destroys infrastructure resources across many providers</p>
+<p>Ansible, Chef and Puppet handle configuration inside running machines.</p>
+<p><strong>Q4.</strong> What is the problem with an imperative shell script like <code>aws s3 mb ...</code>?</p>
+<p><strong>Answer:</strong> It must be re-run carefully to avoid errors on a second run (bucket already exists)</p>
+<p>A declarative tool is idempotent by design.</p>
+<h3 id="02-installing-terraform-providers"><a href="../level-1/02-installing-terraform-providers/">02 · Installing Terraform &amp; Providers</a><a class="headerlink" href="#02-installing-terraform-providers" title="Permanent link">&para;</a></h3>
+<p><strong>Q5.</strong> What does Terraform's core binary know, and what doesn't it know?</p>
+<p><strong>Answer:</strong> It knows the HCL language and plan/apply/state workflow; it has no built-in knowledge of AWS or any other API</p>
+<p>That knowledge lives in providers, plugins downloaded separately.</p>
+<p><strong>Q6.</strong> What does required_version = "&gt;= 1.6.0, &lt; 2.0.0" do?</p>
+<p><strong>Answer:</strong> Documents and enforces which CLI versions are acceptable; plan fails immediately on an incompatible version</p>
+<p>It avoids confusing syntax or behaviour mismatches later.</p>
+<p><strong>Q7.</strong> Why use tfenv or tfswitch?</p>
+<p><strong>Answer:</strong> Different projects may require different Terraform versions, like nvm for Node</p>
+<p>tfenv install 1.9.5 then tfenv use 1.9.5.</p>
+<p><strong>Q8.</strong> How is Terraform distributed?</p>
+<p><strong>Answer:</strong> As a single self-contained binary with no runtime to install</p>
+<p>Verify with terraform version.</p>
+<h3 id="03-hcl-syntax-basics"><a href="../level-1/03-hcl-syntax-basics/">03 · HCL Syntax Basics</a><a class="headerlink" href="#03-hcl-syntax-basics" title="Permanent link">&para;</a></h3>
+<p><strong>Q9.</strong> In <code>resource "aws_instance" "web" { ... }</code>, what are the two labels?</p>
+<p><strong>Answer:</strong> The resource type (aws_instance) and the local name (web)</p>
+<p>provider and variable blocks take one label; terraform takes none.</p>
+<p><strong>Q10.</strong> What is the difference between <code>tags = { ... }</code> and <code>ebs_block_device { ... }</code>?</p>
+<p><strong>Answer:</strong> tags is an argument whose value is a map; ebs_block_device is a nested block with no =</p>
+<p>The provider's schema decides which form a resource uses.</p>
+<p><strong>Q11.</strong> What is the preferred single-line comment style?</p>
+<p><strong>Answer:</strong> # comment</p>
+<p>// and /* */ are also valid.</p>
+<p><strong>Q12.</strong> What can the right-hand side of an argument be?</p>
+<p><strong>Answer:</strong> An expression: a literal, a reference, a function call or a combination</p>
+<p>The left side is always an identifier.</p>
+<h3 id="04-providers-the-provider-registry"><a href="../level-1/04-providers-registry/">04 · Providers &amp; the Provider Registry</a><a class="headerlink" href="#04-providers-the-provider-registry" title="Permanent link">&para;</a></h3>
+<p><strong>Q13.</strong> Where do AWS provider credentials come from, in order, when none are in the provider block?</p>
+<p><strong>Answer:</strong> Environment variables, the shared credentials file, then an attached IAM role</p>
+<p>Literal credentials in HCL would be committed to version control and written to state in plaintext.</p>
+<p><strong>Q14.</strong> What does the provider block configure, compared with required_providers?</p>
+<p><strong>Answer:</strong> required_providers says which plugin to download; the provider block configures how to talk to it (region, profile…)</p>
+<p>Arguments are defined entirely by each provider, so check its registry page.</p>
+<p><strong>Q15.</strong> What does <code>version = "~&gt; 5.0"</code> accept?</p>
+<p><strong>Answer:</strong> Any 5.x version, not 6.0</p>
+<p>~&gt; allows the rightmost component to increment.</p>
+<p><strong>Q16.</strong> What does each registry provider page document?</p>
+<p><strong>Answer:</strong> Resources, data sources, argument references, import instructions and guides</p>
+<p>The registry also hosts reusable modules.</p>
+<h3 id="05-resources-data-sources"><a href="../level-1/05-resources-data-sources/">05 · Resources &amp; Data Sources</a><a class="headerlink" href="#05-resources-data-sources" title="Permanent link">&para;</a></h3>
+<p><strong>Q17.</strong> What is the difference between a resource and a data block?</p>
+<p><strong>Answer:</strong> A resource is managed (created, updated, destroyed) by Terraform; a data block only reads something that already exists</p>
+<p>terraform destroy never removes anything a data block referred to.</p>
+<p><strong>Q18.</strong> How does Terraform know to create aws_s3_bucket before aws_s3_bucket_versioning?</p>
+<p><strong>Answer:</strong> The reference aws_s3_bucket.reports.id creates an implicit dependency</p>
+<p>Explicit dependencies are covered in Level 3.</p>
+<p><strong>Q19.</strong> What does <code>data "aws_ami" "amazon_linux"</code> do?</p>
+<p><strong>Answer:</strong> Queries AWS at plan time for the newest matching AMI and exposes its attributes</p>
+<p>You'd then use data.aws_ami.amazon_linux.id.</p>
+<p><strong>Q20.</strong> What is &lt;local_name&gt; in resource "aws_s3_bucket" "reports"?</p>
+<p><strong>Answer:</strong> Your name for the instance, scoped to this configuration, used to reference it elsewhere</p>
+<p>The type is defined by the provider.</p>
+<h3 id="06-variables-outputs"><a href="../level-1/06-variables-outputs/">06 · Variables &amp; Outputs</a><a class="headerlink" href="#06-variables-outputs" title="Permanent link">&para;</a></h3>
+<p><strong>Q21.</strong> What happens when you pass a string where <code>type = number</code> is declared?</p>
+<p><strong>Answer:</strong> It fails at plan time with a clear type-mismatch error</p>
+<p>Types catch mistakes early.</p>
+<p><strong>Q22.</strong> In which order do variable sources take precedence (lowest to highest)?</p>
+<p><strong>Answer:</strong> default, terraform.tfvars, *.auto.tfvars, -var-file, -var</p>
+<p>Later wins over earlier.</p>
+<p><strong>Q23.</strong> What does object({ engine = string, storage_gb = number }) describe?</p>
+<p><strong>Answer:</strong> A structured value with named, typed fields</p>
+<p>It groups related settings instead of many flat variables.</p>
+<p><strong>Q24.</strong> How do you reference a variable named environment?</p>
+<p><strong>Answer:</strong> var.environment</p>
+<p>Outputs expose values to whoever ran the configuration or other configurations.</p>
+<h3 id="07-state-basics"><a href="../level-1/07-state-basics/">07 · State Basics</a><a class="headerlink" href="#07-state-basics" title="Permanent link">&para;</a></h3>
+<p><strong>Q25.</strong> Which three things does Terraform compare on each run?</p>
+<p><strong>Answer:</strong> Configuration, state, and real infrastructure</p>
+<p>State is the record of what Terraform believes exists and how it maps to your config.</p>
+<p><strong>Q26.</strong> What does state contain for each resource?</p>
+<p><strong>Answer:</strong> The mapping from the Terraform address to every attribute the provider returned, including computed ones like arn</p>
+<p>That's why outputs like bucket_arn work without a separate lookup.</p>
+<p><strong>Q27.</strong> Why is state sensitive?</p>
+<p><strong>Answer:</strong> It records every attribute, so it can contain plaintext secrets such as generated passwords or keys, even if not in your .tf files</p>
+<p>Treat it like a secret and restrict access.</p>
+<p><strong>Q28.</strong> Why is local state risky for teams?</p>
+<p><strong>Answer:</strong> It's a local terraform.tfstate file that isn't shared or lockable; remote state (e.g. S3, Terraform Cloud) solves this</p>
+<p>Remote state is covered in Level 2.</p>
+<h3 id="08-a-first-real-resource"><a href="../level-1/08-first-real-resource/">08 · A First Real Resource</a><a class="headerlink" href="#08-a-first-real-resource" title="Permanent link">&para;</a></h3>
+<p><strong>Q29.</strong> Why start with the local provider's local_file?</p>
+<p><strong>Answer:</strong> It manages files on the machine running Terraform, so you can learn the full lifecycle with no cloud account or credentials</p>
+<p>terraform destroy deletes the file again.</p>
+<p><strong>Q30.</strong> What is path.module?</p>
+<p><strong>Answer:</strong> The directory containing the current module's .tf files, keeping paths correct regardless of where terraform is run</p>
+<p>Prefer it over bare relative paths.</p>
+<p><strong>Q31.</strong> How does the data "local_file" block relate to the local_file resource?</p>
+<p><strong>Answer:</strong> The resource owns the file; the data block only reads it, with an implicit dependency via the reference</p>
+<p>It reuses module 5's distinction.</p>
+<p><strong>Q32.</strong> What does the lesson say about its AWS S3 example?</p>
+<p><strong>Answer:</strong> It isn't run against a live account; treat it as a careful read-through and verify argument names on the registry before applying</p>
+<p>Provider argument names change between versions.</p>
+<h3 id="09-the-core-workflow-plan-apply-destroy-fmt-validate"><a href="../level-1/09-plan-apply-destroy-fmt-validate/">09 · The Core Workflow: plan, apply, destroy, fmt &amp; validate</a><a class="headerlink" href="#09-the-core-workflow-plan-apply-destroy-fmt-validate" title="Permanent link">&para;</a></h3>
+<p><strong>Q33.</strong> What do +, ~, - and -/+ mean in plan output?</p>
+<p><strong>Answer:</strong> Create, update in place, destroy, and destroy-and-recreate</p>
+<p>-/+ appears when the provider can't update an attribute in place.</p>
+<p><strong>Q34.</strong> What does <code>terraform plan -out=tfplan</code> followed by <code>terraform apply tfplan</code> guarantee?</p>
+<p><strong>Answer:</strong> The applied changes are exactly what was reviewed, with nothing drifting between plan and apply</p>
+<p>It's the standard CI/CD pattern.</p>
+<p><strong>Q35.</strong> What does terraform validate not catch?</p>
+<p><strong>Answer:</strong> Things only the provider knows, like an invalid AMI ID, which show up at plan or apply</p>
+<p>It checks syntax, required arguments and types locally, without touching providers or state.</p>
+<p><strong>Q36.</strong> What does the line 'Plan: 1 to add, 1 to change, 1 to destroy.' summarise?</p>
+<p><strong>Answer:</strong> The counts of resources that will be created, updated and destroyed</p>
+<p>plan changes nothing.</p>
+<p><strong>Q37.</strong> What does terraform fmt do?</p>
+<p><strong>Answer:</strong> Rewrites .tf files in place to canonical style: two-space indentation and aligned = signs</p>
+<p>Like gofmt or prettier, it settles style debates.</p>
+<p><strong>Q38.</strong> What does terraform validate check?</p>
+<p><strong>Answer:</strong> Internal consistency (syntax, required arguments, types) without touching any provider or state</p>
+<p>Provider-specific problems appear at plan or apply.</p>
+<p><strong>Q39.</strong> How can fmt be used in CI?</p>
+<p><strong>Answer:</strong> terraform fmt -check fails the pipeline when files aren't formatted</p>
+<p>It enforces one style without anyone arguing in review.</p>
+<p><strong>Q40.</strong> Why run fmt and validate before every plan?</p>
+<p><strong>Answer:</strong> They catch cheap mistakes instantly and locally before anything reaches a provider</p>
+<p>They're built into Terraform.</p>
+<h3 id="10-capstone-multi-resource-configuration"><a href="../level-1/10-capstone-multi-resource/">10 · Capstone — Multi-Resource Configuration</a><a class="headerlink" href="#10-capstone-multi-resource-configuration" title="Permanent link">&para;</a></h3>
+<p><strong>Q41.</strong> What does a <code>validation</code> block on a variable do?</p>
+<p><strong>Answer:</strong> Declares acceptable values with a custom error message, rejecting a typo like "prd" at plan time</p>
+<p>The example uses contains(["dev","staging","prod"], var.environment).</p>
+<p><strong>Q42.</strong> Why does the capstone use a random_id suffix in the bucket name?</p>
+<p><strong>Answer:</strong> S3 bucket names are globally unique, so a random suffix avoids collisions</p>
+<p>The name is built in locals as project-environment-suffix.</p>
+<p><strong>Q43.</strong> What are locals for in the capstone?</p>
+<p><strong>Answer:</strong> Computed values reused in the configuration, such as bucket_name and common_tags built with merge()</p>
+<p>They avoid repeating expressions.</p>
+<p><strong>Q44.</strong> What does <code>status = var.enable_versioning ? "Enabled" : "Suspended"</code> demonstrate?</p>
+<p><strong>Answer:</strong> A conditional expression choosing a value from a boolean variable</p>
+<p>It parameterises one configuration for multiple environments.</p>
+<h2 id="level-2-intermediate">Level 2 · Intermediate<a class="headerlink" href="#level-2-intermediate" title="Permanent link">&para;</a></h2>
+<h3 id="01-modules-structure-inputsoutputs"><a href="../level-2/01-modules-structure/">01 · Modules — Structure &amp; Inputs/Outputs</a><a class="headerlink" href="#01-modules-structure-inputsoutputs" title="Permanent link">&para;</a></h3>
+<p><strong>Q45.</strong> What is a module?</p>
+<p><strong>Answer:</strong> Any directory containing .tf files; the root module is one too and can call others</p>
+<p>Modules package infrastructure as a reusable, parameterised unit.</p>
+<p><strong>Q46.</strong> Are main.tf, variables.tf and outputs.tf special filenames?</p>
+<p><strong>Answer:</strong> No: Terraform merges every .tf file in a directory; the split is a strong community convention</p>
+<p>The convention makes modules navigable.</p>
+<p><strong>Q47.</strong> What are a module's inputs and outputs?</p>
+<p><strong>Answer:</strong> Inputs are its variables (parameters the caller sets); outputs are values it exposes to its caller</p>
+<p>Like root-level variables and outputs, but for a called module.</p>
+<p><strong>Q48.</strong> What does <code>count = var.enable_versioning ? 1 : 0</code> do?</p>
+<p><strong>Answer:</strong> Creates the resource only when the variable is true</p>
+<p>It's the conditional-resource idiom.</p>
+<h3 id="02-module-versioning"><a href="../level-2/02-module-versioning/">02 · Module Versioning</a><a class="headerlink" href="#02-module-versioning" title="Permanent link">&para;</a></h3>
+<p><strong>Q49.</strong> Why pin a module version?</p>
+<p><strong>Answer:</strong> So a change to the module doesn't silently change every caller on the next terraform init</p>
+<p>The version argument works for registry modules; Git sources pin via ref.</p>
+<p><strong>Q50.</strong> What does <code>~&gt; 5.8</code> mean?</p>
+<p><strong>Answer:</strong> &gt;= 5.8.0 and &lt; 6.0.0 (non-breaking updates, no major bump)</p>
+<p>~&gt; 5.8.1 allows only patch releases.</p>
+<p><strong>Q51.</strong> What does the <code>//</code> in a Git module source mean?</p>
+<p><strong>Answer:</strong> It separates the repository root from a subdirectory, e.g. tf-modules.git//s3-bucket</p>
+<p>One repo can host many independently versioned modules.</p>
+<p><strong>Q52.</strong> Which Git pin is maximally reproducible?</p>
+<p><strong>Answer:</strong> A specific commit via ?ref=&lt;sha&gt;</p>
+<p>Tags are good too; commits can't move.</p>
+<h3 id="03-remote-state-backends"><a href="../level-2/03-remote-state-backends/">03 · Remote State &amp; Backends</a><a class="headerlink" href="#03-remote-state-backends" title="Permanent link">&para;</a></h3>
+<p><strong>Q53.</strong> What two problems of local state does a backend solve?</p>
+<p><strong>Answer:</strong> It isn't shared with teammates and isn't safe to commit (secrets); a backend stores it somewhere shared and lockable</p>
+<p>It also tells Terraform where to store state and how to lock it.</p>
+<p><strong>Q54.</strong> Why does the S3 backend use a dynamodb_table?</p>
+<p><strong>Answer:</strong> S3 has no native locking primitive, so DynamoDB provides state locking</p>
+<p>key sets the path in the bucket, so many configurations can share a bucket.</p>
+<p><strong>Q55.</strong> Why can't a backend block use variables or locals?</p>
+<p><strong>Answer:</strong> Terraform must resolve where the state lives before evaluating anything else; use literals or -backend-config at init</p>
+<p>Partial configuration supplies values at init time.</p>
+<p><strong>Q56.</strong> What happens when you add a backend block and re-run terraform init?</p>
+<p><strong>Answer:</strong> A state migration prompt offers to copy your current state to the new backend</p>
+<p>No resource tracking is lost.</p>
+<h3 id="04-workspaces"><a href="../level-2/04-workspaces/">04 · Workspaces</a><a class="headerlink" href="#04-workspaces" title="Permanent link">&para;</a></h3>
+<p><strong>Q57.</strong> What does a workspace give you?</p>
+<p><strong>Answer:</strong> Multiple separate state files from one configuration directory, without duplicating .tf code</p>
+<p>Every configuration starts with the default workspace.</p>
+<p><strong>Q58.</strong> What is terraform.workspace?</p>
+<p><strong>Answer:</strong> A built-in reference holding the current workspace's name as a string, so config can vary naming, sizing and tags</p>
+<p>For example instance_type = terraform.workspace == "prod" ? ... : ...</p>
+<p><strong>Q59.</strong> Where does a non-default workspace's local state live?</p>
+<p><strong>Answer:</strong> terraform.tfstate.d/&lt;workspace&gt;/terraform.tfstate</p>
+<p>default keeps the plain terraform.tfstate; the S3 backend namespaces per workspace automatically.</p>
+<p><strong>Q60.</strong> What is a good use of workspaces?</p>
+<p><strong>Answer:</strong> A sandbox per developer or a lightweight dev/staging split</p>
+<p>The fuller multi-environment patterns are in Level 3.</p>
+<h3 id="05-provisioners-and-why-to-avoid-them"><a href="../level-2/05-provisioners/">05 · Provisioners (and Why to Avoid Them)</a><a class="headerlink" href="#05-provisioners-and-why-to-avoid-them" title="Permanent link">&para;</a></h3>
+<p><strong>Q61.</strong> What is a provisioner?</p>
+<p><strong>Answer:</strong> A script or command run against a resource at create or destroy time, an escape hatch recommended as a last resort</p>
+<p>remote-exec runs on the created resource; local-exec runs on the machine running Terraform.</p>
+<p><strong>Q62.</strong> What does <code>self</code> refer to inside a provisioner?</p>
+<p><strong>Answer:</strong> The resource the provisioner is attached to (e.g. self.public_ip)</p>
+<p>It's valid only inside a provisioner block.</p>
+<p><strong>Q63.</strong> When do provisioners run?</p>
+<p><strong>Answer:</strong> Only at create or destroy, never on update; a destroy-time one runs before the resource is destroyed</p>
+<p>Changing the script doesn't re-run it against an existing resource.</p>
+<p><strong>Q64.</strong> Why is a failed provisioner hard to handle?</p>
+<p><strong>Answer:</strong> Terraform has no visibility into what the script changed, so it can only mark the resource tainted, not retry a specific step</p>
+<p>That's why configuration management tools or images are preferred.</p>
+<h3 id="06-locals-functions"><a href="../level-2/06-locals-functions/">06 · Locals &amp; Functions</a><a class="headerlink" href="#06-locals-functions" title="Permanent link">&para;</a></h3>
+<p><strong>Q65.</strong> How does a local differ from a variable?</p>
+<p><strong>Answer:</strong> A local has no default, no type constraint and can't be set from outside; it's a named expression</p>
+<p>Use locals to avoid repeating expressions.</p>
+<p><strong>Q66.</strong> Can you define your own functions in HCL?</p>
+<p><strong>Answer:</strong> No: only built-in functions exist, so fluency with the library matters</p>
+<p>The lesson stresses this.</p>
+<p><strong>Q67.</strong> What are name_prefix and common_tags in the example?</p>
+<p><strong>Answer:</strong> Locals reused across multiple resources, such as bucket names and tags</p>
+<p>Referenced as local.name_prefix, not var.</p>
+<p><strong>Q68.</strong> How do you reference a local?</p>
+<p><strong>Answer:</strong> local.&lt;name&gt; (singular)</p>
+<p>Declare with a locals block (plural).</p>
+<h3 id="07-conditional-expressions"><a href="../level-2/07-conditional-expressions/">07 · Conditional Expressions</a><a class="headerlink" href="#07-conditional-expressions" title="Permanent link">&para;</a></h3>
+<p><strong>Q69.</strong> Why is <code>condition ? "a" : 5</code> a type error?</p>
+<p><strong>Answer:</strong> Both branches must produce compatible types, because Terraform must know the result type during validation</p>
+<p>It can't know which branch runs until values are known.</p>
+<p><strong>Q70.</strong> How do you create a resource only if a condition holds?</p>
+<p><strong>Answer:</strong> count = condition ? 1 : 0</p>
+<p>HCL has no if/else statements, only the conditional expression.</p>
+<p><strong>Q71.</strong> How do you reference a resource that has <code>count</code>, even if it is 0 or 1?</p>
+<p><strong>Answer:</strong> With indexing, e.g. aws_cloudwatch_metric_alarm.high_cpu[0].arn</p>
+<p>As soon as count is set, the resource is a list of instances.</p>
+<p><strong>Q72.</strong> What do try() and coalesce() do?</p>
+<p><strong>Answer:</strong> try() falls back if the first expression errors; coalesce() returns the first non-null argument</p>
+<p>They solve 'use this value unless unavailable' without a full ternary.</p>
+<h3 id="08-count-vs-for_each"><a href="../level-2/08-count-for-each/">08 · count vs for_each</a><a class="headerlink" href="#08-count-vs-for_each" title="Permanent link">&para;</a></h3>
+<p><strong>Q73.</strong> How is each instance addressed with count and with for_each?</p>
+<p><strong>Answer:</strong> count by numeric index (web[0]); for_each by key (web["web-1"])</p>
+<p>for_each accepts a set(string) or map.</p>
+<p><strong>Q74.</strong> You remove web-2 from the middle of [web-1, web-2, web-3] used with count. What does Terraform propose?</p>
+<p><strong>Answer:</strong> Destroying and recreating index 1 (and index 2), since everything shifts, even though web-3 didn't conceptually change</p>
+<p>Identity by position causes needless recreation.</p>
+<p><strong>Q75.</strong> Why does for_each avoid that problem?</p>
+<p><strong>Answer:</strong> A resource's identity in state is its key, so removing one key leaves the others untouched</p>
+<p>That's why module authors default to for_each when elements have natural keys.</p>
+<p><strong>Q76.</strong> What are each.key and each.value for a set versus a map?</p>
+<p><strong>Answer:</strong> Identical for a set; distinct for a map</p>
+<p>count.index is the 0-based index inside a count block.</p>
+<h3 id="09-composing-modules"><a href="../level-2/09-composing-modules/">09 · Composing Modules</a><a class="headerlink" href="#09-composing-modules" title="Permanent link">&para;</a></h3>
+<p><strong>Q77.</strong> How does one module use another's output?</p>
+<p><strong>Answer:</strong> With the reference syntax module.&lt;name&gt;.&lt;output&gt;, e.g. vpc_id = module.network.vpc_id</p>
+<p>The reference also creates a dependency.</p>
+<p><strong>Q78.</strong> In the network/app/database example, what order may app and database be created in?</p>
+<p><strong>Answer:</strong> Any order or concurrently, once network is ready; neither depends on the other</p>
+<p>Both depend on network through references.</p>
+<p><strong>Q79.</strong> Why pass an object-typed output rather than three separate outputs?</p>
+<p><strong>Answer:</strong> It keeps calling code shorter and makes the module's 'shape' contract explicit in one type constraint</p>
+<p>The consumer declares variable "vpc" with an object type.</p>
+<p><strong>Q80.</strong> When is depends_on on a module appropriate?</p>
+<p><strong>Answer:</strong> When ordering matters for reasons Terraform can't infer from references, such as eventual-consistency of an IAM policy attachment</p>
+<p>Prefer implicit references.</p>
+<h3 id="10-capstone-reusable-module-set"><a href="../level-2/10-capstone-reusable-modules/">10 · Capstone — Reusable Module Set</a><a class="headerlink" href="#10-capstone-reusable-module-set" title="Permanent link">&para;</a></h3>
+<p><strong>Q81.</strong> What does the Level 2 capstone combine?</p>
+<p><strong>Answer:</strong> A reusable networking module and app module composed from a root configuration, with conditionals, for_each and shared locals for naming and tags</p>
+<p>It uses every Level 2 concept.</p>
+<p><strong>Q82.</strong> How was the capstone verified?</p>
+<p><strong>Answer:</strong> Reasoned through against documented Terraform and AWS provider behaviour; not run against a real cloud account</p>
+<p>The course is honest about this.</p>
+<p><strong>Q83.</strong> Which technique repeats resources by key in the capstone?</p>
+<p><strong>Answer:</strong> for_each</p>
+<p>It avoids positional recreation.</p>
+<p><strong>Q84.</strong> What gives consistent names and tags across modules?</p>
+<p><strong>Answer:</strong> Shared locals</p>
+<p>Locals centralise naming and tagging.</p>
+<h2 id="level-3-advanced">Level 3 · Advanced<a class="headerlink" href="#level-3-advanced" title="Permanent link">&para;</a></h2>
+<h3 id="01-state-locking-team-workflows"><a href="../level-3/01-state-locking-team-workflows/">01 · State Locking &amp; Team Workflows</a><a class="headerlink" href="#01-state-locking-team-workflows" title="Permanent link">&para;</a></h3>
+<p><strong>Q85.</strong> What happens without state locking when Alice and Bob apply at the same time?</p>
+<p><strong>Answer:</strong> Whichever finishes last overwrites the other's changes in the state file, even though both sets of real changes happened</p>
+<p>The state file, not reality, silently loses information.</p>
+<p><strong>Q86.</strong> What does a second concurrent apply do with locking?</p>
+<p><strong>Answer:</strong> It fails loudly with 'Error acquiring the state lock', showing who holds it and since when</p>
+<p>The conflict is visible immediately.</p>
+<p><strong>Q87.</strong> How is locking implemented for the S3 backend?</p>
+<p><strong>Answer:</strong> With a paired DynamoDB table using conditional writes, since S3 has no native lock primitive</p>
+<p>The local backend's file lock only protects against processes on the same machine.</p>
+<p><strong>Q88.</strong> When is terraform force-unlock appropriate?</p>
+<p><strong>Answer:</strong> Only when you're certain the process that acquired the lock crashed and won't continue</p>
+<p>A last resort.</p>
+<h3 id="02-moving-importing-resources"><a href="../level-3/02-moving-importing-resources/">02 · Moving &amp; Importing Resources</a><a class="headerlink" href="#02-moving-importing-resources" title="Permanent link">&para;</a></h3>
+<p><strong>Q89.</strong> What happens if you rename a resource in .tf without updating state?</p>
+<p><strong>Answer:</strong> Terraform plans to create the new address and destroy the old one, since state knows resources by address</p>
+<p>terraform state mv updates the address in state so no create or destroy occurs.</p>
+<p><strong>Q90.</strong> Why prefer a moved block over terraform state mv?</p>
+<p><strong>Answer:</strong> It's committed with the code, so everyone who pulls gets the same no-recreate outcome and the migration is part of review</p>
+<p>state mv is an imperative one-off command someone must remember.</p>
+<p><strong>Q91.</strong> What does <code>terraform import aws_s3_bucket.reports acme-reports-2026</code> do?</p>
+<p><strong>Answer:</strong> Reads the real bucket's attributes into state under that address; it does not write the .tf block for you</p>
+<p>You must write a matching resource block or the next plan will want to destroy it.</p>
+<p><strong>Q92.</strong> Do state mv and import touch real infrastructure?</p>
+<p><strong>Answer:</strong> No: they only edit state</p>
+<p>They keep state and configuration honest without recreate cycles.</p>
+<h3 id="03-terraform-cloudenterprise-concepts"><a href="../level-3/03-terraform-cloud-enterprise/">03 · Terraform Cloud/Enterprise Concepts</a><a class="headerlink" href="#03-terraform-cloudenterprise-concepts" title="Permanent link">&para;</a></h3>
+<p><strong>Q93.</strong> How does Terraform Cloud differ from an S3 backend?</p>
+<p><strong>Answer:</strong> It also runs plan/apply for you on its own infrastructure, with locking, policy enforcement and run history</p>
+<p>Terraform Enterprise is the self-hosted version.</p>
+<p><strong>Q94.</strong> What is a Terraform Cloud workspace compared with the CLI's?</p>
+<p><strong>Answer:</strong> A full unit of configuration, state, variables and run history, roughly one configuration directory</p>
+<p>The name overlaps but the concept differs.</p>
+<p><strong>Q95.</strong> What does replacing a backend "s3" block with a cloud block and running terraform login switch?</p>
+<p><strong>Answer:</strong> State storage, locking and run execution to Terraform Cloud, so apply runs remotely</p>
+<p>Output streams back to your terminal.</p>
+<p><strong>Q96.</strong> What's a benefit of remote runs?</p>
+<p><strong>Answer:</strong> A laptop with no cloud credentials can trigger plan/apply, and every run is auditable centrally</p>
+<p>Credentials and variables are stored in the workspace; variable sets share them.</p>
+<h3 id="04-testing-iac-plan-review"><a href="../level-3/04-testing-iac-plan-review/">04 · Testing IaC — Plan Review</a><a class="headerlink" href="#04-testing-iac-plan-review" title="Permanent link">&para;</a></h3>
+<p><strong>Q97.</strong> What does <code>terraform show -json tfplan</code> produce?</p>
+<p><strong>Answer:</strong> A structured, machine-readable plan that CI and policy engines inspect, instead of parsing terminal output</p>
+<p>Attach the human output to PRs for reviewers.</p>
+<p><strong>Q98.</strong> What does terraform test (since 1.6) do?</p>
+<p><strong>Answer:</strong> Runs assertion-based tests defined in .tftest.hcl, entirely against plan or mocked providers, without real infrastructure</p>
+<p>Each run block is one test case; command = plan runs only a plan.</p>
+<p><strong>Q99.</strong> What is validate's limit?</p>
+<p><strong>Answer:</strong> It's the floor, not the ceiling: it catches syntax and type errors but not whether the plan does what you intend</p>
+<p>Combine with fmt -check, plan review and tests.</p>
+<p><strong>Q100.</strong> What does the assert block in a test contain?</p>
+<p><strong>Answer:</strong> A condition and an error_message</p>
+<p>Example: aws_s3_bucket.this.bucket == "test-bucket".</p>
+<h3 id="05-policy-as-code-concepts"><a href="../level-3/05-policy-as-code/">05 · Policy as Code Concepts</a><a class="headerlink" href="#05-policy-as-code-concepts" title="Permanent link">&para;</a></h3>
+<p><strong>Q101.</strong> What is policy as code?</p>
+<p><strong>Answer:</strong> Organisational rules written as version-controlled, automatically enforced code rather than a wiki page</p>
+<p>For example 'no public S3 buckets' or 'instances must be tagged with a cost centre'.</p>
+<p><strong>Q102.</strong> What are the two dominant policy engines?</p>
+<p><strong>Answer:</strong> Sentinel (HashiCorp, native to Terraform Cloud/Enterprise) and OPA/Rego (via conftest on a JSON plan)</p>
+<p>Both evaluate the structured JSON plan, not .tf source text.</p>
+<p><strong>Q103.</strong> What does the Sentinel allowlist policy do for a plan proposing t3.xlarge?</p>
+<p><strong>Answer:</strong> It fails before apply is ever permitted, regardless of who submitted it</p>
+<p>Every aws_instance's planned instance_type must be in the allowlist.</p>
+<p><strong>Q104.</strong> How does conftest evaluate a plan?</p>
+<p><strong>Answer:</strong> terraform show -json tfplan &gt; plan.json, then conftest test plan.json against Rego deny rules</p>
+<p>deny[msg] accumulates violation messages.</p>
+<h3 id="06-multi-environment-patterns"><a href="../level-3/06-multi-environment-patterns/">06 · Multi-Environment Patterns</a><a class="headerlink" href="#06-multi-environment-patterns" title="Permanent link">&para;</a></h3>
+<p><strong>Q105.</strong> What does directory-per-environment give each environment?</p>
+<p><strong>Answer:</strong> A fully separate configuration with its own state, backend key and provider credentials (possibly another cloud account)</p>
+<p>Shared logic lives once in modules/.</p>
+<p><strong>Q106.</strong> What is the risk of .tfvars-per-environment with one configuration?</p>
+<p><strong>Answer:</strong> Accidentally applying the wrong .tfvars against the wrong state if the backend or workspace selected is wrong</p>
+<p>It suits environments sharing the same backend and account.</p>
+<p><strong>Q107.</strong> Why aren't CLI workspaces enough for dev/staging/prod?</p>
+<p><strong>Answer:</strong> They share backend configuration and credentials, while real environments need a stronger isolation boundary</p>
+<p>Separate accounts are common.</p>
+<p><strong>Q108.</strong> What does each environment's main.tf mostly contain?</p>
+<p><strong>Answer:</strong> Different input values passed to the same shared modules</p>
+<p>It's deliberately small.</p>
+<h3 id="07-dependency-management-the-graph"><a href="../level-3/07-dependency-graph/">07 · Dependency Management &amp; the Graph</a><a class="headerlink" href="#07-dependency-management-the-graph" title="Permanent link">&para;</a></h3>
+<p><strong>Q109.</strong> How is an implicit dependency created?</p>
+<p><strong>Answer:</strong> By a reference such as vpc_id = aws_vpc.this.id, as a side effect of needing a value</p>
+<p>It's the default and the goal.</p>
+<p><strong>Q110.</strong> When is depends_on appropriate?</p>
+<p><strong>Answer:</strong> When an ordering requirement exists that no value reference expresses, such as an IAM policy attachment that must exist first</p>
+<p>Terraform's attribute-level inference can't see behavioural ordering.</p>
+<p><strong>Q111.</strong> What does <code>terraform graph | dot -Tsvg &gt; graph.svg</code> do?</p>
+<p><strong>Answer:</strong> Renders the DOT-format dependency graph as a diagram, useful to confirm a dependency does or doesn't exist</p>
+<p>Large graphs are too dense to read directly.</p>
+<p><strong>Q112.</strong> What can run concurrently?</p>
+<p><strong>Answer:</strong> Resources with no dependency path between them, e.g. subnets that depend only on the VPC</p>
+<p>The plan output shows parallelism once the VPC is created.</p>
+<h3 id="08-secrets-management-patterns"><a href="../level-3/08-secrets-management/">08 · Secrets Management Patterns</a><a class="headerlink" href="#08-secrets-management-patterns" title="Permanent link">&para;</a></h3>
+<p><strong>Q113.</strong> Why is hard-coding password = "hunter2" in a .tf file bad even if removed later?</p>
+<p><strong>Answer:</strong> It stays in Git history, readable by anyone with repo access</p>
+<p>Never commit secrets.</p>
+<p><strong>Q114.</strong> What does <code>sensitive = true</code> on a variable do?</p>
+<p><strong>Answer:</strong> Hides the value in plan and apply output (but it can still be stored in state)</p>
+<p>State may still contain the value, so protect state.</p>
+<p><strong>Q115.</strong> Which two places should secrets stay out of as much as possible?</p>
+<p><strong>Answer:</strong> Version control and state</p>
+<p>For residual cases limit exposure with encrypted, access-controlled remote state.</p>
+<p><strong>Q116.</strong> What pattern supplies secrets without writing them in code?</p>
+<p><strong>Answer:</strong> Read them from a secrets manager or environment variables at runtime</p>
+<p>The lesson covers several such patterns.</p>
+<h3 id="09-refactoring-state-safely"><a href="../level-3/09-refactoring-state-safely/">09 · Refactoring State Safely</a><a class="headerlink" href="#09-refactoring-state-safely" title="Permanent link">&para;</a></h3>
+<p><strong>Q117.</strong> What do moved blocks accomplish when extracting resources into a module?</p>
+<p><strong>Answer:</strong> The plan shows zero changes for them instead of destroy 2 / create 2</p>
+<p>Many resource types can't be recreated without downtime or data loss.</p>
+<p><strong>Q118.</strong> How do you split one state into two configurations?</p>
+<p><strong>Answer:</strong> terraform state mv -state-out=extracted.tfstate ... then terraform state push in the destination configuration</p>
+<p>It's rarer and higher-stakes than a moved refactor, so back up state first.</p>
+<p><strong>Q119.</strong> Why is a moved refactor safer than recreate?</p>
+<p><strong>Answer:</strong> Real infrastructure isn't touched; only addresses in state change</p>
+<p>Same resources, new addresses.</p>
+<p><strong>Q120.</strong> When can directory-per-domain splitting be used?</p>
+<p><strong>Answer:</strong> To split by domain (networking, app), not just by environment</p>
+<p>It physically moves state entries between backends.</p>
+<h3 id="10-capstone-multi-environment-platform"><a href="../level-3/10-capstone-multi-environment/">10 · Capstone — Multi-Environment Platform</a><a class="headerlink" href="#10-capstone-multi-environment-platform" title="Permanent link">&para;</a></h3>
+<p><strong>Q121.</strong> How do dev and prod avoid blocking each other's locks?</p>
+<p><strong>Answer:</strong> Same bucket and lock table but disjoint state keys (platform/dev vs platform/prod)</p>
+<p>Each environment's state is independently locked and encrypted.</p>
+<p><strong>Q122.</strong> What does each environment's main.tf do?</p>
+<p><strong>Answer:</strong> Calls the same network and app modules with different inputs (AZ count, instance count, monitoring)</p>
+<p>Prod uses 3 AZs, 4 instances, monitoring on; dev uses 2, 1, off.</p>
+<p><strong>Q123.</strong> Which parts does the capstone combine?</p>
+<p><strong>Answer:</strong> Directory-per-env, locked remote state, a policy check and a terraform test suite</p>
+<p>It builds around the Level 2 modules.</p>
+<p><strong>Q124.</strong> How was the capstone verified?</p>
+<p><strong>Answer:</strong> Reasoned against documented behaviour; not run against a real cloud account</p>
+<p>The course is honest about this.</p>
+<h2 id="level-4-master">Level 4 · Master<a class="headerlink" href="#level-4-master" title="Permanent link">&para;</a></h2>
+<h3 id="01-large-scale-module-design"><a href="../level-4/01-large-scale-module-design/">01 · Large-Scale Module Design</a><a class="headerlink" href="#01-large-scale-module-design" title="Permanent link">&para;</a></h3>
+<p><strong>Q125.</strong> What makes a module worth reuse at scale?</p>
+<p><strong>Answer:</strong> It encapsulates a decision (how the org does encrypted, replicated storage), not just a resource type</p>
+<p>Thin wrappers add indirection with no value.</p>
+<p><strong>Q126.</strong> What should reusable modules know about teams or environments?</p>
+<p><strong>Answer:</strong> Nothing: environment-specific decisions belong in the composition root</p>
+<p>A hard-coded team name or account ID makes callers work around or fork the module.</p>
+<p><strong>Q127.</strong> Why group related arguments in one object variable (e.g. encryption)?</p>
+<p><strong>Answer:</strong> It keeps the interface stable and explicit, like an API contract, with optional fields and defaults</p>
+<p>Variables and outputs are a module's API.</p>
+<p><strong>Q128.</strong> What is a composition root?</p>
+<p><strong>Answer:</strong> An opinionated configuration that wires several reusable modules for one team's stack</p>
+<p>For example platforms/data-team.</p>
+<h3 id="02-cicd-for-terraform"><a href="../level-4/02-cicd-for-terraform/">02 · CI/CD for Terraform</a><a class="headerlink" href="#02-cicd-for-terraform" title="Permanent link">&para;</a></h3>
+<p><strong>Q129.</strong> What is the two-workflow pattern?</p>
+<p><strong>Answer:</strong> Plan on pull request (commented on the PR) and apply on merge to main</p>
+<p>It runs fmt -check, validate and plan on PRs touching envs/prod or modules.</p>
+<p><strong>Q130.</strong> What does <code>environment: production</code> on the apply job do?</p>
+<p><strong>Answer:</strong> Ties it to a GitHub Environment with required reviewers, so it pauses for human approval before terraform apply runs</p>
+<p>It's a controlled deployment gate.</p>
+<p><strong>Q131.</strong> Why attach the plan to the PR automatically?</p>
+<p><strong>Answer:</strong> It can never be forgotten or run against a stale checkout</p>
+<p>Reviewers see exactly what will change.</p>
+<p><strong>Q132.</strong> Why pin terraform_version in setup-terraform?</p>
+<p><strong>Answer:</strong> Every run uses the same CLI version, avoiding behaviour differences</p>
+<p>Reproducible pipelines.</p>
+<h3 id="03-drift-detection-remediation"><a href="../level-4/03-drift-detection-remediation/">03 · Drift Detection &amp; Remediation</a><a class="headerlink" href="#03-drift-detection-remediation" title="Permanent link">&para;</a></h3>
+<p><strong>Q133.</strong> What is drift?</p>
+<p><strong>Answer:</strong> Real infrastructure no longer matching what Terraform's state believes (console edits, autoscaling, other tools)</p>
+<p>Detect it systematically.</p>
+<p><strong>Q134.</strong> What does <code>terraform plan -detailed-exitcode</code> return when there's a diff?</p>
+<p><strong>Answer:</strong> Exit code 2 (0 means in sync, 1 means error)</p>
+<p>A scheduled job can fail only when something needs attention.</p>
+<p><strong>Q135.</strong> How does Terraform label detected drift in a plan?</p>
+<p><strong>Answer:</strong> 'changes made outside of Terraform since the last apply', distinct from changes your own .tf edits caused</p>
+<p>For example a security group rule widened to 0.0.0.0/0 in the console.</p>
+<p><strong>Q136.</strong> When is the drift-detection job scheduled in the lesson?</p>
+<p><strong>Answer:</strong> Daily by cron across dev, staging and prod via a matrix</p>
+<p>It exits 1 when exit code 2 is detected to trigger normal CI alerts.</p>
+<h3 id="04-cost-estimation-concepts"><a href="../level-4/04-cost-estimation-concepts/">04 · Cost Estimation Concepts</a><a class="headerlink" href="#04-cost-estimation-concepts" title="Permanent link">&para;</a></h3>
+<p><strong>Q137.</strong> Why doesn't Terraform Core know what anything costs?</p>
+<p><strong>Answer:</strong> Provider schemas describe shape, not price; pricing lives in separate billing/price-list data</p>
+<p>instance_type is just a string to the provider schema.</p>
+<p><strong>Q138.</strong> What do cost tools like Infracost build on?</p>
+<p><strong>Answer:</strong> terraform show -json output: resource_changes with planned attribute values (change.after)</p>
+<p>They cross-reference attributes like instance_type and volume_size against a price catalog.</p>
+<p><strong>Q139.</strong> Why do cost estimators go stale?</p>
+<p><strong>Answer:</strong> They need a per-resource-type mapping, which lags when providers add new resource types or attributes</p>
+<p>There are also limits to estimating cost from configuration alone.</p>
+<p><strong>Q140.</strong> What does -out=tfplan save?</p>
+<p><strong>Answer:</strong> The plan in Terraform's binary plan format</p>
+<p>show -json converts it to documented JSON.</p>
+<h3 id="05-security-scanning-for-iac"><a href="../level-4/05-security-scanning-iac/">05 · Security Scanning for IaC</a><a class="headerlink" href="#05-security-scanning-for-iac" title="Permanent link">&para;</a></h3>
+<p><strong>Q141.</strong> Why does terraform validate pass a bucket with all public-access blocks set to false?</p>
+<p><strong>Answer:</strong> It checks types, required arguments and references; schema validity and security posture are orthogonal</p>
+<p>Provider schemas don't know that false is dangerous.</p>
+<p><strong>Q142.</strong> What do IaC security scanners do?</p>
+<p><strong>Answer:</strong> Statically analyse configuration (or the plan) for risky patterns like public buckets before apply</p>
+<p>They reason about your configuration to catch misconfiguration.</p>
+<p><strong>Q143.</strong> When should scanning run?</p>
+<p><strong>Answer:</strong> Before apply, such as in CI on pull requests</p>
+<p>Shift security left.</p>
+<p><strong>Q144.</strong> A world-readable bucket is perfectly valid HCL. What does that imply?</p>
+<p><strong>Answer:</strong> Valid syntax doesn't mean safe, so security checks need separate tooling</p>
+<p>It's as much a bug as a syntax error.</p>
+<h3 id="06-designing-a-platforms-terraform-architecture"><a href="../level-4/06-platform-architecture/">06 · Designing a Platform's Terraform Architecture</a><a class="headerlink" href="#06-designing-a-platforms-terraform-architecture" title="Permanent link">&para;</a></h3>
+<p><strong>Q145.</strong> What is the core tension in platform Terraform architecture?</p>
+<p><strong>Answer:</strong> Blast radius versus duplication/coordination: one big state is simple but a lock or bad plan affects everyone; many states shrink blast radius but need cross-state contracts</p>
+<p>Choose where to draw the boundaries deliberately.</p>
+<p><strong>Q146.</strong> How do you read another state's values across a boundary?</p>
+<p><strong>Answer:</strong> A terraform_remote_state data source reading the other state's outputs (or an explicit output/input contract)</p>
+<p>module.network.vpc_id stops being a local reference.</p>
+<p><strong>Q147.</strong> What may the database configuration depend on from the network state?</p>
+<p><strong>Answer:</strong> Only its outputs, not internal resource addresses or module structure</p>
+<p>Outputs are the contract.</p>
+<p><strong>Q148.</strong> What is the downside of one giant state with all modules?</p>
+<p><strong>Answer:</strong> A lock held by anyone blocks everyone, and a bad plan anywhere risks touching unrelated resources</p>
+<p>The upside is local references.</p>
+<h3 id="07-governance-at-scale"><a href="../level-4/07-governance-at-scale/">07 · Governance at Scale</a><a class="headerlink" href="#07-governance-at-scale" title="Permanent link">&para;</a></h3>
+<p><strong>Q149.</strong> Why isn't per-team IAM enough for governance?</p>
+<p><strong>Answer:</strong> IAM bounds what a pipeline can do but can't express configuration rules like 'no S3 bucket without encryption'; policy as code fills that gap</p>
+<p>You need both layers.</p>
+<p><strong>Q150.</strong> What do hard-mandatory and soft-mandatory enforcement levels mean?</p>
+<p><strong>Answer:</strong> hard-mandatory fails the run with no override; soft-mandatory can be overridden by someone with permission, for legitimate exceptions</p>
+<p>There's also advisory.</p>
+<p><strong>Q151.</strong> Why centralise one policy set attached to many workspaces?</p>
+<p><strong>Answer:</strong> The platform team writes and versions it once, attached by tag, instead of every team copying policy logic into pipelines</p>
+<p>For example a production tag.</p>
+<p><strong>Q152.</strong> What is governance at scale about?</p>
+<p><strong>Answer:</strong> Who may change what, which rules apply to which workloads, and enforcing it without a platform team reviewing every plan by hand</p>
+<p>It sits on top of policy-as-code.</p>
+<h3 id="08-disaster-recovery-for-state-infra"><a href="../level-4/08-disaster-recovery/">08 · Disaster Recovery for State &amp; Infra</a><a class="headerlink" href="#08-disaster-recovery-for-state-infra" title="Permanent link">&para;</a></h3>
+<p><strong>Q153.</strong> If a state file is lost, what happens to the real infrastructure?</p>
+<p><strong>Answer:</strong> It keeps running, but the next plan sees empty state and proposes creating everything, which fails loudly or duplicates resources</p>
+<p>State, not .tf files, is the disaster-recovery-critical asset.</p>
+<p><strong>Q154.</strong> What does S3 versioning on the state bucket give you?</p>
+<p><strong>Answer:</strong> Recovery from an accidental delete or bad overwrite by promoting a previous version</p>
+<p>It's not optional hardening for production.</p>
+<p><strong>Q155.</strong> What does cross-region replication protect against?</p>
+<p><strong>Answer:</strong> Losing the entire bucket or region, not just one object version</p>
+<p>The example replicates to a DR region.</p>
+<p><strong>Q156.</strong> Why are .tf files easy to recover?</p>
+<p><strong>Answer:</strong> They're text in version control</p>
+<p>The state file is the single point of failure.</p>
+<h3 id="09-observability-for-infrastructure-changes"><a href="../level-4/09-observability-infra-changes/">09 · Observability for Infrastructure Changes</a><a class="headerlink" href="#09-observability-for-infrastructure-changes" title="Permanent link">&para;</a></h3>
+<p><strong>Q157.</strong> Why isn't apply output alone observability?</p>
+<p><strong>Answer:</strong> It scrolls past in a CI log that may expire and isn't searchable as a timeline</p>
+<p>You need to retain the plan diff, resource events and approval metadata.</p>
+<p><strong>Q158.</strong> What does TF_LOG_JSON=1 do?</p>
+<p><strong>Answer:</strong> Emits structured JSON lines with stable schemas so a log shipper can parse resource.addr, action and elapsed_seconds without regex</p>
+<p>It turns log output into log data.</p>
+<p><strong>Q159.</strong> Why retain the JSON plan as well as the apply log?</p>
+<p><strong>Answer:</strong> The apply log shows what happened but not why: what the planned diff was</p>
+<p>Store plan JSON in an audit bucket.</p>
+<p><strong>Q160.</strong> Which three things should every apply export?</p>
+<p><strong>Answer:</strong> The plan diff, the resource-level events and identity/approval metadata</p>
+<p>Into systems built to retain and query them.</p>
+<h3 id="10-capstone-project"><a href="../level-4/10-capstone-project/">10 · Capstone Project</a><a class="headerlink" href="#10-capstone-project" title="Permanent link">&para;</a></h3>
+<p><strong>Q161.</strong> What does the Level 4 capstone deliver?</p>
+<p><strong>Answer:</strong> A platform-shaped Terraform layout with CI/CD, drift detection, cost estimation, security scanning and governance in one pipeline, plus a written DR and observability plan</p>
+<p>It introduces no new mechanisms.</p>
+<p><strong>Q162.</strong> How does the capstone relate to modules 01–09?</p>
+<p><strong>Answer:</strong> Every piece is a direct application of them</p>
+<p>It assembles them.</p>
+<p><strong>Q163.</strong> What does the written plan cover?</p>
+<p><strong>Answer:</strong> Disaster recovery and observability</p>
+<p>Alongside the code.</p>
+<p><strong>Q164.</strong> What is a service in the scenario?</p>
+<p><strong>Answer:</strong> An internal API on a new team's platform, with CI/CD gating changes</p>
+<p>The pipeline wires policy, security and cost checks.</p>
+<h2 id="mixed-questions-across-all-levels">Mixed questions across all levels<a class="headerlink" href="#mixed-questions-across-all-levels" title="Permanent link">&para;</a></h2>
+<p><strong>Q165.</strong> What does this configuration do when it is applied?</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kr">variable</span><span class="w"> </span><span class="nv">"enable_monitoring"</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="na">type</span><span class="w">    </span><span class="o">=</span><span class="w"> </span><span class="kt">bool</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span><span class="na">default</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="no">false</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="p">}</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="kr">resource</span><span class="w"> </span><span class="nc">"aws_cloudwatch_metric_alarm"</span><span class="w"> </span><span class="nv">"cpu"</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">  </span><span class="na">count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">var.enable_monitoring</span><span class="w"> </span><span class="p">?</span><span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="m">0</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="p">}</span>
+</code></pre></div>
+<p><strong>Answer:</strong> Creates no alarm by default; with enable_monitoring = true it creates exactly one, addressed as ...cpu[0]</p>
+<p>count = condition ? 1 : 0 is the conditional-resource idiom, and a resource with count is addressed by index.</p>
+<p><strong>Q166.</strong> <code>condition ? "a" : 5</code> fails validation. Why?</p>
+<p><strong>Answer:</strong> Both branches must produce compatible types so Terraform knows the result type before it knows which branch runs</p>
+<p>HCL has no if/else statement, only the conditional expression.</p>
+<p><strong>Q167.</strong> You use <code>count</code> over ["web-1", "web-2", "web-3"] and remove "web-2". What happens to the instances?</p>
+<p><strong>Answer:</strong> Everything after the removed index shifts: web[1] now means web-3 and web[2] disappears, causing needless changes; for_each keyed by name touches only web-2</p>
+<p>Identity by position versus by key. Verified with a small simulation: count gives an update to web[1] and a destroy of web[2]; for_each gives one destroy.</p>
+<p><strong>Q168.</strong> Which type fits <code>for_each</code> over instance names?</p>
+<p><strong>Answer:</strong> A set(string) or a map, addressed as aws_instance.web["web-1"]</p>
+<p>for_each accepts a set of strings or a map; each.key and each.value are available.</p>
+<p><strong>Q169.</strong> A teammate renamed <code>aws_instance.web</code> to <code>aws_instance.app_server</code> in code, and the plan wants to destroy and create. What is the safest fix?</p>
+<p><strong>Answer:</strong> Add a moved { from = aws_instance.web to = aws_instance.app_server } block (or terraform state mv)</p>
+<p>State knows resources by address, so a rename looks like a different resource. A moved block makes the migration part of code review.</p>
+<p><strong>Q170.</strong> You imported an existing bucket with <code>terraform import aws_s3_bucket.reports acme-reports-2026</code> but haven't written the resource block. What will the next plan do?</p>
+<p><strong>Answer:</strong> Propose to destroy it, because import records state but doesn't write configuration; write the matching resource block first</p>
+<p>Import writes to state only.</p>
+<p><strong>Q171.</strong> Two engineers run <code>terraform apply</code> simultaneously on the same S3 backend with DynamoDB locking. What happens to the second run?</p>
+<p><strong>Answer:</strong> It fails with 'Error acquiring the state lock' and shows who holds it</p>
+<p>Without a lock, the last writer would overwrite the other's state changes.</p>
+<p><strong>Q172.</strong> Which backend settings differ between dev and prod so their locks can't block each other?</p>
+<p><strong>Answer:</strong> The state key (e.g. platform/dev/terraform.tfstate vs platform/prod/terraform.tfstate)</p>
+<p>Same bucket and lock table, different keys, give independent state and locks.</p>
+<p><strong>Q173.</strong> Why can't a backend block use variables?</p>
+<p><strong>Answer:</strong> Terraform must resolve where state lives before evaluating anything else; use literals or -backend-config</p>
+<p>Partial configuration supplies the values at init time.</p>
+<p><strong>Q174.</strong> Your CI wants machine-readable plan output for a policy engine. Which commands?</p>
+<p><strong>Answer:</strong> terraform plan -out=tfplan then terraform show -json tfplan</p>
+<p>Sentinel and OPA/conftest evaluate the JSON plan (resource_changes[].change.after), not your .tf text.</p>
+<p><strong>Q175.</strong> A plan proposes <code>t3.xlarge</code> but your policy allows only t3.micro/small/medium. Which layer should block it before apply?</p>
+<p><strong>Answer:</strong> A policy check (Sentinel or OPA/conftest) on the plan, in addition to least-privilege IAM</p>
+<p>IAM bounds what a pipeline can do; policy bounds what it may configure. Verified with a small policy checker over a JSON plan.</p>
+<p><strong>Q176.</strong> A security group rule was widened to 0.0.0.0/0 in the console. How do scheduled pipelines detect it?</p>
+<p><strong>Answer:</strong> terraform plan -detailed-exitcode returns 2 when there's a diff, which fails the job</p>
+<p>Exit 0 means in sync, 1 means error, 2 means changes.</p>
+<p><strong>Q177.</strong> A bucket has all four public_access_block settings set to false. What does <code>terraform validate</code> say?</p>
+<p><strong>Answer:</strong> Valid: it checks syntax, types and references, not security posture; use an IaC scanner or policy</p>
+<p>Schema validity and security posture are orthogonal.</p>
+<p><strong>Q178.</strong> A secret password is hard-coded in a .tf file and later removed in a new commit. Is it safe now?</p>
+<p><strong>Answer:</strong> No: it remains in Git history; rotate it, and use sensitive variables or a secrets manager (state can still hold values)</p>
+<p>Treat state as sensitive too.</p>
+<p><strong>Q179.</strong> You lost terraform.tfstate but the cloud resources still exist. What will the next plan propose?</p>
+<p><strong>Answer:</strong> Creating everything from scratch (failing on collisions or duplicating); restore versioned state from the S3 bucket instead</p>
+<p>State loss doesn't touch real resources; versioning and replication on the state bucket are the first lines of defence.</p>
+<p><strong>Q180.</strong> Which module design rule keeps a module reusable at scale?</p>
+<p><strong>Answer:</strong> No knowledge of specific teams, environments or accounts; those decisions live in the composition root</p>
+<p>A hard-coded team or account ID makes callers fork the module.</p>
+<p><strong>Q181.</strong> Which version constraint accepts 5.9.2 but not 6.0.0?</p>
+<p><strong>Answer:</strong> ~&gt; 5.8 (&gt;= 5.8.0, &lt; 6.0.0)</p>
+<p>~&gt; 5.8.1 allows only patch releases (&lt; 5.9.0).</p>
+<p><strong>Q182.</strong> When is <code>depends_on</code> justified?</p>
+<p><strong>Answer:</strong> When ordering matters but no value is referenced, such as an IAM policy attachment that must exist first</p>
+<p>References already create implicit dependencies, which are preferred.</p>
+<p><strong>Q183.</strong> Why does a Terraform plan not show what a change will cost?</p>
+<p><strong>Answer:</strong> Provider schemas describe shape, not price; cost tools read the JSON plan and look up a separate price catalog</p>
+<p>Infracost-style tools walk resource_changes[].change.after.</p>
+<h2 id="practical-coding-questions">Practical coding questions<a class="headerlink" href="#practical-coding-questions" title="Permanent link">&para;</a></h2>
+<h3 id="why-count-shifts-and-for_each-doesnt">Why count shifts and for_each doesn't<a class="headerlink" href="#why-count-shifts-and-for_each-doesnt" title="Permanent link">&para;</a></h3>
+<p>Write the two address builders: addresses_count(names) maps each position to an address like aws_instance.web[0], and addresses_for_each(names) maps each name to aws_instance.web["web-1"]. The provided plan() compares before and after to show create, update and destroy. Print the plan for removing "web-2" from the middle of the list.</p>
+<p>Starter code:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>def addresses_count(names):
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>    # position -&gt; aws_instance.web[0], aws_instance.web[1], ...
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>    pass
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>def addresses_for_each(names):
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>    # key -&gt; aws_instance.web["web-1"], ...
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>    pass
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>def plan(before, after):
+<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>    destroy = sorted(a for a in before if a not in after)
+<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>    create = sorted(a for a in after if a not in before)
+<a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>    update = sorted(a for a in after if a in before and before[a] != after[a])
+<a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a>    return {"create": create, "update": update, "destroy": destroy}
+<a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a>
+<a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a>old = ["web-1", "web-2", "web-3"]
+<a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a>new = ["web-1", "web-3"]
+<a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a>print("count:", plan(addresses_count(old), addresses_count(new)))
+<a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a>print("for_each:", plan(addresses_for_each(old), addresses_for_each(new)))
+</code></pre></div>
+<p>Expected output:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>count: {'create': [], 'update': ['aws_instance.web[1]'], 'destroy': ['aws_instance.web[2]']}
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>for_each: {'create': [], 'update': [], 'destroy': ['aws_instance.web["web-2"]']}
+</code></pre></div>
+<p>??? success "Show a solution"</p>
+<div class="highlight"><pre><span></span><code>```
+def addresses_count(names):
+    # count addresses instances by position: web[0], web[1], ...
+    return {f"aws_instance.web[{i}]": n for i, n in enumerate(names)}
+
+def addresses_for_each(names):
+    # for_each addresses instances by key
+    return {f'aws_instance.web["{n}"]': n for n in names}
+
+def plan(before, after):
+    destroy = sorted(a for a in before if a not in after)
+    create = sorted(a for a in after if a not in before)
+    update = sorted(a for a in after if a in before and before[a] != after[a])
+    return {"create": create, "update": update, "destroy": destroy}
+
+old = ["web-1", "web-2", "web-3"]
+new = ["web-1", "web-3"]
+print("count:", plan(addresses_count(old), addresses_count(new)))
+print("for_each:", plan(addresses_for_each(old), addresses_for_each(new)))
+```
+
+With count, identity is position, so removing the middle element shifts web-3 into index 1 (an update, or a replace for attributes that force one) and drops index 2. With for_each, identity is the key, so only web-2 is removed. Verified by running the solution.
+</code></pre></div>
+<h3 id="a-plan-policy-check">A plan policy check<a class="headerlink" href="#a-plan-policy-check" title="Permanent link">&para;</a></h3>
+<p>Write violations(plan) that walks resource_changes and reports, for every aws_instance being created or updated (skip deletes where change.after is null), an instance_type outside the allowlist and any missing required tags. This is the same idea as a Sentinel or OPA policy over terraform show -json.</p>
+<p>Starter code:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>import json
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>ALLOWED = {"t3.micro", "t3.small", "t3.medium"}
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>REQUIRED_TAGS = {"Project", "Environment"}
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>PLAN = json.loads("""
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>{"resource_changes": [
+<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>  {"address": "aws_instance.web",  "type": "aws_instance",
+<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a>   "change": {"actions": ["create"], "after": {"instance_type": "t3.xlarge", "tags": {"Project": "shop", "Environment": "prod"}}}},
+<a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a>  {"address": "aws_instance.api",  "type": "aws_instance",
+<a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a>   "change": {"actions": ["create"], "after": {"instance_type": "t3.small", "tags": {"Project": "shop"}}}},
+<a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a>  {"address": "aws_s3_bucket.logs", "type": "aws_s3_bucket",
+<a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a>   "change": {"actions": ["create"], "after": {"bucket": "shop-logs"}}},
+<a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a>  {"address": "aws_instance.old", "type": "aws_instance",
+<a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a>   "change": {"actions": ["delete"], "after": null}}
+<a id="__codelineno-4-16" name="__codelineno-4-16" href="#__codelineno-4-16"></a>]}
+<a id="__codelineno-4-17" name="__codelineno-4-17" href="#__codelineno-4-17"></a>""")
+<a id="__codelineno-4-18" name="__codelineno-4-18" href="#__codelineno-4-18"></a>
+<a id="__codelineno-4-19" name="__codelineno-4-19" href="#__codelineno-4-19"></a>def violations(plan):
+<a id="__codelineno-4-20" name="__codelineno-4-20" href="#__codelineno-4-20"></a>    out = []
+<a id="__codelineno-4-21" name="__codelineno-4-21" href="#__codelineno-4-21"></a>    # your code: append strings like "aws_instance.web: instance_type t3.xlarge not allowed"
+<a id="__codelineno-4-22" name="__codelineno-4-22" href="#__codelineno-4-22"></a>    return out
+<a id="__codelineno-4-23" name="__codelineno-4-23" href="#__codelineno-4-23"></a>
+<a id="__codelineno-4-24" name="__codelineno-4-24" href="#__codelineno-4-24"></a>for v in violations(PLAN):
+<a id="__codelineno-4-25" name="__codelineno-4-25" href="#__codelineno-4-25"></a>    print("FAIL", v)
+<a id="__codelineno-4-26" name="__codelineno-4-26" href="#__codelineno-4-26"></a>print("passed" if not violations(PLAN) else f"{len(violations(PLAN))} violations")
+</code></pre></div>
+<p>Expected output:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>FAIL aws_instance.web: instance_type t3.xlarge not allowed
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>FAIL aws_instance.api: missing tags ['Environment']
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>2 violations
+</code></pre></div>
+<p>??? success "Show a solution"</p>
+<div class="highlight"><pre><span></span><code>```
+import json
+
+ALLOWED = {"t3.micro", "t3.small", "t3.medium"}
+REQUIRED_TAGS = {"Project", "Environment"}
+
+PLAN = json.loads("""
+{"resource_changes": [
+  {"address": "aws_instance.web",  "type": "aws_instance",
+   "change": {"actions": ["create"], "after": {"instance_type": "t3.xlarge", "tags": {"Project": "shop", "Environment": "prod"}}}},
+  {"address": "aws_instance.api",  "type": "aws_instance",
+   "change": {"actions": ["create"], "after": {"instance_type": "t3.small", "tags": {"Project": "shop"}}}},
+  {"address": "aws_s3_bucket.logs", "type": "aws_s3_bucket",
+   "change": {"actions": ["create"], "after": {"bucket": "shop-logs"}}},
+  {"address": "aws_instance.old", "type": "aws_instance",
+   "change": {"actions": ["delete"], "after": null}}
+]}
+""")
+
+def violations(plan):
+    out = []
+    for rc in plan["resource_changes"]:
+        after = rc["change"]["after"]
+        if rc["type"] != "aws_instance" or after is None:
+            continue
+        if after["instance_type"] not in ALLOWED:
+            out.append(f"{rc['address']}: instance_type {after['instance_type']} not allowed")
+        missing = REQUIRED_TAGS - set(after.get("tags", {}))
+        if missing:
+            out.append(f"{rc['address']}: missing tags {sorted(missing)}")
+    return out
+
+for v in violations(PLAN):
+    print("FAIL", v)
+print("passed" if not violations(PLAN) else f"{len(violations(PLAN))} violations")
+```
+
+Policies are queries over the JSON plan's planned values (change.after), not over .tf text, which is why one policy can cover every environment. Verified by running the solution.
+</code></pre></div>
+<hr />
+<p>More free practice: the <a href="../">Terraform Mastery Path</a> curriculum, the <a href="https://learnmasterypath.com/interview-pack/">Interview Prep Pack</a> and the <a href="https://learnmasterypath.com/resume/">free resume ATS check</a>.</p>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+  
+  <nav class="mp-related" aria-label="Related free courses">
+    <h2>Related free courses</h2>
+    <ul>
+      <li><a href="https://learnmasterypath.com/server-ops-mastery-path/">Server Ops</a></li><li><a href="https://learnmasterypath.com/linux-mastery-path/">Linux</a></li><li><a href="https://learnmasterypath.com/nodemcu-mastery-path/">NodeMCU/IoT</a></li><li><a href="https://learnmasterypath.com/kubernetes-mastery-path/">Kubernetes</a></li><li><a href="https://learnmasterypath.com/docker-mastery-path/">Docker</a></li>
+      <li><a href="https://learnmasterypath.com/">All 100+ courses &rarr;</a></li>
+    </ul>
+  </nav>
+  
+
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href=".." class="md-footer__link md-footer__link--prev" aria-label="Previous: Home">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Home
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../level-1/" class="md-footer__link md-footer__link--next" aria-label="Next: Overview">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Overview
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+  <div class="mp-foot">
+    <div class="mp-foot-inner">
+      <a class="mp-foot-brand" href="https://learnmasterypath.com/"><svg class="mp-mark" viewBox="0 0 160 160" role="img" aria-label="Mastery Path logo">
+  <circle cx="80" cy="80" r="74" fill="#FAF7EF" stroke="#2FA98D" stroke-width="5"/>
+  <rect class="mp-bar mp-bar-1" x="36" y="90" width="17" height="24" rx="5" fill="#2FA98D"/>
+  <rect class="mp-bar mp-bar-2" x="59" y="74" width="17" height="40" rx="5" fill="#7FC9B7"/>
+  <rect class="mp-bar mp-bar-3" x="82" y="56" width="17" height="58" rx="5" fill="#E0B457"/>
+  <rect class="mp-bar mp-bar-4" x="105" y="38" width="17" height="76" rx="5" fill="#C97B4A"/>
+  <circle class="mp-dot" cx="44.5" cy="82" r="7" fill="#22261f"/>
+</svg><span>Mastery Path</span></a>
+      <nav class="mp-sitelinks" aria-label="Site and legal links">
+        <a href="https://learnmasterypath.com/">All courses</a>
+        <a href="https://learnmasterypath.com/about.html">About</a>
+        <a href="https://learnmasterypath.com/contact.html">Contact</a>
+        <a href="https://learnmasterypath.com/terraform-mastery-path/privacy/">Privacy Policy</a>
+        <a href="https://learnmasterypath.com/terms.html">Terms</a>
+        <a href="https://learnmasterypath.com/terraform-mastery-path/license/">License</a>
+        <a href="https://learnmasterypath.com/verify/">Verify a certificate</a>
+      </nav>
+    </div>
+    <p class="mp-license-note">
+      © 2026 Vinod Kumar Sigilipelli · Except where otherwise noted, lesson content is licensed under
+      <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a> and code examples under the
+      <a href="https://opensource.org/license/mit">MIT License</a>.
+    </p>
+  </div>
+
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.path", "navigation.tabs", "navigation.sections", "navigation.expand", "navigation.top", "navigation.footer", "navigation.indexes", "toc.follow", "content.code.copy", "content.code.annotate", "search.suggest", "search.highlight"], "search": "../assets/javascripts/workers/search.a7633da7.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.a5f9d56c.min.js"></script>
+      
+        <script src="../javascripts/progress-tracker.js"></script>
+      
+        <script src="../javascripts/final-quiz.js"></script>
+      
+    
+  </body>
+</html>
