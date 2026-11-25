@@ -8,7 +8,7 @@ description: "Free HashiCorp Terraform / Infrastructure-as-Code course from begi
 A structured, module-wise HashiCorp Terraform training program that takes you
 from "what is Infrastructure as Code" to designing a full platform's Terraform
 architecture — with worked HCL examples in every module and a hands-on
-capstone at the end of each level.
+project at the end of Levels 1–3 and a capstone at the end of Level 4.
 
 ## How the program is organized
 
